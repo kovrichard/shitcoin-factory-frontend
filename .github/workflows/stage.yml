@@ -7,7 +7,7 @@ on:
     branches: [ main ]
 
 jobs:
-  test-angular:
+  test:
     runs-on: ubuntu-latest
 
     steps:
