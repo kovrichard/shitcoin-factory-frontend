@@ -1462,15 +1462,7 @@
   resolved "https://registry.yarnpkg.com/@metamask/safe-event-emitter/-/safe-event-emitter-2.0.0.tgz#af577b477c683fad17c619a78208cede06f9605c"
   integrity sha512-/kSXhY692qiV1MXu6EeOZvg5nECLclxNXcKCxJ3cXQgYuRymRHpdx/t7JXfsK+JLjwA1e1c1/SBrlQYpusC29Q==
 
-"@mindsorg/web3modal-angular@^1.6.1":
-  version "1.6.1"
-  resolved "https://registry.yarnpkg.com/@mindsorg/web3modal-angular/-/web3modal-angular-1.6.1.tgz#4adf3c1403fb4874267f204e3c801ee030c8d19a"
-  integrity sha512-E4+quHOzAmjJWeIWi6/qJP0zrLlvDOrYG/ef2pvd9Srs9RnpWMXSP0oqQdQcrflYM0XTuTkpvs3L4/HA+qF16A==
-  dependencies:
-    "@mindsorg/web3modal-ts" "^1.2.2"
-    tslib "^2.0.0"
-
-"@mindsorg/web3modal-ts@^1.2.2":
+"@mindsorg/web3modal-ts@^1.3.0":
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/@mindsorg/web3modal-ts/-/web3modal-ts-1.3.0.tgz#c16b960af94232de4ae48538488cc6ae6ab9f58c"
   integrity sha512-I7RZj5vPuzEXu4bsJLl8JRkBco4sed6A5y3V7ujmeG+3Ebsc+Ps/qfiYP4GocsvoolOKAQhKxPpRDp6OW4x3IQ==

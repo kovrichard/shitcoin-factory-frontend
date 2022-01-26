@@ -24,7 +24,7 @@
     "@angular/platform-browser": "~13.1.0",
     "@angular/platform-browser-dynamic": "~13.1.0",
     "@angular/router": "~13.1.0",
-    "@mindsorg/web3modal-angular": "^1.6.1",
+    "@mindsorg/web3modal-ts": "^1.3.0",
     "@walletconnect/web3-provider": "^1.7.1",
     "assert": "^2.0.0",
     "crypto-browserify": "^3.12.0",
