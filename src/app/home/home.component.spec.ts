@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { Web3ModalService } from '@mindsorg/web3modal-angular';
+import { Web3ModalService } from '../web3-modal/web3-modal.service';
 
 import { HomeComponent } from './home.component';
 
