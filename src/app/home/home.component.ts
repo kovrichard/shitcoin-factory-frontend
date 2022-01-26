@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Web3ModalService } from '@mindsorg/web3modal-angular';
+import { Web3ModalService } from '../web3-modal/web3-modal.service';
 
 @Component({
   selector: 'app-home',

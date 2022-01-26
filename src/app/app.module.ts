@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { Web3ModalModule, Web3ModalService } from '@mindsorg/web3modal-angular';
+import { Web3ModalModule } from './web3-modal/web3-modal.module';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
+import { Web3ModalService } from './web3-modal/web3-modal.service';
 
 const providerOptions = {};
 
