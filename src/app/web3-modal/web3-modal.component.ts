@@ -1,5 +1,6 @@
 import {
   Component,
+  EventEmitter,
   Input,
   OnDestroy,
   OnInit,
@@ -11,6 +12,9 @@ import { Web3ModalService } from './web3-modal.service';
 
 @Component({
   selector: 'm-web3-modal',
+  host: {
+    '[hidden]': 'hidden',
+  },
   templateUrl: './web3-modal.component.html',
   styleUrls: ['./web3-modal.component.scss'],
   encapsulation: ViewEncapsulation.None,
@@ -36,6 +40,7 @@ export class Web3ModalComponent implements OnInit, OnDestroy {
     this.openSubscription = this.service.shouldOpen.subscribe({
       next: (open: boolean) => {
         this.open = open;
+        this.hidden = !open;
       },
     });
 
@@ -53,8 +58,12 @@ export class Web3ModalComponent implements OnInit, OnDestroy {
     this.openSubscription.unsubscribe();
     this.providersSubscription.unsubscribe();
   }
+  
+  hidden = true;
 
-  close(): void {
+  close(event: any) {
+    this.hidden = !this.hidden;
+    event.stopPropagation();
     this.service.close();
   }
 
