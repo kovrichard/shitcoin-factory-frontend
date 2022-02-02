@@ -6,14 +6,12 @@ import { Component, EventEmitter, ViewEncapsulation } from '@angular/core';
     '[hidden]': 'hidden',
   },
   inputs: ['open'],
-  outputs: ['closed'],
   styleUrls: ['./modal.component.scss'],
   encapsulation: ViewEncapsulation.None,
   templateUrl: './modal.component.html',
 })
 export class Modal {
   hidden = true;
-  closed: EventEmitter<any> = new EventEmitter();
 
   set open(value: boolean) {
     this.hidden = !value;
@@ -22,7 +20,6 @@ export class Modal {
   close(event: any) {
 
     this.hidden = !this.hidden;
-    this.closed.next(true);
     event.stopPropagation();
   }
 }
