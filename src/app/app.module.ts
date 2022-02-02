@@ -7,13 +7,19 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { Web3ModalService } from './web3-modal/web3-modal.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatButtonModule} from '@angular/material/button';
+import { MatButtonModule } from '@angular/material/button';
 
 const providerOptions = {};
 
 @NgModule({
   declarations: [AppComponent, HomeComponent],
-  imports: [BrowserModule, AppRoutingModule, Web3ModalModule, BrowserAnimationsModule, MatButtonModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    Web3ModalModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+  ],
   providers: [
     {
       provide: Web3ModalService,
