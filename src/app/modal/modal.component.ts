@@ -5,14 +5,13 @@ import { Component, EventEmitter, ViewEncapsulation } from '@angular/core';
   host: {
     '[hidden]': 'hidden',
   },
-  inputs: ['open', 'allowClose'],
+  inputs: ['open'],
   outputs: ['closed'],
   styleUrls: ['./modal.component.scss'],
   encapsulation: ViewEncapsulation.None,
   templateUrl: './modal.component.html',
 })
 export class Modal {
-  allowClose = true;
   hidden = true;
   closed: EventEmitter<any> = new EventEmitter();
 
@@ -25,7 +24,6 @@ export class Modal {
   }
 
   close(event: any) {
-    if (!this.allowClose) return;
 
     this.hidden = !this.hidden;
     this.closed.next(true);
