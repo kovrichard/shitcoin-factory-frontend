@@ -6,12 +6,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { Web3ModalService } from './web3-modal/web3-modal.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 const providerOptions = {};
 
 @NgModule({
   declarations: [AppComponent, HomeComponent],
-  imports: [BrowserModule, AppRoutingModule, Web3ModalModule],
+  imports: [BrowserModule, AppRoutingModule, Web3ModalModule, BrowserAnimationsModule],
   providers: [
     {
       provide: Web3ModalService,
