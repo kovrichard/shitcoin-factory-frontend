@@ -15,10 +15,6 @@ export class Modal {
   hidden = true;
   closed: EventEmitter<any> = new EventEmitter();
 
-  set _hidden(value: boolean) {
-    this.hidden = value;
-  }
-
   set open(value: boolean) {
     this.hidden = !value;
   }
