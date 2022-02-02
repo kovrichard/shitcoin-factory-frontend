@@ -58,9 +58,11 @@
 }
 
 .m-web3Modal__body {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
   padding: 20px 50px;
   max-height: 420px;
-  overflow-y: auto;
 }
 
 .m-web3ModalBody__provider {
