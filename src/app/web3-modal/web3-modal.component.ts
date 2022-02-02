@@ -21,6 +21,7 @@ import { Web3ModalService } from './web3-modal.service';
 })
 export class Web3ModalComponent implements OnInit, OnDestroy {
   open = false;
+  hidden = true;
   providers: IProviderUserOptions[] = [];
   showMetamaskDownload: boolean;
 
@@ -30,7 +31,6 @@ export class Web3ModalComponent implements OnInit, OnDestroy {
 
   @Input() title: string;
   @Input() description?: string;
-  @Input() descriptionGray?: string;
   @Input() dismissText?: string;
   @Input() promptMetamaskIfNotInstalled = false;
 
@@ -58,13 +58,11 @@ export class Web3ModalComponent implements OnInit, OnDestroy {
     this.openSubscription.unsubscribe();
     this.providersSubscription.unsubscribe();
   }
-  
-  hidden = true;
 
   close(event: any) {
     this.hidden = !this.hidden;
-    event.stopPropagation();
     this.service.close();
+    event.stopPropagation();
   }
 
   private isMetamaskInProviders(providers: IProviderUserOptions[]): boolean {
