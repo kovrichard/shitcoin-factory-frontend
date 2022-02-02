@@ -24,18 +24,16 @@
             </div>
             <div class="m-web3ModalProviderBody__name">MetaMask</div>
           </div>
-          <div
-            class="m-web3ModalProvider__body"
-            *ngFor="let provider of providers"
-            (click)="provider.onClick()"
-          >
+          <button class="btn-provider" mat-raised-button *ngFor="let provider of providers"
+            (click)="provider.onClick()">
+
             <div class="m-web3ModalProviderBody__icon">
               <img src="/assets/{{provider.name}}.svg" alt="/assets/{{provider.name}}.svg" />
             </div>
             <div class="m-web3ModalProviderBody__name">
               {{ provider.name }}
             </div>
-          </div>
+        </button>
         </div>
       </div>
       <div class="m-web3Modal__footer">

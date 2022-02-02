@@ -88,6 +88,15 @@
   border: 1px solid #dce2e4;
 }
 
+.btn-provider {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 194px;
+  height: 165px;
+}
+
 .m-web3ModalProviderBody__name {
   margin-top: 12px;
   font-weight: 600;
@@ -96,9 +105,7 @@
 }
 
 .m-web3ModalProviderBody__icon, .m-web3ModalProviderBody__icon--custom svg {
-  width: 60px;
   height: 60px;
-  display: flex;
   border-radius: 50%;
   overflow: visible;
   box-shadow: none;
