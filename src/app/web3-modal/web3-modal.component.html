@@ -39,11 +39,7 @@
         </div>
       </div>
       <div class="m-web3Modal__footer">
-        <div class="m-web3ModalFooter__description">
-          <p class="m-web3ModalFooter__text" (click)="close($event)">
-            {{ dismissText }}
-          </p>
-        </div>
+        <button class="btn-footer" mat-button (click)="close($event)">{{ dismissText }} </button>
       </div>
     </div>
   </div>

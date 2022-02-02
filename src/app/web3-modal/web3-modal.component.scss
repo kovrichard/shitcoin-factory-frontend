@@ -48,25 +48,13 @@
 }
 
 .m-web3Modal__footer {
-  height: 100px;
-  margin-top: -40px;
   display: flex;
-  padding: 0 50px;
-  flex-direction: column;
   justify-content: center;
-
-  @media screen and (max-width: 768px) {
-    margin-top: -20px;
-  }
+  padding-bottom: 1rem;
 }
 
-.m-web3ModalFooter__text {
-  text-align: center;
-  font-size: 17px;
-  font-weight: 600;
-  margin: 0;
-  cursor: pointer;
-  color: #7d7d82;
+.btn-footer {
+  width: 80%;
 }
 
 .m-web3Modal__body {
