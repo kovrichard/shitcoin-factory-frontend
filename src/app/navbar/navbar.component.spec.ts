@@ -1,23 +1,22 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { NavbarComponent } from '../navbar/navbar.component';
-import { Web3ModalComponent } from '../web3-modal/web3-modal.component';
 import { Web3ModalService } from '../web3-modal/web3-modal.service';
+import { Web3ModalComponent } from '../web3-modal/web3-modal.component';
 
-import { HomeComponent } from './home.component';
+import { NavbarComponent } from './navbar.component';
 
-describe('HomeComponent', () => {
-  let component: HomeComponent;
-  let fixture: ComponentFixture<HomeComponent>;
+describe('NavbarComponent', () => {
+  let component: NavbarComponent;
+  let fixture: ComponentFixture<NavbarComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [HomeComponent, NavbarComponent, Web3ModalComponent],
+      declarations: [NavbarComponent, Web3ModalComponent],
       providers: [Web3ModalService],
     }).compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(HomeComponent);
+    fixture = TestBed.createComponent(NavbarComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -26,9 +25,9 @@ describe('HomeComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should contain navbar', () => {
+  it('should contain web3modal', () => {
     const compiled = fixture.nativeElement as HTMLElement;
-    const modal = compiled.querySelector('app-navbar');
+    const modal = compiled.querySelector('m-web3-modal');
     expect(modal).toBeTruthy();
   });
 });

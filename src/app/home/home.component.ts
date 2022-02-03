@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Web3ModalService } from '../web3-modal/web3-modal.service';
 
 @Component({
   selector: 'app-home',
@@ -7,11 +6,7 @@ import { Web3ModalService } from '../web3-modal/web3-modal.service';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  constructor(private web3modalService: Web3ModalService) {}
+  constructor() {}
 
   ngOnInit(): void {}
-
-  async connect() {
-    const provider = await this.web3modalService.open();
-  }
 }
