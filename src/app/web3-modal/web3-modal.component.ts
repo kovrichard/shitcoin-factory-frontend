@@ -12,7 +12,7 @@ import { Web3ModalService } from './web3-modal.service';
 @Component({
   selector: 'm-web3-modal',
   host: {
-    '[hidden]': 'hidden',
+    '[hidden]': '!open',
   },
   templateUrl: './web3-modal.component.html',
   styleUrls: ['./web3-modal.component.scss'],
@@ -20,7 +20,6 @@ import { Web3ModalService } from './web3-modal.service';
 })
 export class Web3ModalComponent implements OnInit, OnDestroy {
   open = false;
-  hidden = true;
   providers: IProviderUserOptions[] = [];
   showMetamaskDownload: boolean;
 
@@ -39,7 +38,6 @@ export class Web3ModalComponent implements OnInit, OnDestroy {
     this.openSubscription = this.service.shouldOpen.subscribe({
       next: (open: boolean) => {
         this.open = open;
-        this.hidden = !open;
       },
     });
 
@@ -59,7 +57,6 @@ export class Web3ModalComponent implements OnInit, OnDestroy {
   }
 
   close(event: any) {
-    this.hidden = !this.hidden;
     this.service.close();
     event.stopPropagation();
   }

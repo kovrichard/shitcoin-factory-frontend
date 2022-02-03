@@ -27,7 +27,6 @@ describe('Web3ModalComponent', () => {
 
   it('should set default parameters', () => {
     expect(component.open).toBeFalse();
-    expect(component.hidden).toBeTrue();
     expect(component.providers).toEqual([]);
     expect(component.promptMetamaskIfNotInstalled).toBeFalse();
   });
