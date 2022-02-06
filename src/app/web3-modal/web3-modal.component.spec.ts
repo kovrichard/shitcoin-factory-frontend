@@ -31,12 +31,6 @@ describe('Web3ModalComponent', () => {
     expect(component.promptMetamaskIfNotInstalled).toBeFalse();
   });
 
-  it('close should close service', () => {
-    const closeMock = spyOn(service, 'close');
-    component.close(new Event('Mock'));
-    expect(closeMock).toHaveBeenCalledOnceWith();
-  });
-
   it('close should stop event propagation', () => {
     const eventMock = new Event('Mock');
     const stopMock = spyOn(eventMock, 'stopPropagation');

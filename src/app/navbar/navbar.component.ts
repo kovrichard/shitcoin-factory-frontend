@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import Web3 from 'web3';
 import { Web3ModalService } from '../web3-modal/web3-modal.service';
-import { provider } from 'web3-core';
 import abi from '../web3-modal/factory-abi.json';
 import { AbiItem } from 'web3-utils';
 

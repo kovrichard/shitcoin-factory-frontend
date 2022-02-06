@@ -22,19 +22,4 @@ describe('Web3ModalComponent', () => {
 
     expect(providersMock).toHaveBeenCalledOnceWith([]);
   }));
-
-  it('open should set shouldOpen to true', fakeAsync(() => {
-    const openMock = spyOn(service.shouldOpen, 'next');
-    service.open();
-    tick();
-
-    expect(openMock).toHaveBeenCalledOnceWith(true);
-  }));
-
-  it('close should set shouldOpen to false', () => {
-    const openMock = spyOn(service.shouldOpen, 'next');
-    service.close();
-
-    expect(openMock).toHaveBeenCalledOnceWith(false);
-  });
 });

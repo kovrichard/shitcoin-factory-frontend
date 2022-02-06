@@ -34,12 +34,6 @@ export class Web3ModalComponent implements OnInit, OnDestroy {
   constructor(private service: Web3ModalService) {}
 
   async ngOnInit() {
-    this.openSubscription = this.service.shouldOpen.subscribe({
-      next: (open: boolean) => {
-        this.open = open;
-      },
-    });
-
     this.providersSubscription = this.service.providers.subscribe({
       next: (providers: IProviderUserOptions[]) => {
         this.showMetamaskDownload =
@@ -53,17 +47,18 @@ export class Web3ModalComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.openSubscription.unsubscribe();
     this.providersSubscription.unsubscribe();
   }
 
   async connect() {
+    this.open = true;
     const provider = await this.service.open();
     this.service.web3.setProvider(provider as provider);
+    this.open = false;
   }
 
   close(event: any) {
-    this.service.close();
+    this.open = false;
     event.stopPropagation();
   }
 
