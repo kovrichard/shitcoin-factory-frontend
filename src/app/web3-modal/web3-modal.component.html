@@ -1,10 +1,11 @@
-<div class="m-modal">
+<button class="btn-connect" mat-raised-button color="warn" (click)="connect()">{{ buttonTitle }}</button>
+<div class="m-modal" [hidden]="!open">
   <div class="m-modal-bg" (click)="close($event)"></div>
   <div class="m-modal-container">
     <div class="m-web3Modal">
       <div class="m-web3Modal__header">
         <h3 class="m-web3ModalHeader__title">
-          {{ title }}
+          {{ modalTitle }}
         </h3>
         <div class="m-web3ModalHeader__description">
           <p class="m-web3ModalHeader__text">

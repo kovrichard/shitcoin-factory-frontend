@@ -21,6 +21,7 @@ export class NavbarComponent implements OnInit {
     this.web3 = new Web3();
     this.account = '';
     this.factoryAbi = abi as AbiItem[];
+    this.contractAddress = '0x791a7c3c9F35EBb7e981c7b8292d322f917b7A36';
   }
 
   ngOnInit() {}
@@ -28,5 +29,31 @@ export class NavbarComponent implements OnInit {
   async connect() {
     const provider = await this.web3modalService.open();
     this.web3.setProvider(provider as provider);
+  }
+
+  log() {
+    this.web3.eth
+      .getAccounts()
+      .then((accounts) => {
+        this.account = accounts[0];
+      })
+      .catch((error) => {
+        this.account = null;
+      });
+  }
+
+  async mint() {
+    console.log(this.factoryAbi);
+    const factory = new this.web3.eth.Contract(
+      this.factoryAbi,
+      this.contractAddress
+    );
+    const numCoins = await factory.methods.numberOfCoins().call();
+    console.log(numCoins);
+    factory.methods
+      .create('Manon Coin', 'MANON', 1)
+      .send({ from: this.account });
+    const coin = await factory.methods.getShitcoin(numCoins - 1).call();
+    console.log(coin);
   }
 }

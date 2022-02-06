@@ -8,12 +8,11 @@ import {
 import { Subscription } from 'rxjs';
 import { IProviderUserOptions } from '@mindsorg/web3modal-ts';
 import { Web3ModalService } from './web3-modal.service';
+import Web3 from 'web3';
+import { provider } from 'web3-core';
 
 @Component({
   selector: 'm-web3-modal',
-  host: {
-    '[hidden]': '!open',
-  },
   templateUrl: './web3-modal.component.html',
   styleUrls: ['./web3-modal.component.scss'],
   encapsulation: ViewEncapsulation.None,
@@ -22,19 +21,25 @@ export class Web3ModalComponent implements OnInit, OnDestroy {
   open = false;
   providers: IProviderUserOptions[] = [];
   showMetamaskDownload: boolean;
+  web3: Web3;
+  account: string | null;
 
   private openSubscription: Subscription;
   private providersSubscription: Subscription;
   private readonly metamaskShopURL = 'https://metamask.io/download.html';
 
-  @Input() title: string;
+  @Input() buttonTitle: string;
+  @Input() modalTitle: string;
   @Input() description?: string;
   @Input() dismissText?: string;
   @Input() promptMetamaskIfNotInstalled = false;
 
-  constructor(private service: Web3ModalService) {}
+  constructor(private service: Web3ModalService) {
+    this.web3 = new Web3();
+    this.account = null;
+  }
 
-  ngOnInit(): void {
+  async ngOnInit() {
     this.openSubscription = this.service.shouldOpen.subscribe({
       next: (open: boolean) => {
         this.open = open;
@@ -49,11 +54,19 @@ export class Web3ModalComponent implements OnInit, OnDestroy {
         this.providers = providers;
       },
     });
+
+    //const provider = await this.service.open();
+    //this.web3.setProvider(provider as provider);
   }
 
   ngOnDestroy(): void {
     this.openSubscription.unsubscribe();
     this.providersSubscription.unsubscribe();
+  }
+
+  async connect() {
+    const provider = await this.service.open();
+    this.web3.setProvider(provider as provider);
   }
 
   close(event: any) {
