@@ -64,6 +64,7 @@ export class Web3ModalService {
     });
   }
 
+  /*
   setConfiguration(options: IProviderControllerOptions) {
     this.web3WalletConnector.setConfiguration(options);
   }
@@ -75,6 +76,7 @@ export class Web3ModalService {
   setCachedProvider(id: string): void {
     this.web3WalletConnector.providerController.setCachedProvider(id);
   }
+  */
 
   close() {
     this.shouldOpen.next(false);
