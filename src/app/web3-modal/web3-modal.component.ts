@@ -22,7 +22,6 @@ export class Web3ModalComponent implements OnInit, OnDestroy {
   providers: IProviderUserOptions[] = [];
   showMetamaskDownload: boolean;
   web3: Web3;
-  account: string | null;
 
   private openSubscription: Subscription;
   private providersSubscription: Subscription;
@@ -34,10 +33,7 @@ export class Web3ModalComponent implements OnInit, OnDestroy {
   @Input() dismissText?: string;
   @Input() promptMetamaskIfNotInstalled = false;
 
-  constructor(private service: Web3ModalService) {
-    this.web3 = new Web3();
-    this.account = null;
-  }
+  constructor(private service: Web3ModalService) {}
 
   async ngOnInit() {
     this.openSubscription = this.service.shouldOpen.subscribe({
@@ -66,7 +62,7 @@ export class Web3ModalComponent implements OnInit, OnDestroy {
 
   async connect() {
     const provider = await this.service.open();
-    this.web3.setProvider(provider as provider);
+    this.service.web3.setProvider(provider as provider);
   }
 
   close(event: any) {

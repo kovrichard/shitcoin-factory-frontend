@@ -18,7 +18,6 @@ export class NavbarComponent implements OnInit {
   contractAddress: string;
 
   constructor(private web3modalService: Web3ModalService) {
-    this.web3 = new Web3();
     this.account = '';
     this.factoryAbi = abi as AbiItem[];
     this.contractAddress = '0x791a7c3c9F35EBb7e981c7b8292d322f917b7A36';
@@ -26,13 +25,8 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit() {}
 
-  async connect() {
-    const provider = await this.web3modalService.open();
-    this.web3.setProvider(provider as provider);
-  }
-
   log() {
-    this.web3.eth
+    this.web3modalService.web3.eth
       .getAccounts()
       .then((accounts) => {
         this.account = accounts[0];
@@ -44,7 +38,7 @@ export class NavbarComponent implements OnInit {
 
   async mint() {
     console.log(this.factoryAbi);
-    const factory = new this.web3.eth.Contract(
+    const factory = new this.web3modalService.web3.eth.Contract(
       this.factoryAbi,
       this.contractAddress
     );

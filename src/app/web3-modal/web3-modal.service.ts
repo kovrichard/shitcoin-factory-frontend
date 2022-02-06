@@ -7,6 +7,7 @@ import {
   Web3WalletConnector,
 } from '@mindsorg/web3modal-ts';
 import { take } from 'rxjs/operators';
+import Web3 from 'web3';
 
 interface IProviderControllerOptions {
   disableInjectedProvider: boolean;
@@ -18,9 +19,11 @@ interface IProviderControllerOptions {
 @Injectable()
 export class Web3ModalService {
   private web3WalletConnector: Web3WalletConnector;
+  private account: string | null;
 
   public shouldOpen: EventEmitter<boolean> = new EventEmitter();
   public providers: EventEmitter<IProviderUserOptions[]> = new EventEmitter();
+  public web3: Web3;
 
   constructor(
     @Inject('configOptions')
@@ -28,6 +31,8 @@ export class Web3ModalService {
     configOptions: IProviderControllerOptions
   ) {
     this.web3WalletConnector = new Web3WalletConnector(configOptions);
+    this.web3 = new Web3();
+    this.account = null;
   }
 
   async open() {
