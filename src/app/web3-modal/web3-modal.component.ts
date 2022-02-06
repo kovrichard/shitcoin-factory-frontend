@@ -48,6 +48,8 @@ export class Web3ModalComponent implements OnInit, OnDestroy {
         this.providers = providers;
       },
     });
+
+    this.service.loadProviders();
   }
 
   ngOnDestroy(): void {

@@ -14,10 +14,10 @@ describe('Web3ModalComponent', () => {
     service = TestBed.inject(Web3ModalService);
   });
 
-  it('open should initialize providers', fakeAsync(() => {
+  it('loadProviders should initialize providers', fakeAsync(() => {
     const providersMock = spyOn(service.providers, 'next');
 
-    service.open();
+    service.loadProviders();
     tick();
 
     expect(providersMock).toHaveBeenCalledOnceWith([]);

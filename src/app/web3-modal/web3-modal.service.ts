@@ -34,10 +34,12 @@ export class Web3ModalService {
     this.web3 = new Web3();
     this.account = null;
   }
+  
+  loadProviders() {
+    this.providers.next(this.web3WalletConnector.providers);
+  }
 
   async open() {
-    this.providers.next(this.web3WalletConnector.providers);
-
     return await new Promise((resolve, reject) => {
       this.web3WalletConnector.providerController.on(
         CONNECT_EVENT,
