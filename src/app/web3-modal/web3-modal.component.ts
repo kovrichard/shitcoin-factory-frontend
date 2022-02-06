@@ -8,7 +8,6 @@ import {
 import { Subscription } from 'rxjs';
 import { IProviderUserOptions } from '@mindsorg/web3modal-ts';
 import { Web3ModalService } from './web3-modal.service';
-import Web3 from 'web3';
 import { provider } from 'web3-core';
 
 @Component({
@@ -21,7 +20,6 @@ export class Web3ModalComponent implements OnInit, OnDestroy {
   open = false;
   providers: IProviderUserOptions[] = [];
   showMetamaskDownload: boolean;
-  web3: Web3;
 
   private openSubscription: Subscription;
   private providersSubscription: Subscription;
@@ -50,9 +48,6 @@ export class Web3ModalComponent implements OnInit, OnDestroy {
         this.providers = providers;
       },
     });
-
-    //const provider = await this.service.open();
-    //this.web3.setProvider(provider as provider);
   }
 
   ngOnDestroy(): void {
