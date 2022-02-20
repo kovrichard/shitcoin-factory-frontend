@@ -5,7 +5,7 @@ import { AbiItem } from 'web3-utils';
 import { ShitcoinFactoryService } from './shitcoin-factory.service';
 import { Web3ModalService } from './web3-modal/web3-modal.service';
 import {Contract, ContractOptions} from 'web3-eth-contract';
-
+import { environment } from 'src/environments/environment';
 
 const send = {
   func: (settings: any) => {}
@@ -40,7 +40,7 @@ describe('ShitcoinFactoryService', () => {
 
   it('should set default values', () => {
     expect(service.factoryAbi).toEqual(abi as AbiItem[]);
-    expect(service.contractAddress).toEqual('0xfa448a6573D5c090FB353FE686a33EC93BdDaa3C');
+    expect(service.contractAddress).toEqual(environment.contractAddress);
   });
 
   it('numberOfCoins should work', async () => {
