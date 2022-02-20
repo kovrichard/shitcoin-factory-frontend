@@ -21,7 +21,6 @@ export class Web3ModalComponent implements OnInit, OnDestroy {
   providers: IProviderUserOptions[] = [];
   showMetamaskDownload: boolean;
 
-  private openSubscription: Subscription;
   private providersSubscription: Subscription;
   private readonly metamaskShopURL = 'https://metamask.io/download.html';
 
@@ -33,7 +32,7 @@ export class Web3ModalComponent implements OnInit, OnDestroy {
 
   constructor(private service: Web3ModalService) {}
 
-  async ngOnInit() {
+  ngOnInit() {
     this.providersSubscription = this.service.providers.subscribe({
       next: (providers: IProviderUserOptions[]) => {
         this.showMetamaskDownload =

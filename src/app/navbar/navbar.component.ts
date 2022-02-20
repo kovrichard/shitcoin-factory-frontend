@@ -10,17 +10,12 @@ import { AbiItem } from 'web3-utils';
   styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent implements OnInit {
-  private web3: Web3;
   connected: boolean;
-  account: string | null;
-  factoryAbi: AbiItem[];
-  contractAddress: string;
+  account: string | null = '';
+  factoryAbi = abi as AbiItem[];
+  contractAddress = '0x690d9f481E65Ab709Ba96DeFe20993A146a05f6c';
 
-  constructor(private web3modalService: Web3ModalService) {
-    this.account = '';
-    this.factoryAbi = abi as AbiItem[];
-    this.contractAddress = '0x791a7c3c9F35EBb7e981c7b8292d322f917b7A36';
-  }
+  constructor(private web3modalService: Web3ModalService) {}
 
   ngOnInit() {}
 
