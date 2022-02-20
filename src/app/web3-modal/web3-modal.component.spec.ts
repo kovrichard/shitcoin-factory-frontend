@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
 import { Web3ModalComponent } from './web3-modal.component';
 import { Web3ModalService } from './web3-modal.service';
 
@@ -47,4 +47,12 @@ describe('Web3ModalComponent', () => {
       '_blank'
     );
   });
+
+  it('ngOnInit should try to load cached provider', fakeAsync(() => {
+    const cachedProviderMock = spyOn(service, 'loadCachedProvider');
+    component.ngOnInit();
+    tick();
+
+    expect(cachedProviderMock).toHaveBeenCalledOnceWith();
+  }))
 });
