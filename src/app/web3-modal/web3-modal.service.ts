@@ -23,6 +23,7 @@ export class Web3ModalService {
   public web3 = new Web3();
   provider: provider;
   account: string | null = null;
+  providerSet = new EventEmitter();
 
   constructor(
     @Inject('configOptions')
@@ -49,6 +50,7 @@ export class Web3ModalService {
     });
 
     this.web3.setProvider(this.provider);
+    this.providerSet.next(true);    
     const accounts = await this.web3.eth.getAccounts();
     this.account = accounts[0];
   }
@@ -63,6 +65,7 @@ export class Web3ModalService {
 
     if (this.provider) {
       this.web3.setProvider(this.provider);
+      this.providerSet.next(true);
       const accounts = await this.web3.eth.getAccounts();
       this.account = accounts[0];
     }
