@@ -3,7 +3,6 @@ import {
   TestBed,
   fakeAsync,
   tick,
-  flush,
 } from '@angular/core/testing';
 import { Web3ModalComponent } from './web3-modal.component';
 import { Web3ModalService } from './web3-modal.service';
@@ -36,7 +35,7 @@ describe('Web3ModalComponent', () => {
     expect(component.providers).toEqual([]);
     expect(component.promptMetamaskIfNotInstalled).toBeFalse();
   });
-  
+
   it('ngOnInit should try to load cached provider', fakeAsync(() => {
     const cachedProviderMock = spyOn(service, 'loadCachedProvider');
     component.ngOnInit();
@@ -44,22 +43,22 @@ describe('Web3ModalComponent', () => {
 
     expect(cachedProviderMock).toHaveBeenCalledOnceWith();
   }));
-  
+
   xit('connect should set open to false', fakeAsync(() => {
     component.connect();
     tick();
-    
+
     expect(component.open).toBeFalse();
   }));
-  
+
   it('connect should call service open', fakeAsync(() => {
     const openMock = spyOn(service, 'open');
     component.connect();
     tick();
-    
+
     expect(openMock).toHaveBeenCalledOnceWith();
   }));
-  
+
   it('close should set open to false', () => {
     component.open = true;
     expect(component.open).toBeTrue();
@@ -67,7 +66,7 @@ describe('Web3ModalComponent', () => {
     component.close(new Event('test-event'));
     expect(component.open).toBeFalse();
   });
-  
+
   it('close should stop event propagation', () => {
     const eventMock = new Event('Mock');
     const stopMock = spyOn(eventMock, 'stopPropagation');
@@ -86,7 +85,7 @@ describe('Web3ModalComponent', () => {
   });
 
   it('account should return service account', () => {
-    const account = service.account = 'test-account';
+    const account = (service.account = 'test-account');
 
     expect(component.account()).toEqual(account);
   });

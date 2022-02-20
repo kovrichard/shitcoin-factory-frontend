@@ -50,7 +50,7 @@ export class Web3ModalService {
     });
 
     this.web3.setProvider(this.provider);
-    this.providerSet.next(true);    
+    this.providerSet.next(true);
     const accounts = await this.web3.eth.getAccounts();
     this.account = accounts[0];
   }
@@ -60,7 +60,7 @@ export class Web3ModalService {
       this.web3WalletConnector.providerController.cachedProvider;
     const provider =
       this.web3WalletConnector.providerController.getProvider(cachedProvider);
-    
+
     this.provider = await provider?.connector();
 
     if (this.provider) {

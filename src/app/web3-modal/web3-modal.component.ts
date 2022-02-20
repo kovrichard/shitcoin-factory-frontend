@@ -8,7 +8,6 @@ import {
 import { Subscription } from 'rxjs';
 import { IProviderUserOptions } from '@mindsorg/web3modal-ts';
 import { Web3ModalService } from './web3-modal.service';
-import { provider } from 'web3-core';
 
 @Component({
   selector: 'm-web3-modal',
