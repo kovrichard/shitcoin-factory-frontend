@@ -1,1 +1,7 @@
 <app-navbar></app-navbar>
+<div>
+    This factory created {{ numberOfCoins | async }} shitcoins so far.
+</div>
+<div *ngFor="let coin of coins">
+    {{ coin }}
+</div>
