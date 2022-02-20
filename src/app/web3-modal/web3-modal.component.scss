@@ -168,7 +168,8 @@
 .btn-connect {
     margin: 1rem !important;
     width: 130px;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    overflow: hidden !important;
+    white-space: nowrap !important;
+    text-overflow: ellipsis !important;
 }
 
