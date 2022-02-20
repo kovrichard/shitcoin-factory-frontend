@@ -6,6 +6,7 @@ import {
   Web3WalletConnector,
 } from '@mindsorg/web3modal-ts';
 import Web3 from 'web3';
+import { provider } from 'web3-core';
 
 interface IProviderControllerOptions {
   disableInjectedProvider: boolean;
@@ -17,10 +18,11 @@ interface IProviderControllerOptions {
 @Injectable()
 export class Web3ModalService {
   private web3WalletConnector: Web3WalletConnector;
-  private account: string | null;
 
   public providers: EventEmitter<IProviderUserOptions[]> = new EventEmitter();
-  public web3: Web3;
+  public web3 = new Web3();
+  provider: provider;
+  account: string | null = null;
 
   constructor(
     @Inject('configOptions')
@@ -28,8 +30,6 @@ export class Web3ModalService {
     configOptions: IProviderControllerOptions
   ) {
     this.web3WalletConnector = new Web3WalletConnector(configOptions);
-    this.web3 = new Web3();
-    this.account = null;
   }
 
   loadProviders() {
@@ -37,7 +37,9 @@ export class Web3ModalService {
   }
 
   async open() {
-    return await new Promise((resolve, reject) => {
+    if (this.provider) return;
+
+    this.provider = await new Promise((resolve, reject) => {
       this.web3WalletConnector.providerController.on(
         CONNECT_EVENT,
         (provider) => {
@@ -45,6 +47,10 @@ export class Web3ModalService {
         }
       );
     });
+
+    this.web3.setProvider(this.provider);
+    const accounts = await this.web3.eth.getAccounts();
+    this.account = accounts[0];
   }
 
   async loadCachedProvider() {
@@ -52,6 +58,13 @@ export class Web3ModalService {
       this.web3WalletConnector.providerController.cachedProvider;
     const provider =
       this.web3WalletConnector.providerController.getProvider(cachedProvider);
-    return await provider?.connector();
+    
+    this.provider = await provider?.connector();
+
+    if (this.provider) {
+      this.web3.setProvider(this.provider);
+      const accounts = await this.web3.eth.getAccounts();
+      this.account = accounts[0];
+    }
   }
 }

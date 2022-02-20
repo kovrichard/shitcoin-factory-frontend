@@ -20,8 +20,6 @@ export class Web3ModalComponent implements OnInit, OnDestroy {
   open = false;
   providers: IProviderUserOptions[] = [];
   showMetamaskDownload: boolean;
-  provider: provider;
-  account: string | null = null;
 
   private providersSubscription: Subscription;
   private readonly metamaskShopURL = 'https://metamask.io/download.html';
@@ -45,13 +43,7 @@ export class Web3ModalComponent implements OnInit, OnDestroy {
     });
 
     this.service.loadProviders();
-    this.provider = await this.service.loadCachedProvider();
-
-    if (this.provider) {
-      this.service.web3.setProvider(this.provider);
-      const accounts = await this.service.web3.eth.getAccounts();
-      this.account = accounts[0];
-    }
+    await this.service.loadCachedProvider();
   }
 
   ngOnDestroy(): void {
@@ -60,10 +52,7 @@ export class Web3ModalComponent implements OnInit, OnDestroy {
 
   async connect() {
     this.open = true;
-    const provider = this.provider ? this.provider : await this.service.open();
-    this.service.web3.setProvider(provider as provider);
-    const accounts = await this.service.web3.eth.getAccounts();
-    this.account = accounts[0];
+    await this.service.open();
     this.open = false;
   }
 
@@ -78,5 +67,9 @@ export class Web3ModalComponent implements OnInit, OnDestroy {
 
   openMetamaskDownloadPage(): void {
     window.open(this.metamaskShopURL, '_blank');
+  }
+
+  account() {
+    return this.service.account;
   }
 }
