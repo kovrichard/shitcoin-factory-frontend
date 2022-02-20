@@ -48,8 +48,10 @@ export class Web3ModalService {
   }
 
   async loadCachedProvider() {
-    const cachedProvider = this.web3WalletConnector.providerController.cachedProvider;
-    const provider = this.web3WalletConnector.providerController.getProvider(cachedProvider);
+    const cachedProvider =
+      this.web3WalletConnector.providerController.cachedProvider;
+    const provider =
+      this.web3WalletConnector.providerController.getProvider(cachedProvider);
     return await provider?.connector();
   }
 }

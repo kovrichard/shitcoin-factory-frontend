@@ -45,7 +45,7 @@ export class Web3ModalComponent implements OnInit, OnDestroy {
 
     this.service.loadProviders();
     this.provider = await this.service.loadCachedProvider();
-    
+
     if (this.provider) this.service.web3.setProvider(this.provider);
   }
 
