@@ -45,7 +45,10 @@ export class ShitcoinFactoryService {
   }
 
   async getShitcoinName(address: string) {
-    const shitcoin = new this.web3service.web3.eth.Contract(this.shitcoinAbi, address);
+    const shitcoin = new this.web3service.web3.eth.Contract(
+      this.shitcoinAbi,
+      address
+    );
     return await shitcoin.methods.name().call();
   }
 }

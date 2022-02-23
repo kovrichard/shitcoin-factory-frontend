@@ -10,6 +10,4 @@ export class NavbarComponent implements OnInit {
   constructor(private shitcoinFactory: ShitcoinFactoryService) {}
 
   ngOnInit() {}
-
-
 }
