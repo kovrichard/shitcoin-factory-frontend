@@ -11,7 +11,5 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit() {}
 
-  async mint() {
-    this.shitcoinFactory.create('Manon Coin', 'MANON', 1);
-  }
+
 }
