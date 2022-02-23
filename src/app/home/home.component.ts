@@ -31,15 +31,15 @@ export class HomeComponent implements OnInit {
         const address = await this.shitcoinFactory.getShitcoin(i);
         const name = await this.shitcoinFactory.getShitcoinName(address);
         const symbol = await this.shitcoinFactory.getShitcoinSymbol(address);
-        const totalSupply = await this.shitcoinFactory.getShitcoinTotalSupply(address);
-        this.coins.push(
-          {
-            address: address,
-            name: name,
-            symbol: symbol,
-            totalSupply: totalSupply / (10**18)
-          }
+        const totalSupply = await this.shitcoinFactory.getShitcoinTotalSupply(
+          address
         );
+        this.coins.push({
+          address: address,
+          name: name,
+          symbol: symbol,
+          totalSupply: totalSupply / 10 ** 18,
+        });
       }
     });
   }
