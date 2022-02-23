@@ -9,5 +9,5 @@
     This factory created {{ numberOfCoins | async }} shitcoins so far.
 </div>
 <div *ngFor="let coin of coins">
-    {{ coin }}
+    {{ coin.address }} {{ coin.name }} {{ coin.symbol }} {{ coin.totalSupply }}
 </div>
