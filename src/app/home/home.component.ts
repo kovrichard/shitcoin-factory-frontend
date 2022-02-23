@@ -37,7 +37,7 @@ export class HomeComponent implements OnInit {
             address: address,
             name: name,
             symbol: symbol,
-            totalSupply: totalSupply
+            totalSupply: totalSupply / (10**18)
           }
         );
       }
