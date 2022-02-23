@@ -9,6 +9,7 @@ import { Web3ModalService } from './web3-modal/web3-modal.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { NavbarComponent } from './navbar/navbar.component';
+import { FormsModule } from '@angular/forms';
 
 const providerOptions = {};
 
@@ -20,6 +21,7 @@ const providerOptions = {};
     Web3ModalModule,
     BrowserAnimationsModule,
     MatButtonModule,
+    FormsModule,
   ],
   providers: [
     {

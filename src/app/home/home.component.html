@@ -1,4 +1,10 @@
 <app-navbar></app-navbar>
+<form id="form">
+    <input [(ngModel)]="name" type="text" placeholder="name" name="name" />
+    <input [(ngModel)]="ticker" type="text" placeholder="ticker" name="ticker" />
+    <input [(ngModel)]="totalSupply" type="number" placeholder="total supply" name="supply" />
+</form>
+<button mat-button (click)="mint()">Mint</button>
 <div>
     This factory created {{ numberOfCoins | async }} shitcoins so far.
 </div>
