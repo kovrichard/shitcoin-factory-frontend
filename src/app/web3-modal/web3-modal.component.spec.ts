@@ -4,6 +4,7 @@ import {
   fakeAsync,
   tick,
 } from '@angular/core/testing';
+import { of } from 'rxjs';
 import { Web3ModalComponent } from './web3-modal.component';
 import { Web3ModalService } from './web3-modal.service';
 
@@ -84,9 +85,11 @@ describe('Web3ModalComponent', () => {
     );
   });
 
-  it('account should return service account', () => {
-    const account = (service.account = 'test-account');
+  it('account should return service account', fakeAsync(() => {
+    spyOn(service, 'accountObservable').and.returnValue(of('test-account'));
+    component.ngOnInit();
+    tick();
 
-    expect(component.account()).toEqual(account);
-  });
+    expect(component.account).toEqual('test-account');
+  }));
 });

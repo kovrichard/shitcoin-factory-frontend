@@ -35,9 +35,11 @@ export class ShitcoinFactoryService {
   }
 
   create(name: string, ticker: string, totalSupply: number) {
-    this.factory.methods
-      .create(name, ticker, totalSupply)
-      .send({ from: this.web3service.account });
+    this.web3service.accountObservable().subscribe((account) => {
+      this.factory.methods
+        .create(name, ticker, totalSupply)
+        .send({ from: account });
+    });
   }
 
   async getShitcoin(index: number) {

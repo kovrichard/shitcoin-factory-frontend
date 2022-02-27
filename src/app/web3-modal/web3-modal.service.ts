@@ -5,6 +5,7 @@ import {
   IProviderUserOptions,
   Web3WalletConnector,
 } from '@mindsorg/web3modal-ts';
+import { BehaviorSubject } from 'rxjs';
 import Web3 from 'web3';
 import { provider } from 'web3-core';
 
@@ -22,7 +23,7 @@ export class Web3ModalService {
   public providers: EventEmitter<IProviderUserOptions[]> = new EventEmitter();
   public web3 = new Web3();
   provider: provider;
-  account: string | null = null;
+  private account = new BehaviorSubject('');
   providerSet = new EventEmitter();
 
   constructor(
@@ -52,7 +53,7 @@ export class Web3ModalService {
     this.web3.setProvider(this.provider);
     this.providerSet.next(true);
     const accounts = await this.web3.eth.getAccounts();
-    this.account = accounts[0];
+    this.account.next(accounts[0]);
   }
 
   async loadCachedProvider() {
@@ -67,7 +68,11 @@ export class Web3ModalService {
       this.web3.setProvider(this.provider);
       this.providerSet.next(true);
       const accounts = await this.web3.eth.getAccounts();
-      this.account = accounts[0];
+      this.account.next(accounts[0]);
     }
+  }
+
+  accountObservable() {
+    return this.account.asObservable();
   }
 }

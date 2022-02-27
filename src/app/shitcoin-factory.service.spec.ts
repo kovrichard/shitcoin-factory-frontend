@@ -6,6 +6,7 @@ import { ShitcoinFactoryService } from './shitcoin-factory.service';
 import { Web3ModalService } from './web3-modal/web3-modal.service';
 import { Contract } from 'web3-eth-contract';
 import { environment } from 'src/environments/environment';
+import { of } from 'rxjs';
 
 const send = {
   func: (settings: any) => {},
@@ -81,8 +82,8 @@ describe('ShitcoinFactoryService', () => {
 
   it('create should call factory from correct address', async () => {
     const sendMock = spyOn(send, 'func');
-    web3service.account = 'test-account';
-    await service.create('Test Coin', 'TEST', 100);
+    spyOn(web3service, 'accountObservable').and.returnValue(of('test-account'));
+    service.create('Test Coin', 'TEST', 100);
 
     expect(sendMock).toHaveBeenCalledOnceWith({ from: 'test-account' });
   });

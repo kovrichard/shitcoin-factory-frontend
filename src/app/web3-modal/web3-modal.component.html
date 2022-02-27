@@ -1,5 +1,5 @@
-<button *ngIf="!account()" class="btn-connect" mat-raised-button color="warn" (click)="connect()">{{ buttonTitle }}</button>
-<button *ngIf="account()" class="btn-connect" mat-raised-button color="warn">{{ account() }}</button>
+<button *ngIf="!account" class="btn-connect" mat-raised-button color="warn" (click)="connect()">{{ buttonTitle }}</button>
+<button *ngIf="account" class="btn-connect" mat-raised-button color="warn">{{ account }}</button>
 <div class="m-modal" [hidden]="!open">
   <div class="m-modal-bg" (click)="close($event)"></div>
   <div class="m-modal-container">
