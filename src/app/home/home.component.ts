@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ShitcoinFactoryService } from '../shitcoin-factory.service';
+import { Web3ModalService } from '../web3-modal/web3-modal.service';
 
 interface Shitcoin {
   address: string;
+  owner: string;
   name: string;
   symbol: string;
   totalSupply: number;
@@ -20,15 +22,23 @@ export class HomeComponent implements OnInit {
   name = '';
   ticker = '';
   totalSupply = 0;
+  caller = '';
 
-  constructor(private shitcoinFactory: ShitcoinFactoryService) {}
+  constructor(
+    private shitcoinFactory: ShitcoinFactoryService,
+    private web3service: Web3ModalService
+  ) {}
 
   async ngOnInit() {
     this.numberOfCoins = this.shitcoinFactory.numberOfCoinsObservable();
+    this.web3service.accountObservable().subscribe((account: string) => {
+      this.caller = account;
+    });
 
     this.numberOfCoins.subscribe(async (value: number) => {
       for (let i = 0; i < value; i++) {
         const address = await this.shitcoinFactory.getShitcoin(i);
+        const owner = await this.shitcoinFactory.getShitcoinOwner(address);
         const name = await this.shitcoinFactory.getShitcoinName(address);
         const symbol = await this.shitcoinFactory.getShitcoinSymbol(address);
         const totalSupply = await this.shitcoinFactory.getShitcoinTotalSupply(
@@ -36,6 +46,7 @@ export class HomeComponent implements OnInit {
         );
         this.coins.push({
           address: address,
+          owner: owner,
           name: name,
           symbol: symbol,
           totalSupply: totalSupply / 10 ** 18,
