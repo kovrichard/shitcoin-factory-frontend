@@ -5,7 +5,7 @@ import {
   IProviderUserOptions,
   Web3WalletConnector,
 } from '@mindsorg/web3modal-ts';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import Web3 from 'web3';
 import { provider } from 'web3-core';
 
@@ -72,7 +72,7 @@ export class Web3ModalService {
     }
   }
 
-  accountObservable() {
+  accountObservable(): Observable<string> {
     return this.account.asObservable();
   }
 }
