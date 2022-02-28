@@ -36,6 +36,7 @@ export class Web3ModalService {
     this.p = new ethers.providers.JsonRpcProvider('http://localhost:8545');
     this.account.next('');
     this.signer = this.p.getSigner();
+    this.s.next(this.signer);
   }
 
   async loadProviders() {
