@@ -35,6 +35,10 @@ export class ShitcoinFactoryService {
 
   create(name: string, ticker: string, totalSupply: number) {
     this.web3service.accountObservable().subscribe((account: string) => {
+      if (account == '') {
+        return;
+      }
+
       this.factory
         .create(name, ticker, totalSupply, { from: account})
     });

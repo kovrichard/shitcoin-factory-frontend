@@ -22,7 +22,7 @@ export class Web3ModalService {
   private web3WalletConnector: Web3WalletConnector;
 
   public providers: EventEmitter<IProviderUserOptions[]> = new EventEmitter();
-  p: ethers.providers.Web3Provider;
+  p: ethers.providers.Web3Provider | ethers.providers.JsonRpcProvider;
   signer: ethers.providers.JsonRpcSigner;
   private account = new BehaviorSubject('');
   s = new BehaviorSubject<ethers.providers.JsonRpcSigner>('' as any);
@@ -33,6 +33,9 @@ export class Web3ModalService {
     configOptions: IProviderControllerOptions
   ) {
     this.web3WalletConnector = new Web3WalletConnector(configOptions);
+    this.p = new ethers.providers.JsonRpcProvider('http://localhost:8545');
+    this.account.next('');
+    this.signer = this.p.getSigner();
   }
 
   async loadProviders() {
