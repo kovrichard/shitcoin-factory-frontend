@@ -43,7 +43,7 @@ export class Web3ModalComponent implements OnInit, OnDestroy {
     });
 
     this.service.loadProviders();
-    this.service.accountObservable().subscribe((account: string) => {
+    this.service.account.subscribe((account: string) => {
       this.account = account;
     });
   }

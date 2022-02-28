@@ -30,8 +30,8 @@ export class HomeComponent implements OnInit {
   ) {}
 
   async ngOnInit() {
-    this.numberOfCoins = this.shitcoinFactory.numberOfCoinsObservable();
-    this.web3service.accountObservable().subscribe((account: string) => {
+    this.numberOfCoins = this.shitcoinFactory.numberOfCoins;
+    this.web3service.account.subscribe((account: string) => {
       this.caller = account;
     });
 

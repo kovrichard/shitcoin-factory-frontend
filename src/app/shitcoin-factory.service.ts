@@ -15,10 +15,10 @@ export class ShitcoinFactoryService {
   shitcoinAbi = shitcoinAbi as ContractInterface;
   contractAddress = environment.contractAddress;
   factory: any;
-  private numberOfCoins = new Subject<number>();
+  numberOfCoins = new Subject<number>();
 
   constructor(private web3service: Web3ModalService) {
-    this.web3service.s.asObservable().subscribe((signer: ethers.Signer) => {
+    this.web3service.s.subscribe((signer: ethers.Signer) => {
       if (!signer) return;
       this.factory = new ethers.Contract(this.contractAddress, this.factoryAbi, signer)
       this.factory.numberOfCoins()
@@ -29,12 +29,8 @@ export class ShitcoinFactoryService {
 
   }
 
-  numberOfCoinsObservable() {
-    return this.numberOfCoins.asObservable();
-  }
-
   create(name: string, ticker: string, totalSupply: number) {
-    this.web3service.accountObservable().subscribe((account: string) => {
+    this.web3service.account.subscribe((account: string) => {
       if (account == '') {
         return;
       }

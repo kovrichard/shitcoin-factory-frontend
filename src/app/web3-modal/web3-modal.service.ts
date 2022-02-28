@@ -24,7 +24,7 @@ export class Web3ModalService {
   public providers: EventEmitter<IProviderUserOptions[]> = new EventEmitter();
   p: ethers.providers.Web3Provider | ethers.providers.JsonRpcProvider;
   signer: ethers.providers.JsonRpcSigner;
-  private account = new BehaviorSubject('');
+  account = new BehaviorSubject('');
   s = new BehaviorSubject<ethers.providers.JsonRpcSigner>('' as any);
 
   constructor(
@@ -56,9 +56,5 @@ export class Web3ModalService {
         }
       );
     });
-  }
-
-  accountObservable(): Observable<string> {
-    return this.account.asObservable();
   }
 }
