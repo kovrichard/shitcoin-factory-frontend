@@ -1,4 +1,4 @@
-<app-navbar>
+<app-navbar [about]=about>
     <div class="home-container">
         <div>
             <h1>Shitcoin Factory</h1>
@@ -24,9 +24,12 @@
                 <button mat-raised-button (click)="mint()" color="primary">Mint</button>
             </div>
         </form>
+        <div *ngFor="let coin of coins">
+            {{ coin.address }} {{ coin.name }} {{ coin.symbol }} {{ coin.totalSupply }} {{ coin.owner == caller ? "You are the owner" : "" }}
+            {{ coin.owner }} {{ caller }}
+        </div>
     </div>
-    <div *ngFor="let coin of coins">
-        {{ coin.address }} {{ coin.name }} {{ coin.symbol }} {{ coin.totalSupply }} {{ coin.owner == caller ? "You are the owner" : "" }}
-        {{ coin.owner }} {{ caller }}
+    <div #about class="about-container">
+        <p>About</p>
     </div>
 </app-navbar>

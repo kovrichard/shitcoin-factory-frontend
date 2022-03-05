@@ -2,6 +2,7 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+	height: calc(100% - 64px);
 
 	div {
 		text-align: center;
@@ -14,4 +15,10 @@
 
 mat-form-field {
 	margin-right: 1rem;
+}
+
+.about-container {
+	display: flex;
+	height: calc(100% - 64px);
+	margin-top: 64px;
 }

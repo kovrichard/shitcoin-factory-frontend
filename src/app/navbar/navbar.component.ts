@@ -7,9 +7,13 @@ import { MatDrawer } from '@angular/material/sidenav';
   styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent implements OnInit {
-  @Input() drawer: MatDrawer;
+  @Input() about: HTMLDivElement;
 
   constructor(private shitcoinFactory: ShitcoinFactoryService) {}
 
   ngOnInit() {}
+
+  scroll($element: HTMLDivElement) {
+    $element.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest'});
+  }
 }

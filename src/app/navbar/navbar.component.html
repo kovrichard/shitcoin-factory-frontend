@@ -10,6 +10,10 @@
             <mat-icon>home</mat-icon>
             <span>Home</span>
         </a>
+        <button mat-button class="menu-link" (click)="drawer.toggle();scroll(about);">
+            <mat-icon>business_center</mat-icon>
+            <span>About</span>
+        </button>
         <a mat-button class="menu-link" routerLink="/">
             <mat-icon>business_center</mat-icon>
             <span>Factory</span>
