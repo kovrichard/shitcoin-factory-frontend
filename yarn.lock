@@ -4490,6 +4490,13 @@ eth-sig-util@^1.4.2:
     ethereumjs-abi "git+https://github.com/ethereumjs/ethereumjs-abi.git"
     ethereumjs-util "^5.1.1"
 
+eth-testing@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/eth-testing/-/eth-testing-1.0.0.tgz#7020da1e4c873fec84cd2c437f8cd277b6b2d6e1"
+  integrity sha512-HaMC1EukC1e47cqV3apZhkeO7N0qQLHGKsyCG1x1yw36w5Tud+yCSgyft5+8eEZ5oytAZV8aVTuw0LR93/ks1w==
+  dependencies:
+    ethers "^5.5.4"
+
 ethereum-bloom-filters@^1.0.6:
   version "1.0.10"
   resolved "https://registry.yarnpkg.com/ethereum-bloom-filters/-/ethereum-bloom-filters-1.0.10.tgz#3ca07f4aed698e75bd134584850260246a5fed8a"
