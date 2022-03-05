@@ -20,8 +20,8 @@
         </button>
         <span class="spacer"></span>
         <button mat-button class="menu-link menu-end" (click)="drawer.toggle();changeTheme()">
-            <mat-icon>{{ darkTheme ? 'wb_sunny' : 'brightness_3' }}</mat-icon>
-            <span>{{ darkTheme ? 'Light' : 'Dark' }} theme</span>
+            <mat-icon>{{ darkMode ? 'wb_sunny' : 'brightness_3' }}</mat-icon>
+            <span>{{ darkMode ? 'Light' : 'Dark' }} theme</span>
         </button>
     </mat-drawer>
     <mat-drawer-content>

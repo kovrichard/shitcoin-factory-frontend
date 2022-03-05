@@ -1,6 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ShitcoinFactoryService } from '../shitcoin-factory.service';
-import { MatDrawer } from '@angular/material/sidenav';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -11,9 +9,9 @@ export class NavbarComponent implements OnInit {
   @Input() about: HTMLDivElement;
   @Input() factory: HTMLDivElement;
 
-  darkTheme = false;
+  darkMode = false;
 
-  constructor(private shitcoinFactory: ShitcoinFactoryService) {}
+  constructor() {}
 
   ngOnInit() {}
 
@@ -22,6 +20,6 @@ export class NavbarComponent implements OnInit {
   }
 
   changeTheme() {
-    this.darkTheme = !this.darkTheme;
+    this.darkMode = !this.darkMode;
   }
 }
