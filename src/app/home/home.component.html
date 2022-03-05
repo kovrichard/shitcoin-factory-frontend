@@ -13,9 +13,18 @@
 
 
     <form id="form">
-        <input [(ngModel)]="name" type="text" placeholder="name" name="name" />
-        <input [(ngModel)]="ticker" type="text" placeholder="ticker" name="ticker" />
-        <input [(ngModel)]="totalSupply" type="number" placeholder="total supply" name="supply" />
+        <mat-form-field appearance="fill">
+           <mat-label>Name</mat-label> 
+           <input matInput type="text" [(ngModel)]="name" name="name" />
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+           <mat-label>Symbol</mat-label> 
+           <input matInput type="text" [(ngModel)]="symbol" name="symbol" />
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+           <mat-label>Total suply</mat-label> 
+           <input matInput type="number" [(ngModel)]="totalSupply" name="supply" />
+        </mat-form-field>
     </form>
     <button mat-button (click)="mint()">Mint</button>
     <div *ngFor="let coin of coins">

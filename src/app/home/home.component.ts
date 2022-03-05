@@ -20,7 +20,7 @@ export class HomeComponent implements OnInit {
   numberOfCoins: Observable<number>;
   coins: Shitcoin[] = [];
   name = '';
-  ticker = '';
+  symbol = '';
   totalSupply = 0;
   caller = '';
 
@@ -56,6 +56,6 @@ export class HomeComponent implements OnInit {
   }
 
   mint() {
-    this.shitcoinFactory.create(this.name, this.ticker, this.totalSupply);
+    this.shitcoinFactory.create(this.name, this.symbol, this.totalSupply);
   }
 }
