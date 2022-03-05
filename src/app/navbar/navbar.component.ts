@@ -7,7 +7,9 @@ import { MatDrawer } from '@angular/material/sidenav';
   styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent implements OnInit {
+  @Input() home: HTMLDivElement;
   @Input() about: HTMLDivElement;
+  @Input() factory: HTMLDivElement;
 
   constructor(private shitcoinFactory: ShitcoinFactoryService) {}
 

@@ -1,10 +1,18 @@
-<app-navbar [about]=about>
-    <div class="home-container">
+<app-navbar [home]=home [about]=about [factory]=factory>
+    <div #home class="home-container">
         <div>
             <h1>Shitcoin Factory</h1>
         </div>
         <p>Our factory created {{ numberOfCoins | async }} shitcoins so far.</p>
-        
+        <div *ngFor="let coin of coins">
+            {{ coin.address }} {{ coin.name }} {{ coin.symbol }} {{ coin.totalSupply }} {{ coin.owner == caller ? "You are the owner" : "" }}
+            {{ coin.owner }} {{ caller }}
+        </div>
+    </div>
+    <div #about class="about-container">
+        <p>About</p>
+    </div>
+    <div #factory class="factory-container">
         <form id="form">
             <div>
                 <mat-form-field appearance="fill">
@@ -23,13 +31,6 @@
             <div>
                 <button mat-raised-button (click)="mint()" color="primary">Mint</button>
             </div>
-        </form>
-        <div *ngFor="let coin of coins">
-            {{ coin.address }} {{ coin.name }} {{ coin.symbol }} {{ coin.totalSupply }} {{ coin.owner == caller ? "You are the owner" : "" }}
-            {{ coin.owner }} {{ caller }}
-        </div>
-    </div>
-    <div #about class="about-container">
-        <p>About</p>
+       </form>
     </div>
 </app-navbar>

@@ -1,8 +1,14 @@
-.home-container {
+
+.home-container, .about-container, .factory-container {
 	display: flex;
+	height: calc(100% - 64px);
+	padding-top: 64px;
+}
+
+.home-container {
 	flex-direction: column;
 	justify-content: center;
-	height: calc(100% - 64px);
+	margin-top: -64px;
 
 	div {
 		text-align: center;
@@ -15,10 +21,4 @@
 
 mat-form-field {
 	margin-right: 1rem;
-}
-
-.about-container {
-	display: flex;
-	height: calc(100% - 64px);
-	margin-top: 64px;
 }
