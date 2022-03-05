@@ -10,6 +10,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FormsModule } from '@angular/forms';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatIconModule} from '@angular/material/icon';
 
 const providerOptions = {};
 
@@ -22,6 +24,8 @@ const providerOptions = {};
     BrowserAnimationsModule,
     MatButtonModule,
     FormsModule,
+    MatToolbarModule,
+    MatIconModule,
   ],
   providers: [
     {
