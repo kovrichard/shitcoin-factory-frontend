@@ -1,14 +1,27 @@
-<mat-toolbar>
-    <button mat-icon-button (click)="drawer.toggle()">
-        <mat-icon>menu</mat-icon>
-    </button>
-    <span>Shitcoin Factory</span>
-    <span class="spacer"></span>
-    <m-web3-modal
-    buttonTitle="Connect wallet"
-    modalTitle="Providers"
-    description="Connect your wallet by choosing your preferred web3 provider"
-    dismissText="Cancel"
-    [promptMetamaskIfNotInstalled]=true
-    ></m-web3-modal>
-</mat-toolbar>
+<mat-drawer-container class="side-navigation">
+    <mat-drawer #drawer>
+        <mat-toolbar>
+            <button mat-icon-button (click)="drawer.toggle()">
+            <mat-icon>menu</mat-icon>
+            </button>
+            <span>Shitcoin Factory</span>
+        </mat-toolbar>
+    </mat-drawer>
+    <mat-drawer-content>
+        <mat-toolbar>
+            <button mat-icon-button (click)="drawer.toggle()">
+                <mat-icon>menu</mat-icon>
+            </button>
+            <span>Shitcoin Factory</span>
+            <span class="spacer"></span>
+            <m-web3-modal
+            buttonTitle="Connect wallet"
+            modalTitle="Providers"
+            description="Connect your wallet by choosing your preferred web3 provider"
+            dismissText="Cancel"
+            [promptMetamaskIfNotInstalled]=true
+            ></m-web3-modal>
+        </mat-toolbar>
+        <ng-content></ng-content>
+    </mat-drawer-content>
+</mat-drawer-container>
