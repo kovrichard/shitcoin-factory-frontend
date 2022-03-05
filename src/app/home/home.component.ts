@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Subject } from 'rxjs';
 import { ShitcoinFactoryService } from '../shitcoin-factory.service';
 import { Web3ModalService } from '../web3-modal/web3-modal.service';
 
@@ -17,7 +17,6 @@ interface Shitcoin {
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  numberOfCoins: Observable<number>;
   coins: Shitcoin[] = [];
   name = '';
   symbol = '';
@@ -30,12 +29,11 @@ export class HomeComponent implements OnInit {
   ) {}
 
   async ngOnInit() {
-    this.numberOfCoins = this.shitcoinFactory.numberOfCoins;
     this.web3service.account.subscribe((account: string) => {
       this.caller = account;
     });
 
-    this.numberOfCoins.subscribe(async (value: number) => {
+    this.shitcoinFactory.numberOfCoins.subscribe(async (value: number) => {
       for (let i = 0; i < value; i++) {
         const address = await this.shitcoinFactory.getShitcoin(i);
         const owner = await this.shitcoinFactory.getShitcoinOwner(address);

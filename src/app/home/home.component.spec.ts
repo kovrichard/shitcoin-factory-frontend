@@ -24,21 +24,34 @@ const fakeWeb3ModalService = {
   loadProviders: () => {}
 }
 
+const fakeShitcoinFactoryService = {
+  numberOfCoins: {
+    subscribe: (a: any) => { a(1) }
+  },
+  getShitcoin: (i: number) => { return Promise.resolve('test-address'); },
+  getShitcoinOwner: (address: string) => { return Promise.resolve('test-owner'); },
+  getShitcoinName: (address: string) => { return Promise.resolve('Test coin'); },
+  getShitcoinSymbol: (address: string) => { return Promise.resolve('TESTCOIN'); },
+  getShitcoinTotalSupply: (address: string) => { return Promise.resolve(42 * 10 ** 18); },
+  create: (name: string, symbol: string, supply: number) => {}
+}
+
 describe('HomeComponent', () => {
   let component: HomeComponent;
   let fixture: ComponentFixture<HomeComponent>;
-  let shitcoinFactory: ShitcoinFactoryService;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [HomeComponent, NavbarComponent, Web3ModalComponent],
-      providers: [{ provide: Web3ModalService, useValue: fakeWeb3ModalService}],
+      providers: [
+        { provide: Web3ModalService, useValue: fakeWeb3ModalService},
+        { provide: ShitcoinFactoryService, useValue: fakeShitcoinFactoryService}
+      ],
     }).compileComponents();
   });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(HomeComponent);
-    shitcoinFactory = TestBed.inject(ShitcoinFactoryService);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -60,5 +73,25 @@ describe('HomeComponent', () => {
     expect(component.caller).toEqual('test-account');
   }));
 
-  fit()
+  it('should save coins', fakeAsync(() => {
+    component.ngOnInit();
+    tick();
+
+    expect(component.coins.length).toEqual(1);
+    expect(component.coins[0].address).toEqual('test-address');
+    expect(component.coins[0].owner).toEqual('test-owner');
+    expect(component.coins[0].name).toEqual('Test coin');
+    expect(component.coins[0].symbol).toEqual('TESTCOIN');
+    expect(component.coins[0].totalSupply).toEqual(42);
+  }));
+
+  it('mint should call create', fakeAsync(() => {
+    component.name = 'Coin name';
+    component.symbol = 'RANDOMCOIN';
+    component.totalSupply = 300;
+    const createMock = spyOn(fakeShitcoinFactoryService, 'create');
+    component.mint();
+
+    expect(createMock).toHaveBeenCalledOnceWith('Coin name', 'RANDOMCOIN', 300);
+  }));
 });
