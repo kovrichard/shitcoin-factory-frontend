@@ -45,15 +45,15 @@ describe('HomeComponent', () => {
 
   afterEach(() => {
     fixture.destroy();
-  })
-
-  it('should contain navbar', () => {
-    const compiled = fixture.nativeElement as HTMLElement;
-    const modal = compiled.querySelector('app-navbar');
-    expect(modal).toBeTruthy();
   });
 
-  fit('should save the caller', fakeAsync(() => {
+  it('should set default values', () => {
+    expect(component.coins).toEqual([]);
+    expect(component.name).toEqual('');
+    expect(component.symbol).toEqual('');
+  });
+
+  it('should save the caller', fakeAsync(() => {
     component.ngOnInit();
     tick();
 
