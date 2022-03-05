@@ -35,7 +35,7 @@ export class Web3ModalService {
     await new Promise((resolve, reject) => {
       this.providerController.connected.subscribe((connected: string) => {
         resolve(connected);
-      })
+      });
     });
   }
 }

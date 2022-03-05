@@ -19,5 +19,5 @@ export class MetaMask implements IProvider {
     );
     await provider.send('eth_requestAccounts', []);
     this.subject.next(this.name);
-  };
-};
+  }
+}

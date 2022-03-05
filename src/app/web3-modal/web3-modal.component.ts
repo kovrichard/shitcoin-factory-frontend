@@ -5,7 +5,6 @@ import {
   OnInit,
   ViewEncapsulation,
 } from '@angular/core';
-import { Subscription } from 'rxjs';
 import { Web3ModalService } from './web3-modal.service';
 import { IProvider } from '../providers';
 
@@ -41,8 +40,7 @@ export class Web3ModalComponent implements OnInit, OnDestroy {
     });
   }
 
-  ngOnDestroy(): void {
-  }
+  ngOnDestroy(): void {}
 
   async connect() {
     this.open = true;

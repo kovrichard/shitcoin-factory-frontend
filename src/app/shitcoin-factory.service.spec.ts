@@ -1,12 +1,11 @@
 import { TestBed, fakeAsync, tick } from '@angular/core/testing';
 import abi from './web3-modal/factory-abi.json';
 
-import { ContractInterface, ethers } from 'ethers';
+import { ContractInterface } from 'ethers';
 import { ShitcoinFactoryService } from './shitcoin-factory.service';
 import { Web3ModalService } from './web3-modal/web3-modal.service';
 import { Contract } from 'web3-eth-contract';
 import { environment } from 'src/environments/environment';
-import { of } from 'rxjs';
 
 const send = {
   func: (settings: any) => {},

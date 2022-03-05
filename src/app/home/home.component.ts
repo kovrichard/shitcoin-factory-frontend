@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Subject } from 'rxjs';
 import { ShitcoinFactoryService } from '../shitcoin-factory.service';
 import { Web3ModalService } from '../web3-modal/web3-modal.service';
 

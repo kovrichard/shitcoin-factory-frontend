@@ -13,28 +13,46 @@ import { HomeComponent } from './home.component';
 
 const fakeWeb3ModalService = {
   account: {
-    subscribe: (func: (account: string) => void) => { func('test-account'); }
+    subscribe: (func: (account: string) => void) => {
+      func('test-account');
+    },
   },
   ps: {
-    subscribe: () => { return Promise.resolve(''); }
+    subscribe: () => {
+      return Promise.resolve('');
+    },
   },
   s: {
-    subscribe: () => { return Promise.resolve(''); }
+    subscribe: () => {
+      return Promise.resolve('');
+    },
   },
-  loadProviders: () => {}
-}
+  loadProviders: () => {},
+};
 
 const fakeShitcoinFactoryService = {
   numberOfCoins: {
-    subscribe: (a: any) => { a(1) }
+    subscribe: (a: any) => {
+      a(1);
+    },
   },
-  getShitcoin: (i: number) => { return Promise.resolve('test-address'); },
-  getShitcoinOwner: (address: string) => { return Promise.resolve('test-owner'); },
-  getShitcoinName: (address: string) => { return Promise.resolve('Test coin'); },
-  getShitcoinSymbol: (address: string) => { return Promise.resolve('TESTCOIN'); },
-  getShitcoinTotalSupply: (address: string) => { return Promise.resolve(42 * 10 ** 18); },
-  create: (name: string, symbol: string, supply: number) => {}
-}
+  getShitcoin: (i: number) => {
+    return Promise.resolve('test-address');
+  },
+  getShitcoinOwner: (address: string) => {
+    return Promise.resolve('test-owner');
+  },
+  getShitcoinName: (address: string) => {
+    return Promise.resolve('Test coin');
+  },
+  getShitcoinSymbol: (address: string) => {
+    return Promise.resolve('TESTCOIN');
+  },
+  getShitcoinTotalSupply: (address: string) => {
+    return Promise.resolve(42 * 10 ** 18);
+  },
+  create: (name: string, symbol: string, supply: number) => {},
+};
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
@@ -44,8 +62,11 @@ describe('HomeComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [HomeComponent, NavbarComponent, Web3ModalComponent],
       providers: [
-        { provide: Web3ModalService, useValue: fakeWeb3ModalService},
-        { provide: ShitcoinFactoryService, useValue: fakeShitcoinFactoryService}
+        { provide: Web3ModalService, useValue: fakeWeb3ModalService },
+        {
+          provide: ShitcoinFactoryService,
+          useValue: fakeShitcoinFactoryService,
+        },
       ],
     }).compileComponents();
   });

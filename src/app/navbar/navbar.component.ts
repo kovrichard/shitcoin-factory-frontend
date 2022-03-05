@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -16,7 +16,11 @@ export class NavbarComponent implements OnInit {
   ngOnInit() {}
 
   scroll($element: HTMLDivElement) {
-    $element.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest'});
+    $element.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start',
+      inline: 'nearest',
+    });
   }
 
   changeTheme() {
