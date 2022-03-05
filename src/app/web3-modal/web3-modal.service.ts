@@ -1,46 +1,29 @@
-import { EventEmitter, Inject, Injectable, Optional } from '@angular/core';
-import {
-  CONNECT_EVENT,
-  IProviderOptions,
-  IProviderUserOptions,
-  Web3WalletConnector,
-} from '@mindsorg/web3modal-ts';
-import { BehaviorSubject, Observable } from 'rxjs';
-import Web3 from 'web3';
-import { ethers } from 'ethers';
-import { provider } from 'web3-core';
+import { Injectable } from '@angular/core';
 
-interface IProviderControllerOptions {
-  disableInjectedProvider: boolean;
-  cacheProvider: boolean;
-  providerOptions: IProviderOptions;
-  network: string;
-}
+import { BehaviorSubject } from 'rxjs';
+import { ethers } from 'ethers';
+import { ProviderController } from '../providers.service';
 
 @Injectable()
 export class Web3ModalService {
-  private web3WalletConnector: Web3WalletConnector;
+  private providerController: ProviderController;
 
-  public providers: EventEmitter<IProviderUserOptions[]> = new EventEmitter();
   p: ethers.providers.Web3Provider | ethers.providers.JsonRpcProvider;
+  ps = new BehaviorSubject('' as any);
   signer: ethers.providers.JsonRpcSigner;
   account = new BehaviorSubject('');
   s = new BehaviorSubject<ethers.providers.JsonRpcSigner>('' as any);
 
-  constructor(
-    @Inject('configOptions')
-    @Optional()
-    configOptions: IProviderControllerOptions
-  ) {
-    this.web3WalletConnector = new Web3WalletConnector(configOptions);
+  constructor() {
+    this.providerController = new ProviderController(['metamask']);
+    this.providerController.providers;
     this.p = new ethers.providers.JsonRpcProvider('http://localhost:8545');
     this.account.next('');
     this.signer = this.p.getSigner();
-    this.s.next(this.signer);
+    this.ps.next(this.providerController.providers);
   }
 
   async loadProviders() {
-    this.providers.next(this.web3WalletConnector.providers);
     this.p = new ethers.providers.Web3Provider((window as any).ethereum);
     await this.p.send('eth_requestAccounts', []);
     this.signer = this.p.getSigner();
@@ -50,12 +33,9 @@ export class Web3ModalService {
 
   async open() {
     await new Promise((resolve, reject) => {
-      this.web3WalletConnector.providerController.on(
-        CONNECT_EVENT,
-        (provider) => {
-          resolve(provider);
-        }
-      );
+      this.providerController.connected.subscribe((connected: string) => {
+        resolve(connected);
+      })
     });
   }
 }

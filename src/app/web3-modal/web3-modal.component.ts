@@ -6,8 +6,8 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { IProviderUserOptions } from '@mindsorg/web3modal-ts';
 import { Web3ModalService } from './web3-modal.service';
+import { IProvider } from '../providers';
 
 @Component({
   selector: 'm-web3-modal',
@@ -17,9 +17,9 @@ import { Web3ModalService } from './web3-modal.service';
 })
 export class Web3ModalComponent implements OnInit, OnDestroy {
   open = false;
-  providers: IProviderUserOptions[] = [];
   showMetamaskDownload: boolean;
   account = '';
+  ps: IProvider[];
 
   private providersSubscription: Subscription;
   private readonly metamaskShopURL = 'https://metamask.io/download.html';
@@ -33,16 +33,12 @@ export class Web3ModalComponent implements OnInit, OnDestroy {
   constructor(private service: Web3ModalService) {}
 
   async ngOnInit() {
-    this.providersSubscription = this.service.providers.subscribe({
-      next: (providers: IProviderUserOptions[]) => {
-        this.showMetamaskDownload =
-          this.promptMetamaskIfNotInstalled &&
-          !this.isMetamaskInProviders(providers);
-        this.providers = providers;
+    this.service.loadProviders();
+    this.service.ps.subscribe({
+      next: (providers: IProvider[]) => {
+        this.ps = providers;
       },
     });
-
-    this.service.loadProviders();
     this.service.account.subscribe((account: string) => {
       this.account = account;
     });
@@ -61,13 +57,5 @@ export class Web3ModalComponent implements OnInit, OnDestroy {
   close(event: any) {
     this.open = false;
     event.stopPropagation();
-  }
-
-  private isMetamaskInProviders(providers: IProviderUserOptions[]): boolean {
-    return providers.some((p) => p.name.toLowerCase() === 'metamask');
-  }
-
-  openMetamaskDownloadPage(): void {
-    window.open(this.metamaskShopURL, '_blank');
   }
 }

@@ -16,8 +16,6 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 
-const providerOptions = {};
-
 @NgModule({
   declarations: [AppComponent, HomeComponent, NavbarComponent],
   imports: [
@@ -37,12 +35,7 @@ const providerOptions = {};
     {
       provide: Web3ModalService,
       useFactory: () => {
-        return new Web3ModalService({
-          network: 'mainnet',
-          cacheProvider: true,
-          disableInjectedProvider: false,
-          providerOptions,
-        });
+        return new Web3ModalService();
       },
     },
   ],
