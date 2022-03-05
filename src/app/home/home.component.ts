@@ -21,7 +21,7 @@ export class HomeComponent implements OnInit {
   coins: Shitcoin[] = [];
   name = '';
   symbol = '';
-  totalSupply = 0;
+  totalSupply: number;
   caller = '';
 
   constructor(

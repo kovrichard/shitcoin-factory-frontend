@@ -3,30 +3,28 @@
         <div>
             <h1>Shitcoin Factory</h1>
         </div>
-        <p>
-            Our factory created {{ numberOfCoins | async }} shitcoins so far.
-        </p>
+        <p>Our factory created {{ numberOfCoins | async }} shitcoins so far.</p>
+        
+        <form id="form">
+            <div>
+                <mat-form-field appearance="fill">
+                    <mat-label>Name</mat-label> 
+                    <input matInput type="text" [(ngModel)]="name" name="name" />
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>Symbol</mat-label> 
+                    <input matInput type="text" [(ngModel)]="symbol" name="symbol" />
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>Total suply</mat-label> 
+                    <input matInput type="number" [(ngModel)]="totalSupply" name="supply" placeholder="0" />
+                </mat-form-field>
+            </div>
+            <div>
+                <button mat-raised-button (click)="mint()" color="primary">Mint</button>
+            </div>
+        </form>
     </div>
-
-
-
-
-
-    <form id="form">
-        <mat-form-field appearance="fill">
-           <mat-label>Name</mat-label> 
-           <input matInput type="text" [(ngModel)]="name" name="name" />
-        </mat-form-field>
-        <mat-form-field appearance="fill">
-           <mat-label>Symbol</mat-label> 
-           <input matInput type="text" [(ngModel)]="symbol" name="symbol" />
-        </mat-form-field>
-        <mat-form-field appearance="fill">
-           <mat-label>Total suply</mat-label> 
-           <input matInput type="number" [(ngModel)]="totalSupply" name="supply" />
-        </mat-form-field>
-    </form>
-    <button mat-button (click)="mint()">Mint</button>
     <div *ngFor="let coin of coins">
         {{ coin.address }} {{ coin.name }} {{ coin.symbol }} {{ coin.totalSupply }} {{ coin.owner == caller ? "You are the owner" : "" }}
         {{ coin.owner }} {{ caller }}
