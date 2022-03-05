@@ -18,6 +18,11 @@
             <mat-icon>business_center</mat-icon>
             <span>Factory</span>
         </button>
+        <span class="spacer"></span>
+        <button mat-button class="menu-link menu-end" (click)="changeTheme()">
+            <mat-icon>{{ darkTheme ? 'wb_sunny' : 'brightness_3' }}</mat-icon>
+            <span>{{ darkTheme ? 'Light' : 'Dark' }} theme</span>
+        </button>
     </mat-drawer>
     <mat-drawer-content>
         <mat-toolbar>

@@ -11,11 +11,17 @@ export class NavbarComponent implements OnInit {
   @Input() about: HTMLDivElement;
   @Input() factory: HTMLDivElement;
 
+  darkTheme = false;
+
   constructor(private shitcoinFactory: ShitcoinFactoryService) {}
 
   ngOnInit() {}
 
   scroll($element: HTMLDivElement) {
     $element.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest'});
+  }
+
+  changeTheme() {
+    this.darkTheme = !this.darkTheme;
   }
 }
