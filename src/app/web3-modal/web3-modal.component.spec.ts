@@ -33,17 +33,8 @@ describe('Web3ModalComponent', () => {
 
   it('should set default parameters', () => {
     expect(component.open).toBeFalse();
-    expect(component.providers).toEqual([]);
     expect(component.promptMetamaskIfNotInstalled).toBeFalse();
   });
-
-  it('ngOnInit should try to load cached provider', fakeAsync(() => {
-    const cachedProviderMock = spyOn(service, 'loadCachedProvider');
-    component.ngOnInit();
-    tick();
-
-    expect(cachedProviderMock).toHaveBeenCalledOnceWith();
-  }));
 
   xit('connect should set open to false', fakeAsync(() => {
     component.connect();
@@ -75,18 +66,8 @@ describe('Web3ModalComponent', () => {
     expect(stopMock).toHaveBeenCalledOnceWith();
   });
 
-  it('open metamask download page should work', () => {
-    const openMock = spyOn(window, 'open');
-    component.openMetamaskDownloadPage();
-
-    expect(openMock).toHaveBeenCalledOnceWith(
-      'https://metamask.io/download.html',
-      '_blank'
-    );
-  });
-
   it('account should return service account', fakeAsync(() => {
-    spyOn(service, 'accountObservable').and.returnValue(of('test-account'));
+    spyOnProperty(service, 'account').and.returnValue(of('test-account'));
     component.ngOnInit();
     tick();
 

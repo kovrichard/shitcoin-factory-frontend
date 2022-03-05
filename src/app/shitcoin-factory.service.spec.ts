@@ -1,7 +1,7 @@
 import { TestBed, fakeAsync, tick } from '@angular/core/testing';
 import abi from './web3-modal/factory-abi.json';
 
-import { AbiItem } from 'web3-utils';
+import { ContractInterface, ethers } from 'ethers';
 import { ShitcoinFactoryService } from './shitcoin-factory.service';
 import { Web3ModalService } from './web3-modal/web3-modal.service';
 import { Contract } from 'web3-eth-contract';
@@ -56,15 +56,14 @@ describe('ShitcoinFactoryService', () => {
   });
 
   it('should set default values', () => {
-    expect(service.factoryAbi).toEqual(abi as AbiItem[]);
+    expect(service.factoryAbi).toEqual(abi as ContractInterface);
     expect(service.contractAddress).toEqual(environment.contractAddress);
   });
 
   xit('numberOfCoins should work', fakeAsync(() => {
-    web3service.providerSet.next(true);
     tick();
     const result: number[] = [];
-    service.numberOfCoinsObservable().subscribe((value) => {
+    service.numberOfCoins.subscribe((value: number) => {
       result.push(value);
     });
     tick();
@@ -82,7 +81,7 @@ describe('ShitcoinFactoryService', () => {
 
   it('create should call factory from correct address', async () => {
     const sendMock = spyOn(send, 'func');
-    spyOn(web3service, 'accountObservable').and.returnValue(of('test-account'));
+    spyOnProperty(web3service, 'account');
     service.create('Test Coin', 'TEST', 100);
 
     expect(sendMock).toHaveBeenCalledOnceWith({ from: 'test-account' });

@@ -21,9 +21,6 @@ export class Web3ModalComponent implements OnInit, OnDestroy {
   account = '';
   ps: IProvider[];
 
-  private providersSubscription: Subscription;
-  private readonly metamaskShopURL = 'https://metamask.io/download.html';
-
   @Input() buttonTitle: string;
   @Input() modalTitle: string;
   @Input() description?: string;
@@ -45,7 +42,6 @@ export class Web3ModalComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.providersSubscription.unsubscribe();
   }
 
   async connect() {
