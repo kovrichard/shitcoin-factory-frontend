@@ -4,7 +4,6 @@ import {
   fakeAsync,
   tick,
 } from '@angular/core/testing';
-import { of } from 'rxjs';
 import { Web3ModalComponent } from './web3-modal.component';
 import { Web3ModalService } from './web3-modal.service';
 import { fakeWeb3ModalService } from '../home/home.component.spec';
@@ -16,10 +15,12 @@ describe('Web3ModalComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [Web3ModalComponent],
-      providers: [{
-        provide: Web3ModalService,
-        useValue: fakeWeb3ModalService,
-      }],
+      providers: [
+        {
+          provide: Web3ModalService,
+          useValue: fakeWeb3ModalService,
+        },
+      ],
     }).compileComponents();
   });
 

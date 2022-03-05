@@ -1,11 +1,13 @@
 import { TestBed, fakeAsync, tick } from '@angular/core/testing';
 import abi from './web3-modal/factory-abi.json';
+import shitcoinAbi from './web3-modal/shitcoin.json';
 
 import { ContractInterface } from 'ethers';
 import { ShitcoinFactoryService } from './shitcoin-factory.service';
 import { Web3ModalService } from './web3-modal/web3-modal.service';
 import { Contract } from 'web3-eth-contract';
 import { environment } from 'src/environments/environment';
+import { fakeWeb3ModalService } from './home/home.component.spec';
 
 const send = {
   func: (settings: any) => {},
@@ -39,23 +41,24 @@ const ContractMock = {
 
 describe('ShitcoinFactoryService', () => {
   let service: ShitcoinFactoryService;
-  let web3service: Web3ModalService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [Web3ModalService],
+      providers: [
+        ShitcoinFactoryService,
+        {
+          provide: Web3ModalService,
+          useValue: fakeWeb3ModalService,
+        },
+      ],
     });
     service = TestBed.inject(ShitcoinFactoryService);
     service.factory = ContractMock as unknown as Contract;
-    web3service = TestBed.inject(Web3ModalService);
-  });
-
-  it('should be created', () => {
-    expect(service).toBeTruthy();
   });
 
   it('should set default values', () => {
     expect(service.factoryAbi).toEqual(abi as ContractInterface);
+    expect(service.shitcoinAbi).toEqual(shitcoinAbi as ContractInterface);
     expect(service.contractAddress).toEqual(environment.contractAddress);
   });
 
@@ -80,7 +83,6 @@ describe('ShitcoinFactoryService', () => {
 
   it('create should call factory from correct address', async () => {
     const sendMock = spyOn(send, 'func');
-    spyOnProperty(web3service, 'account');
     service.create('Test Coin', 'TEST', 100);
 
     expect(sendMock).toHaveBeenCalledOnceWith({ from: 'test-account' });

@@ -19,13 +19,13 @@ export const fakeWeb3ModalService = {
   },
   ps: {
     subscribe: (value: any) => {
-      value.next(
-        [{
+      value.next([
+        {
           name: 'test-provider',
           logo: 'test-logo',
-          onClick: () => {}
-        }]
-      );
+          onClick: () => {},
+        },
+      ]);
     },
   },
   s: {
@@ -34,7 +34,7 @@ export const fakeWeb3ModalService = {
     },
   },
   loadProviders: () => {},
-  open: () => {}
+  open: () => {},
 };
 
 const fakeShitcoinFactoryService = {

@@ -1,5 +1,3 @@
-import { TestBed } from '@angular/core/testing';
-
 import { ProviderController } from './providers.service';
 
 describe('ProvidersController', () => {
