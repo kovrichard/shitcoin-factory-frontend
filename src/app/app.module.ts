@@ -12,6 +12,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FormsModule } from '@angular/forms';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
+import {MatSidenavModule} from '@angular/material/sidenav';
 
 const providerOptions = {};
 
@@ -26,6 +27,7 @@ const providerOptions = {};
     FormsModule,
     MatToolbarModule,
     MatIconModule,
+    MatSidenavModule,
   ],
   providers: [
     {

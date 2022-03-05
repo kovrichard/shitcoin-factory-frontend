@@ -1,14 +1,26 @@
-<app-navbar></app-navbar>
-<form id="form">
-    <input [(ngModel)]="name" type="text" placeholder="name" name="name" />
-    <input [(ngModel)]="ticker" type="text" placeholder="ticker" name="ticker" />
-    <input [(ngModel)]="totalSupply" type="number" placeholder="total supply" name="supply" />
-</form>
-<button mat-button (click)="mint()">Mint</button>
-<div>
-    This factory created {{ numberOfCoins | async }} shitcoins so far.
-</div>
-<div *ngFor="let coin of coins">
-    {{ coin.address }} {{ coin.name }} {{ coin.symbol }} {{ coin.totalSupply }} {{ coin.owner == caller ? "You are the owner" : "" }}
-    {{ coin.owner }} {{ caller }}
-</div>
+<mat-drawer-container class="side-navigation">
+    <mat-drawer #drawer>
+        <mat-toolbar>
+            <button mat-icon-button (click)="drawer.toggle()">
+                <mat-icon>menu</mat-icon>
+            </button>
+            <span>Shitcoin Factory</span>
+        </mat-toolbar>
+    </mat-drawer>
+    <mat-drawer-content>
+        <app-navbar [drawer]=drawer></app-navbar>
+        <form id="form">
+            <input [(ngModel)]="name" type="text" placeholder="name" name="name" />
+            <input [(ngModel)]="ticker" type="text" placeholder="ticker" name="ticker" />
+            <input [(ngModel)]="totalSupply" type="number" placeholder="total supply" name="supply" />
+        </form>
+        <button mat-button (click)="mint()">Mint</button>
+        <div>
+            This factory created {{ numberOfCoins | async }} shitcoins so far.
+        </div>
+        <div *ngFor="let coin of coins">
+            {{ coin.address }} {{ coin.name }} {{ coin.symbol }} {{ coin.totalSupply }} {{ coin.owner == caller ? "You are the owner" : "" }}
+            {{ coin.owner }} {{ caller }}
+        </div>
+    </mat-drawer-content>
+</mat-drawer-container>
