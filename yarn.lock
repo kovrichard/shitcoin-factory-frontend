@@ -273,7 +273,7 @@
     semver "^6.3.0"
     source-map "^0.5.0"
 
-"@babel/core@^7.12.3", "@babel/core@^7.7.5", "@babel/core@^7.8.6":
+"@babel/core@^7.12.3", "@babel/core@^7.8.6":
   version "7.16.10"
   resolved "https://registry.yarnpkg.com/@babel/core/-/core-7.16.10.tgz#ebd034f8e7ac2b6bfcdaa83a161141a646f74b50"
   integrity sha512-pbiIdZbCiMx/MM6toR+OfXarYix3uz0oVsnNtfdAGTcCTu3w/JGF8JhirevXLBJUu0WguSZI12qpKnx7EeMyLA==
@@ -5353,11 +5353,6 @@ html-entities@^2.3.2:
   resolved "https://registry.yarnpkg.com/html-entities/-/html-entities-2.3.2.tgz#760b404685cb1d794e4f4b744332e3b00dcfe488"
   integrity sha512-c3Ab/url5ksaT0WyleslpBEthOzWhrjQbg75y7XUsfSzi3Dgzt0l8w5e7DylRn15MTlMMD58dTfzddNS2kcAjQ==
 
-html-escaper@^2.0.0:
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/html-escaper/-/html-escaper-2.0.2.tgz#dfd60027da36a36dfcbe236262c00a5822681453"
-  integrity sha512-H2iMtd0I4Mt5eYiapRdIDjp+XzelXQ0tFE4JS7YFwFevXXMmOp9myNrUvCg0D6ws8iqkRPBfKHgbwig1SmlLfg==
-
 http-cache-semantics@^4.0.0, http-cache-semantics@^4.1.0:
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/http-cache-semantics/-/http-cache-semantics-4.1.0.tgz#49e91c5cbf36c9b94bcfcd71c23d5249ec74e390"
@@ -5902,20 +5897,10 @@ isstream@~0.1.2:
   resolved "https://registry.yarnpkg.com/isstream/-/isstream-0.1.2.tgz#47e63f7af55afa6f92e1500e690eb8b8529c099a"
   integrity sha1-R+Y/evVa+m+S4VAOaQ64uFKcCZo=
 
-istanbul-lib-coverage@^3.0.0, istanbul-lib-coverage@^3.2.0:
+istanbul-lib-coverage@^3.2.0:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/istanbul-lib-coverage/-/istanbul-lib-coverage-3.2.0.tgz#189e7909d0a39fa5a3dfad5b03f71947770191d3"
   integrity sha512-eOeJ5BHCmHYvQK7xt9GkdHuzuCGS1Y6g9Gvnx3Ym33fz/HpLRYxiS0wHNr+m/MBC8B647Xt608vCDEvhl9c6Mw==
-
-istanbul-lib-instrument@^4.0.3:
-  version "4.0.3"
-  resolved "https://registry.yarnpkg.com/istanbul-lib-instrument/-/istanbul-lib-instrument-4.0.3.tgz#873c6fff897450118222774696a3f28902d77c1d"
-  integrity sha512-BXgQl9kf4WTCPCCpmFGoJkz/+uhvm7h7PFKUYxh7qarQd3ER33vHG//qaE8eN25l07YqZPpHXU9I09l/RD5aGQ==
-  dependencies:
-    "@babel/core" "^7.7.5"
-    "@istanbuljs/schema" "^0.1.2"
-    istanbul-lib-coverage "^3.0.0"
-    semver "^6.3.0"
 
 istanbul-lib-instrument@^5.0.4:
   version "5.1.0"
@@ -5927,32 +5912,6 @@ istanbul-lib-instrument@^5.0.4:
     "@istanbuljs/schema" "^0.1.2"
     istanbul-lib-coverage "^3.2.0"
     semver "^6.3.0"
-
-istanbul-lib-report@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/istanbul-lib-report/-/istanbul-lib-report-3.0.0.tgz#7518fe52ea44de372f460a76b5ecda9ffb73d8a6"
-  integrity sha512-wcdi+uAKzfiGT2abPpKZ0hSU1rGQjUQnLvtY5MpQ7QCTahD3VODhcu4wcfY1YtkGaDD5yuydOLINXsfbus9ROw==
-  dependencies:
-    istanbul-lib-coverage "^3.0.0"
-    make-dir "^3.0.0"
-    supports-color "^7.1.0"
-
-istanbul-lib-source-maps@^4.0.1:
-  version "4.0.1"
-  resolved "https://registry.yarnpkg.com/istanbul-lib-source-maps/-/istanbul-lib-source-maps-4.0.1.tgz#895f3a709fcfba34c6de5a42939022f3e4358551"
-  integrity sha512-n3s8EwkdFIJCG3BPKBYvskgXGoy88ARzvegkitk60NxRdwltLOTaH7CUiMRXvwYorl0Q712iEjcWB+fK/MrWVw==
-  dependencies:
-    debug "^4.1.1"
-    istanbul-lib-coverage "^3.0.0"
-    source-map "^0.6.1"
-
-istanbul-reports@^3.0.5:
-  version "3.1.3"
-  resolved "https://registry.yarnpkg.com/istanbul-reports/-/istanbul-reports-3.1.3.tgz#4bcae3103b94518117930d51283690960b50d3c2"
-  integrity sha512-x9LtDVtfm/t1GFiLl3NffC7hz+I1ragvgX1P/Lg1NlIagifZDKUkuuaAxH/qpwj2IuEfD8G2Bs/UKp+sZ/pKkg==
-  dependencies:
-    html-escaper "^2.0.0"
-    istanbul-lib-report "^3.0.0"
 
 isurl@^1.0.0-alpha5:
   version "1.0.0"
@@ -6156,23 +6115,6 @@ karma-chrome-launcher@~3.1.0:
   dependencies:
     which "^1.2.1"
 
-karma-coverage@~2.1.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/karma-coverage/-/karma-coverage-2.1.0.tgz#843564578d9e1fb889ec141a582c019bb6db14db"
-  integrity sha512-uIejpnArNFQIovB6EPsKO/T4XofELdJWXcA2ADXztFlKhHbr0Ws6ba7wKTMVWsIhEs4iJxdhQkCQrkkhFJSZCw==
-  dependencies:
-    istanbul-lib-coverage "^3.2.0"
-    istanbul-lib-instrument "^4.0.3"
-    istanbul-lib-report "^3.0.0"
-    istanbul-lib-source-maps "^4.0.1"
-    istanbul-reports "^3.0.5"
-    minimatch "^3.0.4"
-
-karma-jasmine-html-reporter@~1.7.0:
-  version "1.7.0"
-  resolved "https://registry.yarnpkg.com/karma-jasmine-html-reporter/-/karma-jasmine-html-reporter-1.7.0.tgz#52c489a74d760934a1089bfa5ea4a8fcb84cc28b"
-  integrity sha512-pzum1TL7j90DTE86eFt48/s12hqwQuiD+e5aXx2Dc9wDEn2LfGq6RoAxEZZjFiN0RDSCOnosEKRZWxbQ+iMpQQ==
-
 karma-jasmine@~4.0.0:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/karma-jasmine/-/karma-jasmine-4.0.1.tgz#b99e073b6d99a5196fc4bffc121b89313b0abd82"
@@ -6186,6 +6128,13 @@ karma-source-map-support@1.4.0:
   integrity sha512-RsBECncGO17KAoJCYXjv+ckIz+Ii9NCi+9enk+rq6XC81ezYkb4/RHE6CTXdA7IOJqoF3wcaLfVG0CPmE5ca6A==
   dependencies:
     source-map-support "^0.5.5"
+
+karma-spec-reporter@^0.0.33:
+  version "0.0.33"
+  resolved "https://registry.yarnpkg.com/karma-spec-reporter/-/karma-spec-reporter-0.0.33.tgz#5b2712c3eaff7ae50dbd6ad4e5fb59befd740a96"
+  integrity sha512-xRVevDUkiIVhKbDQ3CmeGEpyzA4b3HeVl95Sx5yJAvurpdKUSYF6ZEbQOqKJ7vrtDniABV1hyFez9KX9+7ruBA==
+  dependencies:
+    colors "1.4.0"
 
 karma@~6.3.0:
   version "6.3.11"
@@ -6455,7 +6404,7 @@ make-dir@^2.1.0:
     pify "^4.0.1"
     semver "^5.6.0"
 
-make-dir@^3.0.0, make-dir@^3.0.2, make-dir@^3.1.0:
+make-dir@^3.0.2, make-dir@^3.1.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/make-dir/-/make-dir-3.1.0.tgz#415e967046b3a7f1d185277d84aa58203726a13f"
   integrity sha512-g3FeP20LNwhALb/6Cz6Dd4F2ngze0jz7tbzrD2wAV+o9FeNHe4rL+yK2md0J/fiSf1sa1ADhXqi5+oVwOM/eGw==
