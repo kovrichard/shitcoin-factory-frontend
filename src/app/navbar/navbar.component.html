@@ -19,7 +19,7 @@
             <span>Factory</span>
         </button>
         <span class="spacer"></span>
-        <button mat-button class="menu-link menu-end" (click)="changeTheme()">
+        <button mat-button class="menu-link menu-end" (click)="drawer.toggle();changeTheme()">
             <mat-icon>{{ darkTheme ? 'wb_sunny' : 'brightness_3' }}</mat-icon>
             <span>{{ darkTheme ? 'Light' : 'Dark' }} theme</span>
         </button>
