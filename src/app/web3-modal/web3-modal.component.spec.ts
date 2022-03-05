@@ -7,48 +7,46 @@ import {
 import { of } from 'rxjs';
 import { Web3ModalComponent } from './web3-modal.component';
 import { Web3ModalService } from './web3-modal.service';
+import { fakeWeb3ModalService } from '../home/home.component.spec';
 
 describe('Web3ModalComponent', () => {
   let component: Web3ModalComponent;
   let fixture: ComponentFixture<Web3ModalComponent>;
-  let service: Web3ModalService;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [Web3ModalComponent],
-      providers: [Web3ModalService],
+      providers: [{
+        provide: Web3ModalService,
+        useValue: fakeWeb3ModalService,
+      }],
     }).compileComponents();
   });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(Web3ModalComponent);
-    service = TestBed.inject(Web3ModalService);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-
   it('should set default parameters', () => {
     expect(component.open).toBeFalse();
-    expect(component.promptMetamaskIfNotInstalled).toBeFalse();
   });
 
-  xit('connect should set open to false', fakeAsync(() => {
+  it('should get providers from service', fakeAsync(() => {
+    expect(component.ps[0].name).toEqual('test-provider');
+    expect(component.ps[0].logo).toEqual('test-logo');
+  }));
+
+  it('should get account from service', fakeAsync(() => {
+    expect(component.account).toEqual('test-account');
+  }));
+
+  it('connect should set open to false', fakeAsync(() => {
     component.connect();
     tick();
 
     expect(component.open).toBeFalse();
-  }));
-
-  it('connect should call service open', fakeAsync(() => {
-    const openMock = spyOn(service, 'open');
-    component.connect();
-    tick();
-
-    expect(openMock).toHaveBeenCalledOnceWith();
   }));
 
   it('close should set open to false', () => {
@@ -65,12 +63,4 @@ describe('Web3ModalComponent', () => {
     component.close(eventMock);
     expect(stopMock).toHaveBeenCalledOnceWith();
   });
-
-  it('account should return service account', fakeAsync(() => {
-    spyOnProperty(service, 'account').and.returnValue(of('test-account'));
-    component.ngOnInit();
-    tick();
-
-    expect(component.account).toEqual('test-account');
-  }));
 });

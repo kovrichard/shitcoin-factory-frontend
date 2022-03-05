@@ -11,15 +11,21 @@ import { Web3ModalService } from '../web3-modal/web3-modal.service';
 
 import { HomeComponent } from './home.component';
 
-const fakeWeb3ModalService = {
+export const fakeWeb3ModalService = {
   account: {
     subscribe: (func: (account: string) => void) => {
       func('test-account');
     },
   },
   ps: {
-    subscribe: () => {
-      return Promise.resolve('');
+    subscribe: (value: any) => {
+      value.next(
+        [{
+          name: 'test-provider',
+          logo: 'test-logo',
+          onClick: () => {}
+        }]
+      );
     },
   },
   s: {
@@ -28,6 +34,7 @@ const fakeWeb3ModalService = {
     },
   },
   loadProviders: () => {},
+  open: () => {}
 };
 
 const fakeShitcoinFactoryService = {

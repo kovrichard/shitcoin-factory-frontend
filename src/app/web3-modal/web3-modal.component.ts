@@ -14,7 +14,7 @@ import { IProvider } from '../providers';
   styleUrls: ['./web3-modal.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
-export class Web3ModalComponent implements OnInit, OnDestroy {
+export class Web3ModalComponent implements OnInit {
   open = false;
   showMetamaskDownload: boolean;
   account = '';
@@ -39,8 +39,6 @@ export class Web3ModalComponent implements OnInit, OnDestroy {
       this.account = account;
     });
   }
-
-  ngOnDestroy(): void {}
 
   async connect() {
     this.open = true;
