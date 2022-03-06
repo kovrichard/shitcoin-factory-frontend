@@ -4,6 +4,7 @@
 
 export const environment = {
   production: false,
+  contractAddress: '0x0000000000000000000000000000000000000000',
   networkUrl: 'http://localhost:8545',
 };
 
