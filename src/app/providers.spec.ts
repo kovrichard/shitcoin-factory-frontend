@@ -1,7 +1,8 @@
 import { fakeAsync, tick } from '@angular/core/testing';
 import { generateTestingUtils } from 'eth-testing';
-import { MetaMask } from './providers';
+import { EthersProvider, MetaMask } from './providers';
 import { Subject } from 'rxjs';
+import { ethers } from 'ethers';
 
 describe('Providers', () => {
   beforeEach(() => {
@@ -10,7 +11,7 @@ describe('Providers', () => {
   });
 
   it('MetaMask provider should set default values', () => {
-    const testSubject = new Subject<string>();
+    const testSubject = new Subject<EthersProvider>();
     const metamask = new MetaMask(testSubject);
 
     expect(metamask.name).toEqual('MetaMask');
@@ -18,7 +19,7 @@ describe('Providers', () => {
   });
 
   it('MetaMask onClick should call subject next', fakeAsync(() => {
-    const fakeSubject: Subject<string> | any = {
+    const fakeSubject: Subject<EthersProvider> | any = {
       next: (_: string) => {},
     };
     const metamask = new MetaMask(fakeSubject);
@@ -26,6 +27,6 @@ describe('Providers', () => {
     metamask.onClick();
     tick();
 
-    expect(nextMock).toHaveBeenCalledOnceWith(metamask.name);
+    expect(nextMock.calls.first().args[0]).toBeInstanceOf(ethers.providers.Web3Provider);
   }));
 });

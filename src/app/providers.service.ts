@@ -1,14 +1,15 @@
+import { ethers } from 'ethers';
 import { Subject } from 'rxjs';
-import { IProvider } from './providers';
+import { EthersProvider, IProvider } from './providers';
 import { MetaMask } from './providers';
 
 export class ProviderController {
   providers: IProvider[] = [];
-  connected = new Subject<string>();
+  chosenProvider = new Subject<EthersProvider>();
 
   constructor(controllerOptions: string[]) {
     if (controllerOptions.includes('metamask')) {
-      this.providers.push(new MetaMask(this.connected));
+      this.providers.push(new MetaMask(this.chosenProvider));
     }
   }
 }
