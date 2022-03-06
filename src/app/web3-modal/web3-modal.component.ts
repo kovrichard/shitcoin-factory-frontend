@@ -23,7 +23,6 @@ export class Web3ModalComponent implements OnInit {
   constructor(private service: Web3ModalService) {}
 
   async ngOnInit() {
-    this.service.loadProviders();
     this.service.providers.subscribe({
       next: (providers: IProvider[]) => {
         this.providers = providers;

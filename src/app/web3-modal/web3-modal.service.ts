@@ -21,13 +21,6 @@ export class Web3ModalService {
     this.signer.next(this.provider.getSigner());
   }
 
-  async loadProviders() {
-    this.provider = new ethers.providers.Web3Provider((window as any).ethereum);
-    await this.provider.send('eth_requestAccounts', []);
-    this.signer.next(this.provider.getSigner());
-    this.account.next(await this.signer.getValue().getAddress());
-  }
-
   async open() {
     await new Promise((resolve, reject) => {
       this.providerController.connected.subscribe((connected: string) => {

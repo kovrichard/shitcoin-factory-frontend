@@ -40,7 +40,6 @@ export const fakeWeb3ModalService = {
   signer: {
     subscribe: (cb: any) => {},
   },
-  loadProviders: () => {},
   open: () => {},
 };
 

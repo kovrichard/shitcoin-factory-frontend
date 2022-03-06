@@ -53,21 +53,6 @@ describe('Web3ModalService', () => {
     });
   });
 
-  it('loadProviders should initialize providers', fakeAsync(() => {
-    service.loadProviders();
-    tick();
-
-    expect(service.provider).toBeInstanceOf(ethers.providers.Web3Provider);
-    expect(service.signer.getValue()).toBeInstanceOf(
-      ethers.providers.JsonRpcSigner
-    );
-    service.account.subscribe((value: string) => {
-      expect(value.toLowerCase()).toEqual(
-        '0x138071e4e810f34265bd833be9c5dd96f01bd8a5'
-      );
-    });
-  }));
-
   xit('open should work', fakeAsync(() => {
     const subscribeMock = spyOn(fakeProviderController.connected, 'subscribe');
     service.open();
