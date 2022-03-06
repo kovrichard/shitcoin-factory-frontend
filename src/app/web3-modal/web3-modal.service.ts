@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { ethers } from 'ethers';
 import { ProviderController } from '../providers.service';
+import { environment } from 'src/environments/environment';
 
 @Injectable()
 export class Web3ModalService {
@@ -15,7 +16,7 @@ export class Web3ModalService {
   s = new BehaviorSubject<ethers.providers.JsonRpcSigner>('' as any);
 
   constructor() {
-    this.p = new ethers.providers.JsonRpcProvider('http://localhost:8545');
+    this.p = new ethers.providers.JsonRpcProvider(environment.networkUrl);
     this.signer = this.p.getSigner();
   }
 
