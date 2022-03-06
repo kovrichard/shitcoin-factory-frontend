@@ -1,4 +1,5 @@
 import { TestBed, fakeAsync, tick } from '@angular/core/testing';
+import { generateTestingUtils } from 'eth-testing';
 import { Web3ModalService } from './web3-modal.service';
 
 describe('Web3ModalService', () => {
@@ -8,6 +9,9 @@ describe('Web3ModalService', () => {
     await TestBed.configureTestingModule({
       providers: [Web3ModalService],
     }).compileComponents();
+
+    const testingUtils = generateTestingUtils({ providerType: 'MetaMask' });
+    (window as any).ethereum = testingUtils.getProvider();
   });
 
   beforeEach(() => {

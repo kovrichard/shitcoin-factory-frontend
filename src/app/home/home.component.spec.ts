@@ -38,9 +38,7 @@ export const fakeWeb3ModalService = {
     },
   },
   s: {
-    subscribe: () => {
-      return Promise.resolve('');
-    },
+    subscribe: (cb: any) => {},
   },
   loadProviders: () => {},
   open: () => {},
@@ -92,6 +90,8 @@ describe('HomeComponent', () => {
     fixture = TestBed.createComponent(HomeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
+    const testingUtils = generateTestingUtils({ providerType: 'MetaMask' });
+    (window as any).ethereum = testingUtils.getProvider();
   });
 
   afterEach(() => {
