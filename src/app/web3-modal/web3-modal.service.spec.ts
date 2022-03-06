@@ -41,7 +41,7 @@ describe('Web3ModalService', () => {
   });
 
   it('should set default values', () => {
-    expect(service.p).toBeInstanceOf(ethers.providers.JsonRpcProvider);
+    expect(service.provider).toBeInstanceOf(ethers.providers.JsonRpcProvider);
     service.account.subscribe((value: string) => {
       expect(value).toEqual('');
     });
@@ -55,7 +55,7 @@ describe('Web3ModalService', () => {
     service.loadProviders();
     tick();
 
-    expect(service.p).toBeInstanceOf(ethers.providers.Web3Provider);
+    expect(service.provider).toBeInstanceOf(ethers.providers.Web3Provider);
     expect(service.signer).toBeInstanceOf(ethers.providers.JsonRpcSigner);
     service.s.subscribe((value: ethers.providers.JsonRpcSigner) => {
       expect(value).toEqual(service.signer);

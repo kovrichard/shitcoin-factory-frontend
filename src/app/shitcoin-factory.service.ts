@@ -48,7 +48,7 @@ export class ShitcoinFactoryService {
     const shitcoin = new ethers.Contract(
       address,
       this.shitcoinAbi,
-      this.web3service.p
+      this.web3service.provider
     );
     return await shitcoin.name();
   }
@@ -57,7 +57,7 @@ export class ShitcoinFactoryService {
     const shitcoin = new ethers.Contract(
       address,
       this.shitcoinAbi,
-      this.web3service.p
+      this.web3service.provider
     );
     return await shitcoin.symbol();
   }
@@ -66,7 +66,7 @@ export class ShitcoinFactoryService {
     const shitcoin = new ethers.Contract(
       address,
       this.shitcoinAbi,
-      this.web3service.p
+      this.web3service.provider
     );
     return await shitcoin.totalSupply();
   }
@@ -75,7 +75,7 @@ export class ShitcoinFactoryService {
     const shitcoin = new ethers.Contract(
       address,
       this.shitcoinAbi,
-      this.web3service.p
+      this.web3service.provider
     );
     return await shitcoin.owner();
   }
