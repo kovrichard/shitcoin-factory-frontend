@@ -10,8 +10,6 @@ import { fakeWeb3ModalService } from './home/home.component.spec';
 import { generateTestingUtils } from 'eth-testing';
 import { TestingUtils } from 'eth-testing/lib/testing-utils';
 
-const fakeCoin = {};
-
 const ContractMock = {
   numberOfCoins: () => {
     return Promise.resolve(3);
@@ -22,8 +20,10 @@ const ContractMock = {
     totalSupply: number,
     settings: any
   ) => {},
-  getShitcoin: (index: number) => {
-    return Promise.resolve('shitcoin');
+  callStatic: {
+    getShitcoin: (index: number) => {
+      return Promise.resolve('shitcoin');
+    }
   },
 };
 

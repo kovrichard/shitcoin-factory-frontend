@@ -43,7 +43,7 @@ export class ShitcoinFactoryService {
   }
 
   async getShitcoin(index: number): Promise<string> {
-    return await this.factory.getShitcoin(index);
+    return await this.factory.callStatic.getShitcoin(index);
   }
 
   async getShitcoinName(address: string) {
@@ -52,7 +52,7 @@ export class ShitcoinFactoryService {
       this.shitcoinAbi,
       this.web3service.provider
     );
-    return await shitcoin.name();
+    return await shitcoin.callStatic.name();
   }
 
   async getShitcoinSymbol(address: string) {
@@ -61,7 +61,7 @@ export class ShitcoinFactoryService {
       this.shitcoinAbi,
       this.web3service.provider
     );
-    return await shitcoin.symbol();
+    return await shitcoin.callStatic.symbol();
   }
 
   async getShitcoinTotalSupply(address: string) {
@@ -70,7 +70,7 @@ export class ShitcoinFactoryService {
       this.shitcoinAbi,
       this.web3service.provider
     );
-    return await shitcoin.totalSupply();
+    return await shitcoin.callStatic.totalSupply();
   }
 
   async getShitcoinOwner(address: string) {
@@ -79,6 +79,6 @@ export class ShitcoinFactoryService {
       this.shitcoinAbi,
       this.web3service.provider
     );
-    return await shitcoin.owner();
+    return await shitcoin.callStatic.owner();
   }
 }
