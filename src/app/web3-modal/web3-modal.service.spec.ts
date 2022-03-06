@@ -1,7 +1,7 @@
 import { TestBed, fakeAsync, tick } from '@angular/core/testing';
 import { Web3ModalService } from './web3-modal.service';
 
-describe('Web3ModalComponent', () => {
+describe('Web3ModalService', () => {
   let service: Web3ModalService;
 
   beforeEach(async () => {

@@ -18,7 +18,7 @@
         <div class="m-web3ModalBody__provider">
           <button mat-raised-button class="btn-provider" *ngFor="let p of ps" (click)="p.onClick()">
             <div class="m-web3ModalProviderBody__icon">
-              <img src="/assets/{{p.name}}.svg" alt="/assets/{{p.name}}.svg" />
+              <img src="{{p.logo}}" alt="{{p.logo}}" />
             </div>
             <div class="m-web3ModalProviderBody__name">{{ p.name }}</div>
           </button>
