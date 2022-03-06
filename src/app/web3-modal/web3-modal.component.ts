@@ -12,7 +12,7 @@ export class Web3ModalComponent implements OnInit {
   open = false;
   showMetamaskDownload: boolean;
   account = '';
-  ps: IProvider[];
+  providers: IProvider[];
 
   @Input() buttonTitle: string;
   @Input() modalTitle: string;
@@ -24,9 +24,9 @@ export class Web3ModalComponent implements OnInit {
 
   async ngOnInit() {
     this.service.loadProviders();
-    this.service.ps.subscribe({
+    this.service.providers.subscribe({
       next: (providers: IProvider[]) => {
-        this.ps = providers;
+        this.providers = providers;
       },
     });
     this.service.account.subscribe((account: string) => {

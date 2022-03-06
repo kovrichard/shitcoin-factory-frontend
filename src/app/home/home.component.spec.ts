@@ -26,7 +26,7 @@ export const fakeWeb3ModalService = {
       func('test-account');
     },
   },
-  ps: {
+  providers: {
     subscribe: (value: any) => {
       value.next([
         {

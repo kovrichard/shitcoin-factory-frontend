@@ -35,8 +35,8 @@ describe('Web3ModalComponent', () => {
   });
 
   it('should get providers from service', fakeAsync(() => {
-    expect(component.ps[0].name).toEqual('MetaMask');
-    expect(component.ps[0].logo).toEqual('/assets/MetaMask.svg');
+    expect(component.providers[0].name).toEqual('MetaMask');
+    expect(component.providers[0].logo).toEqual('/assets/MetaMask.svg');
   }));
 
   it('should get account from service', fakeAsync(() => {

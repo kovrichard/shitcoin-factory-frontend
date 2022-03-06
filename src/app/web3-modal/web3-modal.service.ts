@@ -10,12 +10,14 @@ export class Web3ModalService {
   private providerController = new ProviderController(['metamask']);
 
   provider: ethers.providers.Web3Provider | ethers.providers.JsonRpcProvider;
-  ps = new BehaviorSubject(this.providerController.providers);
+  providers = new BehaviorSubject(this.providerController.providers);
   account = new BehaviorSubject('');
   signer = new BehaviorSubject<ethers.providers.JsonRpcSigner>('' as any);
 
   constructor() {
-    this.provider = new ethers.providers.JsonRpcProvider(environment.networkUrl);
+    this.provider = new ethers.providers.JsonRpcProvider(
+      environment.networkUrl
+    );
     this.signer.next(this.provider.getSigner());
   }
 

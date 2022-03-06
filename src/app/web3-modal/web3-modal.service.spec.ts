@@ -1,7 +1,6 @@
 import { TestBed, fakeAsync, tick } from '@angular/core/testing';
 import { generateTestingUtils } from 'eth-testing';
 import { ethers } from 'ethers';
-import { BehaviorSubject } from 'rxjs';
 import { IProvider } from '../providers';
 import { ProviderController } from '../providers.service';
 import { Web3ModalService } from './web3-modal.service';
@@ -46,8 +45,10 @@ describe('Web3ModalService', () => {
     service.account.subscribe((value: string) => {
       expect(value).toEqual('');
     });
-    expect(service.signer.getValue()).toBeInstanceOf(ethers.providers.JsonRpcSigner);
-    service.ps.subscribe((value: IProvider[]) => {
+    expect(service.signer.getValue()).toBeInstanceOf(
+      ethers.providers.JsonRpcSigner
+    );
+    service.providers.subscribe((value: IProvider[]) => {
       expect(value[0].name).toEqual('MetaMask');
     });
   });
@@ -57,7 +58,9 @@ describe('Web3ModalService', () => {
     tick();
 
     expect(service.provider).toBeInstanceOf(ethers.providers.Web3Provider);
-    expect(service.signer.getValue()).toBeInstanceOf(ethers.providers.JsonRpcSigner);
+    expect(service.signer.getValue()).toBeInstanceOf(
+      ethers.providers.JsonRpcSigner
+    );
     service.account.subscribe((value: string) => {
       expect(value.toLowerCase()).toEqual(
         '0x138071e4e810f34265bd833be9c5dd96f01bd8a5'

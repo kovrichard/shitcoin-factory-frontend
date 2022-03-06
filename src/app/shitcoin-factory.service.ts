@@ -17,17 +17,19 @@ export class ShitcoinFactoryService {
   numberOfCoins = new BehaviorSubject(0);
 
   constructor(private web3service: Web3ModalService) {
-    this.web3service.signer.subscribe((signer: ethers.providers.JsonRpcSigner) => {
-      if (!signer) return;
-      this.factory = new ethers.Contract(
-        this.contractAddress,
-        this.factoryAbi,
-        signer
-      );
-      this.factory.numberOfCoins().then((value: number) => {
-        this.numberOfCoins.next(value);
-      });
-    });
+    this.web3service.signer.subscribe(
+      (signer: ethers.providers.JsonRpcSigner) => {
+        if (!signer) return;
+        this.factory = new ethers.Contract(
+          this.contractAddress,
+          this.factoryAbi,
+          signer
+        );
+        this.factory.numberOfCoins().then((value: number) => {
+          this.numberOfCoins.next(value);
+        });
+      }
+    );
   }
 
   create(name: string, ticker: string, totalSupply: number) {
