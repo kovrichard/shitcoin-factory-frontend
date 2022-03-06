@@ -1,7 +1,15 @@
+import { TestBed } from '@angular/core/testing';
+import { FormsModule } from '@angular/forms';
 import { ProviderController } from './providers.service';
 
 describe('ProvidersController', () => {
   let service: ProviderController;
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [FormsModule]
+    }).compileComponents();
+  })
 
   it('should set default values', () => {
     service = new ProviderController([]);

@@ -8,8 +8,17 @@ import { NavbarComponent } from '../navbar/navbar.component';
 import { ShitcoinFactoryService } from '../shitcoin-factory.service';
 import { Web3ModalComponent } from '../web3-modal/web3-modal.component';
 import { Web3ModalService } from '../web3-modal/web3-modal.service';
+import { generateTestingUtils } from 'eth-testing';
+
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 import { HomeComponent } from './home.component';
+import { MatIconModule } from '@angular/material/icon';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { FormsModule } from '@angular/forms';
 
 export const fakeWeb3ModalService = {
   account: {
@@ -21,8 +30,8 @@ export const fakeWeb3ModalService = {
     subscribe: (value: any) => {
       value.next([
         {
-          name: 'test-provider',
-          logo: 'test-logo',
+          name: 'MetaMask',
+          logo: '/assets/MetaMask.svg',
           onClick: () => {},
         },
       ]);
@@ -37,7 +46,7 @@ export const fakeWeb3ModalService = {
   open: () => {},
 };
 
-const fakeShitcoinFactoryService = {
+export const fakeShitcoinFactoryService = {
   numberOfCoins: {
     subscribe: (a: any) => {
       a(1);
@@ -67,6 +76,7 @@ describe('HomeComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [MatFormFieldModule, MatInputModule, MatIconModule, BrowserAnimationsModule, MatSidenavModule, MatToolbarModule, FormsModule],
       declarations: [HomeComponent, NavbarComponent, Web3ModalComponent],
       providers: [
         { provide: Web3ModalService, useValue: fakeWeb3ModalService },
