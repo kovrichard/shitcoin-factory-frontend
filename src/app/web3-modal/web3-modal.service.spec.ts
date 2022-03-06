@@ -1,5 +1,4 @@
 import { TestBed, fakeAsync, tick } from '@angular/core/testing';
-import { JsonRpcProvider } from '@ethersproject/providers';
 import { generateTestingUtils } from 'eth-testing';
 import { ethers } from 'ethers';
 import { IProvider } from '../providers';
@@ -8,27 +7,32 @@ import { Web3ModalService } from './web3-modal.service';
 
 const fakeProviderController = {
   connected: {
-    subscribe: ((cb: any) => {
-      console.log('no')
+    subscribe: (cb: any) => {
+      console.log('no');
       cb('what');
-    })
-  }
-}
+    },
+  },
+};
 
 describe('Web3ModalService', () => {
   let service: Web3ModalService;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      providers: [Web3ModalService, {
-        provide: ProviderController,
-        useValue: fakeProviderController
-      }],
+      providers: [
+        Web3ModalService,
+        {
+          provide: ProviderController,
+          useValue: fakeProviderController,
+        },
+      ],
     }).compileComponents();
 
     const testingUtils = generateTestingUtils({ providerType: 'MetaMask' });
     testingUtils.mockAccounts(['0x138071e4e810f34265bd833be9c5dd96f01bd8a5']);
-    testingUtils.mockRequestAccounts(['0x138071e4e810f34265bd833be9c5dd96f01bd8a5']);
+    testingUtils.mockRequestAccounts([
+      '0x138071e4e810f34265bd833be9c5dd96f01bd8a5',
+    ]);
     (window as any).ethereum = testingUtils.getProvider();
   });
 
@@ -57,7 +61,9 @@ describe('Web3ModalService', () => {
       expect(value).toEqual(service.signer);
     });
     service.account.subscribe((value: string) => {
-      expect(value.toLowerCase()).toEqual('0x138071e4e810f34265bd833be9c5dd96f01bd8a5');
+      expect(value.toLowerCase()).toEqual(
+        '0x138071e4e810f34265bd833be9c5dd96f01bd8a5'
+      );
     });
   }));
 

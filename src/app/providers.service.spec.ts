@@ -7,9 +7,9 @@ describe('ProvidersController', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [FormsModule]
+      imports: [FormsModule],
     }).compileComponents();
-  })
+  });
 
   it('should set default values', () => {
     service = new ProviderController([]);

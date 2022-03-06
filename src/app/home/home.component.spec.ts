@@ -10,7 +10,7 @@ import { Web3ModalComponent } from '../web3-modal/web3-modal.component';
 import { Web3ModalService } from '../web3-modal/web3-modal.service';
 import { generateTestingUtils } from 'eth-testing';
 
-import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 
 import { HomeComponent } from './home.component';
@@ -74,7 +74,15 @@ describe('HomeComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [MatFormFieldModule, MatInputModule, MatIconModule, BrowserAnimationsModule, MatSidenavModule, MatToolbarModule, FormsModule],
+      imports: [
+        MatFormFieldModule,
+        MatInputModule,
+        MatIconModule,
+        BrowserAnimationsModule,
+        MatSidenavModule,
+        MatToolbarModule,
+        FormsModule,
+      ],
       declarations: [HomeComponent, NavbarComponent, Web3ModalComponent],
       providers: [
         { provide: Web3ModalService, useValue: fakeWeb3ModalService },
