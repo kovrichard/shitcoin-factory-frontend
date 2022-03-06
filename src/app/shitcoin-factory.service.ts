@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Web3ModalService } from './web3-modal/web3-modal.service';
 import factoryAbi from './web3-modal/factory-abi.json';
 import shitcoinAbi from './web3-modal/shitcoin.json';
-import { Subject } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { ContractInterface, ethers } from 'ethers';
 
@@ -13,8 +13,8 @@ export class ShitcoinFactoryService {
   factoryAbi = factoryAbi as ContractInterface;
   shitcoinAbi = shitcoinAbi as ContractInterface;
   contractAddress = environment.contractAddress;
-  factory: any;
-  numberOfCoins = new Subject<number>();
+  factory: ethers.Contract;
+  numberOfCoins = new BehaviorSubject(0);
 
   constructor(private web3service: Web3ModalService) {
     this.web3service.s.subscribe((signer: ethers.Signer) => {
@@ -40,7 +40,7 @@ export class ShitcoinFactoryService {
     });
   }
 
-  async getShitcoin(index: number) {
+  async getShitcoin(index: number): Promise<string> {
     return await this.factory.getShitcoin(index);
   }
 
