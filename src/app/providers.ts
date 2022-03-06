@@ -1,7 +1,9 @@
 import { ethers } from 'ethers';
 import { Subject } from 'rxjs';
 
-export type EthersProvider = ethers.providers.Web3Provider | ethers.providers.JsonRpcProvider;
+export type EthersProvider =
+  | ethers.providers.Web3Provider
+  | ethers.providers.JsonRpcProvider;
 
 export interface IProvider {
   name: string;

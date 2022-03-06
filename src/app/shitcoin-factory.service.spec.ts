@@ -23,7 +23,7 @@ const ContractMock = {
   callStatic: {
     getShitcoin: (index: number) => {
       return Promise.resolve('shitcoin');
-    }
+    },
   },
 };
 

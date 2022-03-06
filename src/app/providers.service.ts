@@ -1,4 +1,3 @@
-import { ethers } from 'ethers';
 import { Subject } from 'rxjs';
 import { EthersProvider, IProvider } from './providers';
 import { MetaMask } from './providers';

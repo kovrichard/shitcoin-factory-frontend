@@ -27,6 +27,8 @@ describe('Providers', () => {
     metamask.onClick();
     tick();
 
-    expect(nextMock.calls.first().args[0]).toBeInstanceOf(ethers.providers.Web3Provider);
+    expect(nextMock.calls.first().args[0]).toBeInstanceOf(
+      ethers.providers.Web3Provider
+    );
   }));
 });
