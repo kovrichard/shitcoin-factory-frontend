@@ -46,8 +46,8 @@ export const fakeWeb3ModalService = {
 
 export const fakeShitcoinFactoryService = {
   numberOfCoins: {
-    subscribe: (a: any) => {
-      a(1);
+    subscribe: (cb: any) => {
+      cb(1);
     },
   },
   getShitcoin: (i: number) => {

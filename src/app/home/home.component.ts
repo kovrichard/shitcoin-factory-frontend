@@ -16,6 +16,7 @@ interface Shitcoin {
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
+  numberOfCoins = 0;
   coins: Shitcoin[] = [];
   name = '';
   symbol = '';
@@ -33,6 +34,7 @@ export class HomeComponent implements OnInit {
     });
 
     this.shitcoinFactory.numberOfCoins.subscribe(async (value: number) => {
+      this.numberOfCoins = value;
       for (let i = 0; i < value; i++) {
         const address = await this.shitcoinFactory.getShitcoin(i);
         const owner = await this.shitcoinFactory.getShitcoinOwner(address);

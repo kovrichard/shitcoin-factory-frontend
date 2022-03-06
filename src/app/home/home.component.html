@@ -3,7 +3,7 @@
         <div>
             <h1>Shitcoin Factory</h1>
         </div>
-        <p>Our factory created {{ numberOfCoins | async }} shitcoins so far.</p>
+        <p>Our factory created {{ numberOfCoins }} shitcoins so far.</p>
         <div *ngFor="let coin of coins">
             {{ coin.address }} {{ coin.name }} {{ coin.symbol }} {{ coin.totalSupply }} {{ coin.owner == caller ? "You are the owner" : "" }}
             {{ coin.owner }} {{ caller }}
