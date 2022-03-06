@@ -37,7 +37,7 @@ export const fakeWeb3ModalService = {
       ]);
     },
   },
-  s: {
+  signer: {
     subscribe: (cb: any) => {},
   },
   loadProviders: () => {},

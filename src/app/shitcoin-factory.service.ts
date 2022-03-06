@@ -17,7 +17,7 @@ export class ShitcoinFactoryService {
   numberOfCoins = new BehaviorSubject(0);
 
   constructor(private web3service: Web3ModalService) {
-    this.web3service.s.subscribe((signer: ethers.Signer) => {
+    this.web3service.signer.subscribe((signer: ethers.providers.JsonRpcSigner) => {
       if (!signer) return;
       this.factory = new ethers.Contract(
         this.contractAddress,
