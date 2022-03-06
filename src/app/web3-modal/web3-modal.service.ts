@@ -12,7 +12,7 @@ export class Web3ModalService {
 
   provider: EthersProvider;
   providers = new BehaviorSubject(this.providerController.providers);
-  signer = new BehaviorSubject<ethers.providers.JsonRpcSigner>('' as any);
+  signer = new BehaviorSubject<ethers.providers.JsonRpcSigner | EthersProvider>('' as any);
   account = new BehaviorSubject('');
 
   constructor() {
@@ -23,12 +23,16 @@ export class Web3ModalService {
 
   private parseProvider(provider: EthersProvider, defaultProvider = false) {
     this.provider = provider;
-    this.signer.next(this.provider.getSigner());
-    if (defaultProvider) return;
 
-    this.signer.getValue().getAddress().then((address: string) => {
-      this.account.next(address);
-    });
+    if (defaultProvider) {
+      this.signer.next(this.provider);
+    } else {
+      this.signer.next(this.provider.getSigner());
+      
+      this.provider.getSigner().getAddress().then((address: string) => {
+        this.account.next(address);
+      });
+    }
   }
 
   async open() {

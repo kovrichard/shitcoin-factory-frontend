@@ -5,6 +5,7 @@ import shitcoinAbi from './web3-modal/shitcoin.json';
 import { BehaviorSubject } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { ContractInterface, ethers } from 'ethers';
+import { EthersProvider } from './providers';
 
 @Injectable({
   providedIn: 'root',
@@ -18,7 +19,7 @@ export class ShitcoinFactoryService {
 
   constructor(private web3service: Web3ModalService) {
     this.web3service.signer.subscribe(
-      (signer: ethers.providers.JsonRpcSigner) => {
+      (signer: ethers.providers.JsonRpcSigner | EthersProvider) => {
         if (!signer) return;
         this.factory = new ethers.Contract(
           this.contractAddress,
