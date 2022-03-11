@@ -4,13 +4,17 @@
 @include mat.core();
 
 $light-primary: mat.define-palette($md-indigodye);
+$light-secondary: mat.define-palette($md-bottlegreen);
 $light-accent: mat.define-palette($md-persianplum);
 $light-warn: mat.define-palette($md-fulvous);
+$light-text: mat.define-palette($md-gainsboro);
 $light-theme: mat.define-light-theme((
 	color: (
 		primary: $light-primary,
+		secondary: $light-secondary,
 		accent: $light-accent,
 		warn: $light-warn,
+		text: $light-text,
 	)
 ));
 

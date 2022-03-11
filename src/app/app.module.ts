@@ -15,6 +15,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatGridListModule } from '@angular/material/grid-list';
+import {MatListModule} from '@angular/material/list';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, NavbarComponent],
@@ -30,6 +32,8 @@ import { MatInputModule } from '@angular/material/input';
     MatSidenavModule,
     MatFormFieldModule,
     MatInputModule,
+    MatGridListModule,
+    MatListModule,
   ],
   providers: [
     {
