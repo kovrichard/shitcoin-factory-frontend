@@ -1,4 +1,4 @@
-@import '../../palette';
+@import '../../styles';
 
 .spacer {
     flex: auto;
@@ -14,7 +14,7 @@
     width: 100%;
     height: 3rem;
     padding: 0 16px;
-    color: map-get($md-gainsboro, 500);
+    color: map-get($light-text, 500);
 
     span {
         display: inline-flex;
