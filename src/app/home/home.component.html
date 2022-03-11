@@ -22,7 +22,8 @@
                 <mat-divider></mat-divider>
                 <mat-list>
                     <mat-list-item *ngFor="let coin of coins">
-                        <div>{{ coin.name }}</div>
+                        <div>{{ coin.symbol }}</div>
+                        <div>{{ coin.address }}</div>
                     </mat-list-item>
                 </mat-list>
             </div>

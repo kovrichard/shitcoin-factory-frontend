@@ -31,6 +31,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 	background-color: map-get($md-indigodye, 500);
 }
 
+.mat-list-item-content {
+	justify-content: space-between;
+}
+
 .mat-drawer-inner-container {
 	display: flex;
 	flex-direction: column;
