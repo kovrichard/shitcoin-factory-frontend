@@ -1,0 +1,197 @@
+/* SCSS HEX */
+$persian-plum: #721817ff;
+$indigo-dye: #2b4162ff;
+$bottle-green: #0b6e4fff;
+$fulvous: #e98a15ff;
+$gainsboro: #e0e0e2ff;
+
+/* SCSS HSL */
+$persian-plum: hsla(1, 66%, 27%, 1);
+$indigo-dye: hsla(216, 39%, 28%, 1);
+$bottle-green: hsla(161, 82%, 24%, 1);
+$fulvous: hsla(33, 83%, 50%, 1);
+$gainsboro: hsla(240, 3%, 88%, 1);
+
+/* SCSS RGB */
+$persian-plum: rgba(114, 24, 23, 1);
+$indigo-dye: rgba(43, 65, 98, 1);
+$bottle-green: rgba(11, 110, 79, 1);
+$fulvous: rgba(233, 138, 21, 1);
+$gainsboro: rgba(224, 224, 226, 1);
+
+/* SCSS Gradient */
+$gradient-top: linear-gradient(0deg, #721817ff, #2b4162ff, #0b6e4fff, #e98a15ff, #e0e0e2ff);
+$gradient-right: linear-gradient(90deg, #721817ff, #2b4162ff, #0b6e4fff, #e98a15ff, #e0e0e2ff);
+$gradient-bottom: linear-gradient(180deg, #721817ff, #2b4162ff, #0b6e4fff, #e98a15ff, #e0e0e2ff);
+$gradient-left: linear-gradient(270deg, #721817ff, #2b4162ff, #0b6e4fff, #e98a15ff, #e0e0e2ff);
+$gradient-top-right: linear-gradient(45deg, #721817ff, #2b4162ff, #0b6e4fff, #e98a15ff, #e0e0e2ff);
+$gradient-bottom-right: linear-gradient(135deg, #721817ff, #2b4162ff, #0b6e4fff, #e98a15ff, #e0e0e2ff);
+$gradient-top-left: linear-gradient(225deg, #721817ff, #2b4162ff, #0b6e4fff, #e98a15ff, #e0e0e2ff);
+$gradient-bottom-left: linear-gradient(315deg, #721817ff, #2b4162ff, #0b6e4fff, #e98a15ff, #e0e0e2ff);
+$gradient-radial: radial-gradient(#721817ff, #2b4162ff, #0b6e4fff, #e98a15ff, #e0e0e2ff);
+
+
+$md-persianplum: (
+    50 : #eee3e3,
+    100 : #d5bab9,
+    200 : #b98c8b,
+    300 : #9c5d5d,
+    400 : #873b3a,
+    500 : #721817,
+    600 : #6a1514,
+    700 : #5f1111,
+    800 : #550e0d,
+    900 : #420807,
+    A100 : #ff7979,
+    A200 : #ff4646,
+    A400 : #ff1313,
+    A700 : #f80000,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #ffffff,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #ffffff,
+        A400 : #ffffff,
+        A700 : #ffffff,
+    )
+);
+
+$md-indigodye: (
+    50 : #e6e8ec,
+    100 : #bfc6d0,
+    200 : #95a0b1,
+    300 : #6b7a91,
+    400 : #4b5e7a,
+    500 : #2b4162,
+    600 : #263b5a,
+    700 : #203250,
+    800 : #1a2a46,
+    900 : #101c34,
+    A100 : #729cff,
+    A200 : #3f79ff,
+    A400 : #0c55ff,
+    A700 : #0048f1,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #ffffff,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #ffffff,
+        A400 : #ffffff,
+        A700 : #ffffff,
+    )
+);
+
+$md-bottlegreen: (
+    50 : #e2eeea,
+    100 : #b6d4ca,
+    200 : #85b7a7,
+    300 : #549a84,
+    400 : #308469,
+    500 : #0b6e4f,
+    600 : #0a6648,
+    700 : #085b3f,
+    800 : #065136,
+    900 : #033f26,
+    A100 : #74ffbb,
+    A200 : #41ffa2,
+    A400 : #0eff89,
+    A700 : #00f47d,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+$md-fulvous: (
+    50 : #fcf1e3,
+    100 : #f8dcb9,
+    200 : #f4c58a,
+    300 : #f0ad5b,
+    400 : #ec9c38,
+    500 : #e98a15,
+    600 : #e68212,
+    700 : #e3770f,
+    800 : #df6d0c,
+    900 : #d95a06,
+    A100 : #ffffff,
+    A200 : #ffdfcf,
+    A400 : #ffbe9c,
+    A700 : #ffad82,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #000000,
+        800 : #000000,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+$md-gainsboro: (
+    50 : #fbfbfc,
+    100 : #f6f6f6,
+    200 : #f0f0f1,
+    300 : #e9e9eb,
+    400 : #e5e5e6,
+    500 : #e0e0e2,
+    600 : #dcdcdf,
+    700 : #d8d8da,
+    800 : #d3d3d6,
+    900 : #cbcbcf,
+    A100 : #ffffff,
+    A200 : #ffffff,
+    A400 : #ffffff,
+    A700 : #ffffff,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #000000,
+        800 : #000000,
+        900 : #000000,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);

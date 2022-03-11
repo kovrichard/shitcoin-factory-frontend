@@ -1,7 +1,28 @@
-/* You can add global styles to this file, and also import other style files */
+@use '@angular/material' as mat;
+@import './palette';
+
+@include mat.core();
+
+$light-primary: mat.define-palette($md-indigodye);
+$light-accent: mat.define-palette($md-persianplum);
+$light-warn: mat.define-palette($md-fulvous);
+$light-theme: mat.define-light-theme((
+	color: (
+		primary: $light-primary,
+		accent: $light-accent,
+		warn: $light-warn,
+	)
+));
+
+@include mat.core-theme($light-theme);
+@include mat.button-theme($light-theme);
+
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.mat-drawer-container {
+}
 
 .mat-drawer-inner-container {
 	display: flex;
