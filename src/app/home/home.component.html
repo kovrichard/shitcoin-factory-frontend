@@ -1,13 +1,33 @@
 <app-navbar [home]=home [about]=about [factory]=factory>
     <div #home class="home-container">
-        <div>
-            <h1>Shitcoin Factory</h1>
-        </div>
-        <p>Our factory created {{ numberOfCoins }} shitcoins so far.</p>
-        <div *ngFor="let coin of coins">
-            {{ coin.address }} {{ coin.name }} {{ coin.symbol }} {{ coin.totalSupply }} {{ coin.owner == caller ? "You are the owner" : "" }}
-            {{ coin.owner }} {{ caller }}
-        </div>
+    <mat-grid-list cols="3" rowHeight="50%">
+        <mat-grid-tile [colspan]=3 [rowspan]=1>
+            <div class="header">
+                <div>
+                    <h1>Shitcoin Factory</h1>
+                </div>
+                <p>Have a shitcoin of your own</p>
+            </div>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]=1 [rowspan]=1 style.background="red">
+            <div class="coin-container">
+                <p class="coins-1">Our factory created</p>
+                <p class="coins-2">{{ numberOfCoins }}</p>
+                <p class="coins-1">shitcoins so far.</p>
+            </div>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]=2 [rowspan]=1 style.background="green">
+            <div class="coin-container">
+                <p>Shitcoins</p>
+                <mat-divider></mat-divider>
+                <mat-list>
+                    <mat-list-item *ngFor="let coin of coins">
+                        <div>{{ coin.name }}</div>
+                    </mat-list-item>
+                </mat-list>
+            </div>
+        </mat-grid-tile>
+    </mat-grid-list>
     </div>
     <div #about class="about-container">
         <p>About</p>
