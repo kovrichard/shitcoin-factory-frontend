@@ -21,10 +21,12 @@
                 <p>Shitcoins</p>
                 <mat-divider></mat-divider>
                 <mat-list>
-                    <mat-list-item *ngFor="let coin of coins">
-                        <div>{{ coin.symbol }}</div>
-                        <div>{{ coin.address }}</div>
-                    </mat-list-item>
+                    <cdk-virtual-scroll-viewport itemSize="5" class="viewport">
+                        <div *ngFor="let coin of coins" class="coin-row">
+                            <div>{{ coin.symbol }}</div>
+                            <div>{{ coin.address }}</div>
+                        </div>
+                    </cdk-virtual-scroll-viewport>
                 </mat-list>
             </div>
         </mat-grid-tile>

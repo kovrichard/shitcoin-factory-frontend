@@ -17,6 +17,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatGridListModule } from '@angular/material/grid-list';
 import {MatListModule} from '@angular/material/list';
+import {ScrollingModule} from '@angular/cdk/scrolling';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, NavbarComponent],
@@ -34,6 +35,7 @@ import {MatListModule} from '@angular/material/list';
     MatInputModule,
     MatGridListModule,
     MatListModule,
+    ScrollingModule,
   ],
   providers: [
     {
