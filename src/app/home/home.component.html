@@ -36,21 +36,21 @@
     <div #factory class="factory-container">
         <form id="form">
             <div>
-                <mat-form-field appearance="fill">
+                <mat-form-field appearance="fill" color="warn">
                     <mat-label>Name</mat-label> 
                     <input matInput type="text" [(ngModel)]="name" name="name" />
                 </mat-form-field>
-                <mat-form-field appearance="fill">
+                <mat-form-field appearance="fill" color="warn">
                     <mat-label>Symbol</mat-label> 
                     <input matInput type="text" [(ngModel)]="symbol" name="symbol" />
                 </mat-form-field>
-                <mat-form-field appearance="fill">
+                <mat-form-field appearance="fill" color="warn">
                     <mat-label>Total suply</mat-label> 
                     <input matInput type="number" [(ngModel)]="totalSupply" name="supply" placeholder="0" />
                 </mat-form-field>
             </div>
             <div>
-                <button mat-raised-button (click)="mint()" color="primary">Mint</button>
+                <button mat-raised-button (click)="mint()" color="warn">Mint</button>
             </div>
        </form>
     </div>
