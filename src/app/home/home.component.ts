@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ShitcoinFactoryService } from '../shitcoin-factory.service';
 import { Web3ModalService } from '../web3-modal/web3-modal.service';
-import { timer, takeWhile } from 'rxjs';
+import { takeWhile, timer } from 'rxjs';
 
 interface Shitcoin {
   address: string;
@@ -56,14 +56,14 @@ export class HomeComponent implements OnInit {
       }
     });
   }
-  
+
   private countToNumberOfCoins() {
     const t = timer(0, 50);
-    t.pipe(
-      takeWhile((value: number) => value <= this.numberOfCoins))
-      .subscribe((value: number) => {
-      this.numCoins = value;
-    });
+    t.pipe(takeWhile((value: number) => value <= this.numberOfCoins)).subscribe(
+      (value: number) => {
+        this.numCoins = value;
+      }
+    );
   }
 
   mint() {
