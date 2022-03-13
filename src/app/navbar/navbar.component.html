@@ -18,6 +18,10 @@
             <mat-icon>business_center</mat-icon>
             <span>Factory</span>
         </button>
+        <button mat-button class="menu-link" (click)="drawer.toggle();scroll(myCoins);">
+            <mat-icon>settings</mat-icon>
+            <span>My coins</span>
+        </button>
         <span class="spacer"></span>
         <button mat-button class="menu-link menu-end" (click)="drawer.toggle();changeTheme()">
             <mat-icon>{{ darkMode ? 'wb_sunny' : 'brightness_3' }}</mat-icon>

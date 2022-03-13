@@ -8,6 +8,7 @@ export class NavbarComponent implements OnInit {
   @Input() home: HTMLDivElement;
   @Input() about: HTMLDivElement;
   @Input() factory: HTMLDivElement;
+  @Input() myCoins: HTMLDivElement;
 
   darkMode = false;
 

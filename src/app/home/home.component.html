@@ -1,4 +1,4 @@
-<app-navbar [home]=home [about]=about [factory]=factory>
+<app-navbar [home]=home [about]=about [factory]=factory [myCoins]=myCoins>
     <div #home class="home-container">
     <mat-grid-list cols="3" rowHeight="50%">
         <mat-grid-tile [colspan]=3 [rowspan]=1>
@@ -66,5 +66,8 @@
                 <button mat-raised-button (click)="mint()" color="warn">Mint</button>
             </div>
        </form>
+    </div>
+    <div #myCoins class="my-coins-container">
+        My coins
     </div>
 </app-navbar>
