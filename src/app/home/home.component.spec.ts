@@ -19,6 +19,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { FormsModule } from '@angular/forms';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatListModule } from '@angular/material/list';
+import { ScrollingModule } from '@angular/cdk/scrolling';
 
 export const fakeWeb3ModalService = {
   account: {
@@ -81,6 +84,9 @@ describe('HomeComponent', () => {
         MatSidenavModule,
         MatToolbarModule,
         FormsModule,
+        MatGridListModule,
+        MatListModule,
+        ScrollingModule,
       ],
       declarations: [HomeComponent, NavbarComponent, Web3ModalComponent],
       providers: [
