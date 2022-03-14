@@ -1,18 +1,24 @@
-import { Directive, ElementRef, Input } from '@angular/core';
+import { Directive, ElementRef, Input, OnInit } from '@angular/core';
 
 @Directive({
   selector: '[shadowCard]',
 })
-export class ShadowCardDirective {
-  bodyStyle = window.getComputedStyle(document.body);
-  c = this.bodyStyle.getPropertyValue('$light-primary');
+export class ShadowCardDirective implements OnInit {
+  private bodyStyle = window.getComputedStyle(document.body);
+  private c = this.bodyStyle.getPropertyValue('$light-primary');
   @Input() color = this.c;
+  @Input() width = '';
+  @Input() height = '';
 
-  constructor(private el: ElementRef) {
+  constructor(private el: ElementRef) {}
+  
+  ngOnInit() {
     const elementStyle = this.el.nativeElement.style;
     elementStyle.borderRadius = '1rem';
     elementStyle.boxShadow = '3px 6px 8px #000000';
     elementStyle.textAlign = 'center';
     elementStyle.backgroundColor = this.color;
+    elementStyle.width = this.width;
+    elementStyle.height = this.height;
   }
 }
