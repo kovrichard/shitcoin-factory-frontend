@@ -18,6 +18,11 @@ $light-theme: mat.define-light-theme((
 	)
 ));
 
+.mat-secondary {
+	background-color: map-get($light-secondary, 500);
+	color: map-get($light-text, 500);
+}
+
 @include mat.core-theme($light-theme);
 @include mat.button-theme($light-theme);
 @include mat.toolbar-theme($light-theme);

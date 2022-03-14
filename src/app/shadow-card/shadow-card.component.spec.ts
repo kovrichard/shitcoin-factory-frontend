@@ -21,20 +21,10 @@ describe('ShadowCardComponent', () => {
   });
 
   it('should set default values', () => {
-    expect(component.color).toEqual('');
+    expect(component.color).toEqual('accent');
     expect(component.width).toEqual('');
     expect(component.height).toEqual('');
     expect(component.text).toEqual('');
     expect(component.icon).toEqual('');
-  });
-
-  it('should set input values on div', () => {
-    component.width = '100px';
-    component.height = '100px';
-    component.color = 'black';
-    component.ngAfterViewInit();
-
-    expect(component.div.nativeElement.style.height).toEqual('100px');
-    expect(component.div.nativeElement.style.backgroundColor).toEqual('black');
   });
 });

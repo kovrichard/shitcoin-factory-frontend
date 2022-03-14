@@ -10,14 +10,14 @@
             </shadow-card>
         </mat-grid-tile>
         <mat-grid-tile [colspan]=1 [rowspan]=1>
-            <div shadowCard class="coin-container">
+            <shadow-card class="coin-container" color="secondary">
                 <p class="coins-1">Our factory created</p>
                 <p class="coins-2">{{ numCoins }}</p>
                 <p class="coins-1">shitcoins so far.</p>
-            </div>
+            </shadow-card>
         </mat-grid-tile>
         <mat-grid-tile [colspan]=2 [rowspan]=1>
-            <div shadowCard class="coin-container">
+            <shadow-card class="coin-container">
                 <p>Shitcoins</p>
                 <mat-divider></mat-divider>
                 <mat-list>
@@ -28,7 +28,7 @@
                         </div>
                     </cdk-virtual-scroll-viewport>
                 </mat-list>
-            </div>
+            </shadow-card>
         </mat-grid-tile>
     </mat-grid-list>
     </div>
