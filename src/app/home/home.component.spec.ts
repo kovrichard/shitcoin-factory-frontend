@@ -23,6 +23,7 @@ import { FormsModule } from '@angular/forms';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatListModule } from '@angular/material/list';
 import { ScrollingModule } from '@angular/cdk/scrolling';
+import { ShadowCardComponent } from '../shadow-card/shadow-card.component';
 
 export const fakeWeb3ModalService = {
   account: {
@@ -89,7 +90,7 @@ describe('HomeComponent', () => {
         MatListModule,
         ScrollingModule,
       ],
-      declarations: [HomeComponent, NavbarComponent, Web3ModalComponent],
+      declarations: [HomeComponent, NavbarComponent, Web3ModalComponent, ShadowCardComponent],
       providers: [
         { provide: Web3ModalService, useValue: fakeWeb3ModalService },
         {

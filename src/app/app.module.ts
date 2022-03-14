@@ -18,14 +18,14 @@ import { MatInputModule } from '@angular/material/input';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatListModule } from '@angular/material/list';
 import { ScrollingModule } from '@angular/cdk/scrolling';
-import { ShadowCardDirective } from './shadow-card.directive';
+import { ShadowCardComponent } from './shadow-card/shadow-card.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     NavbarComponent,
-    ShadowCardDirective,
+    ShadowCardComponent,
   ],
   imports: [
     BrowserModule,

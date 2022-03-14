@@ -1,0 +1,10 @@
+.shadow-card {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1rem;
+    box-shadow: 3px 6px 8px #000000;
+    text-align: center;
+    padding: 1rem;
+}
