@@ -18,25 +18,25 @@ $light-theme: mat.define-light-theme((
 	)
 ));
 
-.mat-primary {
+.cmat-primary {
 	background-color: map-get($light-primary, 500);
 }
 
-.mat-secondary {
+.cmat-secondary {
 	background-color: map-get($light-secondary, 500);
 	color: map-get($light-text, 500);
 }
 
-.mat-accent {
+.cmat-accent {
 	background-color: map-get($light-accent, 500);
 	color: map-get($light-text, 500);
 }
 
-.mat-warn {
+.cmat-warn {
 	background-color: map-get($light-warn, 500);
 }
 
-.mat-text {
+.cmat-text {
 	color: map-get($light-text, 500);
 }
 
