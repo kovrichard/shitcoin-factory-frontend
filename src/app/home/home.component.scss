@@ -69,3 +69,23 @@
 mat-form-field {
 	margin-right: 1rem;
 }
+
+.d-flex {
+	display: flex;
+}
+
+.row {
+	flex-direction: row;
+}
+
+.col {
+	flex-direction: column;
+}
+
+.text-center {
+	text-align: center;
+}
+
+.jc-around {
+	justify-content: space-around;
+}

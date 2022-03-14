@@ -32,13 +32,23 @@
         </mat-grid-tile>
     </mat-grid-list>
     </div>
-    <div #about class="about-container">
-        <p>Having a personal shitcoin might feel great.</p>
-        <p>However, it does not provide much value to the world.</p>
-        <p>Without utility, your shitcoin is just some code on a blockchain.</p>
-        <p>To prove how easy it is to create a BEP20 shitcoin, we created this website, where you can create your own with just a few clicks.</p>
-        <p>Since our coins are created according to the BEP20 token standard, you can import them in any wallet that supports it.</p>
-        <p>The shitcoin's owner will be your wallet address that you used to connect to our site.</p>
+    <div #about class="about-container col">
+        <div class="d-flex col">
+            <h1 class="text-center">Having a personal shitcoin might feel great.</h1>
+            <h2 class="text-center">However, it does not provide much value to the world.</h2>
+            <h3 class="text-center">Without utility, your shitcoin is just some code on a blockchain.</h3>
+        </div>
+        <div class="d-flex row jc-around">
+            <shadow-card width="280px" height="180px" icon="create">
+                To prove how easy it is to create a BEP20 shitcoin, we created this website, where you can create your own with just a few clicks.
+            </shadow-card>
+            <shadow-card width="280px" height="180px" icon="save_alt">
+                Since our coins are created according to the BEP20 token standard, you can import them in any wallet that supports it.
+            </shadow-card>
+            <shadow-card width="280px" height="180px" icon="link">
+                The shitcoin's owner will be your wallet address that you used to connect to our site.
+            </shadow-card>
+        </div>
         <p>Every coin will be transferred to your address.</p>
         <p>Most of the costs of creating a shitcoin will be the gas you will pay to deploy your shitcoin to the blockchain.</p>
         <p>Type in your shitcoin's name, symbol and total supply, then click Mint.</p>
