@@ -9,6 +9,10 @@ describe('ShadowCardDirective', () => {
     const directive = new ShadowCardDirective(elementRef);
     directive.ngOnInit();
 
+    expect(nativeElement.style.display).toEqual('inline-flex');
+    expect(nativeElement.style.flexDirection).toEqual('column');
+    expect(nativeElement.style.alignItems).toEqual('center');
+    expect(nativeElement.style.justifyContent).toEqual('center');
     expect(nativeElement.style.borderRadius).toEqual('1rem');
     expect(nativeElement.style.boxShadow).toEqual('rgb(0, 0, 0) 3px 6px 8px');
     expect(nativeElement.style.textAlign).toEqual('center');
