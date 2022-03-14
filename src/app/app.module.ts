@@ -21,7 +21,12 @@ import { ScrollingModule } from '@angular/cdk/scrolling';
 import { ShadowCardDirective } from './shadow-card.directive';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, NavbarComponent, ShadowCardDirective],
+  declarations: [
+    AppComponent,
+    HomeComponent,
+    NavbarComponent,
+    ShadowCardDirective,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
