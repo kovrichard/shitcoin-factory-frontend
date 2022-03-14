@@ -21,7 +21,7 @@ describe('ShadowCardComponent', () => {
   });
 
   it('should set default values', () => {
-    expect(component.color).toEqual('accent');
+    expect(component.color).toEqual('primary');
     expect(component.width).toEqual('');
     expect(component.height).toEqual('');
     expect(component.text).toEqual('');

@@ -7,7 +7,7 @@ import { Component, OnInit, AfterViewInit, Input, ViewChild, ElementRef } from '
 })
 export class ShadowCardComponent implements  AfterViewInit {
   @ViewChild('shadowCard') private div!: ElementRef<HTMLDivElement>;
-  @Input() color = 'accent';
+  @Input() color = 'primary';
   @Input() width = '';
   @Input() height = '';
   @Input() text = '';
