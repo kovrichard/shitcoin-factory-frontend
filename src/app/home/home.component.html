@@ -13,13 +13,13 @@
                 <p class="coins-1">shitcoins so far.</p>
             </shadow-card>
             <shadow-card class="coin-container">
-                <p>Shitcoins</p>
+                <p>Recent shitcoins</p>
                 <mat-divider></mat-divider>
                 <mat-list>
                     <cdk-virtual-scroll-viewport itemSize="5" class="viewport">
-                        <div *ngFor="let coin of coins" class="coin-row">
+                        <div *ngFor="let coin of coins.reverse()" class="coin-row">
                             <div>{{ coin.symbol }}</div>
-                            <div>{{ coin.address }}</div>
+                            <div><a href="https://bscscan.com/address/{{ coin.address }}">{{ coin.address }}</a></div>
                         </div>
                     </cdk-virtual-scroll-viewport>
                 </mat-list>
