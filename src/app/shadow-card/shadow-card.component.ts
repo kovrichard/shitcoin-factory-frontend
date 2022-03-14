@@ -1,11 +1,17 @@
-import { Component, OnInit, AfterViewInit, Input, ViewChild, ElementRef } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  Input,
+  ViewChild,
+} from '@angular/core';
 
 @Component({
   selector: 'shadow-card',
   templateUrl: './shadow-card.component.html',
-  styleUrls: ['./shadow-card.component.scss']
+  styleUrls: ['./shadow-card.component.scss'],
 })
-export class ShadowCardComponent implements  AfterViewInit {
+export class ShadowCardComponent implements AfterViewInit {
   @ViewChild('shadowCard') private div!: ElementRef<HTMLDivElement>;
   @Input() color = 'primary';
   @Input() width = '';
@@ -13,7 +19,7 @@ export class ShadowCardComponent implements  AfterViewInit {
   @Input() text = '';
   @Input() icon = '';
 
-  constructor(private el: ElementRef) { }
+  constructor(private el: ElementRef) {}
 
   ngAfterViewInit(): void {
     this.el.nativeElement.style.display = 'flex';
@@ -21,5 +27,4 @@ export class ShadowCardComponent implements  AfterViewInit {
     this.el.nativeElement.style.width = this.width;
     this.div.nativeElement.style.height = this.height;
   }
-
 }

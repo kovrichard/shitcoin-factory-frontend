@@ -6,12 +6,10 @@ describe('ShadowCardComponent', () => {
   let component: ShadowCardComponent;
   let fixture: ComponentFixture<ShadowCardComponent>;
 
-
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ShadowCardComponent ]
-    })
-    .compileComponents();
+      declarations: [ShadowCardComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

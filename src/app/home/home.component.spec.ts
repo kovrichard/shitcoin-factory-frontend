@@ -90,7 +90,12 @@ describe('HomeComponent', () => {
         MatListModule,
         ScrollingModule,
       ],
-      declarations: [HomeComponent, NavbarComponent, Web3ModalComponent, ShadowCardComponent],
+      declarations: [
+        HomeComponent,
+        NavbarComponent,
+        Web3ModalComponent,
+        ShadowCardComponent,
+      ],
       providers: [
         { provide: Web3ModalService, useValue: fakeWeb3ModalService },
         {
