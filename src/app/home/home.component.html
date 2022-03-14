@@ -2,12 +2,12 @@
     <div #home class="home-container">
     <mat-grid-list cols="3" rowHeight="50%">
         <mat-grid-tile [colspan]=3 [rowspan]=1>
-            <div shadowCard class="header">
+            <shadow-card width="100%">
                 <div>
                     <h1>Shitcoin Factory</h1>
                 </div>
                 <p>Have a shitcoin of your own</p>
-            </div>
+            </shadow-card>
         </mat-grid-tile>
         <mat-grid-tile [colspan]=1 [rowspan]=1>
             <div shadowCard class="coin-container">
@@ -40,13 +40,13 @@
         </div>
         <div class="d-flex row jc-around">
             <shadow-card width="280px" height="180px" icon="create">
-                To prove how easy it is to create a BEP20 shitcoin, we created this website, where you can create your own with just a few clicks.
+                <p>To prove how easy it is to create a BEP20 shitcoin, we created this website, where you can create your own with just a few clicks.</p>
             </shadow-card>
             <shadow-card width="280px" height="180px" icon="save_alt">
-                Since our coins are created according to the BEP20 token standard, you can import them in any wallet that supports it.
+                <p>Since our coins are created according to the BEP20 token standard, you can import them in any wallet that supports it.</p>
             </shadow-card>
             <shadow-card width="280px" height="180px" icon="link">
-                The shitcoin's owner will be your wallet address that you used to connect to our site.
+                <p>The shitcoin's owner will be your wallet address that you used to connect to our site.</p>
             </shadow-card>
         </div>
         <p>Every coin will be transferred to your address.</p>

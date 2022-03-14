@@ -34,7 +34,6 @@ describe('ShadowCardComponent', () => {
     component.color = 'black';
     component.ngAfterViewInit();
 
-    expect(component.div.nativeElement.style.width).toEqual('100px');
     expect(component.div.nativeElement.style.height).toEqual('100px');
     expect(component.div.nativeElement.style.backgroundColor).toEqual('black');
   });

@@ -15,10 +15,12 @@ export class ShadowCardComponent implements  AfterViewInit {
   @Input() text = '';
   @Input() icon = '';
 
-  constructor() { }
+  constructor(private el: ElementRef) { }
 
   ngAfterViewInit(): void {
-    this.div.nativeElement.style.width = this.width;
+    this.el.nativeElement.style.display = 'flex';
+    this.el.nativeElement.style.padding = '1rem';
+    this.el.nativeElement.style.width = this.width;
     this.div.nativeElement.style.height = this.height;
     this.div.nativeElement.style.backgroundColor = this.color;
   }
