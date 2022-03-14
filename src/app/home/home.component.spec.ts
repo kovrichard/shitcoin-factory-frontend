@@ -1,6 +1,7 @@
 import {
   ComponentFixture,
   TestBed,
+  discardPeriodicTasks,
   fakeAsync,
   tick,
 } from '@angular/core/testing';
@@ -122,6 +123,7 @@ describe('HomeComponent', () => {
     tick();
 
     expect(component.caller).toEqual('test-account');
+    discardPeriodicTasks();
   }));
 
   it('should save coins', fakeAsync(() => {
@@ -134,6 +136,7 @@ describe('HomeComponent', () => {
     expect(component.coins[0].name).toEqual('Test coin');
     expect(component.coins[0].symbol).toEqual('TESTCOIN');
     expect(component.coins[0].totalSupply).toEqual(42);
+    discardPeriodicTasks();
   }));
 
   it('mint should call create', fakeAsync(() => {
