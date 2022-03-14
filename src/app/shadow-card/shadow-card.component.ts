@@ -23,7 +23,7 @@ export class ShadowCardComponent implements AfterViewInit {
 
   ngAfterViewInit(): void {
     this.el.nativeElement.style.display = 'flex';
-    this.el.nativeElement.style.padding = '1rem';
+    this.el.nativeElement.style.padding = '0.5rem';
     this.el.nativeElement.style.width = this.width;
     this.div.nativeElement.style.height = this.height;
   }

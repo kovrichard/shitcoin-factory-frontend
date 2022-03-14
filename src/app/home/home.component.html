@@ -1,18 +1,18 @@
 <app-navbar [home]=home [about]=about [factory]=factory [myCoins]=myCoins>
     <div #home class="home-container d-flex flex-wrap col jc-evenly">
-        <shadow-card width="100%">
+        <shadow-card>
             <div>
                 <h1>Shitcoin Factory</h1>
             </div>
             <p>Have a shitcoin of your own</p>
         </shadow-card>
         <div class="d-flex flex-wrap row jc-evenly">
-            <shadow-card class="coin-container" color="secondary" width="300px">
+            <shadow-card class="coin-container" color="secondary" width="350px">
                 <p class="coins-1">Our factory created</p>
                 <p class="coins-2">{{ numCoins }}</p>
                 <p class="coins-1">shitcoins so far.</p>
             </shadow-card>
-            <shadow-card class="coin-container" width="600px">
+            <shadow-card class="coin-container">
                 <p>Shitcoins</p>
                 <mat-divider></mat-divider>
                 <mat-list>
