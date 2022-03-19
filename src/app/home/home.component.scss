@@ -1,6 +1,6 @@
 @import '../../styles';
 
-.home-container, .about-container, .factory-container, .my-coins-container {
+.home-part {
 	display: flex;
 	min-height: calc(100% - 64px);
 	padding-top: 64px;

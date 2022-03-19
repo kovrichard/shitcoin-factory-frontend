@@ -1,5 +1,5 @@
-<app-navbar [home]=home [about]=about [factory]=factory [myCoins]=myCoins>
-    <div #home class="home-container d-flex flex-wrap col jc-evenly">
+<app-navbar [home]=home [about]=about [factory]=factory [myCoins]=myCoins [shapeshifter]=shapeshifter>
+    <div #home class="home-container home-part d-flex flex-wrap col jc-evenly">
         <shadow-card>
             <div>
                 <h1>Shitcoin Factory</h1>
@@ -26,7 +26,7 @@
             </shadow-card>
         </div>
     </div>
-    <div #about class="about-container d-flex col">
+    <div #about class="home-part d-flex col">
         <div class="d-flex flex-wrap col">
             <h1 class="text-center">Having a personal shitcoin might feel great.</h1>
             <h2 class="text-center">However, it does not provide much value to the world.</h2>
@@ -52,7 +52,7 @@
             </shadow-card>
         </div>
     </div>
-    <div #factory class="factory-container d-flex col">
+    <div #factory class="home-part d-flex col">
         <div class="d-flex flex-wrap row jc-evenly">
             <shadow-card width="280px" height="180px" icon="looks_one">
                 <p>Type in your shitcoin's name, symbol and total supply, then click Mint.</p>
@@ -82,12 +82,15 @@
             </div>
        </form>
     </div>
-    <div #myCoins class="my-coins-container d-flex flex-wrap row jc-evenly">
+    <div #myCoins class="home-part d-flex flex-wrap row jc-evenly">
         <shadow-card width="280px" height="180px" icon="settings">
             <p>Since you are the owner of your shitcoins, you can also manage them on this website.</p>
         </shadow-card>
         <shadow-card width="280px" height="180px" icon="share">
             <p>Mint new coins, burn existing ones, or transfer its whole ownership to someone else, if you would like.</p>
         </shadow-card>
+    </div>
+    <div #shapeshifter class="home-part d-flex flex-wrap row-jc-evenly">
+        <p>Shapeshifter coin</p>
     </div>
 </app-navbar>

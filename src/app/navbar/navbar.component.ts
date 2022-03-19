@@ -9,6 +9,7 @@ export class NavbarComponent implements OnInit {
   @Input() about: HTMLDivElement;
   @Input() factory: HTMLDivElement;
   @Input() myCoins: HTMLDivElement;
+  @Input() shapeshifter: HTMLDivElement;
 
   darkMode = false;
 
