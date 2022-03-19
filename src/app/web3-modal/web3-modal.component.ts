@@ -15,10 +15,7 @@ export class Web3ModalComponent implements OnInit {
   providers: IProvider[];
 
   @Input() buttonTitle: string;
-  @Input() modalTitle: string;
   @Input() description?: string;
-  @Input() dismissText?: string;
-  @Input() promptMetamaskIfNotInstalled = false;
 
   constructor(private service: Web3ModalService) {}
 

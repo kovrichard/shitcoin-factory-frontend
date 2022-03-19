@@ -3,30 +3,21 @@
 <div class="m-modal" [hidden]="!open">
   <div class="m-modal-bg" (click)="close($event)"></div>
   <div class="m-modal-container">
-    <div class="m-web3Modal">
-      <div class="m-web3Modal__header">
-        <h3 class="m-web3ModalHeader__title">
-          {{ modalTitle }}
-        </h3>
-        <div class="m-web3ModalHeader__description">
-          <p class="m-web3ModalHeader__text">
-            {{ description }}
-          </p>
-        </div>
+    <div class="m-web3Modal__header">
+      <div>
+        <p class="m-web3ModalHeader__text">{{ description }}</p>
       </div>
-      <div class="m-web3Modal__body">
-        <div class="m-web3ModalBody__provider">
-          <button mat-raised-button class="btn-provider" *ngFor="let p of providers" (click)="p.onClick()">
-            <div class="m-web3ModalProviderBody__icon">
-              <img src="{{p.logo}}" alt="{{p.logo}}" />
-            </div>
-            <div class="m-web3ModalProviderBody__name">{{ p.name }}</div>
-          </button>
-        </div>
-      </div>
-      <div class="m-web3Modal__footer">
-        <button class="btn-footer" mat-button (click)="close($event)">{{ dismissText }} </button>
-      </div>
+      <button class="modal-close" mat-icon-button (click)="close($event)">
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+    <div class="m-web3Modal__body">
+        <button mat-raised-button class="btn-provider" *ngFor="let p of providers" (click)="p.onClick()">
+          <div class="m-web3ModalProviderBody__icon">
+            <img src="{{p.logo}}" alt="{{p.logo}}" />
+          </div>
+          <div class="m-web3ModalProviderBody__name">{{ p.name }}</div>
+        </button>
     </div>
   </div>
 </div>
