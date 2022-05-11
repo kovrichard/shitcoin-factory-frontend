@@ -19,6 +19,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatListModule } from '@angular/material/list';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { ShadowCardComponent } from './shadow-card/shadow-card.component';
+import { CircleComponent } from './circle/circle.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { ShadowCardComponent } from './shadow-card/shadow-card.component';
     HomeComponent,
     NavbarComponent,
     ShadowCardComponent,
+    CircleComponent,
   ],
   imports: [
     BrowserModule,

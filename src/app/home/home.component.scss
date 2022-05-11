@@ -1,15 +1,30 @@
 @import '../../styles';
 
-.home-part {
-	display: flex;
-	min-height: calc(100% - 64px);
-	padding-top: 64px;
-	max-width: 1200px;
-	margin: auto;
+.left {
+	width: 62%;
 }
 
-.home-container {
-	margin-top: -64px;
+.right {
+	width: 38%;
+	height: 981px;
+	background-color: #1b1c37;
+}
+
+.ellipse {
+	position: relative;
+	width: 464px;
+	height: 464px;
+	background-color: #ffffff;
+	border-radius: 50%;
+	margin-top: 200px;
+	margin-left: calc(62% - 232px);
+	z-index: 10;
+}
+
+.home-part {
+	position: absolute;
+	display: flex;
+	width: 100%;
 }
 
 .coin-container {
