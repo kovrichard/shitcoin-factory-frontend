@@ -1,22 +1,22 @@
 
 <nav class="d-flex row mx-auto">
     <div class="d-flex row mx-auto">
-        <div class="nav-item active" (click)="scroll(home);">
+        <button mat-button class="nav-item active" (click)="scroll(home);">
             <p>Home</p>
             <div></div>
-        </div>
-        <div class="nav-item" (click)="scroll(about);">
+        </button>
+        <button mat-button class="nav-item" (click)="scroll(about);">
             <p>About</p>
             <div></div>
-        </div>
-        <div class="nav-item" (click)="scroll(factory);">
+        </button>
+        <button mat-button class="nav-item" (click)="scroll(factory);">
             <p>Factory</p>
             <div></div>
-        </div>
-        <div class="nav-item" (click)="scroll(myCoins);">
+        </button>
+        <button mat-button class="nav-item" (click)="scroll(myCoins);">
             <p>My coins</p>
             <div></div>
-        </div>
+        </button>
     </div>
     <div class="connect">
         <m-web3-modal
