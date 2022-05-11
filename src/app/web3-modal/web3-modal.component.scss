@@ -74,10 +74,14 @@
 }
 
 .btn-connect {
-    margin: 1rem !important;
-    width: 130px;
+    width: 173px;
+    height: 48px;
+    margin: 8px;
     overflow: hidden !important;
     white-space: nowrap !important;
     text-overflow: ellipsis !important;
+    border-radius: 15px;
+    background-color: #7579ff;
+    color: #ffffff;
 }
 
