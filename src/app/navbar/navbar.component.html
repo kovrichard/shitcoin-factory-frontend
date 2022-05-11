@@ -1,49 +1,32 @@
-<mat-drawer-container class="side-navigation">
-    <mat-drawer #drawer>
-        <mat-toolbar color="accent">
-            <button mat-icon-button (click)="drawer.toggle()">
-            <mat-icon>menu</mat-icon>
-            </button>
-            <span>Shitcoin Factory</span>
-        </mat-toolbar>
-        <button mat-button class="menu-link" (click)="drawer.toggle();scroll(home);">
-            <mat-icon>home</mat-icon>
-            <span>Home</span>
-        </button>
-        <button mat-button class="menu-link" (click)="drawer.toggle();scroll(about);">
-            <mat-icon>account_circle</mat-icon>
-            <span>About</span>
-        </button>
-        <button mat-button class="menu-link" (click)="drawer.toggle();scroll(factory);">
-            <mat-icon>business_center</mat-icon>
-            <span>Factory</span>
-        </button>
-        <button mat-button class="menu-link" (click)="drawer.toggle();scroll(myCoins);">
-            <mat-icon>settings</mat-icon>
-            <span>My coins</span>
-        </button>
-        <button mat-button class="menu-link" (click)="drawer.toggle();scroll(shapeshifter);">
-            <mat-icon>donut_large</mat-icon>
-            <span>Shapeshifter</span>
-        </button>
-        <span class="spacer"></span>
-        <button mat-button class="menu-link menu-end" (click)="drawer.toggle();changeTheme()">
-            <mat-icon>{{ darkMode ? 'wb_sunny' : 'brightness_3' }}</mat-icon>
-            <span>{{ darkMode ? 'Light' : 'Dark' }} theme</span>
-        </button>
-    </mat-drawer>
-    <mat-drawer-content>
-        <mat-toolbar color="accent">
-            <button mat-icon-button (click)="drawer.toggle()">
-                <mat-icon>menu</mat-icon>
-            </button>
-            <span>Shitcoin Factory</span>
-            <span class="spacer"></span>
-            <m-web3-modal
-            buttonTitle="Connect wallet"
-            description="Connect wallet"
-            ></m-web3-modal>
-        </mat-toolbar>
-        <ng-content></ng-content>
-    </mat-drawer-content>
-</mat-drawer-container>
+
+<nav class="d-flex row mx-auto">
+    <div class="d-flex row mx-auto">
+        <div class="nav-item active" (click)="scroll(home);">
+            <p>Home</p>
+            <div></div>
+        </div>
+        <div class="nav-item" (click)="scroll(about);">
+            <p>About</p>
+            <div></div>
+        </div>
+        <div class="nav-item" (click)="scroll(factory);">
+            <p>Factory</p>
+            <div></div>
+        </div>
+        <div class="nav-item" (click)="scroll(myCoins);">
+            <p>My coins</p>
+            <div></div>
+        </div>
+    </div>
+    <div class="connect">
+        <m-web3-modal
+        buttonTitle="Connect"
+        description="Connect wallet"
+        ></m-web3-modal>
+    </div>
+</nav>
+<button mat-button class="menu-link menu-end" (click)="changeTheme()">
+    <mat-icon>{{ darkMode ? 'wb_sunny' : 'brightness_3' }}</mat-icon>
+    <span>{{ darkMode ? 'Light' : 'Dark' }} theme</span>
+</button>
+<ng-content></ng-content>
