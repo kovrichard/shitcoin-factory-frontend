@@ -2,52 +2,64 @@
     <div class="left"></div>
     <div class="right"></div>
 </div>
+
 <app-navbar [home]=home [about]=about [factory]=factory [myCoins]=myCoins [shapeshifter]=shapeshifter>
 </app-navbar>
 
-<div class="circle background-circle">
-    <div class="circle inner-circle">
-        <mat-progress-spinner
-            class="outer"
-            color="primary"
-            mode="determinate"
-            value="60"
-            diameter="280"
-            strokeWidth="21">
-        </mat-progress-spinner>
-        <mat-progress-spinner
-            class="middle"
-            color="accent"
-            mode="determinate"
-            value="50"
-            diameter="218"
-            strokeWidth="21">
-        </mat-progress-spinner>
-         <mat-progress-spinner
-            class="inner"
-            color="warn"
-            mode="determinate"
-            value="60"
-            diameter="155"
-            strokeWidth="15">
-        </mat-progress-spinner>
-        <div class="circle-text">
-            <p class="number">1</p>
-            <p class="text">minute</p>
-        </div>
+<div class="home">
+    <div class="home-left">
+        <p class="title">Have your own shitcoin</p>
+        <p class="description">The times are over when you had to buy someone else's shitcoin. Now you can create your own. Add a name, symbol and total supply, and you are good to go. It won't worth anything, but it will be yours.</p>
+        <button class="call-to-action" mat-button>
+            <span>Try now</span>
+            <mat-icon>play_circle_outline</mat-icon>
+        </button>
     </div>
-    <div class="strokes">
-        <div class="stroke">
-            <div class="dash blue"></div>
-            <p class="text">Shitcoin</p>
+
+    <div class="circle background-circle">
+        <div class="circle inner-circle">
+            <mat-progress-spinner
+                class="outer"
+                color="primary"
+                mode="determinate"
+                value="60"
+                diameter="280"
+                strokeWidth="21">
+            </mat-progress-spinner>
+            <mat-progress-spinner
+                class="middle"
+                color="accent"
+                mode="determinate"
+                value="50"
+                diameter="218"
+                strokeWidth="21">
+            </mat-progress-spinner>
+            <mat-progress-spinner
+                class="inner"
+                color="warn"
+                mode="determinate"
+                value="60"
+                diameter="155"
+                strokeWidth="15">
+            </mat-progress-spinner>
+            <div class="circle-text">
+                <p class="number">1</p>
+                <p class="text">minute</p>
+            </div>
         </div>
-        <div class="stroke">
-            <div class="dash purple"></div>
-            <p class="text">Yours</p>
-        </div>
-        <div class="stroke">
-            <div class="dash red"></div>
-            <p class="text">Worthless</p>
+        <div class="strokes">
+            <div class="stroke">
+                <div class="dash blue"></div>
+                <p class="text">Shitcoin</p>
+            </div>
+            <div class="stroke">
+                <div class="dash purple"></div>
+                <p class="text">Yours</p>
+            </div>
+            <div class="stroke">
+                <div class="dash red"></div>
+                <p class="text">Worthless</p>
+            </div>
         </div>
     </div>
 </div>
