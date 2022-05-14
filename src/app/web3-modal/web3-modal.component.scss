@@ -39,7 +39,7 @@
   margin-top: 12px;
   font-weight: 600;
   font-size: 15px;
-  color: map-get($light-text, 500);
+  color: #ffffff;
 }
 
 .m-web3ModalProviderBody__icon {
@@ -68,7 +68,6 @@
     top: 50%;
     transform: translate(-50%, -50%);
     border-radius: 6px;
-    font-family: 'Roboto', sans-serif;
     background-color: map-get($light-primary, 500);
   }
 }

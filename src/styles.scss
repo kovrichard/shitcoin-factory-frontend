@@ -3,72 +3,43 @@
 
 @include mat.core();
 
-$light-primary: mat.define-palette($md-indigodye);
-$light-secondary: mat.define-palette($md-bottlegreen);
-$light-accent: mat.define-palette($md-persianplum);
-$light-warn: mat.define-palette($md-fulvous);
-$light-text: mat.define-palette($md-gainsboro);
+$light-primary: mat.define-palette($md-blue);
+$light-accent: mat.define-palette($md-purple);
+$light-warn: mat.define-palette($md-red);
+
 $light-theme: mat.define-light-theme((
 	color: (
 		primary: $light-primary,
-		secondary: $light-secondary,
 		accent: $light-accent,
 		warn: $light-warn,
-		text: $light-text,
 	)
 ));
-
-.cmat-primary {
-	background-color: map-get($light-primary, 500);
-}
-
-.cmat-secondary {
-	background-color: map-get($light-secondary, 500);
-	color: map-get($light-text, 500);
-}
-
-.cmat-accent {
-	background-color: map-get($light-accent, 500);
-	color: map-get($light-text, 500);
-}
-
-.cmat-warn {
-	background-color: map-get($light-warn, 500);
-}
-
-.cmat-text {
-	color: map-get($light-text, 500);
-}
 
 @include mat.core-theme($light-theme);
 @include mat.button-theme($light-theme);
 @include mat.toolbar-theme($light-theme);
 @include mat.sidenav-theme($light-theme);
 @include mat.form-field-theme($light-theme);
+@include mat.progress-spinner-theme($light-theme);
 
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; }
 
-.mat-drawer-container {
-	background-color: map-get($md-indigodye, 500);
+* {
+	font-family: 'Poppins';
+	font-style: normal;
 }
 
 .mat-list-item-content {
 	justify-content: space-between;
 }
 
-.mat-drawer-inner-container {
-	display: flex;
-	flex-direction: column;
-	background-color: map-get($md-indigodye, 500);
-
-	.menu-link {
-		.mat-button-wrapper {
-			display: flex;
-			height: 100%;
-			align-items: center;
-			margin-left: 0.5rem;
-		}
+.menu-link {
+	.mat-button-wrapper {
+		display: flex;
+		height: 100%;
+		align-items: center;
+		margin-left: 0.5rem;
 	}
 }
