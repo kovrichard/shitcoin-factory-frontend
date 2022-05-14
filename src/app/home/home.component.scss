@@ -68,6 +68,48 @@
 			margin-bottom: 1rem;
 		}
 	}
+
+	.strokes {
+		position: absolute;
+		display: flex;
+		flex-direction: column;
+		margin-left: 580px;
+
+		.stroke {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+
+			.dash {
+				width: 47px;
+				height: 16px;
+				border-radius: 8px;
+				margin-right: 1rem;
+			}
+
+			.text {
+				font-family: 'Poppins';
+				font-style: normal;
+				font-weight: 600;
+				font-size: 18.89px;
+				line-height: 100%;
+				color: #ffffff;
+				margin: 7px;
+			}
+
+			.blue {
+				background-color: #167ffc;
+			}
+
+			.purple {
+				background-color: #7579ff;
+			}
+
+			.red {
+				background-color: #fd3259;
+			}
+		}
+	}
 }
 
 .mat-progress-spinner {
