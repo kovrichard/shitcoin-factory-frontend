@@ -10,7 +10,15 @@
 </circle-->
 
 <div class="circle background-circle">
-    <div class="circle inner-circle"></div>
+    <div class="circle inner-circle">
+        <mat-progress-spinner
+            class="outer"
+            mode="determinate"
+            value="60"
+            diameter="280"
+            strokeWidth="21">
+        </mat-progress-spinner>
+    </div>
 </div>
 
 <div #about class="d-flex col" style="margin-top:981px">

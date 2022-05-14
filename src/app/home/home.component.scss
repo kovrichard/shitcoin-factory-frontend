@@ -38,7 +38,16 @@
 			inset 0 0 0 52px #edeeff,
 			inset 0 0 0 62px #fff,
 			inset 0 0 0 77px #edeeff;
+		
 	}
+}
+
+.mat-progress-spinner {
+	stroke-linecap: round;
+
+}
+.outer {
+	transform: rotate(-10deg);
 }
 
 .home-part {

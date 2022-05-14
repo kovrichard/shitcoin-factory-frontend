@@ -20,6 +20,7 @@ import { MatListModule } from '@angular/material/list';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { ShadowCardComponent } from './shadow-card/shadow-card.component';
 import { CircleComponent } from './circle/circle.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { CircleComponent } from './circle/circle.component';
     MatGridListModule,
     MatListModule,
     ScrollingModule,
+    MatProgressSpinnerModule,
   ],
   providers: [
     {
