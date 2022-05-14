@@ -38,16 +38,24 @@
 			inset 0 0 0 52px #edeeff,
 			inset 0 0 0 62px #fff,
 			inset 0 0 0 77px #edeeff;
-		
 	}
 }
 
 .mat-progress-spinner {
+	position: absolute;
 	stroke-linecap: round;
-
 }
+
 .outer {
 	transform: rotate(-10deg);
+}
+
+.middle {
+	transform: rotate(-2deg);
+}
+
+.inner {
+	transform: rotate(-20deg);
 }
 
 .home-part {
