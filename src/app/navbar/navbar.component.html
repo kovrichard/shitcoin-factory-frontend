@@ -1,19 +1,19 @@
 
-<nav class="d-flex row mx-auto">
+<nav #navbar class="d-flex row mx-auto">
     <div class="d-flex row mx-auto">
-        <button mat-button class="nav-item active" (click)="scroll(home);">
+        <button mat-button class="nav-item active" (click)="scroll(home);highlight($event);">
             <p>Home</p>
             <div></div>
         </button>
-        <button mat-button class="nav-item" (click)="scroll(about);">
+        <button mat-button class="nav-item" (click)="scroll(about);highlight($event);">
             <p>About</p>
             <div></div>
         </button>
-        <button mat-button class="nav-item" (click)="scroll(factory);">
+        <button mat-button class="nav-item" (click)="scroll(factory);highlight($event);">
             <p>Factory</p>
             <div></div>
         </button>
-        <button mat-button class="nav-item" (click)="scroll(myCoins);">
+        <button mat-button class="nav-item" (click)="scroll(myCoins);highlight($event);">
             <p>My coins</p>
             <div></div>
         </button>

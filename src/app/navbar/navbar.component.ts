@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewChild, ElementRef } from '@angular/core';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -10,6 +10,8 @@ export class NavbarComponent implements OnInit {
   @Input() factory: HTMLDivElement;
   @Input() myCoins: HTMLDivElement;
   @Input() shapeshifter: HTMLDivElement;
+
+  @ViewChild('navbar') private navbar!: ElementRef<HTMLElement>;
 
   darkMode = false;
 
@@ -23,6 +25,17 @@ export class NavbarComponent implements OnInit {
       block: 'start',
       inline: 'nearest',
     });
+  }
+
+  highlight($event: Event) {
+    const targetButton = ($event.target as HTMLElement).closest('button'); 
+
+    var activeMenus = this.navbar.nativeElement.querySelectorAll('.active');
+    activeMenus.forEach((element: any) => {
+      element.classList.remove('active');
+    });
+
+    targetButton?.classList.add('active');
   }
 
   changeTheme() {
