@@ -21,6 +21,7 @@ import { ScrollingModule } from '@angular/cdk/scrolling';
 import { ShadowCardComponent } from './shadow-card/shadow-card.component';
 import { CircleComponent } from './circle/circle.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { LayoutModule } from '@angular/cdk/layout';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MatListModule,
     ScrollingModule,
     MatProgressSpinnerModule,
+    LayoutModule,
   ],
   providers: [
     {
