@@ -1,13 +1,17 @@
 @import '../../styles';
 
+app-navbar {
+	position: fixed;
+	width: 100%;
+	z-index: 2;
+}
+
 .home {
-	display: flex;
-	max-width: 1200px;
 	margin: auto;
+	align-items: center;
+	padding-top: 10rem;
 
 	.home-left {
-		display: flex;
-		flex-direction: column;
 		max-width: 633px;
 		margin-left: 2rem;
 		 
@@ -16,6 +20,7 @@
 			font-weight: 700;
 			line-height: 144px;
 			margin-bottom: 30px;
+			margin-top: 0;
 			background: linear-gradient(90deg, #B127F0 0%, #7E6DFD 100%);
 			-webkit-background-clip: text;
 			-webkit-text-fill-color: transparent;
@@ -58,6 +63,15 @@
 			}
 		}
 	}
+
+	.title {
+		max-width: 1200px;
+	}
+
+	.home-footer {
+		width: 100%;
+
+	}
 }
 
 .left {
@@ -82,7 +96,7 @@
 	height: 464px;
 	background-color: #ffffff;
 	border-radius: 50%;
-	margin-top: 150px;
+	align-self: flex-end;
 	z-index: 1;
 	
 	.inner-circle {
