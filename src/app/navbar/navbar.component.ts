@@ -35,6 +35,22 @@ export class NavbarComponent implements OnInit {
         });
       }
     });
+
+    this.breakpoints.observe([Breakpoints.Medium, Breakpoints.Small]).subscribe((result: any) => {
+      let menuItems = this.navbar.nativeElement.querySelectorAll('.nav-item');
+
+      if (result.matches) {
+        this.navbar.nativeElement.classList.add('small-medium');
+        menuItems.forEach((element: any) => {
+          element.classList.add('small-medium');
+        });
+      } else {
+        this.navbar.nativeElement.classList.remove('small-medium');
+        menuItems.forEach((element: any) => {
+          element.classList.remove('small-medium');
+        });
+      }
+    });
   }
 
   scroll($element: HTMLDivElement) {
