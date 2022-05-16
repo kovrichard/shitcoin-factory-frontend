@@ -1,6 +1,9 @@
 
 <div class="row mx-auto menu d-none">
-    <button mat-icon-button>
+    <mat-drawer #drawer mode="over">
+        itt a menu
+    </mat-drawer>
+    <button mat-icon-button (click)="drawer.toggle()">
         <mat-icon>menu</mat-icon>
     </button>
 </div>

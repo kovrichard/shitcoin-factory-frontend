@@ -12,6 +12,10 @@ app-navbar {
 	padding-top: 15rem;
 	height: calc(100vh - 15rem);
 
+	div {
+		z-index: 1;
+	}
+
 	.home-left {
 		max-width: 633px;
 		margin-left: 2rem;
@@ -89,6 +93,7 @@ app-navbar {
 
 .left {
 	width: 62%;
+	background-color: #ffffff;
 }
 
 .right {

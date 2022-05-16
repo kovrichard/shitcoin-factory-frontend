@@ -1,139 +1,142 @@
-<div #home class="home-part">
-    <div class="left"></div>
-    <div class="right"></div>
-</div>
+<mat-drawer-container autosize>
+    <div #home class="home-part">
+        <div class="left"></div>
+        <div class="right"></div>
+    </div>
 
-<app-navbar [home]=home [about]=about [factory]=factory [myCoins]=myCoins [shapeshifter]=shapeshifter>
-</app-navbar>
+    <app-navbar [home]=home [about]=about [factory]=factory [myCoins]=myCoins [shapeshifter]=shapeshifter></app-navbar>
 
-<div class="home d-flex col">
-    <div class="d-flex row">
-        <div class="home-left d-flex col">
-            <p class="title">Have your own shitcoin</p>
-            <p class="description">The times are over when you had to buy someone else's shitcoin. Now you can create your own. Add a name, symbol and total supply, and you are good to go. It won't worth anything, but it will be yours.</p>
-            <button class="call-to-action" mat-button>
-                <span>Try now</span>
-                <mat-icon>keyboard_arrow_right</mat-icon>
-            </button>
-        </div>
+    <div class="home d-flex col">
+        <div class="d-flex row">
+            <div class="home-left d-flex col">
+                <p class="title">Have your own shitcoin</p>
+                <p class="description">The times are over when you had to buy someone else's shitcoin. Now you can create your own. Add a name, symbol and total supply, and you are good to go. It won't worth anything, but it will be yours.</p>
+                <button class="call-to-action" mat-button>
+                    <div>
+                        <span>Try now</span>
+                        <mat-icon>keyboard_arrow_right</mat-icon>
+                    </div>
+                </button>
+            </div>
 
-        <div class="circle background-circle">
-            <div class="circle inner-circle">
-                <mat-progress-spinner
-                    class="outer"
-                    color="primary"
-                    mode="determinate"
-                    value="60"
-                    diameter="280"
-                    strokeWidth="21">
-                </mat-progress-spinner>
-                <mat-progress-spinner
-                    class="middle"
-                    color="accent"
-                    mode="determinate"
-                    value="50"
-                    diameter="218"
-                    strokeWidth="21">
-                </mat-progress-spinner>
-                <mat-progress-spinner
-                    class="inner"
-                    color="warn"
-                    mode="determinate"
-                    value="60"
-                    diameter="155"
-                    strokeWidth="15">
-                </mat-progress-spinner>
-                <div class="circle-text">
-                    <p class="number">1</p>
-                    <p class="text">minute</p>
+            <div class="circle background-circle">
+                <div class="circle inner-circle">
+                    <mat-progress-spinner
+                        class="outer"
+                        color="primary"
+                        mode="determinate"
+                        value="60"
+                        diameter="280"
+                        strokeWidth="21">
+                    </mat-progress-spinner>
+                    <mat-progress-spinner
+                        class="middle"
+                        color="accent"
+                        mode="determinate"
+                        value="50"
+                        diameter="218"
+                        strokeWidth="21">
+                    </mat-progress-spinner>
+                    <mat-progress-spinner
+                        class="inner"
+                        color="warn"
+                        mode="determinate"
+                        value="60"
+                        diameter="155"
+                        strokeWidth="15">
+                    </mat-progress-spinner>
+                    <div class="circle-text">
+                        <p class="number">1</p>
+                        <p class="text">minute</p>
+                    </div>
+                </div>
+                <div class="strokes">
+                    <div class="stroke">
+                        <div class="dash blue"></div>
+                        <p class="text">Shitcoin</p>
+                    </div>
+                    <div class="stroke">
+                        <div class="dash purple"></div>
+                        <p class="text">Yours</p>
+                    </div>
+                    <div class="stroke">
+                        <div class="dash red"></div>
+                        <p class="text">Worthless</p>
+                    </div>
                 </div>
             </div>
-            <div class="strokes">
-                <div class="stroke">
-                    <div class="dash blue"></div>
-                    <p class="text">Shitcoin</p>
-                </div>
-                <div class="stroke">
-                    <div class="dash purple"></div>
-                    <p class="text">Yours</p>
-                </div>
-                <div class="stroke">
-                    <div class="dash red"></div>
-                    <p class="text">Worthless</p>
-                </div>
-            </div>
+        </div>
+        <div class="home-footer">
+            <img src="/assets/ethereum-logo.svg" height="60px" />
+            <img src="/assets/bnb-logo.svg" height="60px" />
         </div>
     </div>
-    <div class="home-footer">
-        <img src="/assets/ethereum-logo.svg" height="60px" />
-        <img src="/assets/bnb-logo.svg" height="60px" />
-    </div>
-</div>
 
-<div #about class="d-flex col" style="margin-top:981px">
-    <div class="d-flex flex-wrap col">
-        <h1 class="text-center">Having a personal shitcoin might feel great.</h1>
-        <h2 class="text-center">However, it does not provide much value to the world.</h2>
-        <h3 class="text-center">Without utility, your shitcoin is just some code on a blockchain.</h3>
+    <div #about class="d-flex col" style="margin-top:981px">
+        <div class="d-flex flex-wrap col">
+            <h1 class="text-center">Having a personal shitcoin might feel great.</h1>
+            <h2 class="text-center">However, it does not provide much value to the world.</h2>
+            <h3 class="text-center">Without utility, your shitcoin is just some code on a blockchain.</h3>
+        </div>
+        <div class="d-flex flex-wrap row jc-evenly">
+            <shadow-card width="280px" height="180px" icon="create">
+                <p>To prove how easy it is to create a BEP20 shitcoin, we made this website, where you can create your own with just a few clicks.</p>
+            </shadow-card>
+            <shadow-card width="280px" height="180px" icon="save_alt">
+                <p>Since our coins are created according to the BEP20 token standard, you can import them in any wallet that supports it.</p>
+            </shadow-card>
+            <shadow-card width="280px" height="180px" icon="link">
+                <p>The shitcoin's owner will be your wallet address that you used to connect to our site.</p>
+            </shadow-card>
+        </div>
+        <div class="d-flex flex-wrap row jc-evenly">
+            <shadow-card width="280px" height="180px" icon="send">
+                <p>Every coin will be transferred to your address.</p>
+            </shadow-card>
+            <shadow-card width="280px" height="180px" icon="local_gas_station">
+                <p>Most of the costs of creating a shitcoin will be the gas you will pay to deploy your shitcoin to the blockchain.</p>
+            </shadow-card>
+        </div>
     </div>
-    <div class="d-flex flex-wrap row jc-evenly">
-        <shadow-card width="280px" height="180px" icon="create">
-            <p>To prove how easy it is to create a BEP20 shitcoin, we made this website, where you can create your own with just a few clicks.</p>
-        </shadow-card>
-        <shadow-card width="280px" height="180px" icon="save_alt">
-            <p>Since our coins are created according to the BEP20 token standard, you can import them in any wallet that supports it.</p>
-        </shadow-card>
-        <shadow-card width="280px" height="180px" icon="link">
-            <p>The shitcoin's owner will be your wallet address that you used to connect to our site.</p>
-        </shadow-card>
-    </div>
-    <div class="d-flex flex-wrap row jc-evenly">
-        <shadow-card width="280px" height="180px" icon="send">
-            <p>Every coin will be transferred to your address.</p>
-        </shadow-card>
-        <shadow-card width="280px" height="180px" icon="local_gas_station">
-            <p>Most of the costs of creating a shitcoin will be the gas you will pay to deploy your shitcoin to the blockchain.</p>
-        </shadow-card>
-    </div>
-</div>
-<div #factory class="d-flex col">
-    <div class="d-flex flex-wrap row jc-evenly">
-        <shadow-card width="280px" height="180px" icon="looks_one">
-            <p>Type in your shitcoin's name, symbol and total supply, then click Mint.</p>
-        </shadow-card>
-        <shadow-card width="280px" height="180px" icon="looks_two">
-            <p>That's it, you have a worthless shitcoin.</p>
-        </shadow-card>
-    </div>
+    <div #factory class="d-flex col">
+        <div class="d-flex flex-wrap row jc-evenly">
+            <shadow-card width="280px" height="180px" icon="looks_one">
+                <p>Type in your shitcoin's name, symbol and total supply, then click Mint.</p>
+            </shadow-card>
+            <shadow-card width="280px" height="180px" icon="looks_two">
+                <p>That's it, you have a worthless shitcoin.</p>
+            </shadow-card>
+        </div>
     
-    <form id="form" class="d-flex col">
-        <div class="d-flex col jc-evenly">
-            <mat-form-field appearance="fill" color="warn">
-                <mat-label>Name</mat-label> 
-                <input matInput type="text" [(ngModel)]="name" name="name" />
-            </mat-form-field>
-            <mat-form-field appearance="fill" color="warn">
-                <mat-label>Symbol</mat-label> 
-                <input matInput type="text" [(ngModel)]="symbol" name="symbol" />
-            </mat-form-field>
-            <mat-form-field appearance="fill" color="warn">
-                <mat-label>Total suply</mat-label> 
-                <input matInput type="number" [(ngModel)]="totalSupply" name="supply" placeholder="0" />
-            </mat-form-field>
-        </div>
-        <div class="d-flex row jc-evenly">
-            <button mat-raised-button (click)="mint()" color="warn">Mint</button>
-        </div>
-    </form>
-</div>
-<div #myCoins class="d-flex flex-wrap row jc-evenly">
-    <shadow-card width="280px" height="180px" icon="settings">
-        <p>Since you are the owner of your shitcoins, you can also manage them on this website.</p>
-    </shadow-card>
-    <shadow-card width="280px" height="180px" icon="share">
-        <p>Mint new coins, burn existing ones, or transfer its whole ownership to someone else, if you would like.</p>
-    </shadow-card>
-</div>
-<div #shapeshifter class="d-flex flex-wrap row-jc-evenly">
-    <p>Shapeshifter coin</p>
-</div>
+        <form id="form" class="d-flex col">
+            <div class="d-flex col jc-evenly">
+                <mat-form-field appearance="fill" color="warn">
+                    <mat-label>Name</mat-label>
+                    <input matInput type="text" [(ngModel)]="name" name="name" />
+                </mat-form-field>
+                <mat-form-field appearance="fill" color="warn">
+                    <mat-label>Symbol</mat-label>
+                    <input matInput type="text" [(ngModel)]="symbol" name="symbol" />
+                </mat-form-field>
+                <mat-form-field appearance="fill" color="warn">
+                    <mat-label>Total suply</mat-label>
+                    <input matInput type="number" [(ngModel)]="totalSupply" name="supply" placeholder="0" />
+                </mat-form-field>
+            </div>
+            <div class="d-flex row jc-evenly">
+                <button mat-raised-button (click)="mint()" color="warn">Mint</button>
+            </div>
+        </form>
+    </div>
+    <div #myCoins class="d-flex flex-wrap row jc-evenly">
+        <shadow-card width="280px" height="180px" icon="settings">
+            <p>Since you are the owner of your shitcoins, you can also manage them on this website.</p>
+        </shadow-card>
+        <shadow-card width="280px" height="180px" icon="share">
+            <p>Mint new coins, burn existing ones, or transfer its whole ownership to someone else, if you would like.</p>
+        </shadow-card>
+    </div>
+    <div #shapeshifter class="d-flex flex-wrap row-jc-evenly">
+        <p>Shapeshifter coin</p>
+    </div>
+</mat-drawer-container>
