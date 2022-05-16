@@ -11,6 +11,16 @@ nav {
     border-radius: 10px;
 }
 
+.menu {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    justify-content: center;
+    align-items: center;
+    left: 0;
+    font-size: 60px;
+}
+
 .large {
     height: 48px !important;
     font-size: 14px !important;
@@ -64,6 +74,10 @@ nav {
 
 .d-flex {
     display: flex;
+}
+
+.d-none {
+    display: none;
 }
 
 .row {
