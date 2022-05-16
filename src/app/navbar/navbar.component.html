@@ -2,7 +2,7 @@
 <mat-drawer #drawer mode="over">
     <div class="menu-container">
         <button mat-icon-button (click)="drawer.toggle()">
-            <mat-icon>menu</mat-icon>
+            <mat-icon>close</mat-icon>
         </button>
     </div>
     
@@ -27,10 +27,14 @@
         </button>
     </div>
 </mat-drawer>
-<div class="row mx-auto menu d-none">
+<div class="row menu d-none">
     <button mat-icon-button (click)="drawer.toggle()">
         <mat-icon>menu</mat-icon>
     </button>
+    <m-web3-modal
+        buttonTitle="Connect"
+        description="Connect wallet"
+    ></m-web3-modal>
 </div>
 
 <nav #navbar class="d-flex row mx-auto">

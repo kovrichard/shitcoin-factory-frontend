@@ -1,6 +1,14 @@
-import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  Input,
+  OnInit,
+  ViewChild,
+  ViewEncapsulation,
+} from '@angular/core';
 import { Web3ModalService } from './web3-modal.service';
 import { IProvider } from '../providers';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 @Component({
   selector: 'm-web3-modal',
@@ -17,9 +25,29 @@ export class Web3ModalComponent implements OnInit {
   @Input() buttonTitle: string;
   @Input() description?: string;
 
-  constructor(private service: Web3ModalService) {}
+  @ViewChild('connectButton', { read: ElementRef })
+  private connectButton!: ElementRef<HTMLElement>;
+
+  constructor(
+    private service: Web3ModalService,
+    private breakpoints: BreakpointObserver
+  ) {}
 
   async ngOnInit() {
+    this.breakpoints
+      .observe([
+        Breakpoints.Large,
+        Breakpoints.Medium,
+        Breakpoints.Small,
+        Breakpoints.XSmall,
+      ])
+      .subscribe((result: any) => {
+        if (result.matches) {
+          this.connectButton.nativeElement.classList.add('large-btn');
+        } else {
+          this.connectButton.nativeElement.classList.remove('large-btn');
+        }
+      });
     this.service.providers.subscribe({
       next: (providers: IProvider[]) => {
         this.providers = providers;

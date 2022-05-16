@@ -13,13 +13,22 @@ nav {
 
 .menu {
     position: absolute;
-    width: 100px;
+    width: calc(100% - 60px);
     height: 100px;
-    justify-content: center;
+    margin-left: 30px;
+    margin-right: 30px;
+    justify-content: space-between;
     align-items: center;
     left: 0;
     font-size: 60px;
 
+    button {
+        height: 100px;
+    }
+
+    m-web3-modal {
+        display: flex;
+    }
 }
 
 mat-drawer {
