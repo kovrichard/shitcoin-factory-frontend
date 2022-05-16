@@ -1,8 +1,33 @@
 
+<mat-drawer #drawer mode="over">
+    <div class="menu-container">
+        <button mat-icon-button (click)="drawer.toggle()">
+            <mat-icon>menu</mat-icon>
+        </button>
+    </div>
+    
+    <div class="drawer-menu">
+        <button mat-button (click)="drawer.toggle();scroll(home)">
+            <p>Home</p>
+        </button>
+    </div>
+    <div class="drawer-menu">
+        <button mat-button (click)="drawer.toggle();scroll(about)">
+            <p>About</p>
+        </button>
+    </div>
+    <div class="drawer-menu">
+        <button mat-button (click)="drawer.toggle();scroll(factory)">
+            <p>Factory</p>
+        </button>
+    </div>
+    <div class="drawer-menu">
+        <button mat-button (click)="drawer.toggle();scroll(myCoins)">
+            <p>My coins</p>
+        </button>
+    </div>
+</mat-drawer>
 <div class="row mx-auto menu d-none">
-    <mat-drawer #drawer mode="over">
-        itt a menu
-    </mat-drawer>
     <button mat-icon-button (click)="drawer.toggle()">
         <mat-icon>menu</mat-icon>
     </button>

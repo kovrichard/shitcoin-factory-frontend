@@ -19,6 +19,26 @@ nav {
     align-items: center;
     left: 0;
     font-size: 60px;
+
+}
+
+mat-drawer {
+    height: 100vh;
+    width: 200px;
+
+    .menu-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100px;
+        width: 200px;
+    }
+
+    .drawer-menu {
+        display: flex;
+        justify-content: center;
+        width: 200px;
+    }
 }
 
 .large {
