@@ -69,4 +69,12 @@ export class HomeComponent implements OnInit {
   mint() {
     this.shitcoinFactory.create(this.name, this.symbol, this.totalSupply);
   }
+
+  scroll($element: HTMLDivElement) {
+    $element.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start',
+      inline: 'nearest',
+    });
+  }
 }
