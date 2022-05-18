@@ -141,7 +141,80 @@ app-navbar {
 	}
 }
 
+.medium {
+	padding-top: 8rem;
+	height: calc(100vh - 8rem);
 
+	.home-left {
+		max-width: 400px !important;
+	}
+
+	.title {
+		font-size: 50px !important;
+		line-height: 70px !important;
+	}
+
+	.description {
+		font-size: 15px !important;
+		line-height: 27px !important;
+	}
+
+	.call-to-action {
+		width: 150px !important;
+		height: 50px !important;
+		font-size: 17px !important;
+	}
+
+	.background-circle {
+		width: 300px;
+		height: 300px;
+
+		.inner-circle {
+			width: 230px !important;
+			height: 230px !important;
+		}
+
+		.strokes {
+			margin-left: 400px !important;
+
+		}
+
+		.text {
+			font-size: 15px !important;
+		}
+
+		.number {
+			font-size: 25px !important;
+		}
+	}
+	
+	.home-footer {
+		height: 60px;
+
+		img {
+			height: 40px;
+		}
+	}
+}
+
+.small {
+	> div {
+		flex-direction: column;
+	}
+
+	.home-left {
+		margin-left: 0;
+
+		button {
+			align-self: center;
+		}
+	}
+
+	.background-circle {
+		align-self: center;
+		margin-top: 2rem;
+	}
+}
 
 .left {
 	width: 62%;

@@ -22,27 +22,30 @@
             <div class="circle background-circle">
                 <div class="circle inner-circle">
                     <mat-progress-spinner
+                        #outer
                         class="outer"
                         color="primary"
                         mode="determinate"
                         value="60"
-                        diameter="280"
+                        [diameter]="outerDiameter"
                         strokeWidth="21">
                     </mat-progress-spinner>
                     <mat-progress-spinner
+                        #middle
                         class="middle"
                         color="accent"
                         mode="determinate"
                         value="50"
-                        diameter="218"
+                        [diameter]="middleDiameter"
                         strokeWidth="21">
                     </mat-progress-spinner>
                     <mat-progress-spinner
+                        #inner
                         class="inner"
                         color="warn"
                         mode="determinate"
                         value="60"
-                        diameter="155"
+                        [diameter]="innerDiameter"
                         strokeWidth="15">
                     </mat-progress-spinner>
                     <div class="circle-text">

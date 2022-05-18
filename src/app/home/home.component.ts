@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { ShitcoinFactoryService } from '../shitcoin-factory.service';
 import { Web3ModalService } from '../web3-modal/web3-modal.service';
 import { takeWhile, timer } from 'rxjs';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { MatProgressSpinner } from '@angular/material/progress-spinner';
 
 interface Shitcoin {
   address: string;
@@ -26,6 +27,10 @@ export class HomeComponent implements OnInit {
   totalSupply: number;
   caller = '';
 
+  outerDiameter = 280;
+  middleDiameter = 218;
+  innerDiameter = 156;
+
   constructor(
     private shitcoinFactory: ShitcoinFactoryService,
     private web3service: Web3ModalService,
@@ -42,6 +47,33 @@ export class HomeComponent implements OnInit {
         menu.classList.remove('large');
       }
     });
+
+    this.breakpoints.observe([Breakpoints.Medium, Breakpoints.Small]).subscribe((result: any) => {
+      const menu = document.getElementsByClassName('home')[0];
+
+      if (result.matches) {
+        menu.classList.add('medium');
+        this.outerDiameter = 230;
+        this.middleDiameter = 168;
+        this.innerDiameter = 106;
+      } else {
+        menu.classList.remove('medium');
+        this.outerDiameter = 280;
+        this.middleDiameter = 218;
+        this.innerDiameter = 156;
+      }
+    });
+
+    this.breakpoints.observe(Breakpoints.Small).subscribe((result: any) => {
+      const menu = document.getElementsByClassName('home')[0];
+
+      if (result.matches) {
+        menu.classList.add('small');
+      } else {
+        menu.classList.remove('small');
+
+      }
+    })
 
     this.web3service.account.subscribe((account: string) => {
       this.caller = account;
