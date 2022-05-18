@@ -1,4 +1,5 @@
 import {
+  AfterViewInit,
   Component,
   ElementRef,
   Input,
@@ -16,7 +17,7 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
   styleUrls: ['./web3-modal.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
-export class Web3ModalComponent implements OnInit {
+export class Web3ModalComponent implements OnInit, AfterViewInit {
   open = false;
   showMetamaskDownload: boolean;
   account = '';
@@ -33,7 +34,7 @@ export class Web3ModalComponent implements OnInit {
     private breakpoints: BreakpointObserver
   ) {}
 
-  async ngOnInit() {
+  ngAfterViewInit() {
     this.breakpoints
       .observe([
         Breakpoints.Large,
@@ -48,6 +49,9 @@ export class Web3ModalComponent implements OnInit {
           this.connectButton.nativeElement.classList.remove('large-btn');
         }
       });
+  }
+
+  async ngOnInit() {
     this.service.providers.subscribe({
       next: (providers: IProvider[]) => {
         this.providers = providers;

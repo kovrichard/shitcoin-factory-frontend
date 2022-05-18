@@ -216,6 +216,33 @@ app-navbar {
 	}
 }
 
+.xsmall {
+	padding-top: 4rem;
+	height: 100vh;
+
+	.home-left {
+		margin-left: 1rem;
+		margin-right: 1rem;
+	}
+
+	.title {
+		font-size: 45px !important;
+		margin-bottom: 1rem !important;
+	}
+
+	.description {
+		font-size: 14px !important;
+		line-height: 22px !important;
+	}
+
+	.background-circle {
+		.strokes {
+			margin-left: 0 !important;
+			margin-top: 400px !important;
+		}
+	}
+}
+
 .left {
 	width: 62%;
 	background-color: #ffffff;

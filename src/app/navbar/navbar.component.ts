@@ -1,11 +1,18 @@
-import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  Input,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss'],
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent implements OnInit, AfterViewInit {
   @Input() home: HTMLDivElement;
   @Input() about: HTMLDivElement;
   @Input() factory: HTMLDivElement;
@@ -18,7 +25,9 @@ export class NavbarComponent implements OnInit {
 
   constructor(private breakpoints: BreakpointObserver) {}
 
-  ngOnInit() {
+  ngOnInit() {}
+
+  ngAfterViewInit() {
     this.breakpoints.observe(Breakpoints.Large).subscribe((result: any) => {
       const menuItems = this.navbar.nativeElement.querySelectorAll('.nav-item');
 
