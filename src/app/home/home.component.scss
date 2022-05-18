@@ -7,7 +7,6 @@ app-navbar {
 }
 
 .home {
-	margin: auto;
 	align-items: center;
 	padding-top: 15rem;
 	height: calc(100vh - 15rem);
@@ -90,6 +89,59 @@ app-navbar {
 		}
 	}
 }
+
+.large {
+	padding-top: 8rem;
+	height: calc(100vh - 8rem);
+
+	.home-left {
+		max-width: 500px;
+	}
+
+	.title {
+		font-size: 60px !important;
+		line-height: 100px !important;
+		margin-bottom: 10px !important;
+	}
+
+	.description {
+		font-size: 15px !important;
+		line-height: 22px;
+	}
+
+	.call-to-action {
+		width: 160px !important;
+		height: 50px !important;
+		font-size: 18px !important;
+	}
+
+	.background-circle {
+		width: 380px !important;
+		height: 380px !important;
+	}
+
+	.number {
+		font-size: 30px !important;
+	}
+
+	.strokes {
+		margin-left: 480px !important;
+
+		.text {
+			font-size: 15px !important;
+		}
+	}
+
+	.home-footer {
+		height: 60px;
+
+		img {
+			height: 40px;
+		}
+	}
+}
+
+
 
 .left {
 	width: 62%;
@@ -279,4 +331,8 @@ mat-form-field {
 
 .jc-evenly {
 	justify-content: space-evenly;
+}
+
+.align-center {
+	align-items: center;
 }

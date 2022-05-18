@@ -54,22 +54,19 @@ export class NavbarComponent implements OnInit {
         }
       });
 
-    this.breakpoints
-      .observe(Breakpoints.Small)
-      .subscribe((result: any) => {
-        const menuItems =
-          this.navbar.nativeElement.querySelectorAll('.nav-item');
+    this.breakpoints.observe(Breakpoints.Small).subscribe((result: any) => {
+      const menuItems = this.navbar.nativeElement.querySelectorAll('.nav-item');
 
-        if (result.matches) {
-          menuItems.forEach((element: any) => {
-            element.classList.add('small');
-          });
-        } else {
-          menuItems.forEach((element: any) => {
-            element.classList.remove('small');
-          });
-        }
-      });
+      if (result.matches) {
+        menuItems.forEach((element: any) => {
+          element.classList.add('small');
+        });
+      } else {
+        menuItems.forEach((element: any) => {
+          element.classList.remove('small');
+        });
+      }
+    });
 
     this.breakpoints.observe(Breakpoints.XSmall).subscribe((result: any) => {
       const menuButton = document.getElementsByClassName('menu')[0];

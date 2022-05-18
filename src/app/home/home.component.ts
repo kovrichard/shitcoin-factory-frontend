@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ShitcoinFactoryService } from '../shitcoin-factory.service';
 import { Web3ModalService } from '../web3-modal/web3-modal.service';
 import { takeWhile, timer } from 'rxjs';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 interface Shitcoin {
   address: string;
@@ -27,10 +28,21 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private shitcoinFactory: ShitcoinFactoryService,
-    private web3service: Web3ModalService
+    private web3service: Web3ModalService,
+    private breakpoints: BreakpointObserver
   ) {}
 
   async ngOnInit() {
+    this.breakpoints.observe(Breakpoints.Large).subscribe((result: any) => {
+      const menu = document.getElementsByClassName('home')[0];
+
+      if (result.matches) {
+        menu.classList.add('large');
+      } else {
+        menu.classList.remove('large');
+      }
+    });
+
     this.web3service.account.subscribe((account: string) => {
       this.caller = account;
     });
