@@ -1,15 +1,11 @@
 import {
-  AfterViewInit,
   Component,
-  ElementRef,
   Input,
   OnInit,
-  ViewChild,
   ViewEncapsulation,
 } from '@angular/core';
 import { Web3ModalService } from './web3-modal.service';
 import { IProvider } from '../providers';
-import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 @Component({
   selector: 'm-web3-modal',
@@ -17,7 +13,7 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
   styleUrls: ['./web3-modal.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
-export class Web3ModalComponent implements OnInit, AfterViewInit {
+export class Web3ModalComponent implements OnInit {
   open = false;
   showMetamaskDownload: boolean;
   account = '';
@@ -26,30 +22,9 @@ export class Web3ModalComponent implements OnInit, AfterViewInit {
   @Input() buttonTitle: string;
   @Input() description?: string;
 
-  @ViewChild('connectButton', { read: ElementRef })
-  private connectButton!: ElementRef<HTMLElement>;
-
   constructor(
     private service: Web3ModalService,
-    private breakpoints: BreakpointObserver
   ) {}
-
-  ngAfterViewInit() {
-    this.breakpoints
-      .observe([
-        Breakpoints.Large,
-        Breakpoints.Medium,
-        Breakpoints.Small,
-        Breakpoints.XSmall,
-      ])
-      .subscribe((result: any) => {
-        if (result.matches) {
-          this.connectButton.nativeElement.classList.add('large-btn');
-        } else {
-          this.connectButton.nativeElement.classList.remove('large-btn');
-        }
-      });
-  }
 
   async ngOnInit() {
     this.service.providers.subscribe({

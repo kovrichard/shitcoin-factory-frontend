@@ -1,5 +1,5 @@
-<button #connectButton *ngIf="!account" class="btn-connect" mat-raised-button (click)="connect()">{{ buttonTitle }}</button>
-<button #connectButton *ngIf="account" class="btn-connect" mat-raised-button>{{ account }}</button>
+<button #connectButton *ngIf="!account" mat-raised-button color="accent" class="w-24 2xl:w-44 h-8 2xl:h-12 m-2 overflow-hidden whitespace-nowrap text-ellipsis rounded-2xl" (click)="connect()">{{ buttonTitle }}</button>
+<button #connectButton *ngIf="account" mat-raised-button color="accent" class="w-24 2xl:w-44 h-8 2xl:h-12 m-2 overflow-hidden whitespace-nowrap text-ellipsis rounded-2xl">{{ account }}</button>
 <div class="m-modal" [hidden]="!open">
   <div class="m-modal-bg" (click)="close($event)"></div>
   <div class="m-modal-container">

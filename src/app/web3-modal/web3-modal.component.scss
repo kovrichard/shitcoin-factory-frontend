@@ -71,22 +71,3 @@
     background-color: map-get($light-primary, 500);
   }
 }
-
-.btn-connect {
-    width: 173px;
-    height: 48px;
-    margin: 8px;
-    overflow: hidden !important;
-    white-space: nowrap !important;
-    text-overflow: ellipsis !important;
-    border-radius: 15px;
-    background-color: #7579ff;
-    color: #ffffff;
-    font-size: 17px;
-}
-
-.large-btn {
-  height: 32px;
-  width: 100px;
-  font-size: 14px;
-}
