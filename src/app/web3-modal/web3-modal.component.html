@@ -1,22 +1,22 @@
 <button #connectButton *ngIf="!account" mat-raised-button color="accent" class="w-24 2xl:w-44 h-8 2xl:h-12 m-2 overflow-hidden whitespace-nowrap text-ellipsis rounded-2xl" (click)="connect()">{{ buttonTitle }}</button>
 <button #connectButton *ngIf="account" mat-raised-button color="accent" class="w-24 2xl:w-44 h-8 2xl:h-12 m-2 overflow-hidden whitespace-nowrap text-ellipsis rounded-2xl">{{ account }}</button>
-<div class="m-modal" [hidden]="!open">
-  <div class="m-modal-bg" (click)="close($event)"></div>
-  <div class="m-modal-container">
-    <div class="m-web3Modal__header">
+<div [hidden]="!open">
+  <div class="fixed w-full h-full inset-0 cursor-pointer bg-black/[0.6]" (click)="close($event)"></div>
+  <div class="fixed left-2/4 top-2/4 rounded-md bg-accent -translate-x-2/4 -translate-y-2/4">
+    <div class="flex flex-row justify-between items-center mt-5 ml-6 mr-3 mb-0">
       <div>
-        <p class="m-web3ModalHeader__text">{{ description }}</p>
+        <p class="font-semibold text-base">{{ description }}</p>
       </div>
-      <button class="modal-close" mat-icon-button (click)="close($event)">
+      <button mat-icon-button (click)="close($event)">
         <mat-icon>close</mat-icon>
       </button>
     </div>
-    <div class="m-web3Modal__body">
-        <button mat-raised-button class="btn-provider" *ngFor="let p of providers" (click)="p.onClick()">
-          <div class="m-web3ModalProviderBody__icon">
-            <img src="{{p.logo}}" alt="{{p.logo}}" />
+    <div class="flex flex-row justify-evenly pt-5 px-12 pb-10">
+        <button mat-raised-button color="accent" class="flex flex-col justify-center items-center w-36 h-32" *ngFor="let p of providers" (click)="p.onClick()">
+          <div class="h-14">
+            <img src="{{p.logo}}" alt="{{p.logo}}" class="w-full h-full" />
           </div>
-          <div class="m-web3ModalProviderBody__name">{{ p.name }}</div>
+          <div class="mt-3 font-semibold text-base text-white">{{ p.name }}</div>
         </button>
     </div>
   </div>
