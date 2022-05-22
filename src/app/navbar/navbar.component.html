@@ -1,70 +1,71 @@
 
-<mat-drawer #drawer mode="over">
-    <div class="menu-container">
+<mat-drawer #drawer mode="over" class="w-52 h-screen">
+    <div class="flex justify-center items-center w-52 h-24">
         <button mat-icon-button (click)="drawer.toggle()">
             <mat-icon>close</mat-icon>
         </button>
     </div>
     
-    <div class="drawer-menu">
+    <div class="flex justify-center w-52">
         <button mat-button (click)="drawer.toggle();scroll(home)">
             <p>Home</p>
         </button>
     </div>
-    <div class="drawer-menu">
+    <div class="flex justify-center w-52">
         <button mat-button (click)="drawer.toggle();scroll(about)">
             <p>About</p>
         </button>
     </div>
-    <div class="drawer-menu">
+    <div class="flex justify-center w-52">
         <button mat-button (click)="drawer.toggle();scroll(factory)">
             <p>Factory</p>
         </button>
     </div>
-    <div class="drawer-menu">
+    <div class="flex justify-center w-52">
         <button mat-button (click)="drawer.toggle();scroll(myCoins)">
             <p>My coins</p>
         </button>
     </div>
 </mat-drawer>
-<div class="row menu d-none">
+<div class="flex-row menu hidden">
     <button mat-icon-button (click)="drawer.toggle()">
         <mat-icon>menu</mat-icon>
     </button>
     <m-web3-modal
         buttonTitle="Connect"
         description="Connect wallet"
+        class="flex"
     ></m-web3-modal>
 </div>
 
-<nav #navbar class="d-flex row mx-auto">
-    <div class="d-flex row mx-auto">
-        <button mat-button class="nav-item active" (click)="scroll(home);highlight($event);">
-            <div class="d-flex col h-100">
-                <p>Home</p>
-                <div class="underline"></div>
+<nav #navbar class="relative flex flex-row mx-auto max-w-[80%] 2xl:max-w-6xl h-12 2xl:h-16 top-14 bg-white rounded-lg">
+    <div class="flex flex-row mx-auto">
+        <button mat-button class="flex flex-col items-center justify-center w-16 lg:w-24 h-12 2xl:h-16 text-black nav-item active" (click)="scroll(home);highlight($event);">
+            <div class="flex flex-col h-full">
+                <p class="m-auto text-sm 2xl:text-lg font-semibold">Home</p>
+                <div class="w-full h-1.5 underline"></div>
             </div>
         </button>
-        <button mat-button class="nav-item" (click)="scroll(about);highlight($event);">
-            <div class="d-flex col h-100">
-                <p>About</p>
-                <div class="underline"></div>
+        <button mat-button class="flex flex-col items-center justify-center w-16 lg:w-24 h-12 2xl:h-16 text-black nav-item" (click)="scroll(about);highlight($event);">
+            <div class="flex flex-col h-full">
+                <p class="m-auto text-sm 2xl:text-lg font-semibold">About</p>
+                <div class="w-full h-1.5 underline"></div>
             </div>
         </button>
-        <button mat-button class="nav-item" (click)="scroll(factory);highlight($event);">
-            <div class="d-flex col h-100">
-                <p>Factory</p>
-                <div class="underline"></div>
+        <button mat-button class="flex flex-col items-center justify-center w-16 lg:w-24 h-12 2xl:h-16 text-black nav-item" (click)="scroll(factory);highlight($event);">
+            <div class="flex flex-col h-full">
+                <p class="m-auto text-sm 2xl:text-lg font-semibold">Factory</p>
+                <div class="w-full h-1.5 underline"></div>
             </div>
         </button>
-        <button mat-button class="nav-item" (click)="scroll(myCoins);highlight($event);">
-            <div class="d-flex col h-100">
-                <p>My coins</p>
-                <div class="underline"></div>
+        <button mat-button class="flex flex-col items-center justify-center w-16 lg:w-24 h-12 2xl:h-16 text-black nav-item" (click)="scroll(myCoins);highlight($event);">
+            <div class="flex flex-col h-full">
+                <p class="m-auto text-sm 2xl:text-lg font-semibold">My coins</p>
+                <div class="w-full h-1.5 underline"></div>
             </div>
         </button>
     </div>
-    <div class="connect">
+    <div class="absolute right-0">
         <m-web3-modal
         buttonTitle="Connect"
         description="Connect wallet"

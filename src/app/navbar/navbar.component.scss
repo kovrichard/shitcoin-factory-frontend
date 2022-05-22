@@ -1,14 +1,7 @@
 @import '../../styles';
 
 nav {
-    position: relative;
-    max-width: 1200px;
-    height: 64px;
-    top: 54px;
-
-    background: #ffffff;
     box-shadow: 0px 4px 40px rgba(0, 0, 0, 0.25);
-    border-radius: 10px;
 }
 
 .menu {
@@ -21,74 +14,9 @@ nav {
     align-items: center;
     left: 0;
     font-size: 60px;
-
-    button {
-        //height: 100px;
-    }
-
-    m-web3-modal {
-        display: flex;
-    }
-}
-
-mat-drawer {
-    height: 100vh;
-    width: 200px;
-
-    .menu-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100px;
-        width: 200px;
-    }
-
-    .drawer-menu {
-        display: flex;
-        justify-content: center;
-        width: 200px;
-    }
-}
-
-.large {
-    height: 48px !important;
-    font-size: 14px !important;
-}
-
-.small-medium {
-    max-width: 80%;
-    height: 48px !important;
-    font-size: 14px !important;
-}
-
-.small {
-    width: 65px !important;
 }
 
 .nav-item {
-    width: 100px;
-    height: 64px;
-
-    font-weight: 600;
-    font-size: 17px;
-    line-height: 26px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    color: #000000;
-
-    p {
-        margin: auto;
-    }
-
-
-
-    .underline {
-        width: 100%;
-        height: 6px;
-    }
-    
     &.active {
         color: #7579ff;
 
@@ -97,39 +25,12 @@ mat-drawer {
             border-radius: 5px;
         }
     }
-
-}
-
-.connect {
-    position: absolute;
-    right: 0;
-}
-
-.d-flex {
-    display: flex;
 }
 
 .d-none {
     display: none;
 }
 
-.row {
-    flex-direction: row;
-}
-
-.col {
-    flex-direction: column;
-}
-
-.w-100 {
-    width: 100%;
-}
-
-.h-100 {
-    height: 100%;
-}
-
-.mx-auto {
-    margin-left: auto;
-    margin-right: auto;
+.d-flex {
+    display: flex;
 }

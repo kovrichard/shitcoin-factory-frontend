@@ -28,55 +28,6 @@ export class NavbarComponent implements OnInit, AfterViewInit {
   ngOnInit() {}
 
   ngAfterViewInit() {
-    this.breakpoints.observe(Breakpoints.Large).subscribe((result: any) => {
-      const menuItems = this.navbar.nativeElement.querySelectorAll('.nav-item');
-
-      if (result.matches) {
-        this.navbar.nativeElement.classList.add('large');
-        menuItems.forEach((element: any) => {
-          element.classList.add('large');
-        });
-      } else {
-        this.navbar.nativeElement.classList.remove('large');
-        menuItems.forEach((element: any) => {
-          element.classList.remove('large');
-        });
-      }
-    });
-
-    this.breakpoints
-      .observe([Breakpoints.Medium, Breakpoints.Small])
-      .subscribe((result: any) => {
-        const menuItems =
-          this.navbar.nativeElement.querySelectorAll('.nav-item');
-
-        if (result.matches) {
-          this.navbar.nativeElement.classList.add('small-medium');
-          menuItems.forEach((element: any) => {
-            element.classList.add('small-medium');
-          });
-        } else {
-          this.navbar.nativeElement.classList.remove('small-medium');
-          menuItems.forEach((element: any) => {
-            element.classList.remove('small-medium');
-          });
-        }
-      });
-
-    this.breakpoints.observe(Breakpoints.Small).subscribe((result: any) => {
-      const menuItems = this.navbar.nativeElement.querySelectorAll('.nav-item');
-
-      if (result.matches) {
-        menuItems.forEach((element: any) => {
-          element.classList.add('small');
-        });
-      } else {
-        menuItems.forEach((element: any) => {
-          element.classList.remove('small');
-        });
-      }
-    });
-
     this.breakpoints.observe(Breakpoints.XSmall).subscribe((result: any) => {
       const menuButton = document.getElementsByClassName('menu')[0];
 
