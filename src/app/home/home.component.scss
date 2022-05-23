@@ -6,8 +6,6 @@ app-navbar {
 
 .home {
 	align-items: center;
-	padding-top: 15rem;
-	height: calc(100vh - 15rem);
 
 	div {
 		z-index: 1;
@@ -89,9 +87,6 @@ app-navbar {
 }
 
 .large {
-	padding-top: 8rem;
-	height: calc(100vh - 8rem);
-
 	.home-left {
 		max-width: 500px;
 	}
@@ -140,9 +135,6 @@ app-navbar {
 }
 
 .medium {
-	padding-top: 8rem;
-	height: calc(100vh - 8rem);
-
 	.home-left {
 		max-width: 400px !important;
 	}
@@ -196,10 +188,6 @@ app-navbar {
 }
 
 .small {
-	> div {
-		flex-direction: column;
-	}
-
 	.home-left {
 		margin-left: 0;
 
@@ -215,9 +203,6 @@ app-navbar {
 }
 
 .xsmall {
-	padding-top: 4rem;
-	height: 100vh;
-
 	.home-left {
 		margin-left: 1rem;
 		margin-right: 1rem;
