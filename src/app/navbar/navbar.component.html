@@ -27,7 +27,7 @@
         </button>
     </div>
 </mat-drawer>
-<div class="flex-row menu hidden">
+<div class="flex-row menu flex sm:hidden">
     <button mat-icon-button (click)="drawer.toggle()">
         <mat-icon>menu</mat-icon>
     </button>
@@ -38,7 +38,7 @@
     ></m-web3-modal>
 </div>
 
-<nav #navbar class="relative flex flex-row mx-auto max-w-[80%] 2xl:max-w-6xl h-12 2xl:h-16 top-14 bg-white rounded-lg">
+<nav #navbar class="relative hidden sm:flex flex-row mx-auto max-w-[80%] 2xl:max-w-6xl h-12 2xl:h-16 top-14 bg-white rounded-lg">
     <div class="flex flex-row mx-auto">
         <button mat-button class="flex flex-col items-center justify-center w-16 lg:w-24 h-12 2xl:h-16 text-black nav-item active" (click)="scroll(home);highlight($event);">
             <div class="flex flex-col h-full">
