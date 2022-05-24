@@ -5,7 +5,8 @@ module.exports = {
       colors: {
         'primary': '#167ffc',
         'accent': '#7579ff',
-        'warn': '#fd3259'
+        'warn': '#fd3259',
+        'gray': '#edeeff'
       }
     }
   },

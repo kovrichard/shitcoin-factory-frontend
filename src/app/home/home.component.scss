@@ -67,23 +67,6 @@ app-navbar {
 	.title {
 		max-width: 1200px;
 	}
-
-	.home-footer {
-		display: flex;
-		flex-direction: row;
-		justify-content: center;
-		align-items: center;
-		width: 100%;
-		height: 88px;
-		margin-top: auto;
-		background-color: #edeeff;
-		z-index: 1;
-
-		img {
-			padding-left: 2rem;
-			padding-right: 2rem;
-		}
-	}
 }
 
 .large {
@@ -122,14 +105,6 @@ app-navbar {
 
 		.text {
 			font-size: 15px !important;
-		}
-	}
-
-	.home-footer {
-		height: 60px;
-
-		img {
-			height: 40px;
 		}
 	}
 }
@@ -175,14 +150,6 @@ app-navbar {
 
 		.number {
 			font-size: 25px !important;
-		}
-	}
-	
-	.home-footer {
-		height: 60px;
-
-		img {
-			height: 40px;
 		}
 	}
 }
