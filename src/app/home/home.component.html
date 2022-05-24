@@ -25,7 +25,7 @@
                 <div class="relative flex items-center justify-center inner-circle bg-white">
                     <mat-progress-spinner
                         #outer
-                        class="outer"
+                        class="absolute rotate-[-10deg]"
                         color="primary"
                         mode="determinate"
                         value="60"
@@ -34,7 +34,7 @@
                     </mat-progress-spinner>
                     <mat-progress-spinner
                         #middle
-                        class="middle"
+                        class="absolute rotate-[-2deg]"
                         color="accent"
                         mode="determinate"
                         value="50"
@@ -43,7 +43,7 @@
                     </mat-progress-spinner>
                     <mat-progress-spinner
                         #inner
-                        class="inner"
+                        class="absolute rotate-[-20deg]"
                         color="warn"
                         mode="determinate"
                         value="60"
@@ -77,13 +77,13 @@
         </div>
     </div>
 
-    <div #about class="d-flex col" style="margin-top:981px">
-        <div class="d-flex flex-wrap col">
+    <div #about class="flex flex-col" style="margin-top:981px">
+        <div class="flex flex-wrap flex-col">
             <h1 class="text-center">Having a personal shitcoin might feel great.</h1>
             <h2 class="text-center">However, it does not provide much value to the world.</h2>
             <h3 class="text-center">Without utility, your shitcoin is just some code on a blockchain.</h3>
         </div>
-        <div class="d-flex flex-wrap row jc-evenly">
+        <div class="flex flex-wrap flex-row justify-evenly">
             <shadow-card width="280px" height="180px" icon="create">
                 <p>To prove how easy it is to create a BEP20 shitcoin, we made this website, where you can create your own with just a few clicks.</p>
             </shadow-card>
@@ -94,7 +94,7 @@
                 <p>The shitcoin's owner will be your wallet address that you used to connect to our site.</p>
             </shadow-card>
         </div>
-        <div class="d-flex flex-wrap row jc-evenly">
+        <div class="flex flex-wrap flex-row justify-evenly">
             <shadow-card width="280px" height="180px" icon="send">
                 <p>Every coin will be transferred to your address.</p>
             </shadow-card>
@@ -103,8 +103,8 @@
             </shadow-card>
         </div>
     </div>
-    <div #factory class="d-flex col">
-        <div class="d-flex flex-wrap row jc-evenly">
+    <div #factory class="flex flex-col">
+        <div class="flex flex-wrap flex-row justify-evenly">
             <shadow-card width="280px" height="180px" icon="looks_one">
                 <p>Type in your shitcoin's name, symbol and total supply, then click Mint.</p>
             </shadow-card>
@@ -113,27 +113,27 @@
             </shadow-card>
         </div>
     
-        <form id="form" class="d-flex col">
-            <div class="d-flex col jc-evenly">
-                <mat-form-field appearance="fill" color="warn">
+        <form id="form" class="flex flex-col">
+            <div class="flex flex-col justify-evenly">
+                <mat-form-field appearance="fill" color="warn" class="m-auto min-w-[300px]">
                     <mat-label>Name</mat-label>
                     <input matInput type="text" [(ngModel)]="name" name="name" />
                 </mat-form-field>
-                <mat-form-field appearance="fill" color="warn">
+                <mat-form-field appearance="fill" color="warn" class="m-auto min-w-[300px]">
                     <mat-label>Symbol</mat-label>
                     <input matInput type="text" [(ngModel)]="symbol" name="symbol" />
                 </mat-form-field>
-                <mat-form-field appearance="fill" color="warn">
+                <mat-form-field appearance="fill" color="warn" class="m-auto min-w-[300px]">
                     <mat-label>Total suply</mat-label>
                     <input matInput type="number" [(ngModel)]="totalSupply" name="supply" placeholder="0" />
                 </mat-form-field>
             </div>
-            <div class="d-flex row jc-evenly">
+            <div class="flex flex-row justify-evenly">
                 <button mat-raised-button (click)="mint()" color="warn">Mint</button>
             </div>
         </form>
     </div>
-    <div #myCoins class="d-flex flex-wrap row jc-evenly">
+    <div #myCoins class="flex flex-wrap flex-row justify-evenly">
         <shadow-card width="280px" height="180px" icon="settings">
             <p>Since you are the owner of your shitcoins, you can also manage them on this website.</p>
         </shadow-card>
@@ -141,7 +141,7 @@
             <p>Mint new coins, burn existing ones, or transfer its whole ownership to someone else, if you would like.</p>
         </shadow-card>
     </div>
-    <div #shapeshifter class="d-flex flex-wrap row-jc-evenly">
+    <div #shapeshifter class="flex flex-wrap flex-row justify-evenly">
         <p>Shapeshifter coin</p>
     </div>
 </mat-drawer-container>
