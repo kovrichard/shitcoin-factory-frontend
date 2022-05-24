@@ -4,6 +4,14 @@ app-navbar {
 	z-index: 2;
 }
 
+.title {
+	background: linear-gradient(90deg, #B127F0 0%, #7E6DFD 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+	text-fill-color: transparent;
+}
+
 .home {
 	align-items: center;
 
@@ -14,58 +22,6 @@ app-navbar {
 	.home-left {
 		max-width: 633px;
 		margin-left: 2rem;
-		 
-		.title {
-			font-size: 96px;
-			font-weight: 700;
-			line-height: 144px;
-			margin-bottom: 30px;
-			margin-top: 0;
-			background: linear-gradient(90deg, #B127F0 0%, #7E6DFD 100%);
-			-webkit-background-clip: text;
-			-webkit-text-fill-color: transparent;
-			background-clip: text;
-			text-fill-color: transparent;
-		}
-
-		.description {
-			font-weight: 400;
-			font-size: 18px;
-			line-height: 27px;
-
-			color: #5F6073;
-		}
-
-		.call-to-action {
-			width: 232px;
-			height: 68px;
-			margin-top: 1rem;
-			border-radius: 12px;
-			background-color: #1b1c37;
-			color: #ffffff;
-			font-weight: 700;
-			font-size: 24px;
-			line-height: 36px;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-
-			span {
-				margin-right: 1rem;
-			}
-
-			mat-icon {
-				border: 2px solid #ffffff;
-				border-radius: 50%;
-				font-size: 18px;
-				width: 18px;
-				height: 18px;
-			}
-		}
-	}
-
-	.title {
-		max-width: 1200px;
 	}
 }
 
@@ -74,30 +30,9 @@ app-navbar {
 		max-width: 500px;
 	}
 
-	.title {
-		font-size: 60px !important;
-		line-height: 100px !important;
-		margin-bottom: 10px !important;
-	}
-
-	.description {
-		font-size: 15px !important;
-		line-height: 22px;
-	}
-
-	.call-to-action {
-		width: 160px !important;
-		height: 50px !important;
-		font-size: 18px !important;
-	}
-
 	.background-circle {
 		width: 380px !important;
 		height: 380px !important;
-	}
-
-	.number {
-		font-size: 30px !important;
 	}
 
 	.strokes {
@@ -114,22 +49,6 @@ app-navbar {
 		max-width: 400px !important;
 	}
 
-	.title {
-		font-size: 50px !important;
-		line-height: 70px !important;
-	}
-
-	.description {
-		font-size: 15px !important;
-		line-height: 27px !important;
-	}
-
-	.call-to-action {
-		width: 150px !important;
-		height: 50px !important;
-		font-size: 17px !important;
-	}
-
 	.background-circle {
 		width: 300px;
 		height: 300px;
@@ -142,14 +61,6 @@ app-navbar {
 		.strokes {
 			margin-left: 400px !important;
 
-		}
-
-		.text {
-			font-size: 15px !important;
-		}
-
-		.number {
-			font-size: 25px !important;
 		}
 	}
 }
@@ -175,16 +86,6 @@ app-navbar {
 		margin-right: 1rem;
 	}
 
-	.title {
-		font-size: 45px !important;
-		margin-bottom: 1rem !important;
-	}
-
-	.description {
-		font-size: 14px !important;
-		line-height: 22px !important;
-	}
-
 	.background-circle {
 		.strokes {
 			margin-left: 0 !important;
@@ -204,26 +105,16 @@ app-navbar {
 	background-color: #1b1c37;
 }
 
-.circle {
-	display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
 .background-circle {
-	position: relative;
 	width: 464px;
 	height: 464px;
-	background-color: #ffffff;
 	border-radius: 50%;
 	align-self: flex-end;
 	z-index: 1;
 	
 	.inner-circle {
-		position: relative;
 		width: 280px;
 		height: 280px;
-		background-color: #fff;
 		border-radius: 50%;
 		box-shadow:
 			inset 0 0 0 21px #edeeff,
@@ -231,31 +122,6 @@ app-navbar {
 			inset 0 0 0 52px #edeeff,
 			inset 0 0 0 62px #fff,
 			inset 0 0 0 77px #edeeff;
-	}
-
-	.circle-text {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		text-align: center;
-
-		.number {
-			font-weight: 600;
-			font-size: 37px;
-			line-height: 100%;
-			color: #1b1c37;
-			margin-top: 1rem;
-			margin-bottom: 5px;
-		}
-
-		.text {
-			font-weight: 500;
-			font-size: 18.89px;
-			line-height: 100%;
-			color: #49495f;
-			margin-top: 0;
-			margin-bottom: 1rem;
-		}
 	}
 
 	.strokes {
