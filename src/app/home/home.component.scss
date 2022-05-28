@@ -30,11 +30,6 @@ app-navbar {
 		max-width: 500px;
 	}
 
-	.background-circle {
-		width: 380px !important;
-		height: 380px !important;
-	}
-
 	.strokes {
 		margin-left: 480px !important;
 
@@ -50,9 +45,6 @@ app-navbar {
 	}
 
 	.background-circle {
-		width: 300px;
-		height: 300px;
-
 		.inner-circle {
 			width: 230px !important;
 			height: 230px !important;
@@ -68,14 +60,9 @@ app-navbar {
 .small {
 	.home-left {
 		margin-left: 0;
-
-		button {
-			align-self: center;
-		}
 	}
 
 	.background-circle {
-		align-self: center;
 		margin-top: 2rem;
 	}
 }
@@ -106,8 +93,6 @@ app-navbar {
 }
 
 .background-circle {
-	width: 464px;
-	height: 464px;
 	border-radius: 50%;
 	z-index: 1;
 	

@@ -6,12 +6,12 @@
 
     <app-navbar [home]=home [about]=about [factory]=factory [myCoins]=myCoins [shapeshifter]=shapeshifter></app-navbar>
 
-    <div class="home flex flex-col pt-16 sm:pt-32 2xl:pt-60 h-screen">
+    <div class="home flex flex-col items-center pt-16 sm:pt-32 2xl:pt-60 h-screen">
         <div class="flex flex-col lg:flex-row items-center justify-center">
             <div class="home-left flex flex-col">
                 <p class="mb-4 text-5xl md:text-6xl 2xl:text-7xl font-bold mb-7 max-w-7xl leading-tight md:leading-tight 2xl:leading-normal title">Have your own shitcoin</p>
                 <p class="text-sm sm:text-base 2xl:text-lg font-normal text-[#5f6073]">The times are over when you had to buy someone else's shitcoin. Now you can create your own. Add a name, symbol and total supply, and you are good to go. It won't worth anything, but it will be yours.</p>
-                <button class="flex items-center justify-center text-lg 2xl:text-2xl font-bold w-40 2xl:w-56 h-12 2xl:h-16 mt-4 xl:mt-8 rounded-xl text-white bg-[#1b1c37]" mat-button (click)="scroll(factory)">
+                <button class="flex items-center justify-center self-center lg:self-auto text-lg 2xl:text-2xl font-bold w-40 2xl:w-56 h-12 2xl:h-16 mt-4 xl:mt-8 rounded-xl text-white bg-[#1b1c37]" mat-button (click)="scroll(factory)">
                     <div class="flex flex-row items-center">
                         <span class="mr-4">Try now</span>
                         <div class="flex items-center justify-center border-2 border-solid border-white rounded-full w-6 h-6">
@@ -21,7 +21,7 @@
                 </button>
             </div>
 
-            <div class="relative flex items-center justify-center background-circle bg-white">
+            <div class="relative flex items-center justify-center background-circle w-[300px] h-[300px] xl:w-[380px] xl:h-[380px] 2xl:w-[464px] 2xl:h-[464px] bg-white">
                 <div class="relative flex items-center justify-center inner-circle bg-white">
                     <mat-progress-spinner
                         #outer
