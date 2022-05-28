@@ -21,41 +21,43 @@
                 </button>
             </div>
 
-            <div class="relative flex items-center justify-center mt-8 w-[300px] h-[300px] xl:w-[380px] xl:h-[380px] 2xl:w-[464px] 2xl:h-[464px] rounded-full bg-white">
-                <div class="relative flex items-center justify-center inner-circle w-[230px] xl:w-[280px] h-[230px] xl:h-[280px] rounded-full bg-white">
-                    <mat-progress-spinner
-                        #outer
-                        class="absolute rotate-[-10deg]"
-                        color="primary"
-                        mode="determinate"
-                        value="60"
-                        [diameter]="outerDiameter"
-                        strokeWidth="21">
-                    </mat-progress-spinner>
-                    <mat-progress-spinner
-                        #middle
-                        class="absolute rotate-[-2deg]"
-                        color="accent"
-                        mode="determinate"
-                        value="50"
-                        [diameter]="middleDiameter"
-                        strokeWidth="21">
-                    </mat-progress-spinner>
-                    <mat-progress-spinner
-                        #inner
-                        class="absolute rotate-[-20deg]"
-                        color="warn"
-                        mode="determinate"
-                        value="60"
-                        [diameter]="innerDiameter"
-                        strokeWidth="15">
-                    </mat-progress-spinner>
-                    <div class="flex flex-col items-center text-center">
-                        <p class="font-semibold text-xl xl:text-4xl mt-4 mb-1 text-dark">1</p>
-                        <p class="font-medium text-sm xl:text-lg mt-0 mb-4 text-[#49495f]">minute</p>
+            <div class="relative flex flex-col items-center justify-center">
+                <div class="relative flex flex-col items-center justify-center mt-8 w-[300px] h-[300px] xl:w-[380px] xl:h-[380px] 2xl:w-[464px] 2xl:h-[464px] rounded-full bg-white">
+                    <div class="relative flex items-center justify-center inner-circle w-[230px] xl:w-[280px] h-[230px] xl:h-[280px] rounded-full bg-white">
+                        <mat-progress-spinner
+                            #outer
+                            class="absolute rotate-[-10deg]"
+                            color="primary"
+                            mode="determinate"
+                            value="60"
+                            [diameter]="outerDiameter"
+                            strokeWidth="21">
+                        </mat-progress-spinner>
+                        <mat-progress-spinner
+                            #middle
+                            class="absolute rotate-[-2deg]"
+                            color="accent"
+                            mode="determinate"
+                            value="50"
+                            [diameter]="middleDiameter"
+                            strokeWidth="21">
+                        </mat-progress-spinner>
+                        <mat-progress-spinner
+                            #inner
+                            class="absolute rotate-[-20deg]"
+                            color="warn"
+                            mode="determinate"
+                            value="60"
+                            [diameter]="innerDiameter"
+                            strokeWidth="15">
+                        </mat-progress-spinner>
+                        <div class="flex flex-col items-center text-center">
+                            <p class="font-semibold text-xl xl:text-4xl mt-4 mb-1 text-dark">1</p>
+                            <p class="font-medium text-sm xl:text-lg mt-0 mb-4 text-[#49495f]">minute</p>
+                        </div>
                     </div>
                 </div>
-                <div class="absolute flex flex-col mt-[400px] sm:mt-0 sm:ml-[400px] xl:ml-[470px] 2xl:ml-[560px]">
+                <div class="sm:absolute flex flex-col mt-4 sm:ml-[400px] xl:ml-[470px] 2xl:ml-[560px]">
                     <div class="flex flex-row items-center">
                         <div class="mr-1 w-12 h-4 rounded-2xl bg-primary"></div>
                         <p class="m-1 ml-0 mt- text-lg font-semibold text-white">Shitcoin</p>
