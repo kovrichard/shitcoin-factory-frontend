@@ -49,11 +49,6 @@ app-navbar {
 			width: 230px !important;
 			height: 230px !important;
 		}
-
-		.strokes {
-			margin-left: 400px !important;
-
-		}
 	}
 }
 
@@ -71,13 +66,6 @@ app-navbar {
 	.home-left {
 		margin-left: 1rem;
 		margin-right: 1rem;
-	}
-
-	.background-circle {
-		.strokes {
-			margin-left: 0 !important;
-			margin-top: 400px !important;
-		}
 	}
 }
 
@@ -106,46 +94,6 @@ app-navbar {
 			inset 0 0 0 52px #edeeff,
 			inset 0 0 0 62px #fff,
 			inset 0 0 0 77px #edeeff;
-	}
-
-	.strokes {
-		position: absolute;
-		display: flex;
-		flex-direction: column;
-		margin-left: 580px;
-
-		.stroke {
-			display: flex;
-			flex-direction: row;
-			align-items: center;
-
-			.dash {
-				width: 47px;
-				height: 16px;
-				border-radius: 8px;
-				margin-right: 1rem;
-			}
-
-			.text {
-				font-weight: 600;
-				font-size: 18.89px;
-				line-height: 100%;
-				color: #ffffff;
-				margin: 7px;
-			}
-
-			.blue {
-				background-color: #167ffc;
-			}
-
-			.purple {
-				background-color: #7579ff;
-			}
-
-			.red {
-				background-color: #fd3259;
-			}
-		}
 	}
 }
 
