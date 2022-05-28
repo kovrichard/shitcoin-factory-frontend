@@ -6,7 +6,8 @@ module.exports = {
         'primary': '#167ffc',
         'accent': '#7579ff',
         'warn': '#fd3259',
-        'gray': '#edeeff'
+        'gray': '#edeeff',
+        'dark': '#1b1c37'
       }
     }
   },

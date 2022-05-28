@@ -1,7 +1,7 @@
 <mat-drawer-container autosize>
     <div #home class="home-part">
-        <div class="left"></div>
-        <div class="right"></div>
+        <div class="left bg-white"></div>
+        <div class="right bg-dark"></div>
     </div>
 
     <app-navbar [home]=home [about]=about [factory]=factory [myCoins]=myCoins [shapeshifter]=shapeshifter class="fixed w-full z-20"></app-navbar>
@@ -11,7 +11,7 @@
             <div class="flex flex-col mx-4 sm:mx-0 max-w-[400px] lg:max-w-[480px] 2xl:max-w-[633px]">
                 <p class="mb-4 text-5xl md:text-6xl 2xl:text-7xl font-bold mb-7 max-w-7xl leading-tight md:leading-tight 2xl:leading-normal title">Have your own shitcoin</p>
                 <p class="text-sm sm:text-base 2xl:text-lg font-normal text-[#5f6073]">The times are over when you had to buy someone else's shitcoin. Now you can create your own. Add a name, symbol and total supply, and you are good to go. It won't worth anything, but it will be yours.</p>
-                <button class="flex items-center justify-center self-center lg:self-auto text-lg 2xl:text-2xl font-bold w-40 2xl:w-56 h-12 2xl:h-16 mt-4 xl:mt-8 rounded-xl text-white bg-[#1b1c37]" mat-button (click)="scroll(factory)">
+                <button class="flex items-center justify-center self-center lg:self-auto text-lg 2xl:text-2xl font-bold w-40 2xl:w-56 h-12 2xl:h-16 mt-4 xl:mt-8 rounded-xl text-white bg-dark" mat-button (click)="scroll(factory)">
                     <div class="flex flex-row items-center">
                         <span class="mr-4">Try now</span>
                         <div class="flex items-center justify-center border-2 border-solid border-white rounded-full w-6 h-6">
@@ -51,7 +51,7 @@
                         strokeWidth="15">
                     </mat-progress-spinner>
                     <div class="flex flex-col items-center text-center">
-                        <p class="font-semibold text-xl xl:text-4xl mt-4 mb-1 text-[#1b1c37]">1</p>
+                        <p class="font-semibold text-xl xl:text-4xl mt-4 mb-1 text-dark">1</p>
                         <p class="font-medium text-sm xl:text-lg mt-0 mb-4 text-[#49495f]">minute</p>
                     </div>
                 </div>
