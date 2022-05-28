@@ -1,9 +1,4 @@
-import {
-  Component,
-  Input,
-  OnInit,
-  ViewEncapsulation,
-} from '@angular/core';
+import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 import { Web3ModalService } from './web3-modal.service';
 import { IProvider } from '../providers';
 
@@ -22,9 +17,7 @@ export class Web3ModalComponent implements OnInit {
   @Input() buttonTitle: string;
   @Input() description?: string;
 
-  constructor(
-    private service: Web3ModalService,
-  ) {}
+  constructor(private service: Web3ModalService) {}
 
   async ngOnInit() {
     this.service.providers.subscribe({

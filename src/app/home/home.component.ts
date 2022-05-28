@@ -40,7 +40,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
     this.breakpoints
       .observe([Breakpoints.Medium, Breakpoints.Small, Breakpoints.XSmall])
       .subscribe((result: any) => {
-
         if (result.matches) {
           this.outerDiameter = 230;
           this.middleDiameter = 168;
