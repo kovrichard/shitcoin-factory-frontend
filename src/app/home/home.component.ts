@@ -37,55 +37,20 @@ export class HomeComponent implements OnInit, AfterViewInit {
   ) {}
 
   async ngAfterViewInit() {
-    this.breakpoints.observe(Breakpoints.Large).subscribe((result: any) => {
-      const menu = document.getElementsByClassName('home')[0];
-
-      if (result.matches) {
-        menu.classList.add('large');
-      } else {
-        menu.classList.remove('large');
-      }
-    });
-
     this.breakpoints
       .observe([Breakpoints.Medium, Breakpoints.Small, Breakpoints.XSmall])
       .subscribe((result: any) => {
-        const menu = document.getElementsByClassName('home')[0];
 
         if (result.matches) {
-          menu.classList.add('medium');
           this.outerDiameter = 230;
           this.middleDiameter = 168;
           this.innerDiameter = 106;
         } else {
-          menu.classList.remove('medium');
           this.outerDiameter = 280;
           this.middleDiameter = 218;
           this.innerDiameter = 156;
         }
       });
-
-    this.breakpoints
-      .observe([Breakpoints.Small, Breakpoints.XSmall])
-      .subscribe((result: any) => {
-        const menu = document.getElementsByClassName('home')[0];
-
-        if (result.matches) {
-          menu.classList.add('small');
-        } else {
-          menu.classList.remove('small');
-        }
-      });
-
-    this.breakpoints.observe(Breakpoints.XSmall).subscribe((result: any) => {
-      const menu = document.getElementsByClassName('home')[0];
-
-      if (result.matches) {
-        menu.classList.add('xsmall');
-      } else {
-        menu.classList.remove('xsmall');
-      }
-    });
   }
 
   async ngOnInit() {
