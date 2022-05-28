@@ -6,15 +6,6 @@
 	text-fill-color: transparent;
 }
 
-.left {
-	width: 62%;
-}
-
-.right {
-	width: 38%;
-	height: 100vh;
-}
-
 .inner-circle {
 	box-shadow:
 		inset 0 0 0 21px #edeeff,
@@ -26,12 +17,6 @@
 
 .mat-progress-spinner {
 	stroke-linecap: round;
-}
-
-.home-part {
-	position: absolute;
-	display: flex;
-	width: 100%;
 }
 
 .coin-container {

@@ -1,7 +1,7 @@
 <mat-drawer-container autosize>
-    <div #home class="home-part">
-        <div class="left bg-white"></div>
-        <div class="right bg-dark"></div>
+    <div #home class="absolute flex flex-col lg:flex-row w-full">
+        <div class="w-screen lg:w-[calc(100%/2+240px)] 2xl:w-[calc(100%/2+316.5px)] h-[510px] lg:h-screen bg-white"></div>
+        <div class="w-screen lg:w-[calc(100%/2-240px)] 2xl:w-[calc(100%/2-316.5px)] h-[calc(100vh-510px)] lg:h-screen bg-dark"></div>
     </div>
 
     <app-navbar [home]=home [about]=about [factory]=factory [myCoins]=myCoins [shapeshifter]=shapeshifter class="fixed w-full z-20"></app-navbar>
