@@ -18,3 +18,11 @@
 .mat-progress-spinner {
 	stroke-linecap: round;
 }
+
+.about-title {
+	background: linear-gradient(90deg, #7E6DFD 0%, #B127F0 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+	text-fill-color: transparent;
+}
