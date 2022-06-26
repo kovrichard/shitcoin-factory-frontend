@@ -79,53 +79,55 @@
         </div>
     </div>
 
-    <div #about class="flex flex-col items-center py-4 bg-dark">
-        <div class="flex justify-center items-center w-64 h-64 mb-8 rounded-full bg-white">
-            <mat-progress-spinner
-                #middle
-                class="absolute rotate-[132deg]"
-                color="warn"
-                mode="determinate"
-                value="60"
-                [diameter]="middleDiameter + 50"
-                strokeWidth="21">
-            </mat-progress-spinner>
-            <div class="flex flex-col items-center text-center">
-                <p class="font-semibold text-4xl mt-4 mb-1 text-dark">{{ numCoins }}</p>
-                <p class="font-medium text-sm mt-0 text-[#49495f]">generated</p>
-                <p class="font-medium text-sm mt-0 mb-4 text-[#49495f]">so far</p>
+    <div class="flex flex-col lg:flex-row-reverse">
+        <div #about class="flex flex-col justify-center items-center p-4">
+            <p class="text-center text-4xl sm:text-5xl font-semibold about-title mb-4 max-w-[500px]">Shitcoin creation made easy</p>
+            <img src="/assets/path.svg" class="sm:max-w-[600px]">
+        </div>
+        <div class="flex flex-col items-center py-4 bg-dark lg:w-[calc(100%-632px)]">
+            <div class="flex justify-center items-center w-64 h-64 mb-8 rounded-full bg-white">
+                <mat-progress-spinner
+                    #middle
+                    class="absolute rotate-[132deg]"
+                    color="warn"
+                    mode="determinate"
+                    value="60"
+                    [diameter]="middleDiameter + 50"
+                    strokeWidth="21">
+                </mat-progress-spinner>
+                <div class="flex flex-col items-center text-center">
+                    <p class="font-semibold text-4xl mt-4 mb-1 text-dark">{{ numCoins }}</p>
+                    <p class="font-medium text-sm mt-0 text-[#49495f]">generated</p>
+                    <p class="font-medium text-sm mt-0 mb-4 text-[#49495f]">so far</p>
+                </div>
+            </div>
+            <div class="flex flex-col items-center rounded-[3rem] w-[350px] h-56 bg-white">
+                <p class="mt-4 text-2xl font-bold">Recent</p>
+                <div class="flex justify-center items-center w-[300px] h-5 mt-4 rounded-full bg-primary">
+                    <p class="text-[10px] font-semibold text-white">0x2170Ed0880ac9A755fd29B2688956BD959F933F8</p>
+                </div>
+                <div class="flex justify-center items-center w-[300px] h-5 mt-4 rounded-full bg-accent">
+                    <p class="text-[10px] font-semibold text-white">0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c</p>
+                </div>
+                <div class="flex justify-center items-center w-[300px] h-5 mt-4 rounded-full bg-warn">
+                    <p class="text-[10px] font-semibold text-white">0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56</p>
+                </div>
+                <div class="flex justify-around items-center w-[300px] h-5 mt-4">
+                    <div class="flex justify-center items-center">
+                        <div class="w-5 h-5 mr-2 bf-primary rounded-full bg-primary"></div>
+                        <p class="text-md font-semibold">CEPH</p>
+                    </div>
+                    <div class="flex justify-center items-center">
+                        <div class="w-5 h-5 mr-2 bf-primary rounded-full bg-accent"></div>
+                        <p class="text-md font-semibold">VARI</p>
+                    </div>
+                    <div class="flex justify-center items-center">
+                        <div class="w-5 h-5 mr-2 bf-primary rounded-full bg-warn"></div>
+                        <p class="text-md font-semibold">SHPSFR</p>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="flex flex-col items-center rounded-[3rem] w-[350px] h-56 bg-white">
-            <p class="mt-4 text-2xl font-bold">Recent</p>
-            <div class="flex justify-center items-center w-[300px] h-5 mt-4 rounded-full bg-primary">
-                <p class="text-[10px] font-semibold text-white">0x2170Ed0880ac9A755fd29B2688956BD959F933F8</p>
-            </div>
-            <div class="flex justify-center items-center w-[300px] h-5 mt-4 rounded-full bg-accent">
-                <p class="text-[10px] font-semibold text-white">0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c</p>
-            </div>
-            <div class="flex justify-center items-center w-[300px] h-5 mt-4 rounded-full bg-warn">
-                <p class="text-[10px] font-semibold text-white">0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56</p>
-            </div>
-            <div class="flex justify-around items-center w-[300px] h-5 mt-4">
-                <div class="flex justify-center items-center">
-                    <div class="w-5 h-5 mr-2 bf-primary rounded-full bg-primary"></div>
-                    <p class="text-md font-semibold">CEPH</p>
-                </div>
-                <div class="flex justify-center items-center">
-                    <div class="w-5 h-5 mr-2 bf-primary rounded-full bg-accent"></div>
-                    <p class="text-md font-semibold">VARI</p>
-                </div>
-                <div class="flex justify-center items-center">
-                    <div class="w-5 h-5 mr-2 bf-primary rounded-full bg-warn"></div>
-                    <p class="text-md font-semibold">SHPSFR</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="flex flex-col justify-center items-center">
-        <p class="text-center text-4xl font-semibold about-title">Shitcoin creation made easy</p>
-        <img src="/assets/path.svg">
     </div>
     <div #factory class="flex flex-col">
         <div class="flex flex-wrap flex-row justify-evenly">
