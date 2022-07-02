@@ -6,7 +6,7 @@
 
     <app-navbar [home]=home [about]=about [factory]=factory [myCoins]=myCoins [shapeshifter]=shapeshifter class="fixed w-full z-20"></app-navbar>
 
-    <div #home class="flex flex-col items-center pt-20 sm:pt-32 2xl:pt-60 lg:h-screen">
+    <div #home class="flex flex-col items-center pt-20 sm:pt-24 2xl:pt-60 lg:h-screen">
         <div class="flex flex-col w-full lg:flex-row items-center justify-center z-10">
             <div class="flex flex-col mx-4 sm:mx-0 max-w-[400px] lg:max-w-[480px] 2xl:max-w-[633px]">
                 <p class="mb-4 text-5xl md:text-6xl 2xl:text-7xl font-bold mb-7 max-w-7xl leading-tight md:leading-tight 2xl:leading-normal title">Have your own shitcoin</p>
@@ -80,11 +80,11 @@
     </div>
 
     <div class="flex flex-col lg:flex-row-reverse">
-        <div #about class="flex flex-col justify-center items-center p-4">
+        <div #about class="flex flex-col justify-center items-center p-4 lg:py-16">
             <p class="text-center text-4xl sm:text-5xl font-semibold about-title mb-4 max-w-[500px]">Shitcoin creation made easy</p>
             <img src="/assets/path.svg" class="sm:max-w-[600px]">
         </div>
-        <div class="flex flex-col items-center py-4 bg-dark lg:w-[calc(100%-632px)]">
+        <div class="flex flex-col items-center py-4 lg:py-16 bg-dark lg:w-[calc(100%-632px)]">
             <div class="flex justify-center items-center w-64 h-64 mb-8 rounded-full bg-white">
                 <mat-progress-spinner
                     #middle
