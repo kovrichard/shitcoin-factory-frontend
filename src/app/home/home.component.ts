@@ -29,6 +29,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
   outerDiameter = 280;
   middleDiameter = 218;
   innerDiameter = 156;
+  aboutDiameter = 218;
 
   constructor(
     private shitcoinFactory: ShitcoinFactoryService,

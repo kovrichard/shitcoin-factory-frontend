@@ -79,12 +79,14 @@
         </div>
     </div>
 
-    <div class="flex flex-col lg:flex-row-reverse">
-        <div #about class="flex flex-col justify-center items-center p-4 lg:py-16">
-            <p class="text-center text-4xl sm:text-5xl font-semibold about-title mb-4 max-w-[500px]">Shitcoin creation made easy</p>
-            <img src="/assets/path.svg" class="sm:max-w-[600px]">
+    <div class="flex flex-col justify-center lg:flex-row-reverse">
+        <div class="absolute hidden lg:flex left-0 lg:w-[calc(100%/2-266px)] lg:h-[704px] bg-dark">
         </div>
-        <div class="flex flex-col items-center py-4 lg:py-16 bg-dark lg:w-[calc(100%-632px)]">
+        <div #about class="flex flex-col justify-center items-center p-4 lg:py-24">
+            <p class="text-center text-4xl sm:text-5xl font-semibold about-title mb-4 max-w-[500px]">Shitcoin creation made easy</p>
+            <img src="/assets/path.svg" class="sm:max-w-[600px] lg:max-h-[400px]">
+        </div>
+        <div class="flex flex-col items-center py-4 lg:py-24 bg-dark lg:bg-transparent z-10">
             <div class="flex justify-center items-center w-64 h-64 mb-8 rounded-full bg-white">
                 <mat-progress-spinner
                     #middle
@@ -92,7 +94,7 @@
                     color="warn"
                     mode="determinate"
                     value="60"
-                    [diameter]="middleDiameter + 50"
+                    [diameter]="aboutDiameter"
                     strokeWidth="21">
                 </mat-progress-spinner>
                 <div class="flex flex-col items-center text-center">
