@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ShitcoinFactoryService } from '../shitcoin-factory.service';
 import { Web3ModalService } from '../web3-modal/web3-modal.service';
 import { takeWhile, timer } from 'rxjs';
@@ -17,7 +17,7 @@ interface Shitcoin {
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
 })
-export class HomeComponent implements OnInit, AfterViewInit {
+export class HomeComponent implements OnInit {
   private numberOfCoins = 0;
   numCoins = 0;
   coins: Shitcoin[] = [];
@@ -37,7 +37,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
     private breakpoints: BreakpointObserver
   ) {}
 
-  async ngAfterViewInit() {
+  async ngOnInit() {
     this.breakpoints
       .observe([Breakpoints.Medium, Breakpoints.Small, Breakpoints.XSmall])
       .subscribe((result: any) => {
@@ -51,9 +51,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
           this.innerDiameter = 156;
         }
       });
-  }
 
-  async ngOnInit() {
     this.web3service.account.subscribe((account: string) => {
       this.caller = account;
     });
