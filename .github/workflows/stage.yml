@@ -57,3 +57,15 @@ jobs:
         name: stage
         path: dist/shitcoin-factory-frontend
         retention-days: 3
+
+    - name: Deploy to S3
+      uses: reggionick/s3-deploy@v3
+      with:
+        folder: dist/shitcoin-factory-frontend
+        bucket: ${{ secrets.S3_BUCKET_STAGE }}
+        bucket-region: ${{ secrets.S3_BUCKET_REGION }}
+        dist-id: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID_STAGE }}
+        invalidation: /
+        delete-removed: true
+        no-cache: true
+        private: true
