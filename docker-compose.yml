@@ -5,7 +5,9 @@ services:
     image: shitcoin-factory-frontend
     working_dir: /usr/src/app
     volumes:
-      - ./:/usr/src/app
+      - type: bind
+        source: ./
+        target: /usr/src/app
       - /usr/src/app/node_modules/
     ports:
       - 4200:4200
