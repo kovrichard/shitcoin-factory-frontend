@@ -131,33 +131,32 @@
             </div>
         </div>
     </div>
-    <div #factory class="flex flex-col">
-        <div class="flex flex-wrap flex-row justify-evenly">
-            <shadow-card width="280px" height="180px" icon="looks_one">
-                <p>Type in your shitcoin's name, symbol and total supply, then click Mint.</p>
-            </shadow-card>
-            <shadow-card width="280px" height="180px" icon="looks_two">
-                <p>That's it, you have a worthless shitcoin.</p>
-            </shadow-card>
-        </div>
-    
-        <form id="form" class="flex flex-col">
-            <div class="flex flex-col justify-evenly">
-                <mat-form-field appearance="fill" color="warn" class="m-auto min-w-[300px]">
-                    <mat-label>Name</mat-label>
-                    <input matInput type="text" [(ngModel)]="name" name="name" />
-                </mat-form-field>
-                <mat-form-field appearance="fill" color="warn" class="m-auto min-w-[300px]">
-                    <mat-label>Symbol</mat-label>
-                    <input matInput type="text" [(ngModel)]="symbol" name="symbol" />
-                </mat-form-field>
-                <mat-form-field appearance="fill" color="warn" class="m-auto min-w-[300px]">
-                    <mat-label>Total suply</mat-label>
-                    <input matInput type="number" [(ngModel)]="totalSupply" name="supply" placeholder="0" />
-                </mat-form-field>
+    <div #factory class="flex flex-col lg:flex-row justify-center text-white bg-dark">
+        <form id="form" class="flex flex-col lg:flex-row justify-around w-full">
+            <div class="flex flex-col">
+                <div class="text-center text-4xl font-semibold">
+                    <h1>Factory</h1>
+                </div>
+                <div class="flex flex-col justify-evenly">
+                    <mat-form-field appearance="fill" color="warn" class="m-auto min-w-[300px]">
+                        <mat-label>Name</mat-label>
+                        <input matInput type="text" [(ngModel)]="name" name="name" />
+                    </mat-form-field>
+                    <mat-form-field appearance="fill" color="warn" class="m-auto min-w-[300px]">
+                        <mat-label>Symbol</mat-label>
+                        <input matInput type="text" [(ngModel)]="symbol" name="symbol" />
+                    </mat-form-field>
+                    <mat-form-field appearance="fill" color="warn" class="m-auto min-w-[300px]">
+                        <mat-label>Total suply</mat-label>
+                        <input matInput type="number" [(ngModel)]="totalSupply" name="supply" placeholder="0" />
+                    </mat-form-field>
+                </div>
             </div>
-            <div class="flex flex-row justify-evenly">
-                <button mat-raised-button (click)="mint()" color="warn">Mint</button>
+            <div class="flex flex-col items-center">
+                <p class="text-center text-xl font-semibold max-w-[80%]">Generate your shitcoin with the click of a button</p>
+                <button mat-raised-button (click)="mint()" color="accent">
+                    <span class="text-white">Generate</span>
+                </button>
             </div>
         </form>
     </div>
