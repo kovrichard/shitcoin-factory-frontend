@@ -132,7 +132,7 @@
         </div>
     </div>
     <div #factory class="flex flex-col lg:flex-row justify-center text-white bg-dark">
-        <form id="form" class="flex flex-col lg:flex-row justify-around w-full">
+        <form id="form" class="flex flex-col lg:flex-row justify-around my-8 w-full">
             <div class="flex flex-col">
                 <div class="text-center text-4xl font-semibold">
                     <h1>Factory</h1>
@@ -154,7 +154,8 @@
             </div>
             <div class="flex flex-col items-center">
                 <p class="text-center text-xl font-semibold max-w-[80%]">Generate your shitcoin with the click of a button</p>
-                <button mat-raised-button (click)="mint()" color="accent">
+                <img src="/assets/factory-arrow.svg" />
+                <button mat-raised-button (click)="mint()" color="accent" class="h-14 w-44 mt-8 rounded-2xl text-lg">
                     <span class="text-white">Generate</span>
                 </button>
             </div>
