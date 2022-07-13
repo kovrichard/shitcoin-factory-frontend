@@ -21,11 +21,11 @@
             <p class="my-2 text-lg font-semibold">Factory</p>
         </button>
     </div>
-    <div class="flex justify-center w-52">
+    <!--div class="flex justify-center w-52">
         <button mat-button (click)="drawer.toggle();scroll(myCoins)">
             <p class="my-2 text-lg font-semibold">My coins</p>
         </button>
-    </div>
+    </div-->
 </mat-drawer>
 <div class="absolute flex sm:hidden justify-between items-center w-[calc(100%-60px)] h-24 mx-7">
     <button mat-icon-button (click)="drawer.toggle()">
@@ -58,12 +58,12 @@
                 <div class="w-full h-1.5 underline"></div>
             </div>
         </button>
-        <button mat-button class="flex flex-col items-center justify-center w-16 lg:w-24 h-12 2xl:h-16 text-black nav-item" (click)="scroll(myCoins);highlight($event);">
+        <!--button mat-button class="flex flex-col items-center justify-center w-16 lg:w-24 h-12 2xl:h-16 text-black nav-item" (click)="scroll(myCoins);highlight($event);">
             <div class="flex flex-col h-full">
                 <p class="m-auto text-sm 2xl:text-lg font-semibold">My coins</p>
                 <div class="w-full h-1.5 underline"></div>
             </div>
-        </button>
+        </button-->
     </div>
     <div class="absolute right-0">
         <m-web3-modal
