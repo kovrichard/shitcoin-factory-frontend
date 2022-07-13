@@ -23,12 +23,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { LayoutModule } from '@angular/cdk/layout';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent,
-    NavbarComponent,
-    CircleComponent,
-  ],
+  declarations: [AppComponent, HomeComponent, NavbarComponent, CircleComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

@@ -89,11 +89,7 @@ describe('HomeComponent', () => {
         MatListModule,
         ScrollingModule,
       ],
-      declarations: [
-        HomeComponent,
-        NavbarComponent,
-        Web3ModalComponent,
-      ],
+      declarations: [HomeComponent, NavbarComponent, Web3ModalComponent],
       providers: [
         { provide: Web3ModalService, useValue: fakeWeb3ModalService },
         {
