@@ -2,9 +2,9 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="122.74482mm"
-   height="13.627497mm"
-   viewBox="0 0 122.74482 13.627497"
+   width="122.05227mm"
+   height="12.905338mm"
+   viewBox="0 0 122.05227 12.905338"
    version="1.1"
    id="svg5"
    xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -31,38 +31,6 @@
          offset="1"
          id="stop8582" />
     </linearGradient>
-    <marker
-       style="overflow:visible"
-       id="marker5585"
-       refX="0"
-       refY="0"
-       orient="auto-start-reverse"
-       markerWidth="13"
-       markerHeight="2.1666667"
-       viewBox="0 0 6.1347524 5.9304951"
-       preserveAspectRatio="xMidYMid">
-      <path
-         transform="scale(0.7)"
-         d="m -0.21114562,-4.1055728 6.42229122,3.21114561 a 1,1 90 0 1 0,1.78885438 L -0.21114562,4.1055728 A 1.236068,1.236068 31.717474 0 1 -2,3 v -6 a 1.236068,1.236068 148.28253 0 1 1.78885438,-1.1055728 z"
-         style="fill:context-stroke;fill-rule:evenodd;stroke:none"
-         id="path5583" />
-    </marker>
-    <marker
-       style="overflow:visible"
-       id="RoundedArrow"
-       refX="0"
-       refY="0"
-       orient="auto-start-reverse"
-       markerWidth="2.2412908"
-       markerHeight="2.1666667"
-       viewBox="0 0 6.1347524 5.9304951"
-       preserveAspectRatio="xMidYMid">
-      <path
-         transform="scale(0.7)"
-         d="m -0.21114562,-4.1055728 6.42229122,3.21114561 a 1,1 90 0 1 0,1.78885438 L -0.21114562,4.1055728 A 1.236068,1.236068 31.717474 0 1 -2,3 v -6 a 1.236068,1.236068 148.28253 0 1 1.78885438,-1.1055728 z"
-         style="fill:context-stroke;fill-rule:evenodd;stroke:none"
-         id="path1367" />
-    </marker>
     <linearGradient
        xlink:href="#linearGradient7692"
        id="linearGradient7694"
@@ -75,9 +43,9 @@
   </defs>
   <g
      id="layer1"
-     transform="translate(-75.744043,-19.132566)">
+     transform="translate(-76.089792,-19.854728)">
     <path
-       style="fill:none;fill-opacity:1;stroke:url(#linearGradient7694);stroke-width:0.7;stroke-linecap:butt;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#RoundedArrow);marker-end:url(#marker5585)"
+       style="fill:none;fill-opacity:1;stroke:url(#linearGradient7694);stroke-width:0.7;stroke-linecap:round;stroke-linejoin:bevel;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
        id="path1952"
        d="M 197.79208,20.209577 A 61.210747,14.056648 0 0 1 137.10668,32.410064 61.210747,14.056648 0 0 1 76.439791,20.204726" />
   </g>
