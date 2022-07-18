@@ -10,7 +10,6 @@ import { IProvider } from '../providers';
 })
 export class Web3ModalComponent implements OnInit {
   open = false;
-  showMetamaskDownload: boolean;
   account = '';
   providers: IProvider[];
 
@@ -19,7 +18,7 @@ export class Web3ModalComponent implements OnInit {
 
   constructor(private service: Web3ModalService) {}
 
-  async ngOnInit() {
+  ngOnInit() {
     this.service.providers.subscribe({
       next: (providers: IProvider[]) => {
         this.providers = providers;
@@ -33,6 +32,7 @@ export class Web3ModalComponent implements OnInit {
   async connect() {
     this.open = true;
     await this.service.open();
+    window.localStorage.setItem('state', 'connected');
     this.open = false;
   }
 
