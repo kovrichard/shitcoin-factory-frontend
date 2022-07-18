@@ -21,6 +21,7 @@ export class HomeComponent implements OnInit {
   private numberOfCoins = 0;
   numCoins = 0;
   coins: Shitcoin[] = [];
+  recentCoins: Shitcoin[] = [];
   name = '';
   symbol = '';
   totalSupply: number;
@@ -75,6 +76,7 @@ export class HomeComponent implements OnInit {
           totalSupply: totalSupply / 10 ** 18,
         });
       }
+      this.recentCoins = this.coins.slice(-3);
     });
   }
 

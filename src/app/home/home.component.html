@@ -105,27 +105,13 @@
             </div>
             <div class="flex flex-col items-center rounded-[3rem] w-[350px] h-56 bg-white">
                 <p class="mt-4 text-2xl font-bold">Recent</p>
-                <div class="flex justify-center items-center w-[300px] h-5 mt-4 rounded-full bg-primary">
-                    <p class="text-[10px] font-semibold text-white">0x2170Ed0880ac9A755fd29B2688956BD959F933F8</p>
-                </div>
-                <div class="flex justify-center items-center w-[300px] h-5 mt-4 rounded-full bg-accent">
-                    <p class="text-[10px] font-semibold text-white">0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c</p>
-                </div>
-                <div class="flex justify-center items-center w-[300px] h-5 mt-4 rounded-full bg-warn">
-                    <p class="text-[10px] font-semibold text-white">0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56</p>
+                <div *ngFor="let coin of recentCoins; index as i;" class="flex justify-center items-center w-[300px] h-5 mt-4 rounded-full {{ i == 0 ? 'bg-primary' : i == 1 ? 'bg-accent' : 'bg-warn' }}">
+                    <p class="text-[10px] font-semibold text-white">{{ coin.address }}</p>
                 </div>
                 <div class="flex justify-around items-center w-[300px] h-5 mt-4">
-                    <div class="flex justify-center items-center">
-                        <div class="w-5 h-5 mr-2 bf-primary rounded-full bg-primary"></div>
-                        <p class="text-md font-semibold">CEPH</p>
-                    </div>
-                    <div class="flex justify-center items-center">
-                        <div class="w-5 h-5 mr-2 bf-primary rounded-full bg-accent"></div>
-                        <p class="text-md font-semibold">VARI</p>
-                    </div>
-                    <div class="flex justify-center items-center">
-                        <div class="w-5 h-5 mr-2 bf-primary rounded-full bg-warn"></div>
-                        <p class="text-md font-semibold">SHPSFR</p>
+                    <div *ngFor="let coin of recentCoins; index as i;" class="flex justify-center items-center">
+                        <div class="w-5 h-5 mr-2 bf-primary rounded-full {{ i == 0 ? 'bg-primary' : i == 1 ? 'bg-accent' : 'bg-warn' }}"></div>
+                        <p class="text-md font-semibold">{{ coin.symbol }}</p>
                     </div>
                 </div>
             </div>
