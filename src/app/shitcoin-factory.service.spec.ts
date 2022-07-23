@@ -50,7 +50,7 @@ describe('ShitcoinFactoryService', () => {
   it('should set default values', () => {
     expect(service.factoryAbi).toEqual(abi as ContractInterface);
     expect(service.shitcoinAbi).toEqual(shitcoinAbi as ContractInterface);
-    expect(service.contractAddress).toEqual(environment.bscContractAddress);
+    expect(service.contractAddress).toEqual(environment.etherContractAddress);
     service.numberOfCoins.subscribe((value: number) => {
       expect(value).toEqual(0);
     });

@@ -16,6 +16,7 @@ export class Web3ModalService {
     '' as any
   );
   account = new BehaviorSubject('');
+  defaultProvider = true;
 
   constructor(private chain: ChainService) {
     if (window.localStorage.getItem('provider') == 'ethereum') {
@@ -23,15 +24,15 @@ export class Web3ModalService {
     }
 
     this.chain.networkUrl.subscribe((url: string) => {
-      this.provider = new ethers.providers.JsonRpcProvider(url);
-      this.parseProvider(this.provider, true);
+      if (this.defaultProvider)
+        this.provider = new ethers.providers.JsonRpcProvider(url);
+
+      this.parseProvider();
     });
   }
 
-  private parseProvider(provider: EthersProvider, defaultProvider = false) {
-    this.provider = provider;
-
-    if (defaultProvider) {
+  private parseProvider() {
+    if (this.defaultProvider) {
       this.signer.next(this.provider);
       return;
     }
@@ -50,7 +51,11 @@ export class Web3ModalService {
     await new Promise((resolve, reject) => {
       this.providerController.chosenProvider.subscribe(
         (provider: EthersProvider) => {
-          this.parseProvider(provider);
+          this.defaultProvider = false;
+          this.provider = provider;
+          provider.getNetwork().then((network: any) => {
+            this.chain.id.next(network.chainId);
+          });
           window.localStorage.setItem('provider', provider.connection['url']);
           resolve(provider);
         }
