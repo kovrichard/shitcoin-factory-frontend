@@ -26,7 +26,6 @@ export class HomeComponent implements OnInit {
   name = '';
   symbol = '';
   totalSupply: number;
-  caller = '';
   explorer = '';
 
   outerDiameter = 280;
@@ -58,10 +57,6 @@ export class HomeComponent implements OnInit {
 
     this.chain.explorer.subscribe((url: string) => {
       this.explorer = url;
-    });
-
-    this.web3service.account.subscribe((account: string) => {
-      this.caller = account;
     });
 
     this.shitcoinFactory.numberOfCoins.subscribe(async (value: number) => {

@@ -126,14 +126,6 @@ describe('HomeComponent', () => {
     expect(component.symbol).toEqual('');
   });
 
-  it('should save the caller', fakeAsync(() => {
-    component.ngOnInit();
-    tick();
-
-    expect(component.caller).toEqual('test-account');
-    discardPeriodicTasks();
-  }));
-
   it('should save coins', fakeAsync(() => {
     component.ngOnInit();
     tick();
