@@ -55,8 +55,11 @@ export class HomeComponent implements OnInit {
 
     this.chain.explorer.subscribe((url: string) => {
       this.explorer = url;
+      this.fetchCoins();
     });
+  }
 
+  private fetchCoins() {
     this.shitcoinFactory.numberOfCoins.subscribe((value: number) => {
       this.numberOfCoins = value;
       this.countToNumberOfCoins();
