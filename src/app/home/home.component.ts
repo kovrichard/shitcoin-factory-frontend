@@ -3,6 +3,7 @@ import { ShitcoinFactoryService } from '../shitcoin-factory.service';
 import { Web3ModalService } from '../web3-modal/web3-modal.service';
 import { takeWhile, timer } from 'rxjs';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { environment } from 'src/environments/environment';
 
 interface Shitcoin {
   address: string;
@@ -26,6 +27,7 @@ export class HomeComponent implements OnInit {
   symbol = '';
   totalSupply: number;
   caller = '';
+  bscScan = environment.bscScan;
 
   outerDiameter = 280;
   middleDiameter = 218;
