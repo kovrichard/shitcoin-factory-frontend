@@ -62,7 +62,7 @@ describe('ChainService', () => {
       service.id.next(id);
       service.networkUrl.subscribe((url: string) => {
         expect(url).toEqual(environment.etherNetworkUrl);
-      })
+      });
     });
   });
 
@@ -71,7 +71,7 @@ describe('ChainService', () => {
       service.id.next(id);
       service.explorer.subscribe((url: string) => {
         expect(url).toEqual(environment.etherScan);
-      })
+      });
     });
   });
 

@@ -3,7 +3,7 @@ import { ShitcoinFactoryService } from '../shitcoin-factory.service';
 import { Web3ModalService } from '../web3-modal/web3-modal.service';
 import { takeWhile, timer } from 'rxjs';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { environment } from 'src/environments/environment';
+import { ChainService } from '../chain.service';
 
 interface Shitcoin {
   address: string;
@@ -27,7 +27,7 @@ export class HomeComponent implements OnInit {
   symbol = '';
   totalSupply: number;
   caller = '';
-  bscScan = environment.bscScan;
+  explorer = '';
 
   outerDiameter = 280;
   middleDiameter = 218;
@@ -37,7 +37,8 @@ export class HomeComponent implements OnInit {
   constructor(
     private shitcoinFactory: ShitcoinFactoryService,
     private web3service: Web3ModalService,
-    private breakpoints: BreakpointObserver
+    private breakpoints: BreakpointObserver,
+    private chain: ChainService
   ) {}
 
   async ngOnInit() {
@@ -54,6 +55,10 @@ export class HomeComponent implements OnInit {
           this.innerDiameter = 156;
         }
       });
+
+    this.chain.explorer.subscribe((url: string) => {
+      this.explorer = url;
+    });
 
     this.web3service.account.subscribe((account: string) => {
       this.caller = account;

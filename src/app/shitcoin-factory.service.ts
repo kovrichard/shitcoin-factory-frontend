@@ -3,9 +3,9 @@ import { Web3ModalService } from './web3-modal/web3-modal.service';
 import factoryAbi from './web3-modal/factory-abi.json';
 import shitcoinAbi from './web3-modal/shitcoin.json';
 import { BehaviorSubject } from 'rxjs';
-import { environment } from 'src/environments/environment';
 import { ContractInterface, ethers } from 'ethers';
 import { EthersProvider } from './providers';
+import { ChainService } from './chain.service';
 
 @Injectable({
   providedIn: 'root',
@@ -13,11 +13,17 @@ import { EthersProvider } from './providers';
 export class ShitcoinFactoryService {
   factoryAbi = factoryAbi as ContractInterface;
   shitcoinAbi = shitcoinAbi as ContractInterface;
-  contractAddress = environment.bscContractAddress;
+  contractAddress = '';
   factory: ethers.Contract;
   numberOfCoins = new BehaviorSubject(0);
 
-  constructor(private web3service: Web3ModalService) {
+  constructor(
+    private web3service: Web3ModalService,
+    private chain: ChainService
+  ) {
+    this.chain.contractAddress.subscribe((address: string) => {
+      this.contractAddress = address;
+    });
     this.web3service.signer.subscribe(
       (signer: ethers.providers.JsonRpcSigner | EthersProvider) => {
         if (!signer) return;

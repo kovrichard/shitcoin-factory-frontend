@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { ethers } from 'ethers';
 import { ProviderController } from '../providers.service';
-import { environment } from 'src/environments/environment';
 import { EthersProvider } from '../providers';
 import { ChainService } from '../chain.service';
 
@@ -26,7 +25,7 @@ export class Web3ModalService {
     this.chain.networkUrl.subscribe((url: string) => {
       this.provider = new ethers.providers.JsonRpcProvider(url);
       this.parseProvider(this.provider, true);
-    })
+    });
   }
 
   private parseProvider(provider: EthersProvider, defaultProvider = false) {
