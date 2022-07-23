@@ -5,10 +5,13 @@
 export const environment = {
   production: false,
   bscScan: '#',
-  contractAddress: '0x0000000000000000000000000000000000000000',
+  etherScan: '#',
+  bscContractAddress: '0x0000000000000000000000000000000000000000',
+  etherContractAddress: '0x0000000000000000000000000000000000000000',
   bscShapeshifterAddress: '0x0000000000000000000000000000000000000000',
   ethShapeshifterAddress: '0x0000000000000000000000000000000000000000',
-  networkUrl: 'http://localhost:8545',
+  bscNetworkUrl: 'http://localhost:8545',
+  etherNetworkUrl: 'http://localhost:8545' 
 };
 
 /*
