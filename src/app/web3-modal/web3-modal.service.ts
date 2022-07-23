@@ -19,17 +19,18 @@ export class Web3ModalService {
   account = new BehaviorSubject('');
 
   constructor(private chain: ChainService) {
-    this.provider = new ethers.providers.JsonRpcProvider(
-      environment.bscNetworkUrl
-    );
-    this.parseProvider(this.provider, true);
+    if (window.localStorage.getItem('provider') == 'ethereum') {
+      this.chain.id.next((window as any).ethereum.chainId);
+    }
+
+    this.chain.networkUrl.subscribe((url: string) => {
+      this.provider = new ethers.providers.JsonRpcProvider(url);
+      this.parseProvider(this.provider, true);
+    })
   }
 
   private parseProvider(provider: EthersProvider, defaultProvider = false) {
     this.provider = provider;
-    this.provider.getNetwork().then((network: any) => {
-      this.chain.id.next(network.chainId);
-    });
 
     if (defaultProvider) {
       this.signer.next(this.provider);

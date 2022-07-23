@@ -11,8 +11,19 @@ describe('ChainService', () => {
     service = TestBed.inject(ChainService);
   });
 
-  it('should be created', () => {
-    expect(service).toBeTruthy();
+  it('default network should be ethereum', () => {
+    service.id.subscribe((id: number) => {
+      expect(id).toEqual(1);
+    });
+    service.networkUrl.subscribe((url: string) => {
+      expect(url).toEqual(environment.etherNetworkUrl);
+    });
+    service.explorer.subscribe((url: string) => {
+      expect(url).toEqual(environment.etherScan);
+    });
+    service.contractAddress.subscribe((address: string) => {
+      expect(address).toEqual(environment.etherContractAddress);
+    });
   });
 
   const ids = [1337, 97, 56];
@@ -20,21 +31,27 @@ describe('ChainService', () => {
   ids.forEach((id: number) => {
     it(`should set bsc network url for chain id ${id}`, () => {
       service.id.next(id);
-      expect(service.networkUrl).toEqual(environment.bscNetworkUrl);
+      service.networkUrl.subscribe((url: string) => {
+        expect(url).toEqual(environment.bscNetworkUrl);
+      });
     });
   });
 
   ids.forEach((id: number) => {
     it(`should set bsc explorer url for chain id ${id}`, () => {
       service.id.next(id);
-      expect(service.explorer).toEqual(environment.bscScan);
+      service.explorer.subscribe((url: string) => {
+        expect(url).toEqual(environment.bscScan);
+      });
     });
   });
 
   ids.forEach((id: number) => {
     it(`should set bsc contract address for chain id ${id}`, () => {
       service.id.next(id);
-      expect(service.contractAddress).toEqual(environment.bscContractAddress);
+      service.contractAddress.subscribe((address: string) => {
+        expect(address).toEqual(environment.bscContractAddress);
+      });
     });
   });
 
@@ -43,21 +60,27 @@ describe('ChainService', () => {
   ethIds.forEach((id: number) => {
     it(`should set ethereum network url for chain id ${id}`, () => {
       service.id.next(id);
-      expect(service.networkUrl).toEqual(environment.etherNetworkUrl);
+      service.networkUrl.subscribe((url: string) => {
+        expect(url).toEqual(environment.etherNetworkUrl);
+      })
     });
   });
 
   ethIds.forEach((id: number) => {
     it(`should set ethereum explorer url for chain id ${id}`, () => {
       service.id.next(id);
-      expect(service.explorer).toEqual(environment.etherScan);
+      service.explorer.subscribe((url: string) => {
+        expect(url).toEqual(environment.etherScan);
+      })
     });
   });
 
   ethIds.forEach((id: number) => {
     it(`should set ethereum contract address for chain id ${id}`, () => {
       service.id.next(id);
-      expect(service.contractAddress).toEqual(environment.etherContractAddress);
+      service.contractAddress.subscribe((address: string) => {
+        expect(address).toEqual(environment.etherContractAddress);
+      });
     });
   });
 });

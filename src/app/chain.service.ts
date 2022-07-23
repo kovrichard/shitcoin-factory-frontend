@@ -6,21 +6,21 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root',
 })
 export class ChainService {
-  networkUrl = '';
-  explorer = '';
-  contractAddress = '';
-  id = new BehaviorSubject(0);
+  networkUrl = new BehaviorSubject(environment.etherNetworkUrl);
+  explorer = new BehaviorSubject(environment.etherScan);
+  contractAddress = new BehaviorSubject(environment.etherContractAddress);
+  id = new BehaviorSubject(1);
 
   constructor() {
     this.id.subscribe((id: number) => {
       if (id == 1337 || id == 97 || id == 56) {
-        this.networkUrl = environment.bscNetworkUrl;
-        this.explorer = environment.bscScan;
-        this.contractAddress = environment.bscContractAddress;
-      } else if (id == 3 || id == 1) {
-        this.networkUrl = environment.etherNetworkUrl;
-        this.explorer = environment.etherScan;
-        this.contractAddress = environment.etherContractAddress;
+        this.networkUrl.next(environment.bscNetworkUrl);
+        this.explorer.next(environment.bscScan);
+        this.contractAddress.next(environment.bscContractAddress);
+      } else if (id == 3) {
+        this.networkUrl.next(environment.etherNetworkUrl);
+        this.explorer.next(environment.etherScan);
+        this.contractAddress.next(environment.etherContractAddress);
       }
     });
   }
