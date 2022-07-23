@@ -17,7 +17,6 @@ export class Web3ModalService {
     '' as any
   );
   account = new BehaviorSubject('');
-  chainId = new BehaviorSubject(0);
 
   constructor(private chain: ChainService) {
     this.provider = new ethers.providers.JsonRpcProvider(
