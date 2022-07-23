@@ -77,12 +77,4 @@ describe('ShitcoinFactoryService', () => {
       expect(address).toEqual('shitcoin');
     });
   });
-
-  xit('getShitcoinName should work', async () => {
-    const name = await service.getShitcoinName(
-      '0x51cC0d8C5aF1c0D7f1407E80D12DA8a4faad2131'
-    );
-
-    expect(name).toEqual('test-coin-name');
-  });
 });

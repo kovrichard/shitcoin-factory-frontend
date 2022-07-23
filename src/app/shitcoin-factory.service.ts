@@ -50,42 +50,19 @@ export class ShitcoinFactoryService {
   }
 
   getShitcoin(index: number): Promise<string> {
-    return this.factory.getShitcoin(index);
-  }
-
-  async getShitcoinName(address: string) {
-    const shitcoin = new ethers.Contract(
-      address,
-      this.shitcoinAbi,
-      this.web3service.provider
-    );
-    return await shitcoin.callStatic.name();
-  }
-
-  async getShitcoinSymbol(address: string) {
-    const shitcoin = new ethers.Contract(
-      address,
-      this.shitcoinAbi,
-      this.web3service.provider
-    );
-    return await shitcoin.callStatic.symbol();
-  }
-
-  async getShitcoinTotalSupply(address: string) {
-    const shitcoin = new ethers.Contract(
-      address,
-      this.shitcoinAbi,
-      this.web3service.provider
-    );
-    return await shitcoin.callStatic.totalSupply();
-  }
-
-  async getShitcoinOwner(address: string) {
-    const shitcoin = new ethers.Contract(
-      address,
-      this.shitcoinAbi,
-      this.web3service.provider
-    );
-    return await shitcoin.callStatic.owner();
+    return this.factory.getShitcoin(index).then(async (address: string) => {
+      const shitcoin = new ethers.Contract(
+        address,
+        this.shitcoinAbi,
+        this.web3service.provider
+      );
+      return {
+        address: address,
+        name: await shitcoin.callStatic.name(),
+        symbol: await shitcoin.callStatic.symbol(),
+        totalSupply: await shitcoin.callStatic.totalSupply(),
+        owner: await shitcoin.callStatic.owner(),
+      };
+    });
   }
 }

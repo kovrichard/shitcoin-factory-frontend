@@ -64,19 +64,13 @@ export class HomeComponent implements OnInit {
       this.numberOfCoins = value;
       this.countToNumberOfCoins();
       for (let i = 0; i < value; i++) {
-        this.shitcoinFactory.getShitcoin(i).then(async (address: string) => {
-          const owner = await this.shitcoinFactory.getShitcoinOwner(address);
-          const name = await this.shitcoinFactory.getShitcoinName(address);
-          const symbol = await this.shitcoinFactory.getShitcoinSymbol(address);
-          const totalSupply = await this.shitcoinFactory.getShitcoinTotalSupply(
-            address
-          );
+        this.shitcoinFactory.getShitcoin(i).then((shitcoin: any) => {
           this.coins.push({
-            address: address,
-            owner: owner,
-            name: name,
-            symbol: symbol,
-            totalSupply: totalSupply / 10 ** 18,
+            address: shitcoin.address,
+            owner: shitcoin.owner,
+            name: shitcoin.name,
+            symbol: shitcoin.symbol,
+            totalSupply: shitcoin.totalSupply / 10 ** 18,
           });
           this.recentCoins = this.coins.slice(-3);
         });

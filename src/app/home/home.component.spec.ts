@@ -56,19 +56,13 @@ export const fakeShitcoinFactoryService = {
     },
   },
   getShitcoin: (i: number) => {
-    return Promise.resolve('test-address');
-  },
-  getShitcoinOwner: (address: string) => {
-    return Promise.resolve('test-owner');
-  },
-  getShitcoinName: (address: string) => {
-    return Promise.resolve('Test coin');
-  },
-  getShitcoinSymbol: (address: string) => {
-    return Promise.resolve('TESTCOIN');
-  },
-  getShitcoinTotalSupply: (address: string) => {
-    return Promise.resolve(42 * 10 ** 18);
+    return Promise.resolve({
+      address: 'test-address',
+      owner: 'test-owner',
+      name: 'Test coin',
+      symbol: 'TESTCOIN',
+      totalSupply: 42 * 10 ** 18,
+    });
   },
   create: (name: string, symbol: string, supply: number) => {},
 };
