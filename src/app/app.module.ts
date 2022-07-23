@@ -21,6 +21,7 @@ import { ScrollingModule } from '@angular/cdk/scrolling';
 import { CircleComponent } from './circle/circle.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { LayoutModule } from '@angular/cdk/layout';
+import { ChainService } from './chain.service';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, NavbarComponent, CircleComponent],
@@ -42,14 +43,7 @@ import { LayoutModule } from '@angular/cdk/layout';
     MatProgressSpinnerModule,
     LayoutModule,
   ],
-  providers: [
-    {
-      provide: Web3ModalService,
-      useFactory: () => {
-        return new Web3ModalService();
-      },
-    },
-  ],
+  providers: [Web3ModalService, ChainService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

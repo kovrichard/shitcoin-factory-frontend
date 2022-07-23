@@ -7,6 +7,7 @@ import {
 import { Web3ModalComponent } from './web3-modal.component';
 import { Web3ModalService } from './web3-modal.service';
 import { fakeWeb3ModalService } from '../home/home.component.spec';
+import { MatIconModule } from '@angular/material/icon';
 
 describe('Web3ModalComponent', () => {
   let component: Web3ModalComponent;
@@ -14,6 +15,7 @@ describe('Web3ModalComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [MatIconModule],
       declarations: [Web3ModalComponent],
       providers: [
         {

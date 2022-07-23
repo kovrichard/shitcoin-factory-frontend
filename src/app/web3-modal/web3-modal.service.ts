@@ -5,6 +5,7 @@ import { ethers } from 'ethers';
 import { ProviderController } from '../providers.service';
 import { environment } from 'src/environments/environment';
 import { EthersProvider } from '../providers';
+import { ChainService } from '../chain.service';
 
 @Injectable()
 export class Web3ModalService {
@@ -16,8 +17,9 @@ export class Web3ModalService {
     '' as any
   );
   account = new BehaviorSubject('');
+  chainId = new BehaviorSubject(0);
 
-  constructor() {
+  constructor(private chain: ChainService) {
     this.provider = new ethers.providers.JsonRpcProvider(
       environment.bscNetworkUrl
     );
@@ -26,6 +28,9 @@ export class Web3ModalService {
 
   private parseProvider(provider: EthersProvider, defaultProvider = false) {
     this.provider = provider;
+    this.provider.getNetwork().then((network: any) => {
+      this.chain.id.next(network.chainId);
+    });
 
     if (defaultProvider) {
       this.signer.next(this.provider);

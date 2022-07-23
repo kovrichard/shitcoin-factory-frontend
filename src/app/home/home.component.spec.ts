@@ -14,6 +14,7 @@ import { generateTestingUtils } from 'eth-testing';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { HomeComponent } from './home.component';
 import { MatIconModule } from '@angular/material/icon';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -23,6 +24,7 @@ import { FormsModule } from '@angular/forms';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatListModule } from '@angular/material/list';
 import { ScrollingModule } from '@angular/cdk/scrolling';
+import { of } from 'rxjs';
 
 export const fakeWeb3ModalService = {
   account: {
@@ -74,6 +76,7 @@ export const fakeShitcoinFactoryService = {
 describe('HomeComponent', () => {
   let component: HomeComponent;
   let fixture: ComponentFixture<HomeComponent>;
+  let testingUtils: any;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -87,6 +90,7 @@ describe('HomeComponent', () => {
         FormsModule,
         MatGridListModule,
         MatListModule,
+        MatProgressSpinnerModule,
         ScrollingModule,
       ],
       declarations: [HomeComponent, NavbarComponent, Web3ModalComponent],
@@ -104,11 +108,15 @@ describe('HomeComponent', () => {
     fixture = TestBed.createComponent(HomeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
-    const testingUtils = generateTestingUtils({ providerType: 'MetaMask' });
+    testingUtils = generateTestingUtils({ providerType: 'MetaMask' });
     (window as any).ethereum = testingUtils.getProvider();
+    (window as any).ethereum.getNetwork = () => {
+      return of({ chainId: 1 });
+    };
   });
 
   afterEach(() => {
+    testingUtils.clearAllMocks();
     fixture.destroy();
   });
 
