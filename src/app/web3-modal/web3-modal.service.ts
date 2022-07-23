@@ -18,10 +18,10 @@ export class Web3ModalService {
   account = new BehaviorSubject('');
 
   constructor() {
-    this.parseProvider(
-      new ethers.providers.JsonRpcProvider(environment.networkUrl),
-      true
+    this.provider = new ethers.providers.JsonRpcProvider(
+      environment.networkUrl
     );
+    this.parseProvider(this.provider, true);
   }
 
   private parseProvider(provider: EthersProvider, defaultProvider = false) {
@@ -29,16 +29,17 @@ export class Web3ModalService {
 
     if (defaultProvider) {
       this.signer.next(this.provider);
-    } else {
-      this.signer.next(this.provider.getSigner());
-
-      this.provider
-        .getSigner()
-        .getAddress()
-        .then((address: string) => {
-          this.account.next(address);
-        });
+      return;
     }
+
+    this.signer.next(this.provider.getSigner());
+
+    this.provider
+      .getSigner()
+      .getAddress()
+      .then((address: string) => {
+        this.account.next(address);
+      });
   }
 
   async open() {
@@ -46,6 +47,7 @@ export class Web3ModalService {
       this.providerController.chosenProvider.subscribe(
         (provider: EthersProvider) => {
           this.parseProvider(provider);
+          window.localStorage.setItem('provider', provider.connection['url']);
           resolve(provider);
         }
       );
