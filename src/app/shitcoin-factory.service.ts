@@ -13,7 +13,7 @@ import { EthersProvider } from './providers';
 export class ShitcoinFactoryService {
   factoryAbi = factoryAbi as ContractInterface;
   shitcoinAbi = shitcoinAbi as ContractInterface;
-  contractAddress = environment.contractAddress;
+  contractAddress = environment.bscContractAddress;
   factory: ethers.Contract;
   numberOfCoins = new BehaviorSubject(0);
 

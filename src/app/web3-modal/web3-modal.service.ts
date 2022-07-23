@@ -19,7 +19,7 @@ export class Web3ModalService {
 
   constructor() {
     this.provider = new ethers.providers.JsonRpcProvider(
-      environment.networkUrl
+      environment.bscNetworkUrl
     );
     this.parseProvider(this.provider, true);
   }
