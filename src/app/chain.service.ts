@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { EthersProvider } from './providers';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ChainService {
   networkUrl = '';
