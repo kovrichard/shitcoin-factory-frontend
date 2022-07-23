@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ShitcoinFactoryService } from '../shitcoin-factory.service';
-import { Web3ModalService } from '../web3-modal/web3-modal.service';
 import { takeWhile, timer } from 'rxjs';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { ChainService } from '../chain.service';
@@ -35,7 +34,6 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private shitcoinFactory: ShitcoinFactoryService,
-    private web3service: Web3ModalService,
     private breakpoints: BreakpointObserver,
     private chain: ChainService
   ) {}
@@ -59,26 +57,27 @@ export class HomeComponent implements OnInit {
       this.explorer = url;
     });
 
-    this.shitcoinFactory.numberOfCoins.subscribe(async (value: number) => {
+    this.shitcoinFactory.numberOfCoins.subscribe((value: number) => {
       this.numberOfCoins = value;
       this.countToNumberOfCoins();
       for (let i = 0; i < value; i++) {
-        const address = await this.shitcoinFactory.getShitcoin(i);
-        const owner = await this.shitcoinFactory.getShitcoinOwner(address);
-        const name = await this.shitcoinFactory.getShitcoinName(address);
-        const symbol = await this.shitcoinFactory.getShitcoinSymbol(address);
-        const totalSupply = await this.shitcoinFactory.getShitcoinTotalSupply(
-          address
-        );
-        this.coins.push({
-          address: address,
-          owner: owner,
-          name: name,
-          symbol: symbol,
-          totalSupply: totalSupply / 10 ** 18,
+        this.shitcoinFactory.getShitcoin(i).then(async (address: string) => {
+          const owner = await this.shitcoinFactory.getShitcoinOwner(address);
+          const name = await this.shitcoinFactory.getShitcoinName(address);
+          const symbol = await this.shitcoinFactory.getShitcoinSymbol(address);
+          const totalSupply = await this.shitcoinFactory.getShitcoinTotalSupply(
+            address
+          );
+          this.coins.push({
+            address: address,
+            owner: owner,
+            name: name,
+            symbol: symbol,
+            totalSupply: totalSupply / 10 ** 18,
+          });
+          this.recentCoins = this.coins.slice(-3);
         });
       }
-      this.recentCoins = this.coins.slice(-3);
     });
   }
 

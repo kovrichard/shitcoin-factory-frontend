@@ -49,8 +49,8 @@ export class ShitcoinFactoryService {
     });
   }
 
-  async getShitcoin(index: number): Promise<string> {
-    return await this.factory.callStatic.getShitcoin(index);
+  getShitcoin(index: number): Promise<string> {
+    return this.factory.getShitcoin(index);
   }
 
   async getShitcoinName(address: string) {

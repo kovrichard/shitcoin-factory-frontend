@@ -20,10 +20,8 @@ const ContractMock = {
     totalSupply: number,
     settings: any
   ) => {},
-  callStatic: {
-    getShitcoin: (index: number) => {
-      return Promise.resolve('shitcoin');
-    },
+  getShitcoin: (index: number) => {
+    return Promise.resolve('shitcoin');
   },
 };
 
@@ -74,10 +72,10 @@ describe('ShitcoinFactoryService', () => {
     });
   });
 
-  it('getShitcoin should work', async () => {
-    const shitcoin = await service.getShitcoin(1);
-
-    expect(shitcoin).toEqual('shitcoin');
+  it('getShitcoin should work', () => {
+    service.getShitcoin(1).then((address: string) => {
+      expect(address).toEqual('shitcoin');
+    });
   });
 
   xit('getShitcoinName should work', async () => {
