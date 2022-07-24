@@ -37,8 +37,4 @@ export class NavbarComponent implements OnInit {
 
     targetButton?.classList.add('active');
   }
-
-  changeTheme() {
-    this.darkMode = !this.darkMode;
-  }
 }
