@@ -19,7 +19,7 @@ export class Web3ModalService {
   defaultProvider = true;
 
   constructor(private chain: ChainService) {
-    if (window.localStorage.getItem('provider') == 'ethereum') {
+    if (window.localStorage.getItem('provider') == 'metamask') {
       this.chain.id.next((window as any).ethereum.chainId);
     }
 
