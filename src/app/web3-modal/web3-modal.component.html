@@ -1,8 +1,8 @@
-<button #connectButton *ngIf="!account" mat-raised-button color="accent" class="w-24 2xl:w-44 h-8 2xl:h-12 m-2 overflow-hidden whitespace-nowrap text-ellipsis rounded-2xl" (click)="connect()">
-  <span class="text-white">{{ buttonTitle }}</span>
+<button #connectButton *ngIf="!account" mat-raised-button color="accent" class="w-24 2xl:w-44 h-8 2xl:h-12 m-2 rounded-2xl" (click)="connect()">
+  <span class="w-full text-white text-ellipsis overflow-hidden leading-8">{{ buttonTitle }}</span>
 </button>
-<button #connectButton *ngIf="account" mat-raised-button color="accent" class="w-24 2xl:w-44 h-8 2xl:h-12 m-2 overflow-hidden whitespace-nowrap text-ellipsis rounded-2xl">
-  <span class="text-white">{{ account }}</span>
+<button #connectButton *ngIf="account" mat-raised-button color="accent" class="w-24 2xl:w-44 h-8 2xl:h-12 m-2 rounded-2xl">
+  <span class="w-full text-white text-ellipsis overflow-hidden leading-8">{{ account }}</span>
 </button>
 <div [hidden]="!open">
   <div class="fixed w-full h-full inset-0 cursor-pointer bg-black/[0.6]" (click)="close($event)"></div>
