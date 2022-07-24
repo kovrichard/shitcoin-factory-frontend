@@ -46,11 +46,12 @@ export class Web3ModalComponent implements OnInit, OnDestroy {
     this.accountSubscription.unsubscribe();
   }
 
-  async connect() {
+  connect() {
     this.open = true;
-    await this.service.open();
-    window.localStorage.setItem('state', 'connected');
-    this.open = false;
+    this.service.open().then(() => {
+      window.localStorage.setItem('state', 'connected');
+      this.open = false;
+    });
   }
 
   close(event: any) {

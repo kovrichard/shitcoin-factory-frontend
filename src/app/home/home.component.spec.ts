@@ -54,7 +54,9 @@ export const fakeWeb3ModalService = {
   signer: {
     subscribe: (cb: any) => {},
   },
-  open: () => {},
+  open: () => {
+    return Promise.resolve();
+  },
 };
 
 export const fakeShitcoinFactoryService = {

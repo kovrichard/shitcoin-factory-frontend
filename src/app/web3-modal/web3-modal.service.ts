@@ -47,8 +47,8 @@ export class Web3ModalService {
       });
   }
 
-  async open() {
-    await new Promise((resolve, reject) => {
+  open() {
+    return new Promise((resolve, reject) => {
       this.providerController.chosenProvider.subscribe(
         (provider: EthersProvider) => {
           this.defaultProvider = false;
