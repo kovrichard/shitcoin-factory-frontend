@@ -5,7 +5,6 @@ import shitcoinAbi from './web3-modal/shitcoin.json';
 import { Contract, ContractInterface } from 'ethers';
 import { ShitcoinFactoryService } from './shitcoin-factory.service';
 import { Web3ModalService } from './web3-modal/web3-modal.service';
-import { environment } from 'src/environments/environment';
 import { fakeWeb3ModalService } from './home/home.component.spec';
 import { generateTestingUtils } from 'eth-testing';
 import { TestingUtils } from 'eth-testing/lib/testing-utils';
@@ -52,7 +51,6 @@ describe('ShitcoinFactoryService', () => {
   it('should set default values', () => {
     expect(service.factoryAbi).toEqual(abi as ContractInterface);
     expect(service.shitcoinAbi).toEqual(shitcoinAbi as ContractInterface);
-    expect(service.contractAddress).toEqual(environment.etherContractAddress);
     service.numberOfCoins.subscribe((value: number) => {
       expect(value).toEqual(0);
     });
