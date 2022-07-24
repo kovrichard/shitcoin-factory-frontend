@@ -5,9 +5,9 @@ import shitcoinAbi from './web3-modal/shitcoin.json';
 import { Contract, ContractInterface } from 'ethers';
 import { ShitcoinFactoryService } from './shitcoin-factory.service';
 import { Web3ModalService } from './web3-modal/web3-modal.service';
-import { fakeWeb3ModalService } from './home/home.component.spec';
 import { generateTestingUtils } from 'eth-testing';
 import { TestingUtils } from 'eth-testing/lib/testing-utils';
+import { fakeWeb3ModalService } from './web3-modal/web3-modal.service.spec';
 
 const ContractMock = {
   numberOfCoins: () => {
@@ -22,6 +22,27 @@ const ContractMock = {
   getShitcoin: (index: number) => {
     return Promise.resolve('shitcoin');
   },
+};
+
+export const fakeShitcoinFactoryService = {
+  numberOfCoins: {
+    subscribe: (cb: any) => {
+      cb(1);
+      return {
+        unsubscribe: () => {},
+      };
+    },
+  },
+  getShitcoin: (i: number) => {
+    return Promise.resolve({
+      address: 'test-address',
+      owner: 'test-owner',
+      name: 'Test coin',
+      symbol: 'TESTCOIN',
+      totalSupply: 42 * 10 ** 18,
+    });
+  },
+  create: (name: string, symbol: string, supply: number) => {},
 };
 
 describe('ShitcoinFactoryService', () => {

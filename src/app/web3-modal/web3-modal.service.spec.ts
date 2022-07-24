@@ -14,6 +14,37 @@ const fakeProviderController = {
   },
 };
 
+export const fakeWeb3ModalService = {
+  account: {
+    subscribe: (func: (account: string) => void) => {
+      func('test-account');
+      return {
+        unsubscribe: () => {},
+      };
+    },
+  },
+  providers: {
+    subscribe: (value: any) => {
+      value.next([
+        {
+          name: 'MetaMask',
+          logo: '/assets/MetaMask.svg',
+          onClick: () => {},
+        },
+      ]);
+      return {
+        unsubscribe: () => {},
+      };
+    },
+  },
+  signer: {
+    subscribe: (cb: any) => {},
+  },
+  open: () => {
+    return Promise.resolve();
+  },
+};
+
 describe('Web3ModalService', () => {
   let service: Web3ModalService;
 

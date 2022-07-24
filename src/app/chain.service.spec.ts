@@ -3,6 +3,17 @@ import { environment } from 'src/environments/environment';
 
 import { ChainService } from './chain.service';
 
+export const fakeChainService = {
+  explorer: {
+    subscribe: (cb: any) => {
+      cb('');
+      return {
+        unsubscribe: () => {},
+      };
+    },
+  },
+};
+
 describe('ChainService', () => {
   let service: ChainService;
 

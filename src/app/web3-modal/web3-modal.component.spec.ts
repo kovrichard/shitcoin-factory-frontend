@@ -6,8 +6,8 @@ import {
 } from '@angular/core/testing';
 import { Web3ModalComponent } from './web3-modal.component';
 import { Web3ModalService } from './web3-modal.service';
-import { fakeWeb3ModalService } from '../home/home.component.spec';
 import { MatIconModule } from '@angular/material/icon';
+import { fakeWeb3ModalService } from './web3-modal.service.spec';
 
 describe('Web3ModalComponent', () => {
   let component: Web3ModalComponent;

@@ -27,58 +27,9 @@ import { ScrollingModule } from '@angular/cdk/scrolling';
 import { of } from 'rxjs';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { ChainService } from '../chain.service';
-
-export const fakeWeb3ModalService = {
-  account: {
-    subscribe: (func: (account: string) => void) => {
-      func('test-account');
-      return {
-        unsubscribe: () => {},
-      };
-    },
-  },
-  providers: {
-    subscribe: (value: any) => {
-      value.next([
-        {
-          name: 'MetaMask',
-          logo: '/assets/MetaMask.svg',
-          onClick: () => {},
-        },
-      ]);
-      return {
-        unsubscribe: () => {},
-      };
-    },
-  },
-  signer: {
-    subscribe: (cb: any) => {},
-  },
-  open: () => {
-    return Promise.resolve();
-  },
-};
-
-export const fakeShitcoinFactoryService = {
-  numberOfCoins: {
-    subscribe: (cb: any) => {
-      cb(1);
-      return {
-        unsubscribe: () => {},
-      };
-    },
-  },
-  getShitcoin: (i: number) => {
-    return Promise.resolve({
-      address: 'test-address',
-      owner: 'test-owner',
-      name: 'Test coin',
-      symbol: 'TESTCOIN',
-      totalSupply: 42 * 10 ** 18,
-    });
-  },
-  create: (name: string, symbol: string, supply: number) => {},
-};
+import { fakeWeb3ModalService } from '../web3-modal/web3-modal.service.spec';
+import { fakeChainService } from '../chain.service.spec';
+import { fakeShitcoinFactoryService } from '../shitcoin-factory.service.spec';
 
 const fakeBreakpointObserver = {
   observe: (input: any) => {
@@ -89,17 +40,6 @@ const fakeBreakpointObserver = {
         };
       },
     };
-  },
-};
-
-const fakeChainService = {
-  explorer: {
-    subscribe: (cb: any) => {
-      cb('');
-      return {
-        unsubscribe: () => {},
-      };
-    },
   },
 };
 
