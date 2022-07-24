@@ -13,11 +13,11 @@ export class ChainService {
 
   constructor() {
     this.id.subscribe((id: number) => {
-      if (id == 1337 || id == 97 || id == 56) {
+      if (id == 97 || id == 56) {
         this.networkUrl.next(environment.bscNetworkUrl);
         this.explorer.next(environment.bscScan);
         this.contractAddress.next(environment.bscContractAddress);
-      } else if (id == 3) {
+      } else if (id == 1337 || id == 3) {
         this.networkUrl.next(environment.etherNetworkUrl);
         this.explorer.next(environment.etherScan);
         this.contractAddress.next(environment.etherContractAddress);
