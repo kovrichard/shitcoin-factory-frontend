@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ShitcoinFactoryService } from '../shitcoin-factory.service';
-import { takeWhile, timer } from 'rxjs';
+import { Subscription, takeWhile, timer } from 'rxjs';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { ChainService } from '../chain.service';
 
@@ -17,7 +17,11 @@ interface Shitcoin {
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, OnDestroy {
+  private breakpointsSubscription: Subscription;
+  private chainExplorerSubscription: Subscription;
+  private numCoinsSubscription: Subscription;
+
   private numberOfCoins = 0;
   numCoins = 0;
   coins: Shitcoin[] = [];
@@ -39,7 +43,7 @@ export class HomeComponent implements OnInit {
   ) {}
 
   async ngOnInit() {
-    this.breakpoints
+    this.breakpointsSubscription = this.breakpoints
       .observe([Breakpoints.Medium, Breakpoints.Small, Breakpoints.XSmall])
       .subscribe((result: any) => {
         if (result.matches) {
@@ -53,29 +57,39 @@ export class HomeComponent implements OnInit {
         }
       });
 
-    this.chain.explorer.subscribe((url: string) => {
-      this.explorer = url;
-      this.fetchCoins();
-    });
+    this.chainExplorerSubscription = this.chain.explorer.subscribe(
+      (url: string) => {
+        this.explorer = url;
+        this.fetchCoins();
+      }
+    );
+  }
+
+  ngOnDestroy() {
+    this.breakpointsSubscription.unsubscribe();
+    this.chainExplorerSubscription.unsubscribe();
+    this.numCoinsSubscription.unsubscribe();
   }
 
   private fetchCoins() {
-    this.shitcoinFactory.numberOfCoins.subscribe((value: number) => {
-      this.numberOfCoins = value;
-      this.countToNumberOfCoins();
-      for (let i = 0; i < value; i++) {
-        this.shitcoinFactory.getShitcoin(i).then((shitcoin: any) => {
-          this.coins.push({
-            address: shitcoin.address,
-            owner: shitcoin.owner,
-            name: shitcoin.name,
-            symbol: shitcoin.symbol,
-            totalSupply: shitcoin.totalSupply / 10 ** 18,
+    this.numCoinsSubscription = this.shitcoinFactory.numberOfCoins.subscribe(
+      (value: number) => {
+        this.numberOfCoins = value;
+        this.countToNumberOfCoins();
+        for (let i = 0; i < value; i++) {
+          this.shitcoinFactory.getShitcoin(i).then((shitcoin: any) => {
+            this.coins.push({
+              address: shitcoin.address,
+              owner: shitcoin.owner,
+              name: shitcoin.name,
+              symbol: shitcoin.symbol,
+              totalSupply: shitcoin.totalSupply / 10 ** 18,
+            });
+            this.recentCoins = this.coins.slice(-3);
           });
-          this.recentCoins = this.coins.slice(-3);
-        });
+        }
       }
-    });
+    );
   }
 
   private countToNumberOfCoins() {

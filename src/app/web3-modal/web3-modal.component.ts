@@ -1,6 +1,13 @@
-import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnDestroy,
+  OnInit,
+  ViewEncapsulation,
+} from '@angular/core';
 import { Web3ModalService } from './web3-modal.service';
 import { IProvider } from '../providers';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'm-web3-modal',
@@ -8,7 +15,10 @@ import { IProvider } from '../providers';
   styleUrls: ['./web3-modal.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
-export class Web3ModalComponent implements OnInit {
+export class Web3ModalComponent implements OnInit, OnDestroy {
+  private providersSubscription: Subscription;
+  private accountSubscription: Subscription;
+
   open = false;
   account = '';
   providers: IProvider[];
@@ -19,14 +29,21 @@ export class Web3ModalComponent implements OnInit {
   constructor(private service: Web3ModalService) {}
 
   ngOnInit() {
-    this.service.providers.subscribe({
+    this.providersSubscription = this.service.providers.subscribe({
       next: (providers: IProvider[]) => {
         this.providers = providers;
       },
     });
-    this.service.account.subscribe((account: string) => {
-      this.account = account;
-    });
+    this.accountSubscription = this.service.account.subscribe(
+      (account: string) => {
+        this.account = account;
+      }
+    );
+  }
+
+  ngOnDestroy() {
+    this.providersSubscription.unsubscribe();
+    this.accountSubscription.unsubscribe();
   }
 
   async connect() {
