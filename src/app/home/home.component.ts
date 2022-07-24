@@ -68,7 +68,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.breakpointsSubscription.unsubscribe();
     this.chainExplorerSubscription.unsubscribe();
-    this.numCoinsSubscription.unsubscribe();
+    if (this.numCoinsSubscription) this.numCoinsSubscription.unsubscribe();
   }
 
   private fetchCoins() {

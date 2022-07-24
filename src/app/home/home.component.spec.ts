@@ -25,11 +25,16 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatListModule } from '@angular/material/list';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { of } from 'rxjs';
+import { BreakpointObserver } from '@angular/cdk/layout';
+import { ChainService } from '../chain.service';
 
 export const fakeWeb3ModalService = {
   account: {
     subscribe: (func: (account: string) => void) => {
       func('test-account');
+      return {
+        unsubscribe: () => {},
+      };
     },
   },
   providers: {
@@ -41,6 +46,9 @@ export const fakeWeb3ModalService = {
           onClick: () => {},
         },
       ]);
+      return {
+        unsubscribe: () => {},
+      };
     },
   },
   signer: {
@@ -53,6 +61,9 @@ export const fakeShitcoinFactoryService = {
   numberOfCoins: {
     subscribe: (cb: any) => {
       cb(1);
+      return {
+        unsubscribe: () => {},
+      };
     },
   },
   getShitcoin: (i: number) => {
@@ -65,6 +76,29 @@ export const fakeShitcoinFactoryService = {
     });
   },
   create: (name: string, symbol: string, supply: number) => {},
+};
+
+const fakeBreakpointObserver = {
+  observe: (input: any) => {
+    return {
+      subscribe: (cb: any) => {
+        return {
+          unsubscribe: () => {},
+        };
+      },
+    };
+  },
+};
+
+const fakeChainService = {
+  explorer: {
+    subscribe: (cb: any) => {
+      cb('');
+      return {
+        unsubscribe: () => {},
+      };
+    },
+  },
 };
 
 describe('HomeComponent', () => {
@@ -93,6 +127,14 @@ describe('HomeComponent', () => {
         {
           provide: ShitcoinFactoryService,
           useValue: fakeShitcoinFactoryService,
+        },
+        {
+          provide: BreakpointObserver,
+          useValue: fakeBreakpointObserver,
+        },
+        {
+          provide: ChainService,
+          useValue: fakeChainService,
         },
       ],
     }).compileComponents();
