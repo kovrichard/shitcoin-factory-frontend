@@ -37,6 +37,10 @@ describe('ShitcoinFactoryService', () => {
           provide: Web3ModalService,
           useValue: fakeWeb3ModalService,
         },
+        {
+          provide: Contract,
+          useValue: ContractMock,
+        },
       ],
     });
     testingUtils = generateTestingUtils({ providerType: 'MetaMask' });
