@@ -31,10 +31,6 @@ describe('NavbarComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should set default values', () => {
-    expect(component.darkMode).toBeFalse();
-  });
-
   it('scroll should scroll to element', () => {
     const fakeElement: HTMLDivElement | any = {
       scrollIntoView: (settings: any) => {},
@@ -47,12 +43,5 @@ describe('NavbarComponent', () => {
       block: 'start',
       inline: 'nearest',
     });
-  });
-
-  it('changeTheme should invert dark mode variable', () => {
-    component.changeTheme();
-    expect(component.darkMode).toBeTrue();
-    component.changeTheme();
-    expect(component.darkMode).toBeFalse();
   });
 });

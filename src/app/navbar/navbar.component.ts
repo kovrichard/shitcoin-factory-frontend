@@ -13,8 +13,6 @@ export class NavbarComponent implements OnInit {
 
   @ViewChild('navbar') private navbar!: ElementRef<HTMLElement>;
 
-  darkMode = false;
-
   constructor() {}
 
   ngOnInit() {}
