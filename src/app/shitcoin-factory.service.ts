@@ -55,10 +55,10 @@ export class ShitcoinFactoryService {
       );
       return {
         address: address,
-        name: await shitcoin.callStatic.name(),
+        name: '', //await shitcoin.callStatic.name(),
         symbol: await shitcoin.callStatic.symbol(),
-        totalSupply: await shitcoin.callStatic.totalSupply(),
-        owner: await shitcoin.callStatic.owner(),
+        totalSupply: 0, //await shitcoin.callStatic.totalSupply(),
+        owner: '', //await shitcoin.callStatic.owner(),
       };
     });
   }

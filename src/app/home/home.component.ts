@@ -25,7 +25,6 @@ export class HomeComponent implements OnInit, OnDestroy {
   private numberOfCoins = 0;
   numCoins = 0;
   coins: Shitcoin[] = [];
-  recentCoins: Shitcoin[] = [];
   name = '';
   symbol = '';
   totalSupply: number;
@@ -60,6 +59,11 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.chainExplorerSubscription = this.chain.explorer.subscribe(
       (url: string) => {
         this.explorer = url;
+      }
+    );
+    this.numCoinsSubscription = this.shitcoinFactory.numberOfCoins.subscribe(
+      (value: number) => {
+        this.numberOfCoins = value;
         this.fetchCoins();
       }
     );
@@ -68,28 +72,24 @@ export class HomeComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.breakpointsSubscription.unsubscribe();
     this.chainExplorerSubscription.unsubscribe();
-    if (this.numCoinsSubscription) this.numCoinsSubscription.unsubscribe();
+    this.numCoinsSubscription.unsubscribe();
   }
 
   private fetchCoins() {
-    this.numCoinsSubscription = this.shitcoinFactory.numberOfCoins.subscribe(
-      (value: number) => {
-        this.numberOfCoins = value;
-        this.countToNumberOfCoins();
-        for (let i = 0; i < value; i++) {
-          this.shitcoinFactory.getShitcoin(i).then((shitcoin: any) => {
-            this.coins.push({
-              address: shitcoin.address,
-              owner: shitcoin.owner,
-              name: shitcoin.name,
-              symbol: shitcoin.symbol,
-              totalSupply: shitcoin.totalSupply / 10 ** 18,
-            });
-            this.recentCoins = this.coins.slice(-3);
-          });
-        }
-      }
-    );
+    this.countToNumberOfCoins();
+    const requests = [];
+    for (let i = 0; i < this.numberOfCoins; i++) {
+      requests.push(this.shitcoinFactory.getShitcoin(i));
+    }
+    Promise.all(requests).then((coins: any) => {
+      this.coins = coins.map((shitcoin: Shitcoin) => this.remapCoin(shitcoin));
+    });
+  }
+
+  private remapCoin(shitcoin: Shitcoin) {
+    const coin = shitcoin;
+    coin.totalSupply /= 10 ** 18;
+    return coin;
   }
 
   private countToNumberOfCoins() {
