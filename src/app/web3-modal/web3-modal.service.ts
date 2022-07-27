@@ -20,10 +20,10 @@ export class Web3ModalService {
 
   constructor(private chain: ChainService) {
     if (this.metamaskProvider()) {
-      this.chain.id.next((window as any).ethereum.chainId);
+      this.chain.id.next(parseInt((window as any).ethereum.chainId));
 
       (window as any).ethereum.on('chainChanged', () => {
-        this.chain.id.next((window as any).ethereum.chainId);
+        this.chain.id.next(parseInt((window as any).ethereum.chainId));
         location.reload();
       });
 
@@ -72,7 +72,7 @@ export class Web3ModalService {
           this.defaultProvider = false;
           this.provider = provider;
           provider.getNetwork().then((network: any) => {
-            this.chain.id.next(network.chainId);
+            this.chain.id.next(parseInt(network.chainId));
           });
           window.localStorage.setItem('provider', provider.connection['url']);
           resolve(provider);

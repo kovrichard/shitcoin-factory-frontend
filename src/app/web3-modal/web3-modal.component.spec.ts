@@ -34,6 +34,7 @@ describe('Web3ModalComponent', () => {
 
   it('should set default parameters', () => {
     expect(component.open).toBeFalse();
+    expect(component.validChain).toBeTrue();
   });
 
   it('should get providers from service', fakeAsync(() => {

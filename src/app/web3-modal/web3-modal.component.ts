@@ -8,6 +8,7 @@ import {
 import { Web3ModalService } from './web3-modal.service';
 import { IProvider } from '../providers';
 import { Subscription } from 'rxjs';
+import { ChainService } from '../chain.service';
 
 @Component({
   selector: 'm-web3-modal',
@@ -18,15 +19,17 @@ import { Subscription } from 'rxjs';
 export class Web3ModalComponent implements OnInit, OnDestroy {
   private providersSubscription: Subscription;
   private accountSubscription: Subscription;
+  private chainSubscription: Subscription;
 
   open = false;
   account = '';
   providers: IProvider[];
+  validChain = true;
 
   @Input() buttonTitle: string;
   @Input() description?: string;
 
-  constructor(private service: Web3ModalService) {}
+  constructor(private service: Web3ModalService, private chain: ChainService) {}
 
   ngOnInit() {
     this.providersSubscription = this.service.providers.subscribe({
@@ -39,11 +42,15 @@ export class Web3ModalComponent implements OnInit, OnDestroy {
         this.account = account;
       }
     );
+    this.chainSubscription = this.chain.valid.subscribe((valid: boolean) => {
+      this.validChain = valid;
+    });
   }
 
   ngOnDestroy() {
     this.providersSubscription.unsubscribe();
     this.accountSubscription.unsubscribe();
+    this.chainSubscription.unsubscribe();
   }
 
   connect() {
