@@ -9,4 +9,5 @@ export const environment = {
   bscNetworkUrl: 'https://bsc-dataseed.binance.org/',
   etherNetworkUrl:
     'https://mainnet.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161',
+  validChains: [1, 56],
 };

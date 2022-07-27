@@ -12,6 +12,7 @@ export const environment = {
   ethShapeshifterAddress: '0x0000000000000000000000000000000000000000',
   bscNetworkUrl: 'http://localhost:8545',
   etherNetworkUrl: 'http://localhost:8545',
+  validChains: [1, 3, 56, 97, 1337],
 };
 
 /*

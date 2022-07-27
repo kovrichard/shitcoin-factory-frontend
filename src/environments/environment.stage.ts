@@ -9,4 +9,5 @@ export const environment = {
   bscNetworkUrl: 'https://data-seed-prebsc-1-s1.binance.org:8545/',
   etherNetworkUrl:
     'https://ropsten.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161',
+  validChains: [3, 97],
 };

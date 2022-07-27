@@ -12,6 +12,14 @@ export const fakeChainService = {
       };
     },
   },
+  valid: {
+    subscribe: (cb: any) => {
+      cb('');
+      return {
+        unsubscribe: () => {},
+      };
+    },
+  },
 };
 
 describe('ChainService', () => {
