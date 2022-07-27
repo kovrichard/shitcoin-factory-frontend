@@ -22,6 +22,7 @@ export const fakeWeb3ModalService = {
         unsubscribe: () => {},
       };
     },
+    value: 'test-account'
   },
   providers: {
     subscribe: (value: any) => {

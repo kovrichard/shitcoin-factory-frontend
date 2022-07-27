@@ -37,13 +37,12 @@ export class ShitcoinFactoryService {
   }
 
   create(name: string, ticker: string, totalSupply: number) {
-    this.web3service.account.subscribe((account: string) => {
-      if (account == '') {
-        return;
-      }
+    const account = this.web3service.account.value;
+    if (account == '') {
+      return;
+    }
 
-      this.factory.create(name, ticker, totalSupply, { from: account });
-    });
+    this.factory.create(name, ticker, totalSupply, { from: account });
   }
 
   getShitcoin(index: number): Promise<string> {
