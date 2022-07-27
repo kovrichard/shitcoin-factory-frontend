@@ -22,7 +22,7 @@ export const fakeWeb3ModalService = {
         unsubscribe: () => {},
       };
     },
-    value: 'test-account'
+    value: 'test-account',
   },
   providers: {
     subscribe: (value: any) => {
@@ -48,6 +48,7 @@ export const fakeWeb3ModalService = {
 
 describe('Web3ModalService', () => {
   let service: Web3ModalService;
+  let testingUtils: any;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -60,7 +61,7 @@ describe('Web3ModalService', () => {
       ],
     }).compileComponents();
 
-    const testingUtils = generateTestingUtils({ providerType: 'MetaMask' });
+    testingUtils = generateTestingUtils({ providerType: 'MetaMask' });
     testingUtils.mockAccounts(['0x138071e4e810f34265bd833be9c5dd96f01bd8a5']);
     testingUtils.mockRequestAccounts([
       '0x138071e4e810f34265bd833be9c5dd96f01bd8a5',
@@ -83,6 +84,14 @@ describe('Web3ModalService', () => {
     service.providers.subscribe((value: IProvider[]) => {
       expect(value[0].name).toEqual('MetaMask');
     });
+    expect(service.defaultProvider).toBeTrue();
+  });
+
+  xit('should remove connected state from local storage on disconnect', () => {
+    localStorage.setItem('state', 'connected');
+    testingUtils.lowLevel.emit('accountsChanged', []);
+
+    expect(localStorage.getItem('state')).toBeFalse();
   });
 
   xit('open should work', fakeAsync(() => {

@@ -21,6 +21,15 @@ export class Web3ModalService {
   constructor(private chain: ChainService) {
     if (window.localStorage.getItem('provider') == 'metamask') {
       this.chain.id.next((window as any).ethereum.chainId);
+
+      (window as any).ethereum.on('chainChanged', () => {
+        this.chain.id.next((window as any).ethereum.chainId);
+        location.reload();
+      });
+
+      (window as any).ethereum.on('accountsChanged', (accounts: string[]) => {
+        if (accounts.length == 0) window.localStorage.removeItem('state');
+      });
     }
 
     this.chain.networkUrl.subscribe((url: string) => {
