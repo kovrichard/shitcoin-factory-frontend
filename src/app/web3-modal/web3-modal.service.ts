@@ -19,7 +19,7 @@ export class Web3ModalService {
   defaultProvider = true;
 
   constructor(private chain: ChainService) {
-    if (window.localStorage.getItem('provider') == 'metamask') {
+    if (this.metamaskProvider()) {
       this.chain.id.next((window as any).ethereum.chainId);
 
       (window as any).ethereum.on('chainChanged', () => {
@@ -29,7 +29,16 @@ export class Web3ModalService {
 
       (window as any).ethereum.on('accountsChanged', (accounts: string[]) => {
         if (accounts.length == 0) window.localStorage.removeItem('state');
+        location.reload();
       });
+    }
+
+    if (this.metamaskProvider() && this.connected()) {
+      this.defaultProvider = false;
+      this.provider = new ethers.providers.Web3Provider(
+        (window as any).ethereum
+      );
+      this.provider.send('eth_requestAccounts', []);
     }
 
     this.chain.networkUrl.subscribe((url: string) => {
@@ -70,5 +79,13 @@ export class Web3ModalService {
         }
       );
     });
+  }
+
+  private metamaskProvider(): boolean {
+    return window.localStorage.getItem('provider') == 'metamask';
+  }
+
+  private connected(): boolean {
+    return window.localStorage.getItem('state') == 'connected';
   }
 }
