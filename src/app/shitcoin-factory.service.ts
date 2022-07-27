@@ -38,9 +38,7 @@ export class ShitcoinFactoryService {
 
   create(name: string, ticker: string, totalSupply: number) {
     const account = this.web3service.account.value;
-    if (account == '') {
-      return;
-    }
+    if (account == '') return;
 
     this.factory.create(name, ticker, totalSupply, { from: account });
   }

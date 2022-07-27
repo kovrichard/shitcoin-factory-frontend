@@ -10,9 +10,12 @@ export class ChainService {
   explorer = new BehaviorSubject(environment.etherScan);
   contractAddress = new BehaviorSubject(environment.etherContractAddress);
   id = new BehaviorSubject(1);
+  valid = new BehaviorSubject(true);
 
   constructor() {
     this.id.subscribe((id: number) => {
+      if (!this.validChain(id)) return;
+
       if (id == 97 || id == 56) {
         this.networkUrl.next(environment.bscNetworkUrl);
         this.explorer.next(environment.bscScan);
@@ -23,5 +26,10 @@ export class ChainService {
         this.contractAddress.next(environment.etherContractAddress);
       }
     });
+  }
+
+  private validChain(id: number) {
+    this.valid.next(environment.validChains.includes(id));
+    return this.valid.value;
   }
 }

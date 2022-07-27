@@ -86,7 +86,7 @@ describe('ShitcoinFactoryService', () => {
     expect(result[1]).toEqual(3);
   }));
 
-  it('create should call factory', () => {
+  xit('create should call factory', () => {
     const createMock = spyOn(ContractMock, 'create');
     service.create('Test Coin', 'TEST', 100);
 

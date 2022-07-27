@@ -35,6 +35,9 @@ describe('ChainService', () => {
     service.contractAddress.subscribe((address: string) => {
       expect(address).toEqual(environment.etherContractAddress);
     });
+    service.valid.subscribe((valid: boolean) => {
+      expect(valid).toBeTrue();
+    });
   });
 
   const ids = [97, 56];
@@ -83,6 +86,17 @@ describe('ChainService', () => {
       service.id.next(id);
       service.contractAddress.subscribe((address: string) => {
         expect(address).toEqual(environment.etherContractAddress);
+      });
+    });
+  });
+
+  const invalidIds = [4, 8, 15, 16, 23, 42];
+
+  invalidIds.forEach((id: number) => {
+    it(`should detect invalid id ${id}`, () => {
+      service.id.next(id);
+      service.valid.subscribe((valid: boolean) => {
+        expect(valid).toBeFalse();
       });
     });
   });
