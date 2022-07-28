@@ -9,6 +9,7 @@ export class ChainService {
   networkUrl = new BehaviorSubject(environment.etherNetworkUrl);
   explorer = new BehaviorSubject(environment.etherScan);
   contractAddress = new BehaviorSubject(environment.etherContractAddress);
+  usdtAddress = new BehaviorSubject(environment.etherUsdtAddress);
   id = new BehaviorSubject(1);
   valid = new BehaviorSubject(true);
 
@@ -20,10 +21,12 @@ export class ChainService {
         this.networkUrl.next(environment.bscNetworkUrl);
         this.explorer.next(environment.bscScan);
         this.contractAddress.next(environment.bscContractAddress);
+        this.usdtAddress.next(environment.bscUsdtAddress);
       } else if (id == 1337 || id == 3) {
         this.networkUrl.next(environment.etherNetworkUrl);
         this.explorer.next(environment.etherScan);
         this.contractAddress.next(environment.etherContractAddress);
+        this.usdtAddress.next(environment.etherUsdtAddress);
       }
     });
   }

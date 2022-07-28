@@ -43,6 +43,9 @@ describe('ChainService', () => {
     service.contractAddress.subscribe((address: string) => {
       expect(address).toEqual(environment.etherContractAddress);
     });
+    service.usdtAddress.subscribe((address: string) => {
+      expect(address).toEqual(environment.etherUsdtAddress);
+    });
     service.valid.subscribe((valid: boolean) => {
       expect(valid).toBeTrue();
     });
@@ -71,6 +74,13 @@ describe('ChainService', () => {
         expect(address).toEqual(environment.bscContractAddress);
       });
     });
+
+    it(`should set bsc usdt address for chain id ${id}`, () => {
+      service.id.next(id);
+      service.usdtAddress.subscribe((address: string) => {
+        expect(address).toEqual(environment.bscUsdtAddress);
+      });
+    });
   });
 
   const ethIds = [1337, 3];
@@ -94,6 +104,13 @@ describe('ChainService', () => {
       service.id.next(id);
       service.contractAddress.subscribe((address: string) => {
         expect(address).toEqual(environment.etherContractAddress);
+      });
+    });
+
+    it(`should set ether usdt address for chain id ${id}`, () => {
+      service.id.next(id);
+      service.usdtAddress.subscribe((address: string) => {
+        expect(address).toEqual(environment.etherUsdtAddress);
       });
     });
   });
