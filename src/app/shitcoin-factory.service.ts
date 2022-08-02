@@ -36,17 +36,18 @@ export class ShitcoinFactoryService {
       this.factory.numberOfCoins().then((value: number) => {
         this.numberOfCoins.next(value);
       });
-      this.factory.costAddress().then((address: string) => {
+
+      const costAddress = this.factory.costAddress();
+      const cost = this.factory.getCost();
+      Promise.all([costAddress, cost]).then((values: any) => {
         this.costContract = new ethers.Contract(
-          address,
+          values[0],
           shitcoinAbi as ContractInterface,
           data.signer
         );
+        this.cost = values[1];
+        this.checkAllowance();
       });
-      this.factory.getCost().then((cost: bigint) => {
-        this.cost = cost;
-      });
-      this.checkAllowance();
     });
   }
 
