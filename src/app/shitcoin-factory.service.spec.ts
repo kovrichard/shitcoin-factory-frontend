@@ -33,6 +33,14 @@ export const fakeShitcoinFactoryService = {
       };
     },
   },
+  payable: {
+    subscribe: (cb: any) => {
+      cb(false);
+      return {
+        unsubscribe: () => {},
+      };
+    },
+  },
   getShitcoin: (i: number) => {
     return Promise.resolve({
       address: 'test-address',
@@ -43,6 +51,7 @@ export const fakeShitcoinFactoryService = {
     });
   },
   create: (name: string, symbol: string, supply: number) => {},
+  approve: () => {},
 };
 
 describe('ShitcoinFactoryService', () => {

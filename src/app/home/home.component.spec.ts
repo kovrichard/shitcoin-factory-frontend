@@ -99,9 +99,17 @@ describe('HomeComponent', () => {
   });
 
   it('should set default values', () => {
+    expect(component.numCoins).toEqual(0);
     expect(component.coins).toEqual([]);
     expect(component.name).toEqual('');
     expect(component.symbol).toEqual('');
+    expect(component.explorer).toEqual('');
+    expect(component.payable).toBeFalse();
+
+    expect(component.outerDiameter).toEqual(280);
+    expect(component.middleDiameter).toEqual(218);
+    expect(component.innerDiameter).toEqual(156);
+    expect(component.aboutDiameter).toEqual(218);
   });
 
   it('should save coins', fakeAsync(() => {
@@ -125,5 +133,12 @@ describe('HomeComponent', () => {
     component.mint();
 
     expect(createMock).toHaveBeenCalledOnceWith('Coin name', 'RANDOMCOIN', 300);
+  }));
+
+  it('approve should call approve', fakeAsync(() => {
+    const approveMock = spyOn(fakeShitcoinFactoryService, 'approve');
+    component.approve();
+
+    expect(approveMock).toHaveBeenCalledOnceWith();
   }));
 });

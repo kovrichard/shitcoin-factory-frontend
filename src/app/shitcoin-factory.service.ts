@@ -14,6 +14,9 @@ export class ShitcoinFactoryService {
   shitcoinAbi = shitcoinAbi as ContractInterface;
   factory: ethers.Contract;
   numberOfCoins = new BehaviorSubject(0);
+  costContract: ethers.Contract;
+  cost: bigint;
+  payable = new BehaviorSubject(false);
 
   constructor(
     private web3service: Web3ModalService,
@@ -33,6 +36,17 @@ export class ShitcoinFactoryService {
       this.factory.numberOfCoins().then((value: number) => {
         this.numberOfCoins.next(value);
       });
+      this.factory.costAddress().then((address: string) => {
+        this.costContract = new ethers.Contract(
+          address,
+          shitcoinAbi as ContractInterface,
+          data.signer
+        );
+      });
+      this.factory.getCost().then((cost: bigint) => {
+        this.cost = cost;
+      });
+      this.checkAllowance();
     });
   }
 
@@ -41,6 +55,16 @@ export class ShitcoinFactoryService {
     if (account == '') return;
 
     this.factory.create(name, ticker, totalSupply, { from: account });
+  }
+
+  approve() {
+    this.costContract
+      .approve(this.chain.contractAddress.value, this.cost)
+      .then((result: any) => {
+        result.wait().then(() => {
+          this.checkAllowance();
+        });
+      });
   }
 
   getShitcoin(index: number): Promise<string> {
@@ -58,5 +82,16 @@ export class ShitcoinFactoryService {
         owner: '', //await shitcoin.callStatic.owner(),
       };
     });
+  }
+
+  private checkAllowance() {
+    this.costContract
+      .allowance(
+        this.web3service.account.value,
+        this.chain.contractAddress.value
+      )
+      .then((amount: any) => {
+        this.payable.next(amount >= this.cost);
+      });
   }
 }
