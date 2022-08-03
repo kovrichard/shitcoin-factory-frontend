@@ -24,38 +24,27 @@ const ContractMock = {
   },
 };
 
+function subscribe(returnValue: any) {
+  return (cb: any) => {
+    cb(returnValue);
+    return {
+      unsubscribe: () => {},
+    };
+  };
+}
+
 export const fakeShitcoinFactoryService = {
   numberOfCoins: {
-    subscribe: (cb: any) => {
-      cb(1);
-      return {
-        unsubscribe: () => {},
-      };
-    },
+    subscribe: subscribe(1),
   },
   payable: {
-    subscribe: (cb: any) => {
-      cb(false);
-      return {
-        unsubscribe: () => {},
-      };
-    },
+    subscribe: subscribe(false),
   },
   cost: {
-    subscribe: (cb: any) => {
-      cb(1);
-      return {
-        unsubscribe: () => {},
-      };
-    },
+    subscribe: subscribe(1),
   },
   costCoin: {
-    subscribe: (cb: any) => {
-      cb('');
-      return {
-        unsubscribe: () => {},
-      };
-    },
+    subscribe: subscribe(''),
   },
   getShitcoin: (i: number) => {
     return Promise.resolve({
