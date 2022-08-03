@@ -6,6 +6,8 @@ import { BehaviorSubject, combineLatest } from 'rxjs';
 import { ContractInterface, ethers } from 'ethers';
 import { ChainService } from './chain.service';
 
+const NULL_ADDRESS = '0x0000000000000000000000000000000000000000';
+
 @Injectable({
   providedIn: 'root',
 })
@@ -46,7 +48,10 @@ export class ShitcoinFactoryService {
           data.signer
         );
         this.cost = values[1];
-        this.checkAllowance();
+        if (values[0] == NULL_ADDRESS)
+          this.payable.next(true);
+        else
+          this.checkAllowance();
       });
     });
   }
