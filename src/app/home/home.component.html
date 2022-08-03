@@ -143,9 +143,12 @@
                 <button mat-raised-button [disabled]="!payable" (click)="mint()" color="accent" class="h-14 w-44 mt-8 md:mt-12 rounded-2xl text-lg">
                     <span class="text-white">Generate</span>
                 </button>
-                <button mat-raised-button (click)="approve()" color="accent" class=" {{ payable ? 'hidden' : '' }} h-18 w-26 mt-4 md:mt-8 rounded-2xl text-md">
-                    <span class="text-white">Approve</span>
-                </button>
+                <div *ngIf="!payable" class="flex flex-col text-sm">
+                    <button mat-raised-button (click)="approve()" color="accent" class="h-18 w-26 mt-4 md:mt-8 mb-2 rounded-2xl text-md">
+                        <span class="text-white">Approve</span>
+                    </button>
+                    <p>*to spend {{ cost }} {{ costCoin }}</p>
+                </div>
                 <img src="/assets/underline-arrow.svg" class="mt-12" />
             </div>
         </form>

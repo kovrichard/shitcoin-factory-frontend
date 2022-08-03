@@ -17,7 +17,8 @@ export class ShitcoinFactoryService {
   factory: ethers.Contract;
   numberOfCoins = new BehaviorSubject(0);
   costContract: ethers.Contract;
-  cost: bigint;
+  cost = new BehaviorSubject(BigInt(0));
+  costCoin = new BehaviorSubject('');
   payable = new BehaviorSubject(false);
 
   constructor(
@@ -47,11 +48,12 @@ export class ShitcoinFactoryService {
           shitcoinAbi as ContractInterface,
           data.signer
         );
-        this.cost = values[1];
-        if (values[0] == NULL_ADDRESS)
-          this.payable.next(true);
-        else
-          this.checkAllowance();
+        this.cost.next(values[1]);
+        this.costContract.symbol().then((symbol: string) => {
+          this.costCoin.next(symbol);
+        });
+        if (values[0] == NULL_ADDRESS) this.payable.next(true);
+        else this.checkAllowance();
       });
     });
   }
@@ -65,7 +67,7 @@ export class ShitcoinFactoryService {
 
   approve() {
     this.costContract
-      .approve(this.chain.contractAddress.value, this.cost)
+      .approve(this.chain.contractAddress.value, this.cost.value)
       .then((result: any) => {
         result.wait().then(() => {
           this.checkAllowance();
@@ -97,7 +99,7 @@ export class ShitcoinFactoryService {
         this.chain.contractAddress.value
       )
       .then((amount: any) => {
-        this.payable.next(amount >= this.cost);
+        this.payable.next(amount >= this.cost.value);
       });
   }
 }

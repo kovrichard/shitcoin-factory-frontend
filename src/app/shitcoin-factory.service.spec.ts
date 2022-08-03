@@ -41,6 +41,22 @@ export const fakeShitcoinFactoryService = {
       };
     },
   },
+  cost: {
+    subscribe: (cb: any) => {
+      cb(1);
+      return {
+        unsubscribe: () => {},
+      };
+    },
+  },
+  costCoin: {
+    subscribe: (cb: any) => {
+      cb('');
+      return {
+        unsubscribe: () => {},
+      };
+    },
+  },
   getShitcoin: (i: number) => {
     return Promise.resolve({
       address: 'test-address',

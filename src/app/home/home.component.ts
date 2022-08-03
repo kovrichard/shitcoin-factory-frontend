@@ -22,6 +22,8 @@ export class HomeComponent implements OnInit, OnDestroy {
   private chainExplorerSubscription: Subscription;
   private numCoinsSubscription: Subscription;
   private payableSubscription: Subscription;
+  private costSubscription: Subscription;
+  private costCoinSubscription: Subscription;
 
   private numberOfCoins = 0;
   numCoins = 0;
@@ -31,6 +33,8 @@ export class HomeComponent implements OnInit, OnDestroy {
   totalSupply: number;
   explorer = '';
   payable = false;
+  cost: number;
+  costCoin: string;
 
   outerDiameter = 280;
   middleDiameter = 218;
@@ -74,6 +78,16 @@ export class HomeComponent implements OnInit, OnDestroy {
         this.payable = payable;
       }
     );
+    this.costSubscription = this.shitcoinFactory.cost.subscribe(
+      (cost: bigint) => {
+        this.cost = Number(cost) / 10 ** 18;
+      }
+    );
+    this.costCoinSubscription = this.shitcoinFactory.costCoin.subscribe(
+      (coin: string) => {
+        this.costCoin = coin;
+      }
+    );
   }
 
   ngOnDestroy() {
@@ -81,6 +95,8 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.chainExplorerSubscription.unsubscribe();
     this.numCoinsSubscription.unsubscribe();
     this.payableSubscription.unsubscribe();
+    this.costSubscription.unsubscribe();
+    this.costCoinSubscription.unsubscribe();
   }
 
   private fetchCoins() {
