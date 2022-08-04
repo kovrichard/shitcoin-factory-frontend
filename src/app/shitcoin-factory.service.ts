@@ -43,17 +43,21 @@ export class ShitcoinFactoryService {
       const costAddress = this.factory.costAddress();
       const cost = this.factory.getCost();
       Promise.all([costAddress, cost]).then((values: any) => {
+        this.cost.next(values[1]);
+        if (values[0] == NULL_ADDRESS) {
+          this.payable.next(true);
+          return;
+        }
+
         this.costContract = new ethers.Contract(
           values[0],
           shitcoinAbi as ContractInterface,
           data.signer
         );
-        this.cost.next(values[1]);
         this.costContract.symbol().then((symbol: string) => {
           this.costCoin.next(symbol);
         });
-        if (values[0] == NULL_ADDRESS) this.payable.next(true);
-        else this.checkAllowance();
+        this.checkAllowance();
       });
     });
   }
