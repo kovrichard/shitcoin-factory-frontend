@@ -4,7 +4,7 @@ export const environment = {
   bscScan: 'https://bscscan.com',
   polygonScan: 'https://polygonscan.com',
   etherContractAddress: '0x0000000000000000000000000000000000000000',
-  bscContractAddress: '0x0000000000000000000000000000000000000000',
+  bscContractAddress: '0xFE757CDb6093dF085766c424F69Eec80Cc50babE',
   polygonContractAddress: '0x0000000000000000000000000000000000000000',
   etherNetworkUrl:
     'https://mainnet.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161',
