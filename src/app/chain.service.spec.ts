@@ -48,7 +48,7 @@ describe('ChainService', () => {
     });
   });
 
-  const ids = [97, 56];
+  const ids = [56, 97];
 
   ids.forEach((id: number) => {
     it(`should set bsc network url for chain id ${id}`, () => {
@@ -73,7 +73,7 @@ describe('ChainService', () => {
     });
   });
 
-  const ethIds = [1337, 3];
+  const ethIds = [1, 3, 1337];
 
   ethIds.forEach((id: number) => {
     it(`should set ethereum network url for chain id ${id}`, () => {
@@ -94,6 +94,31 @@ describe('ChainService', () => {
       service.id.next(id);
       service.contractAddress.subscribe((address: string) => {
         expect(address).toEqual(environment.etherContractAddress);
+      });
+    });
+  });
+
+  const polygonIds = [137, 80001];
+
+  polygonIds.forEach((id: number) => {
+    it(`should set polygon network url for chain id ${id}`, () => {
+      service.id.next(id);
+      service.networkUrl.subscribe((url: string) => {
+        expect(url).toEqual(environment.polygonNetworkUrl);
+      });
+    });
+
+    it(`should set polygon explorer url for chain id ${id}`, () => {
+      service.id.next(id);
+      service.explorer.subscribe((url: string) => {
+        expect(url).toEqual(environment.polygonScan);
+      });
+    });
+
+    it(`should set polygon contract address for chain id ${id}`, () => {
+      service.id.next(id);
+      service.contractAddress.subscribe((address: string) => {
+        expect(address).toEqual(environment.polygonContractAddress);
       });
     });
   });

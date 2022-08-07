@@ -24,6 +24,10 @@ export class ChainService {
         this.networkUrl.next(environment.etherNetworkUrl);
         this.explorer.next(environment.etherScan);
         this.contractAddress.next(environment.etherContractAddress);
+      } else if (id == 137 || id == 80001) {
+        this.networkUrl.next(environment.polygonNetworkUrl);
+        this.explorer.next(environment.polygonScan);
+        this.contractAddress.next(environment.polygonContractAddress);
       }
     });
   }

@@ -4,15 +4,16 @@
 
 export const environment = {
   production: false,
-  bscScan: '#',
   etherScan: '#',
-  bscContractAddress: '0x0000000000000000000000000000000000000000',
+  bscScan: '#',
+  polygonScan: '#',
   etherContractAddress: '0x0000000000000000000000000000000000000000',
-  bscShapeshifterAddress: '0x0000000000000000000000000000000000000000',
-  ethShapeshifterAddress: '0x0000000000000000000000000000000000000000',
-  bscNetworkUrl: 'http://localhost:8545',
+  bscContractAddress: '0x0000000000000000000000000000000000000000',
+  polygonContractAddress: '0x0000000000000000000000000000000000000000',
   etherNetworkUrl: 'http://localhost:8545',
-  validChains: [1, 3, 56, 97, 1337],
+  bscNetworkUrl: 'http://localhost:8545',
+  polygonNetworkUrl: 'http://localhost:8545',
+  validChains: [1, 3, 56, 97, 137, 1337, 80001],
 };
 
 /*
