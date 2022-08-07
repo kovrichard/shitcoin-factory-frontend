@@ -40,13 +40,13 @@ jobs:
     - name: Install dependencies
       run: yarn install && ng update
     
-    - name: Build stage version
+    - name: Build prod version
       run: ng build --configuration=production
     
     - name: Store build artifact
       uses: actions/upload-artifact@v3
       with: 
-        name: stage
+        name: prod
         path: dist/shitcoin-factory-frontend
         retention-days: 3
 
