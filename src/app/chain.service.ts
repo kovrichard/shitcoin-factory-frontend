@@ -9,7 +9,7 @@ export class ChainService {
   networkUrl = new BehaviorSubject(environment.etherNetworkUrl);
   explorer = new BehaviorSubject(environment.etherScan);
   contractAddress = new BehaviorSubject(environment.etherContractAddress);
-  id = new BehaviorSubject(1);
+  id = new BehaviorSubject(56);
   valid = new BehaviorSubject(true);
 
   constructor() {

@@ -30,18 +30,18 @@ describe('ChainService', () => {
     service = TestBed.inject(ChainService);
   });
 
-  it('default network should be ethereum', () => {
+  it('default network should be bsc', () => {
     service.id.subscribe((id: number) => {
-      expect(id).toEqual(1);
+      expect(id).toEqual(56);
     });
     service.networkUrl.subscribe((url: string) => {
-      expect(url).toEqual(environment.etherNetworkUrl);
+      expect(url).toEqual(environment.bscNetworkUrl);
     });
     service.explorer.subscribe((url: string) => {
-      expect(url).toEqual(environment.etherScan);
+      expect(url).toEqual(environment.bscScan);
     });
     service.contractAddress.subscribe((address: string) => {
-      expect(address).toEqual(environment.etherContractAddress);
+      expect(address).toEqual(environment.bscContractAddress);
     });
     service.valid.subscribe((valid: boolean) => {
       expect(valid).toBeTrue();
@@ -73,7 +73,7 @@ describe('ChainService', () => {
     });
   });
 
-  const ethIds = [1, 3, 1337];
+  const ethIds = [3, 1337];
 
   ethIds.forEach((id: number) => {
     it(`should set ethereum network url for chain id ${id}`, () => {

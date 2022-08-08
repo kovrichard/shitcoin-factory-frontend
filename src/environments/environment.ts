@@ -13,7 +13,7 @@ export const environment = {
   etherNetworkUrl: 'http://localhost:8545',
   bscNetworkUrl: 'http://localhost:8545',
   polygonNetworkUrl: 'http://localhost:8545',
-  validChains: [1, 3, 56, 97, 137, 1337, 80001],
+  validChains: [3, 56, 97, 137, 1337, 80001],
 };
 
 /*
