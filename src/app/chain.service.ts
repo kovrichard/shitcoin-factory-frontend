@@ -20,7 +20,7 @@ export class ChainService {
         this.networkUrl.next(environment.bscNetworkUrl);
         this.explorer.next(environment.bscScan);
         this.contractAddress.next(environment.bscContractAddress);
-      } else if (id == 1337 || id == 3) {
+      } else if (id == 1337 || id == 3 || id == 1) {
         this.networkUrl.next(environment.etherNetworkUrl);
         this.explorer.next(environment.etherScan);
         this.contractAddress.next(environment.etherContractAddress);

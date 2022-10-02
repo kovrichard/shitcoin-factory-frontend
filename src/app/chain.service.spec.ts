@@ -73,7 +73,7 @@ describe('ChainService', () => {
     });
   });
 
-  const ethIds = [3, 1337];
+  const ethIds = [1, 3, 1337];
 
   ethIds.forEach((id: number) => {
     it(`should set ethereum network url for chain id ${id}`, () => {
