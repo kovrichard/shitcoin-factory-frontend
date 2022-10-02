@@ -3,7 +3,7 @@ export const environment = {
   etherScan: 'https://etherscan.io',
   bscScan: 'https://bscscan.com',
   polygonScan: 'https://polygonscan.com',
-  etherContractAddress: '0x0000000000000000000000000000000000000000',
+  etherContractAddress: '0x1f470e946942AAa6406bAd8Cd6AFdcA7020B3DB7',
   bscContractAddress: '0x20e18C8581f3FE4C1A03Fe3711a5BA74EC40808C',
   polygonContractAddress: '0x1f470e946942AAa6406bAd8Cd6AFdcA7020B3DB7',
   etherNetworkUrl:
