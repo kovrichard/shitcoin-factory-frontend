@@ -11,5 +11,5 @@ export const environment = {
   bscNetworkUrl: 'https://bsc-dataseed.binance.org/',
   polygonNetworkUrl:
     'https://polygon-mainnet.g.alchemy.com/v2/KFg5XRbhWACnSVqk9_XSNsEf4aD093AU',
-  validChains: [56, 137],
+  validChains: [1, 56, 137],
 };
