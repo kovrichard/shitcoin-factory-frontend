@@ -47,26 +47,24 @@ describe('ChainService', () => {
   it('default network should be bsc', () => {
     testScheduler.run((helpers: any) => {
       const { cold, expectObservable } = helpers;
-
-      service.id.subscribe((id: number) => {
-        expect(id).toEqual(56);
-      });
-      service.networkUrl.subscribe((url: string) => {
-        expect(url).toEqual(environment.bscNetworkUrl);
-      });
-      service.explorer.subscribe((url: string) => {
-        expect(url).toEqual(environment.bscScan);
-      });
-      service.contractAddress.subscribe((address: string) => {
-        expect(address).toEqual(environment.bscContractAddress);
-      });
-      service.valid.subscribe((valid: boolean) => {
-        expect(valid).toBeTrue();
-      });
-
       const obsStub = '^';
-      const obsExpected = cold('a', { a: 'bnb-logo.svg' });
 
+      const idExpected = cold('a', { a: 56 });
+      expectObservable(service.id, obsStub).toEqual(idExpected);
+
+      const urlExpected = cold('a', { a: environment.bscNetworkUrl });
+      expectObservable(service.networkUrl, obsStub).toEqual(urlExpected);
+
+      const explorerExpected = cold('a', { a: environment.bscScan });
+      expectObservable(service.explorer, obsStub).toEqual(explorerExpected);
+
+      const addressExpected = cold('a', { a: environment.bscContractAddress });
+      expectObservable(service.contractAddress, obsStub).toEqual(addressExpected);
+
+      const validExpected = cold('a', { a: true });
+      expectObservable(service.valid, obsStub).toEqual(validExpected);
+
+      const obsExpected = cold('a', { a: 'bnb-logo.svg' });
       expectObservable(service.logo, obsStub).toEqual(obsExpected);
     });
   });
