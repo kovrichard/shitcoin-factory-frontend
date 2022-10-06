@@ -1,5 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import { environment } from 'src/environments/environment';
+import { TestScheduler } from 'rxjs/testing';
 
 import { ChainService } from './chain.service';
 
@@ -32,30 +33,41 @@ export const fakeChainService = {
 
 describe('ChainService', () => {
   let service: ChainService;
+  let testScheduler: TestScheduler;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
     service = TestBed.inject(ChainService);
+
+    testScheduler = new TestScheduler((actual: any, expected: any) => {
+      expect(actual).toEqual(expected);
+    });
   });
 
   it('default network should be bsc', () => {
-    service.id.subscribe((id: number) => {
-      expect(id).toEqual(56);
-    });
-    service.networkUrl.subscribe((url: string) => {
-      expect(url).toEqual(environment.bscNetworkUrl);
-    });
-    service.explorer.subscribe((url: string) => {
-      expect(url).toEqual(environment.bscScan);
-    });
-    service.contractAddress.subscribe((address: string) => {
-      expect(address).toEqual(environment.bscContractAddress);
-    });
-    service.valid.subscribe((valid: boolean) => {
-      expect(valid).toBeTrue();
-    });
-    service.logo.subscribe((logo: string) => {
-      expect(logo).toEqual('bnb-logo.svg');
+    testScheduler.run((helpers: any) => {
+      const { cold, expectObservable } = helpers;
+
+      service.id.subscribe((id: number) => {
+        expect(id).toEqual(56);
+      });
+      service.networkUrl.subscribe((url: string) => {
+        expect(url).toEqual(environment.bscNetworkUrl);
+      });
+      service.explorer.subscribe((url: string) => {
+        expect(url).toEqual(environment.bscScan);
+      });
+      service.contractAddress.subscribe((address: string) => {
+        expect(address).toEqual(environment.bscContractAddress);
+      });
+      service.valid.subscribe((valid: boolean) => {
+        expect(valid).toBeTrue();
+      });
+
+      const obsStub = '^';
+      const obsExpected = cold('a', { a: 'bnb-logo.svg' });
+
+      expectObservable(service.logo, obsStub).toEqual(obsExpected);
     });
   });
 

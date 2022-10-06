@@ -11,7 +11,9 @@ export class ChainService {
   contractAddress = new BehaviorSubject(environment.etherContractAddress);
   id = new BehaviorSubject(56);
   valid = new BehaviorSubject(true);
-  logo = new BehaviorSubject('bnb-logo.svg');
+
+  private _logo = new BehaviorSubject('bnb-logo.svg');
+  readonly logo = this._logo.asObservable();
 
   constructor() {
     this.id.subscribe((id: number) => {
@@ -21,17 +23,17 @@ export class ChainService {
         this.networkUrl.next(environment.bscNetworkUrl);
         this.explorer.next(environment.bscScan);
         this.contractAddress.next(environment.bscContractAddress);
-        this.logo.next('bnb-logo.svg');
+        this._logo.next('bnb-logo.svg');
       } else if (id == 1337 || id == 3 || id == 1) {
         this.networkUrl.next(environment.etherNetworkUrl);
         this.explorer.next(environment.etherScan);
         this.contractAddress.next(environment.etherContractAddress);
-        this.logo.next('ethereum-logo.svg');
+        this._logo.next('ethereum-logo.svg');
       } else if (id == 137 || id == 80001) {
         this.networkUrl.next(environment.polygonNetworkUrl);
         this.explorer.next(environment.polygonScan);
         this.contractAddress.next(environment.polygonContractAddress);
-        this.logo.next('polygon-logo.svg');
+        this._logo.next('polygon-logo.svg');
       }
     });
   }
