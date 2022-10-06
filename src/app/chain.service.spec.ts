@@ -20,6 +20,14 @@ export const fakeChainService = {
       };
     },
   },
+  logo: {
+    subscribe: (cb: any) => {
+      cb('test.svg');
+      return {
+        unsubscribe: () => {},
+      };
+    },
+  },
 };
 
 describe('ChainService', () => {
@@ -48,7 +56,7 @@ describe('ChainService', () => {
     });
     service.logo.subscribe((logo: string) => {
       expect(logo).toEqual('bnb-logo.svg');
-    })
+    });
   });
 
   const ids = [56, 97];
