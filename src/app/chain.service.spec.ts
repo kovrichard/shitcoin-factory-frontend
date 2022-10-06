@@ -46,6 +46,9 @@ describe('ChainService', () => {
     service.valid.subscribe((valid: boolean) => {
       expect(valid).toBeTrue();
     });
+    service.logo.subscribe((logo: string) => {
+      expect(logo).toEqual('bnb-logo.svg');
+    })
   });
 
   const ids = [56, 97];
@@ -69,6 +72,13 @@ describe('ChainService', () => {
       service.id.next(id);
       service.contractAddress.subscribe((address: string) => {
         expect(address).toEqual(environment.bscContractAddress);
+      });
+    });
+
+    it(`should set bnb logo for chain id ${id}`, () => {
+      service.id.next(id);
+      service.logo.subscribe((logo: string) => {
+        expect(logo).toEqual('bnb-logo.svg');
       });
     });
   });
@@ -96,6 +106,13 @@ describe('ChainService', () => {
         expect(address).toEqual(environment.etherContractAddress);
       });
     });
+
+    it(`should set ethereum logo for chain id ${id}`, () => {
+      service.id.next(id);
+      service.logo.subscribe((logo: string) => {
+        expect(logo).toEqual('ethereum-logo.svg');
+      });
+    });
   });
 
   const polygonIds = [137, 80001];
@@ -119,6 +136,12 @@ describe('ChainService', () => {
       service.id.next(id);
       service.contractAddress.subscribe((address: string) => {
         expect(address).toEqual(environment.polygonContractAddress);
+      });
+    });
+    it(`should set polygon logo for chain id ${id}`, () => {
+      service.id.next(id);
+      service.logo.subscribe((logo: string) => {
+        expect(logo).toEqual('polygon-logo.svg');
       });
     });
   });
