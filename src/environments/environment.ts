@@ -4,12 +4,12 @@
 
 export const environment = {
   production: false,
-  etherScan: '#',
-  bscScan: '#',
-  polygonScan: '#',
-  etherContractAddress: '0x0000000000000000000000000000000000000000',
-  bscContractAddress: '0x0000000000000000000000000000000000000000',
-  polygonContractAddress: '0x0000000000000000000000000000000000000000',
+  etherScan: '#?test=1',
+  bscScan: '#?test=2',
+  polygonScan: '#?test=3',
+  etherContractAddress: '0x0000000000000000000000000000000000000001',
+  bscContractAddress: '0x0000000000000000000000000000000000000002',
+  polygonContractAddress: '0x0000000000000000000000000000000000000003',
   etherNetworkUrl: 'http://localhost:8545',
   bscNetworkUrl: 'http://localhost:8545',
   polygonNetworkUrl: 'http://localhost:8545',
