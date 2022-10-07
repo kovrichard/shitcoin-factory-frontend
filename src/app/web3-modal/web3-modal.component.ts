@@ -7,7 +7,7 @@ import {
 } from '@angular/core';
 import { Web3ModalService } from './web3-modal.service';
 import { IProvider } from '../providers';
-import { Subscription } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { ChainService } from '../chain.service';
 
 @Component({
@@ -20,9 +20,8 @@ export class Web3ModalComponent implements OnInit, OnDestroy {
   private providersSubscription: Subscription;
   private accountSubscription: Subscription;
   private chainSubscription: Subscription;
-  private logoSubscription: Subscription;
 
-  logo: string;
+  logo$: Observable<string>;
   open = false;
   account = '';
   providers: IProvider[];
@@ -47,16 +46,13 @@ export class Web3ModalComponent implements OnInit, OnDestroy {
     this.chainSubscription = this.chain.valid.subscribe((valid: boolean) => {
       this.validChain = valid;
     });
-    this.logoSubscription = this.chain.logo.subscribe((logo: string) => {
-      this.logo = logo;
-    });
+    this.logo$ = this.chain.logo;
   }
 
   ngOnDestroy() {
     this.providersSubscription.unsubscribe();
     this.accountSubscription.unsubscribe();
     this.chainSubscription.unsubscribe();
-    this.logoSubscription.unsubscribe();
   }
 
   connect() {

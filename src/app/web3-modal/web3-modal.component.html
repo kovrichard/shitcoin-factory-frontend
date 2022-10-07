@@ -9,7 +9,7 @@
   </button>
   <ng-template #chainLogo>
      <button mat-icon-button> 
-      <img src="assets/{{logo}}" class="h-4" />
+      <img src="assets/{{logo$ | async}}" class="h-4" />
     </button>
   </ng-template>
   <button #connectButton *ngIf="!account" mat-raised-button color="accent" class="w-24 2xl:w-44 h-8 2xl:h-12 m-2 rounded-2xl" (click)="connect()">
