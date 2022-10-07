@@ -8,6 +8,7 @@ import { Web3ModalService } from './web3-modal/web3-modal.service';
 import { generateTestingUtils } from 'eth-testing';
 import { TestingUtils } from 'eth-testing/lib/testing-utils';
 import { fakeWeb3ModalService } from './web3-modal/web3-modal.service.spec';
+import { EMPTY } from 'rxjs';
 
 const ContractMock = {
   numberOfCoins: () => {
@@ -37,9 +38,7 @@ export const fakeShitcoinFactoryService = {
   numberOfCoins: {
     subscribe: subscribe(1),
   },
-  payable: {
-    subscribe: subscribe(false),
-  },
+  payable$: EMPTY,
   cost: {
     subscribe: subscribe(1),
   },

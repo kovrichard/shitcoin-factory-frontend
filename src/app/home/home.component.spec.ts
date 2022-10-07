@@ -129,6 +129,20 @@ describe('HomeComponent', () => {
     });
   });
 
+  [true, false].forEach((payable: boolean) => {
+    it(`should get payable ${payable} from factory service`, () => {
+      testScheduler.run((helpers: any) => {
+        const { cold, expectObservable } = helpers;
+
+        const expected = cold('a', { a: payable });
+        fakeShitcoinFactoryService.payable$ = expected;
+        component.ngOnInit();
+
+        expectObservable(component.payable$).toEqual(expected);
+      });
+    });
+  })
+
   it('should save coins', fakeAsync(() => {
     component.ngOnInit();
     tick();
