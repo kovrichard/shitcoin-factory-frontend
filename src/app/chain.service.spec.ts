@@ -59,7 +59,9 @@ describe('ChainService', () => {
       expectObservable(service.explorer, obsStub).toEqual(explorerExpected);
 
       const addressExpected = cold('a', { a: environment.bscContractAddress });
-      expectObservable(service.contractAddress, obsStub).toEqual(addressExpected);
+      expectObservable(service.contractAddress, obsStub).toEqual(
+        addressExpected
+      );
 
       const validExpected = cold('a', { a: true });
       expectObservable(service.valid, obsStub).toEqual(validExpected);
@@ -75,7 +77,7 @@ describe('ChainService', () => {
     it(`should set bsc network for chain id ${id}`, () => {
       testScheduler.run((helpers: any) => {
         const { cold, expectObservable } = helpers;
-        
+
         service.id.next(id);
         const obsStub = '^';
 
@@ -88,8 +90,12 @@ describe('ChainService', () => {
         const explorerExpected = cold('a', { a: environment.bscScan });
         expectObservable(service.explorer, obsStub).toEqual(explorerExpected);
 
-        const addressExpected = cold('a', { a: environment.bscContractAddress });
-        expectObservable(service.contractAddress, obsStub).toEqual(addressExpected);
+        const addressExpected = cold('a', {
+          a: environment.bscContractAddress,
+        });
+        expectObservable(service.contractAddress, obsStub).toEqual(
+          addressExpected
+        );
 
         const validExpected = cold('a', { a: true });
         expectObservable(service.valid, obsStub).toEqual(validExpected);
@@ -106,7 +112,7 @@ describe('ChainService', () => {
     it(`should set ethereum network for chain id ${id}`, () => {
       testScheduler.run((helpers: any) => {
         const { cold, expectObservable } = helpers;
-        
+
         service.id.next(id);
         const obsStub = '^';
 
@@ -119,8 +125,12 @@ describe('ChainService', () => {
         const explorerExpected = cold('a', { a: environment.etherScan });
         expectObservable(service.explorer, obsStub).toEqual(explorerExpected);
 
-        const addressExpected = cold('a', { a: environment.etherContractAddress });
-        expectObservable(service.contractAddress, obsStub).toEqual(addressExpected);
+        const addressExpected = cold('a', {
+          a: environment.etherContractAddress,
+        });
+        expectObservable(service.contractAddress, obsStub).toEqual(
+          addressExpected
+        );
 
         const validExpected = cold('a', { a: true });
         expectObservable(service.valid, obsStub).toEqual(validExpected);
@@ -135,9 +145,9 @@ describe('ChainService', () => {
 
   polygonIds.forEach((id: number) => {
     it(`should set polygon network for chain id ${id}`, () => {
-        testScheduler.run((helpers: any) => {
+      testScheduler.run((helpers: any) => {
         const { cold, expectObservable } = helpers;
-        
+
         service.id.next(id);
         const obsStub = '^';
 
@@ -150,8 +160,12 @@ describe('ChainService', () => {
         const explorerExpected = cold('a', { a: environment.polygonScan });
         expectObservable(service.explorer, obsStub).toEqual(explorerExpected);
 
-        const addressExpected = cold('a', { a: environment.polygonContractAddress });
-        expectObservable(service.contractAddress, obsStub).toEqual(addressExpected);
+        const addressExpected = cold('a', {
+          a: environment.polygonContractAddress,
+        });
+        expectObservable(service.contractAddress, obsStub).toEqual(
+          addressExpected
+        );
 
         const validExpected = cold('a', { a: true });
         expectObservable(service.valid, obsStub).toEqual(validExpected);
