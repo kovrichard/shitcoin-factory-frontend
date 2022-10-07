@@ -7,7 +7,8 @@ import { environment } from 'src/environments/environment';
 })
 export class ChainService {
   networkUrl = new BehaviorSubject(environment.etherNetworkUrl);
-  explorer = new BehaviorSubject(environment.etherScan);
+  private _explorer = new BehaviorSubject(environment.etherScan);
+  readonly explorer = this._explorer.asObservable();
   contractAddress = new BehaviorSubject(environment.etherContractAddress);
   id = new BehaviorSubject(56);
 
@@ -23,17 +24,17 @@ export class ChainService {
 
       if (id == 97 || id == 56) {
         this.networkUrl.next(environment.bscNetworkUrl);
-        this.explorer.next(environment.bscScan);
+        this._explorer.next(environment.bscScan);
         this.contractAddress.next(environment.bscContractAddress);
         this._logo.next('bnb-logo.svg');
       } else if (id == 1337 || id == 3 || id == 1) {
         this.networkUrl.next(environment.etherNetworkUrl);
-        this.explorer.next(environment.etherScan);
+        this._explorer.next(environment.etherScan);
         this.contractAddress.next(environment.etherContractAddress);
         this._logo.next('ethereum-logo.svg');
       } else if (id == 137 || id == 80001) {
         this.networkUrl.next(environment.polygonNetworkUrl);
-        this.explorer.next(environment.polygonScan);
+        this._explorer.next(environment.polygonScan);
         this.contractAddress.next(environment.polygonContractAddress);
         this._logo.next('polygon-logo.svg');
       }

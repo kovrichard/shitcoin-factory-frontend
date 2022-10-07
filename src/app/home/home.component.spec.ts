@@ -103,7 +103,6 @@ describe('HomeComponent', () => {
     expect(component.coins).toEqual([]);
     expect(component.name).toEqual('');
     expect(component.symbol).toEqual('');
-    expect(component.explorer).toEqual('');
     expect(component.payable).toBeFalse();
 
     expect(component.outerDiameter).toEqual(280);
