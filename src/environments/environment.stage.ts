@@ -3,7 +3,7 @@ export const environment = {
   etherScan: 'https://ropsten.etherscan.io',
   bscScan: 'https://testnet.bscscan.com',
   polygonScan: 'https://mumbai.polygonscan.com',
-  etherContractAddress: '0xB3f03bF9639E5E541b9EEE18cB6582B0AD516be5',
+  etherContractAddress: '0x1f470e946942AAa6406bAd8Cd6AFdcA7020B3DB7',
   bscContractAddress: '0xcEb0D98c8278Ba76e81dc82ea5BeE1679Dfa6Bbd',
   polygonContractAddress: '0xFE757CDb6093dF085766c424F69Eec80Cc50babE',
   etherNetworkUrl:
