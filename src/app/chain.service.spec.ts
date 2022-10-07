@@ -72,43 +72,30 @@ describe('ChainService', () => {
   const ids = [56, 97];
 
   ids.forEach((id: number) => {
-    it(`should set bsc network url for chain id ${id}`, () => {
+    it(`should set bsc network for chain id ${id}`, () => {
       testScheduler.run((helpers: any) => {
         const { cold, expectObservable } = helpers;
         
         service.id.next(id);
+        const obsStub = '^';
+
+        const idExpected = cold('a', { a: id });
+        expectObservable(service.id, obsStub).toEqual(idExpected);
+
         const urlExpected = cold('a', { a: environment.bscNetworkUrl });
-        expectObservable(service.networkUrl, '^').toEqual(urlExpected);
-      });
-    });
+        expectObservable(service.networkUrl, obsStub).toEqual(urlExpected);
 
-    it(`should set bsc explorer url for chain id ${id}`, () => {
-      testScheduler.run((helpers: any) => {
-        const { cold, expectObservable } = helpers;
-        
-        service.id.next(id);
         const explorerExpected = cold('a', { a: environment.bscScan });
-        expectObservable(service.explorer, '^').toEqual(explorerExpected);
-      });
-    });
+        expectObservable(service.explorer, obsStub).toEqual(explorerExpected);
 
-    it(`should set bsc contract address for chain id ${id}`, () => {
-      testScheduler.run((helpers: any) => {
-        const { cold, expectObservable } = helpers;
-        
-        service.id.next(id);
         const addressExpected = cold('a', { a: environment.bscContractAddress });
-        expectObservable(service.contractAddress, '^').toEqual(addressExpected);
-      });
-    });
+        expectObservable(service.contractAddress, obsStub).toEqual(addressExpected);
 
-    it(`should set bnb logo for chain id ${id}`, () => {
-      testScheduler.run((helpers: any) => {
-        const { cold, expectObservable } = helpers;
-        
-        service.id.next(id);
-        const logoExpected = cold('a', { a: 'bnb-logo.svg' });
-        expectObservable(service.logo, '^').toEqual(logoExpected);
+        const validExpected = cold('a', { a: true });
+        expectObservable(service.valid, obsStub).toEqual(validExpected);
+
+        const obsExpected = cold('a', { a: 'bnb-logo.svg' });
+        expectObservable(service.logo, obsStub).toEqual(obsExpected);
       });
     });
   });
