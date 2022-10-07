@@ -13,22 +13,6 @@ export const fakeChainService = {
       };
     },
   },
-  valid: {
-    subscribe: (cb: any) => {
-      cb('');
-      return {
-        unsubscribe: () => {},
-      };
-    },
-  },
-  logo: {
-    subscribe: (cb: any) => {
-      cb('test.svg');
-      return {
-        unsubscribe: () => {},
-      };
-    },
-  },
 };
 
 describe('ChainService', () => {

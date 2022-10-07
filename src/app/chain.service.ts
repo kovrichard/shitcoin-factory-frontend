@@ -10,7 +10,9 @@ export class ChainService {
   explorer = new BehaviorSubject(environment.etherScan);
   contractAddress = new BehaviorSubject(environment.etherContractAddress);
   id = new BehaviorSubject(56);
-  valid = new BehaviorSubject(true);
+
+  private _valid = new BehaviorSubject(true);
+  readonly valid = this._valid.asObservable();
 
   private _logo = new BehaviorSubject('bnb-logo.svg');
   readonly logo = this._logo.asObservable();
@@ -39,7 +41,7 @@ export class ChainService {
   }
 
   private validChain(id: number) {
-    this.valid.next(environment.validChains.includes(id));
-    return this.valid.value;
+    this._valid.next(environment.validChains.includes(id));
+    return this._valid.value;
   }
 }

@@ -19,8 +19,8 @@ import { ChainService } from '../chain.service';
 export class Web3ModalComponent implements OnInit, OnDestroy {
   private providersSubscription: Subscription;
   private accountSubscription: Subscription;
-  private chainSubscription: Subscription;
 
+  validChain$: Observable<boolean>;
   logo$: Observable<string>;
   open = false;
   account = '';
@@ -43,16 +43,13 @@ export class Web3ModalComponent implements OnInit, OnDestroy {
         this.account = account;
       }
     );
-    this.chainSubscription = this.chain.valid.subscribe((valid: boolean) => {
-      this.validChain = valid;
-    });
+    this.validChain$ = this.chain.valid;
     this.logo$ = this.chain.logo;
   }
 
   ngOnDestroy() {
     this.providersSubscription.unsubscribe();
     this.accountSubscription.unsubscribe();
-    this.chainSubscription.unsubscribe();
   }
 
   connect() {
