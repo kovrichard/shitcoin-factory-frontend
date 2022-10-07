@@ -42,9 +42,7 @@ export const fakeShitcoinFactoryService = {
   cost: {
     subscribe: subscribe(1),
   },
-  costCoin: {
-    subscribe: subscribe(''),
-  },
+  costCoin$: EMPTY,
   getShitcoin: (i: number) => {
     return Promise.resolve({
       address: 'test-address',

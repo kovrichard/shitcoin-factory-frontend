@@ -21,7 +21,6 @@ export class HomeComponent implements OnInit, OnDestroy {
   private breakpointsSubscription: Subscription;
   private numCoinsSubscription: Subscription;
   private costSubscription: Subscription;
-  private costCoinSubscription: Subscription;
 
   payable$: Observable<boolean>;
 
@@ -33,7 +32,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   totalSupply: number;
   explorer$: Observable<string>;
   cost: number;
-  costCoin: string;
+  costCoin$: Observable<string>;
 
   outerDiameter = 280;
   middleDiameter = 218;
@@ -75,18 +74,13 @@ export class HomeComponent implements OnInit, OnDestroy {
         this.cost = Number(cost) / 10 ** 18;
       }
     );
-    this.costCoinSubscription = this.shitcoinFactory.costCoin.subscribe(
-      (coin: string) => {
-        this.costCoin = coin;
-      }
-    );
+    this.costCoin$ = this.shitcoinFactory.costCoin$;
   }
 
   ngOnDestroy() {
     this.breakpointsSubscription.unsubscribe();
     this.numCoinsSubscription.unsubscribe();
     this.costSubscription.unsubscribe();
-    this.costCoinSubscription.unsubscribe();
   }
 
   private fetchCoins() {

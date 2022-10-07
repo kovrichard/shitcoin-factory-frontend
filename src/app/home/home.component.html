@@ -148,7 +148,7 @@
                     <button mat-raised-button (click)="approve()" color="accent" class="h-18 w-26 mt-4 md:mt-8 mb-2 rounded-2xl text-md">
                         <span class="text-white">Approve</span>
                     </button>
-                    <p>*to spend {{ cost }} {{ costCoin }}</p>
+                    <p>*to spend {{ cost }} {{ costCoin$ | async }}</p>
                 </div>
                 <img src="/assets/underline-arrow.svg" class="mt-12" />
             </div>

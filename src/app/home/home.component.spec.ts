@@ -24,11 +24,10 @@ import { FormsModule } from '@angular/forms';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatListModule } from '@angular/material/list';
 import { ScrollingModule } from '@angular/cdk/scrolling';
-import { of, EMPTY } from 'rxjs';
+import { EMPTY, of } from 'rxjs';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { ChainService } from '../chain.service';
 import { fakeWeb3ModalService } from '../web3-modal/web3-modal.service.spec';
-import { fakeChainService } from '../chain.service.spec';
 import { fakeShitcoinFactoryService } from '../shitcoin-factory.service.spec';
 import { TestScheduler } from 'rxjs/testing';
 
@@ -141,7 +140,19 @@ describe('HomeComponent', () => {
         expectObservable(component.payable$).toEqual(expected);
       });
     });
-  })
+  });
+
+  it('should get cost coin from factory service', () => {
+    testScheduler.run((helpers: any) => {
+      const { cold, expectObservable } = helpers;
+
+      const expected = cold('a', { a: '0x123456789' });
+      fakeShitcoinFactoryService.costCoin$ = expected;
+      component.ngOnInit();
+
+      expectObservable(component.costCoin$).toEqual(expected);
+    });
+  });
 
   it('should save coins', fakeAsync(() => {
     component.ngOnInit();
