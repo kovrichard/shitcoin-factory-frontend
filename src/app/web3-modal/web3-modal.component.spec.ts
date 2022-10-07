@@ -46,6 +46,7 @@ describe('Web3ModalComponent', () => {
   });
 
   beforeEach(() => {
+    localStorage.clear();
     testScheduler = new TestScheduler((actual: any, expected: any) => {
       expect(actual).toEqual(expected);
     });
@@ -116,6 +117,13 @@ describe('Web3ModalComponent', () => {
     tick();
 
     expect(component.open).toBeFalse();
+  }));
+
+  it('connect should put state into local storage', fakeAsync(() => {
+    component.connect();
+    tick();
+
+    expect(localStorage.getItem('state')).toEqual('connected');
   }));
 
   it('close should set open to false', () => {
