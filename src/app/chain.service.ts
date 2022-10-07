@@ -27,7 +27,7 @@ export class ChainService {
         this._explorer.next(environment.bscScan);
         this.contractAddress.next(environment.bscContractAddress);
         this._logo.next('bnb-logo.svg');
-      } else if (id == 1337 || id == 3 || id == 1) {
+      } else if (id == 1337 || id == 11155111 || id == 1) {
         this.networkUrl.next(environment.etherNetworkUrl);
         this._explorer.next(environment.etherScan);
         this.contractAddress.next(environment.etherContractAddress);

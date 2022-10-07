@@ -11,5 +11,5 @@ export const environment = {
   bscNetworkUrl: 'https://data-seed-prebsc-1-s1.binance.org:8545',
   polygonNetworkUrl:
     'https://polygon-mumbai.g.alchemy.com/v2/of7zk4E0TWkV6pGWOPJU1_S_9cdjTpwY',
-  validChains: [3, 97, 80001],
+  validChains: [97, 80001, 11155111],
 };
