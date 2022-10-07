@@ -15,15 +15,6 @@ const fakeProviderController = {
 };
 
 export const fakeWeb3ModalService = {
-  account: {
-    subscribe: (func: (account: string) => void) => {
-      func('test-account');
-      return {
-        unsubscribe: () => {},
-      };
-    },
-    value: 'test-account',
-  },
   providers: {
     subscribe: (value: any) => {
       value.next([

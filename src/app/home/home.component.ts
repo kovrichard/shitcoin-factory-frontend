@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ShitcoinFactoryService } from '../shitcoin-factory.service';
-import { Subscription, takeWhile, timer, Observable } from 'rxjs';
+import { Observable, Subscription, takeWhile, timer } from 'rxjs';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { ChainService } from '../chain.service';
 
