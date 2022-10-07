@@ -103,31 +103,30 @@ describe('ChainService', () => {
   const ethIds = [1, 3, 1337];
 
   ethIds.forEach((id: number) => {
-    it(`should set ethereum network url for chain id ${id}`, () => {
-      service.id.next(id);
-      service.networkUrl.subscribe((url: string) => {
-        expect(url).toEqual(environment.etherNetworkUrl);
-      });
-    });
+    it(`should set ethereum network for chain id ${id}`, () => {
+      testScheduler.run((helpers: any) => {
+        const { cold, expectObservable } = helpers;
+        
+        service.id.next(id);
+        const obsStub = '^';
 
-    it(`should set ethereum explorer url for chain id ${id}`, () => {
-      service.id.next(id);
-      service.explorer.subscribe((url: string) => {
-        expect(url).toEqual(environment.etherScan);
-      });
-    });
+        const idExpected = cold('a', { a: id });
+        expectObservable(service.id, obsStub).toEqual(idExpected);
 
-    it(`should set ethereum contract address for chain id ${id}`, () => {
-      service.id.next(id);
-      service.contractAddress.subscribe((address: string) => {
-        expect(address).toEqual(environment.etherContractAddress);
-      });
-    });
+        const urlExpected = cold('a', { a: environment.etherNetworkUrl });
+        expectObservable(service.networkUrl, obsStub).toEqual(urlExpected);
 
-    it(`should set ethereum logo for chain id ${id}`, () => {
-      service.id.next(id);
-      service.logo.subscribe((logo: string) => {
-        expect(logo).toEqual('ethereum-logo.svg');
+        const explorerExpected = cold('a', { a: environment.etherScan });
+        expectObservable(service.explorer, obsStub).toEqual(explorerExpected);
+
+        const addressExpected = cold('a', { a: environment.etherContractAddress });
+        expectObservable(service.contractAddress, obsStub).toEqual(addressExpected);
+
+        const validExpected = cold('a', { a: true });
+        expectObservable(service.valid, obsStub).toEqual(validExpected);
+
+        const obsExpected = cold('a', { a: 'ethereum-logo.svg' });
+        expectObservable(service.logo, obsStub).toEqual(obsExpected);
       });
     });
   });
@@ -135,30 +134,30 @@ describe('ChainService', () => {
   const polygonIds = [137, 80001];
 
   polygonIds.forEach((id: number) => {
-    it(`should set polygon network url for chain id ${id}`, () => {
-      service.id.next(id);
-      service.networkUrl.subscribe((url: string) => {
-        expect(url).toEqual(environment.polygonNetworkUrl);
-      });
-    });
+    it(`should set polygon network for chain id ${id}`, () => {
+        testScheduler.run((helpers: any) => {
+        const { cold, expectObservable } = helpers;
+        
+        service.id.next(id);
+        const obsStub = '^';
 
-    it(`should set polygon explorer url for chain id ${id}`, () => {
-      service.id.next(id);
-      service.explorer.subscribe((url: string) => {
-        expect(url).toEqual(environment.polygonScan);
-      });
-    });
+        const idExpected = cold('a', { a: id });
+        expectObservable(service.id, obsStub).toEqual(idExpected);
 
-    it(`should set polygon contract address for chain id ${id}`, () => {
-      service.id.next(id);
-      service.contractAddress.subscribe((address: string) => {
-        expect(address).toEqual(environment.polygonContractAddress);
-      });
-    });
-    it(`should set polygon logo for chain id ${id}`, () => {
-      service.id.next(id);
-      service.logo.subscribe((logo: string) => {
-        expect(logo).toEqual('polygon-logo.svg');
+        const urlExpected = cold('a', { a: environment.polygonNetworkUrl });
+        expectObservable(service.networkUrl, obsStub).toEqual(urlExpected);
+
+        const explorerExpected = cold('a', { a: environment.polygonScan });
+        expectObservable(service.explorer, obsStub).toEqual(explorerExpected);
+
+        const addressExpected = cold('a', { a: environment.polygonContractAddress });
+        expectObservable(service.contractAddress, obsStub).toEqual(addressExpected);
+
+        const validExpected = cold('a', { a: true });
+        expectObservable(service.valid, obsStub).toEqual(validExpected);
+
+        const obsExpected = cold('a', { a: 'polygon-logo.svg' });
+        expectObservable(service.logo, obsStub).toEqual(obsExpected);
       });
     });
   });
@@ -167,9 +166,12 @@ describe('ChainService', () => {
 
   invalidIds.forEach((id: number) => {
     it(`should detect invalid id ${id}`, () => {
-      service.id.next(id);
-      service.valid.subscribe((valid: boolean) => {
-        expect(valid).toBeFalse();
+      testScheduler.run((helpers: any) => {
+        const { cold, expectObservable } = helpers;
+
+        service.id.next(id);
+        const obsExpected = cold('a', { a: false });
+        expectObservable(service.valid, '^').toEqual(obsExpected);
       });
     });
   });
