@@ -72,7 +72,7 @@ describe('Web3ModalService', () => {
     expect(service.signer.getValue()).toBeInstanceOf(
       ethers.providers.JsonRpcProvider
     );
-    service.providers.subscribe((value: IProvider[]) => {
+    service.providers$.subscribe((value: IProvider[]) => {
       expect(value[0].name).toEqual('MetaMask');
     });
     expect(service.defaultProvider).toBeTrue();

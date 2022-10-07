@@ -11,11 +11,13 @@ export class Web3ModalService {
   private providerController = new ProviderController(['metamask']);
 
   provider: EthersProvider;
-  providers = new BehaviorSubject(this.providerController.providers);
+  private providers = new BehaviorSubject(this.providerController.providers);
+  readonly providers$ = this.providers.asObservable();
   signer = new BehaviorSubject<ethers.providers.JsonRpcSigner | EthersProvider>(
     '' as any
   );
   account = new BehaviorSubject('');
+  readonly account$ = this.account.asObservable();
   defaultProvider = true;
 
   constructor(private chain: ChainService) {

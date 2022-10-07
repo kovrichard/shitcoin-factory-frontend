@@ -1,13 +1,7 @@
-import {
-  Component,
-  Input,
-  OnDestroy,
-  OnInit,
-  ViewEncapsulation,
-} from '@angular/core';
+import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 import { Web3ModalService } from './web3-modal.service';
 import { IProvider } from '../providers';
-import { Observable, Subscription } from 'rxjs';
+import { Observable } from 'rxjs';
 import { ChainService } from '../chain.service';
 
 @Component({
@@ -16,16 +10,13 @@ import { ChainService } from '../chain.service';
   styleUrls: ['./web3-modal.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
-export class Web3ModalComponent implements OnInit, OnDestroy {
-  private providersSubscription: Subscription;
-
+export class Web3ModalComponent implements OnInit {
+  providers$: Observable<IProvider[]>;
   account$: Observable<string>;
   validChain$: Observable<boolean>;
   logo$: Observable<string>;
+
   open = false;
-  account = '';
-  providers: IProvider[];
-  validChain = true;
 
   @Input() buttonTitle: string;
   @Input() description?: string;
@@ -33,18 +24,10 @@ export class Web3ModalComponent implements OnInit, OnDestroy {
   constructor(private service: Web3ModalService, private chain: ChainService) {}
 
   ngOnInit() {
-    this.providersSubscription = this.service.providers.subscribe({
-      next: (providers: IProvider[]) => {
-        this.providers = providers;
-      },
-    });
-    this.account$ = this.service.account;
+    this.providers$ = this.service.providers$;
+    this.account$ = this.service.account$;
     this.validChain$ = this.chain.valid;
     this.logo$ = this.chain.logo;
-  }
-
-  ngOnDestroy() {
-    this.providersSubscription.unsubscribe();
   }
 
   connect() {

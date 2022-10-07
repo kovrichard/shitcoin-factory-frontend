@@ -33,7 +33,7 @@
       </button>
     </div>
     <div class="flex flex-row justify-evenly pt-5 px-12 pb-10">
-        <button mat-raised-button color="accent" class="flex flex-col justify-center items-center w-36 h-32" *ngFor="let p of providers" (click)="p.onClick()">
+        <button mat-raised-button color="accent" class="flex flex-col justify-center items-center w-36 h-32" *ngFor="let p of (providers$ | async)" (click)="p.onClick()">
           <div class="h-14">
             <img src="{{p.logo}}" alt="{{p.logo}}" class="w-full h-full" />
           </div>
