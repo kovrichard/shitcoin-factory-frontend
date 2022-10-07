@@ -19,7 +19,8 @@ export class ShitcoinFactoryService {
   costContract: ethers.Contract;
   cost = new BehaviorSubject(BigInt(0));
   costCoin = new BehaviorSubject('');
-  payable = new BehaviorSubject(false);
+  private _payable = new BehaviorSubject(false);
+  readonly payable$ = this._payable.asObservable();
 
   constructor(
     private web3service: Web3ModalService,
@@ -45,7 +46,7 @@ export class ShitcoinFactoryService {
       Promise.all([costAddress, cost]).then((values: any) => {
         this.cost.next(values[1]);
         if (values[0] == NULL_ADDRESS) {
-          this.payable.next(true);
+          this._payable.next(true);
           return;
         }
 
@@ -103,7 +104,7 @@ export class ShitcoinFactoryService {
         this.chain.contractAddress.value
       )
       .then((amount: any) => {
-        this.payable.next(amount >= this.cost.value);
+        this._payable.next(amount >= this.cost.value);
       });
   }
 }

@@ -20,9 +20,10 @@ interface Shitcoin {
 export class HomeComponent implements OnInit, OnDestroy {
   private breakpointsSubscription: Subscription;
   private numCoinsSubscription: Subscription;
-  private payableSubscription: Subscription;
   private costSubscription: Subscription;
   private costCoinSubscription: Subscription;
+
+  payable$: Observable<boolean>;
 
   private numberOfCoins = 0;
   numCoins = 0;
@@ -31,7 +32,6 @@ export class HomeComponent implements OnInit, OnDestroy {
   symbol = '';
   totalSupply: number;
   explorer$: Observable<string>;
-  payable = false;
   cost: number;
   costCoin: string;
 
@@ -69,11 +69,7 @@ export class HomeComponent implements OnInit, OnDestroy {
         this.fetchCoins();
       }
     );
-    this.payableSubscription = this.shitcoinFactory.payable.subscribe(
-      (payable: boolean) => {
-        this.payable = payable;
-      }
-    );
+    this.payable$ = this.shitcoinFactory.payable$;
     this.costSubscription = this.shitcoinFactory.cost.subscribe(
       (cost: bigint) => {
         this.cost = Number(cost) / 10 ** 18;
@@ -89,7 +85,6 @@ export class HomeComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.breakpointsSubscription.unsubscribe();
     this.numCoinsSubscription.unsubscribe();
-    this.payableSubscription.unsubscribe();
     this.costSubscription.unsubscribe();
     this.costCoinSubscription.unsubscribe();
   }

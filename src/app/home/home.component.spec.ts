@@ -24,12 +24,13 @@ import { FormsModule } from '@angular/forms';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatListModule } from '@angular/material/list';
 import { ScrollingModule } from '@angular/cdk/scrolling';
-import { of } from 'rxjs';
+import { of, EMPTY } from 'rxjs';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { ChainService } from '../chain.service';
 import { fakeWeb3ModalService } from '../web3-modal/web3-modal.service.spec';
 import { fakeChainService } from '../chain.service.spec';
 import { fakeShitcoinFactoryService } from '../shitcoin-factory.service.spec';
+import { TestScheduler } from 'rxjs/testing';
 
 const fakeBreakpointObserver = {
   observe: (input: any) => {
@@ -47,6 +48,8 @@ describe('HomeComponent', () => {
   let component: HomeComponent;
   let fixture: ComponentFixture<HomeComponent>;
   let testingUtils: any;
+  let testScheduler: TestScheduler;
+  const chain = { explorer: EMPTY };
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -76,13 +79,17 @@ describe('HomeComponent', () => {
         },
         {
           provide: ChainService,
-          useValue: fakeChainService,
+          useValue: chain,
         },
       ],
     }).compileComponents();
   });
 
   beforeEach(() => {
+    testScheduler = new TestScheduler((actual: any, expected: any) => {
+      expect(actual).toEqual(expected);
+    });
+
     fixture = TestBed.createComponent(HomeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
@@ -103,12 +110,23 @@ describe('HomeComponent', () => {
     expect(component.coins).toEqual([]);
     expect(component.name).toEqual('');
     expect(component.symbol).toEqual('');
-    expect(component.payable).toBeFalse();
 
     expect(component.outerDiameter).toEqual(280);
     expect(component.middleDiameter).toEqual(218);
     expect(component.innerDiameter).toEqual(156);
     expect(component.aboutDiameter).toEqual(218);
+  });
+
+  it('should get explorer from chain', () => {
+    testScheduler.run((helpers: any) => {
+      const { cold, expectObservable } = helpers;
+
+      const expected = cold('a', { a: 'test explorer' });
+      chain.explorer = expected;
+      component.ngOnInit();
+
+      expectObservable(component.explorer$).toEqual(expected);
+    });
   });
 
   it('should save coins', fakeAsync(() => {
