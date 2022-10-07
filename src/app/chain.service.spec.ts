@@ -73,30 +73,42 @@ describe('ChainService', () => {
 
   ids.forEach((id: number) => {
     it(`should set bsc network url for chain id ${id}`, () => {
-      service.id.next(id);
-      service.networkUrl.subscribe((url: string) => {
-        expect(url).toEqual(environment.bscNetworkUrl);
+      testScheduler.run((helpers: any) => {
+        const { cold, expectObservable } = helpers;
+        
+        service.id.next(id);
+        const urlExpected = cold('a', { a: environment.bscNetworkUrl });
+        expectObservable(service.networkUrl, '^').toEqual(urlExpected);
       });
     });
 
     it(`should set bsc explorer url for chain id ${id}`, () => {
-      service.id.next(id);
-      service.explorer.subscribe((url: string) => {
-        expect(url).toEqual(environment.bscScan);
+      testScheduler.run((helpers: any) => {
+        const { cold, expectObservable } = helpers;
+        
+        service.id.next(id);
+        const explorerExpected = cold('a', { a: environment.bscScan });
+        expectObservable(service.explorer, '^').toEqual(explorerExpected);
       });
     });
 
     it(`should set bsc contract address for chain id ${id}`, () => {
-      service.id.next(id);
-      service.contractAddress.subscribe((address: string) => {
-        expect(address).toEqual(environment.bscContractAddress);
+      testScheduler.run((helpers: any) => {
+        const { cold, expectObservable } = helpers;
+        
+        service.id.next(id);
+        const addressExpected = cold('a', { a: environment.bscContractAddress });
+        expectObservable(service.contractAddress, '^').toEqual(addressExpected);
       });
     });
 
     it(`should set bnb logo for chain id ${id}`, () => {
-      service.id.next(id);
-      service.logo.subscribe((logo: string) => {
-        expect(logo).toEqual('bnb-logo.svg');
+      testScheduler.run((helpers: any) => {
+        const { cold, expectObservable } = helpers;
+        
+        service.id.next(id);
+        const logoExpected = cold('a', { a: 'bnb-logo.svg' });
+        expectObservable(service.logo, '^').toEqual(logoExpected);
       });
     });
   });
