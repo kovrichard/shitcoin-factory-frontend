@@ -142,6 +142,19 @@ describe('HomeComponent', () => {
     });
   });
 
+  it('should convert cost to number from factory service', () => {
+    testScheduler.run((helpers: any) => {
+      const { cold, expectObservable } = helpers;
+
+      const costStub = cold('a', { a: BigInt(108 * 10 ** 18) });
+      const expected = cold('a', { a: 108 });
+      fakeShitcoinFactoryService.cost$ = costStub;
+      component.ngOnInit();
+
+      expectObservable(component.cost$).toEqual(expected);
+    });
+  });
+
   it('should get cost coin from factory service', () => {
     testScheduler.run((helpers: any) => {
       const { cold, expectObservable } = helpers;

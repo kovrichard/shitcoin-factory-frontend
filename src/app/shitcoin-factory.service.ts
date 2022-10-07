@@ -17,7 +17,8 @@ export class ShitcoinFactoryService {
   factory: ethers.Contract;
   numberOfCoins = new BehaviorSubject(0);
   costContract: ethers.Contract;
-  cost = new BehaviorSubject(BigInt(0));
+  private _cost = new BehaviorSubject(BigInt(0));
+  readonly cost$ = this._cost.asObservable();
   private _costCoin = new BehaviorSubject('');
   readonly costCoin$ = this._costCoin.asObservable();
   private _payable = new BehaviorSubject(false);
@@ -45,7 +46,7 @@ export class ShitcoinFactoryService {
       const costAddress = this.factory.costAddress();
       const cost = this.factory.getCost();
       Promise.all([costAddress, cost]).then((values: any) => {
-        this.cost.next(values[1]);
+        this._cost.next(values[1]);
         if (values[0] == NULL_ADDRESS) {
           this._payable.next(true);
           return;
@@ -73,7 +74,7 @@ export class ShitcoinFactoryService {
 
   approve() {
     this.costContract
-      .approve(this.chain.contractAddress.value, this.cost.value)
+      .approve(this.chain.contractAddress.value, this._cost.value)
       .then((result: any) => {
         result.wait().then(() => {
           this.checkAllowance();
@@ -105,7 +106,7 @@ export class ShitcoinFactoryService {
         this.chain.contractAddress.value
       )
       .then((amount: any) => {
-        this._payable.next(amount >= this.cost.value);
+        this._payable.next(amount >= this._cost.value);
       });
   }
 }

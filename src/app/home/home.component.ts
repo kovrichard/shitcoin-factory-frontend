@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ShitcoinFactoryService } from '../shitcoin-factory.service';
-import { Observable, Subscription, takeWhile, timer } from 'rxjs';
+import { Observable, Subscription, map, takeWhile, timer } from 'rxjs';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { ChainService } from '../chain.service';
 
@@ -20,7 +20,6 @@ interface Shitcoin {
 export class HomeComponent implements OnInit, OnDestroy {
   private breakpointsSubscription: Subscription;
   private numCoinsSubscription: Subscription;
-  private costSubscription: Subscription;
 
   payable$: Observable<boolean>;
 
@@ -31,7 +30,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   symbol = '';
   totalSupply: number;
   explorer$: Observable<string>;
-  cost: number;
+  cost$: Observable<number>;
   costCoin$: Observable<string>;
 
   outerDiameter = 280;
@@ -69,10 +68,8 @@ export class HomeComponent implements OnInit, OnDestroy {
       }
     );
     this.payable$ = this.shitcoinFactory.payable$;
-    this.costSubscription = this.shitcoinFactory.cost.subscribe(
-      (cost: bigint) => {
-        this.cost = Number(cost) / 10 ** 18;
-      }
+    this.cost$ = this.shitcoinFactory.cost$.pipe(
+      map((cost: bigint) => Number(cost) / 10 ** 18)
     );
     this.costCoin$ = this.shitcoinFactory.costCoin$;
   }
@@ -80,7 +77,6 @@ export class HomeComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.breakpointsSubscription.unsubscribe();
     this.numCoinsSubscription.unsubscribe();
-    this.costSubscription.unsubscribe();
   }
 
   private fetchCoins() {
