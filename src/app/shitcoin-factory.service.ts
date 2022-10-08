@@ -19,6 +19,8 @@ export class ShitcoinFactoryService {
   costContract: ethers.Contract;
   private _cost = new BehaviorSubject(BigInt(0));
   readonly cost$ = this._cost.asObservable();
+  private _costDecimals = new BehaviorSubject(18);
+  readonly costDecimals$ = this._costDecimals.asObservable();
   private _costCoin = new BehaviorSubject('');
   readonly costCoin$ = this._costCoin.asObservable();
   private _payable = new BehaviorSubject(false);
@@ -59,6 +61,9 @@ export class ShitcoinFactoryService {
         );
         this.costContract.symbol().then((symbol: string) => {
           this._costCoin.next(symbol);
+        });
+        this.costContract.decimals().then((decimals: number) => {
+          this._costDecimals.next(decimals);
         });
         this.checkAllowance();
       });

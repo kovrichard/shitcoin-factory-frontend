@@ -146,9 +146,11 @@ describe('HomeComponent', () => {
     testScheduler.run((helpers: any) => {
       const { cold, expectObservable } = helpers;
 
-      const costStub = cold('a', { a: BigInt(108 * 10 ** 18) });
+      const costStub = cold('a', { a: BigInt(108 * 10 ** 6) });
+      const decimalsStub = cold('a', { a: 6 });
       const expected = cold('a', { a: 108 });
       fakeShitcoinFactoryService.cost$ = costStub;
+      fakeShitcoinFactoryService.costDecimals$ = decimalsStub;
       component.ngOnInit();
 
       expectObservable(component.cost$).toEqual(expected);

@@ -1,6 +1,13 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ShitcoinFactoryService } from '../shitcoin-factory.service';
-import { Observable, Subscription, map, takeWhile, timer } from 'rxjs';
+import {
+  Observable,
+  Subscription,
+  combineLatest,
+  map,
+  takeWhile,
+  timer,
+} from 'rxjs';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { ChainService } from '../chain.service';
 
@@ -68,9 +75,10 @@ export class HomeComponent implements OnInit, OnDestroy {
       }
     );
     this.payable$ = this.shitcoinFactory.payable$;
-    this.cost$ = this.shitcoinFactory.cost$.pipe(
-      map((cost: bigint) => Number(cost) / 10 ** 18)
-    );
+    this.cost$ = combineLatest(
+      this.shitcoinFactory.cost$,
+      this.shitcoinFactory.costDecimals$
+    ).pipe(map((costInfo: any[]) => Number(costInfo[0]) / 10 ** costInfo[1]));
     this.costCoin$ = this.shitcoinFactory.costCoin$;
   }
 

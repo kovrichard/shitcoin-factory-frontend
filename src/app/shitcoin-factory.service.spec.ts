@@ -40,6 +40,7 @@ export const fakeShitcoinFactoryService = {
   },
   payable$: EMPTY,
   cost$: EMPTY,
+  costDecimals$: EMPTY,
   costCoin$: EMPTY,
   getShitcoin: (i: number) => {
     return Promise.resolve({
