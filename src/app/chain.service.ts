@@ -37,6 +37,11 @@ export class ChainService {
         this._explorer.next(environment.polygonScan);
         this.contractAddress.next(environment.polygonContractAddress);
         this._logo.next('polygon-logo.svg');
+      } else if (id == 43113 || id == 43114) {
+        this.networkUrl.next(environment.avaxNetworkUrl);
+        this._explorer.next(environment.snowTrace);
+        this.contractAddress.next(environment.avaxContractAddress);
+        this._logo.next('avax-logo.svg');
       }
     });
   }

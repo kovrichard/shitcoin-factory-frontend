@@ -7,13 +7,16 @@ export const environment = {
   etherScan: '#?test=1',
   bscScan: '#?test=2',
   polygonScan: '#?test=3',
+  snowTrace: '#?test=4',
   etherContractAddress: '0x0000000000000000000000000000000000000001',
   bscContractAddress: '0x0000000000000000000000000000000000000002',
   polygonContractAddress: '0x0000000000000000000000000000000000000003',
+  avaxContractAddress: '0x0000000000000000000000000000000000000004',
   etherNetworkUrl: 'http://localhost:8545',
   bscNetworkUrl: 'http://localhost:8545',
   polygonNetworkUrl: 'http://localhost:8545',
-  validChains: [1, 56, 97, 137, 1337, 80001, 11155111],
+  avaxNetworkUrl: 'http://localhost:8545',
+  validChains: [1, 56, 97, 137, 1337, 43113, 43114, 80001, 11155111],
 };
 
 /*

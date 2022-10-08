@@ -160,6 +160,41 @@ describe('ChainService', () => {
     });
   });
 
+  const avaxIds = [43113, 43114];
+
+  avaxIds.forEach((id: number) => {
+    it(`should set avax network for chain id ${id}`, () => {
+      testScheduler.run((helpers: any) => {
+        const { cold, expectObservable } = helpers;
+
+        service.id.next(id);
+        const obsStub = '^';
+
+        const idExpected = cold('a', { a: id });
+        expectObservable(service.id, obsStub).toEqual(idExpected);
+
+        const urlExpected = cold('a', { a: environment.avaxNetworkUrl });
+        expectObservable(service.networkUrl, obsStub).toEqual(urlExpected);
+
+        const explorerExpected = cold('a', { a: environment.snowTrace });
+        expectObservable(service.explorer, obsStub).toEqual(explorerExpected);
+
+        const addressExpected = cold('a', {
+          a: environment.avaxContractAddress,
+        });
+        expectObservable(service.contractAddress, obsStub).toEqual(
+          addressExpected
+        );
+
+        const validExpected = cold('a', { a: true });
+        expectObservable(service.valid, obsStub).toEqual(validExpected);
+
+        const obsExpected = cold('a', { a: 'avax-logo.svg' });
+        expectObservable(service.logo, obsStub).toEqual(obsExpected);
+      });
+    });
+  });
+
   const invalidIds = [4, 8, 15, 16, 23, 42];
 
   invalidIds.forEach((id: number) => {
