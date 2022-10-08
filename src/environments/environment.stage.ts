@@ -3,7 +3,7 @@ export const environment = {
   etherScan: 'https://sepolia.etherscan.io',
   bscScan: 'https://testnet.bscscan.com',
   polygonScan: 'https://mumbai.polygonscan.com',
-  snowtrace: 'https://testnet.snowtrace.io',
+  snowTrace: 'https://testnet.snowtrace.io',
   etherContractAddress: '0x1f470e946942AAa6406bAd8Cd6AFdcA7020B3DB7',
   bscContractAddress: '0xcEb0D98c8278Ba76e81dc82ea5BeE1679Dfa6Bbd',
   polygonContractAddress: '0xFE757CDb6093dF085766c424F69Eec80Cc50babE',
