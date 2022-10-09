@@ -74,7 +74,11 @@ export class ShitcoinFactoryService {
     const account = this.web3service.account.value;
     if (account == '') return;
 
-    this.factory.create(name, ticker, totalSupply, { from: account });
+    const settings: any = { from: account };
+
+    if (this.chain.id.value == 1) settings.gasLimit = 2500000;
+
+    this.factory.create(name, ticker, totalSupply, settings);
   }
 
   approve() {
