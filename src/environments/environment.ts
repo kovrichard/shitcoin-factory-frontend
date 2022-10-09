@@ -8,15 +8,18 @@ export const environment = {
   bscScan: '#?test=2',
   polygonScan: '#?test=3',
   snowTrace: '#?test=4',
+  cronosScan: '#?test=5',
   etherContractAddress: '0x0000000000000000000000000000000000000001',
   bscContractAddress: '0x0000000000000000000000000000000000000002',
   polygonContractAddress: '0x0000000000000000000000000000000000000003',
   avaxContractAddress: '0x0000000000000000000000000000000000000004',
+  cronosContractAddress: '0x0000000000000000000000000000000000000005',
   etherNetworkUrl: 'http://localhost:8545',
   bscNetworkUrl: 'http://localhost:8545',
   polygonNetworkUrl: 'http://localhost:8545',
   avaxNetworkUrl: 'http://localhost:8545',
-  validChains: [1, 56, 97, 137, 1337, 43113, 43114, 80001, 11155111],
+  cronosNetworkUrl: 'http://localhost:8545',
+  validChains: [1, 25, 56, 97, 137, 338, 1337, 43113, 43114, 80001, 11155111],
 };
 
 /*

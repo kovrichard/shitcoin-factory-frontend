@@ -195,6 +195,41 @@ describe('ChainService', () => {
     });
   });
 
+  const cronosIds = [25, 338];
+
+  cronosIds.forEach((id: number) => {
+    it(`should set cronos network for chain id ${id}`, () => {
+      testScheduler.run((helpers: any) => {
+        const { cold, expectObservable } = helpers;
+
+        service.id.next(id);
+        const obsStub = '^';
+
+        const idExpected = cold('a', { a: id });
+        expectObservable(service.id, obsStub).toEqual(idExpected);
+
+        const urlExpected = cold('a', { a: environment.cronosNetworkUrl });
+        expectObservable(service.networkUrl, obsStub).toEqual(urlExpected);
+
+        const explorerExpected = cold('a', { a: environment.cronosScan });
+        expectObservable(service.explorer, obsStub).toEqual(explorerExpected);
+
+        const addressExpected = cold('a', {
+          a: environment.cronosContractAddress,
+        });
+        expectObservable(service.contractAddress, obsStub).toEqual(
+          addressExpected
+        );
+
+        const validExpected = cold('a', { a: true });
+        expectObservable(service.valid, obsStub).toEqual(validExpected);
+
+        const obsExpected = cold('a', { a: 'cronos-logo.svg' });
+        expectObservable(service.logo, obsStub).toEqual(obsExpected);
+      });
+    });
+  });
+
   const invalidIds = [4, 8, 15, 16, 23, 42];
 
   invalidIds.forEach((id: number) => {

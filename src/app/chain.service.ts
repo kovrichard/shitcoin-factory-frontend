@@ -42,6 +42,11 @@ export class ChainService {
         this._explorer.next(environment.snowTrace);
         this.contractAddress.next(environment.avaxContractAddress);
         this._logo.next('avax-logo.svg');
+      } else if (id == 25 || id == 338) {
+        this.networkUrl.next(environment.cronosNetworkUrl);
+        this._explorer.next(environment.cronosScan);
+        this.contractAddress.next(environment.cronosContractAddress);
+        this._logo.next('cronos-logo.svg');
       }
     });
   }
