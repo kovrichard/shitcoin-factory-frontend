@@ -76,7 +76,7 @@ export class ShitcoinFactoryService {
 
     const settings: any = { from: account };
 
-    if (this.chain.id.value == 1) settings.gasLimit = 2500000;
+    //if (this.chain.id.value == 1) settings.gasLimit = 500000;
 
     this.factory.create(name, ticker, totalSupply, settings);
   }
